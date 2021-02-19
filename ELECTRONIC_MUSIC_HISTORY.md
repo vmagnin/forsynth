@@ -132,9 +132,9 @@ Before becoming digital, the first synthesizers were analogue and modular: each 
 
 Later famous works:
 
--   B.O.F. *Chariots of Fire* (1981): https://www.youtube.com/watch?v=CSav51fVlKU
--   B.O.F. *Blade Runner - Theme End Titles* (1982): https://www.youtube.com/watch?v=wQMwfoXg5JE
--   B.O.F. *1492: Conquest of Paradise* (1992): https://www.youtube.com/watch?v=WYeDsa4Tw0c
+-   *Chariots of Fire* (1981): https://www.youtube.com/watch?v=CSav51fVlKU
+-   *Blade Runner - Theme End Titles* (1982): https://www.youtube.com/watch?v=wQMwfoXg5JE
+-   *1492: Conquest of Paradise* (1992): https://www.youtube.com/watch?v=WYeDsa4Tw0c
 
 ## 70's: Jean-Michel Jarre
 
