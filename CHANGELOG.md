@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - demos module:
     - `demo1()`
 - envelopes module: `ADSR_envelope()` function
+- signals module: `add_karplus_strong()` for plucked strings
 
 ## [Forsynth 0.1 "Stockhausen"] 2021-02-19
 

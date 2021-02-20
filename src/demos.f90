@@ -2,7 +2,7 @@ module demos
     ! Demonstrations subroutines
 
     use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, finalize_WAV_file
-    use signals, only: add_sinusoidal_signal
+    use signals, only: add_sinusoidal_signal, add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
 
     implicit none
@@ -18,6 +18,7 @@ contains
         real(dp) :: t, delta_t
         real(dp) :: f_A, f_C, f_G, f_D
 
+        print *, "**** Demo 1 ****"
         call create_WAV_file('demo1.wav')
 
         ! Notes frequencies:
@@ -37,6 +38,8 @@ contains
             call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_G, 1.0_dp)
             call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, f_D, 1.0_dp)
         end do
+
+        call add_karplus_strong(2, 0.0_dp, 2.0_dp, f_A, 1.0_dp)
 
         call finalize_WAV_file()
     end subroutine
