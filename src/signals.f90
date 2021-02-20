@@ -56,14 +56,16 @@ contains
 
       ! Initial noise:
       do i = int(t1*RATE), int(t1*RATE) + P
+          ! 0 <= r < 1
           call random_number(r)
+          ! -Amp <= signal < +Amp
           signal = Amp * (2*r - 1.0_dp)
           left(track, i)  = signal
           right(track, i) = signal
       end do
       ! Delay and decay:
-      do i= int(t1*RATE) + P + 1, int(t2*RATE) - 1
-          left(track, i)  = Amp/2 * (left(track, i-P) + left(track, i-P-1))
+      do i = int(t1*RATE) + P + 1, int(t2*RATE) - 1
+          left(track, i)  = Amp/2.0_dp * (left(track, i-P) + left(track, i-P-1))
           right(track, i) = left(track, i)
       end do
   end subroutine add_karplus_strong
