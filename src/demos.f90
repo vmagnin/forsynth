@@ -15,8 +15,9 @@ contains
 
     subroutine demo1()
         integer  :: i
-        real(dp) :: t, delta_t
+        real(dp) :: t, delta_t, r
         real(dp) :: f_A, f_C, f_G, f_D
+        real(dp) :: chosen_note(0:3)
 
         print *, "**** Demo 1 ****"
         call create_WAV_file('demo1.wav')
@@ -39,8 +40,20 @@ contains
             call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, f_D, 1.0_dp)
         end do
 
-        call add_karplus_strong(2, 0.0_dp, 2.0_dp, f_A, 1.0_dp)
+        print *, "Track 2: playing random A C G D notes using plucked strings..."
+        delta_t = delta_t / 4
+        chosen_note(0) = f_A
+        chosen_note(1) = f_C
+        chosen_note(2) = f_G
+        chosen_note(3) = f_D
 
+        do i = 0, 9*16
+            t = delta_t * i
+            call random_number(r)
+            call add_karplus_strong(2, t, t + delta_t, chosen_note(int(r*4)), 1.0_dp)
+        end do
+
+        print *, "Final mix..."
         call finalize_WAV_file()
     end subroutine
 end module demos
