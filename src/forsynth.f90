@@ -11,11 +11,11 @@ module forsynth
     ! Maximum amplitude in a WAV [-32768 ; +32767]:
     integer, parameter :: MAX_AMPLITUDE = 32767
     ! Duration in seconds:
-    integer, parameter :: DURATION = 120
+    real(kind=dp), parameter :: DURATION = 120.0_dp
     ! Sampling frequency:
     integer, parameter :: RATE = 44100
     ! Number of samples:
-    integer, parameter :: SAMPLES = DURATION * RATE
+    integer, parameter :: SAMPLES = int(DURATION * RATE)
     ! Number of audio tracks (track 0 is reserved for the final mix):
     integer, parameter :: TRACKS = 8
     ! Concert pitch (A note):
@@ -25,10 +25,10 @@ module forsynth
     real(kind=dp), dimension(0:TRACKS, 0:SAMPLES) :: left, right
 
     private :: u, status, write_header, mix_tracks, write_normalized_data, &
-             & MAX_AMPLITUDE, DURATION, SAMPLES
+             & MAX_AMPLITUDE, SAMPLES
 
     public :: dp, test_the_machine, PITCH, PI, SEMITONE, RATE, TRACKS, &
-            & left, right, finalize_WAV_file
+            & DURATION, left, right, finalize_WAV_file
 contains
 
     subroutine test_the_machine
