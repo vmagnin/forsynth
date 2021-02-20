@@ -2,6 +2,7 @@ module signals
     ! Subroutines generating different kind of signals
 
     use forsynth, only: dp, RATE, PI, left, right
+    use envelopes, only: ADSR_enveloppe
 
     implicit none
 
@@ -31,8 +32,8 @@ contains
 
         t = 0.0_dp
         do i = int(t1*RATE), int(t2*RATE)-1
-            !env = adsr_envelope(t1+t, t1, t2...
-            signal = Amp * sin(omega*t + phi) !* env
+            env = ADSR_enveloppe(t1+t, t1, t2)
+            signal = Amp * sin(omega*t + phi) * env
 
             left(track, i)  = left(track, i)  + signal
             right(track, i) = right(track, i) + signal
@@ -51,5 +52,4 @@ contains
     !void add_karplus_strong_drum(int track, double t1, double t2, double f, double Amp) {
     !void add_percussion(int track, double t1, double t2, double f, double Amp, unsigned int numero) {
     !void add_weierstrass_signal(int track, double t1, double t2, double f, double Amp) {
-    !double ADSR_envelope(double t, double t1, double t2) {
 end module signals
