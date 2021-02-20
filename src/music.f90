@@ -13,11 +13,12 @@ module music
 contains
 
     subroutine add_note(track, t1, t2, f, Amp)
+        ! https://en.wikipedia.org/wiki/Harmonic
         integer, intent(in) :: track
         real(kind=dp), intent(in) :: t1, t2, f, Amp
         integer :: h
 
-        ! Adding harmonics 1f to 40f, with a descreasing amplitude:
+        ! Adding harmonics 1f to 40f, with a decreasing amplitude:
         do h = 1, 40
             call add_sinusoidal_signal(track, t1, t2, h*f, Amp / h**2)
         end do

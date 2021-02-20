@@ -126,9 +126,9 @@ contains
         ! Looking for the maximum amplitude (must not be zero):
         maxi = max(1e-16_dp, maxval(abs(left(0, :))), maxval(abs(right(0, :))))
 
-        do i = 0 , SAMPLES-1
+        do i = 0 , SAMPLES
             ! Writing the amplitude of left then right channels as 16 bit 
-            ! signed integers :
+            ! signed integers:
             write(u, iostat=status) int((left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
             write(u, iostat=status) int((right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
         end do
