@@ -29,7 +29,8 @@ contains
         ! Notes duration in seconds:
         delta_t = 3.0_dp
 
-        do i = 0, 7
+        print *, "Track 1: repeating Am C G Dm chords..."
+        do i = 0, 9
             t = 4 * delta_t * i ;
             call add_minor_chord(1, t,             t + delta_t,   f_A, 1.0_dp)
             call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_C, 1.0_dp)
