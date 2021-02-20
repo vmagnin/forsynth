@@ -1,9 +1,11 @@
 module demos
     ! Demonstrations subroutines
 
-    use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, finalize_WAV_file
+    use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, DURATION, &
+                      & finalize_WAV_file
     use signals, only: add_sinusoidal_signal, add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
+    use audio_effects, only: apply_delay_effect
 
     implicit none
 
@@ -52,6 +54,8 @@ contains
             call random_number(r)
             call add_karplus_strong(2, t, t + delta_t, chosen_note(int(r*4)), 1.0_dp)
         end do
+
+        call apply_delay_effect(2, 0.0_dp, DURATION, 0.3_dp, 0.25_dp)
 
         print *, "Final mix..."
         call finalize_WAV_file()
