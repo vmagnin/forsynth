@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     - `add_minor_chord()`
 - demos module:
     - `demo1()`
+    - `demo2()`
 - envelopes module: `ADSR_envelope()` function
 - signals module: `add_karplus_strong()` for plucked strings
 - sound_effects module: 

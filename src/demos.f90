@@ -5,13 +5,14 @@ module demos
                       & finalize_WAV_file, copy_section
     use signals, only: add_sinusoidal_signal, add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
-    use audio_effects, only: apply_delay_effect
+    use audio_effects, only: apply_delay_effect, apply_fuzz_effect
+    use envelopes, only: attack, decay
 
     implicit none
 
     private
 
-    public :: demo1
+    public :: demo1, demo2
 
 contains
 
@@ -61,6 +62,45 @@ contains
         call apply_delay_effect(2, 0.0_dp, DURATION, delta_t*0.75_dp, 0.45_dp)
         ! Plus a quavers delay:
         call apply_delay_effect(2, 0.0_dp, DURATION, delta_t*0.50_dp, 0.30_dp)
+
+        print *, "Final mix..."
+        call finalize_WAV_file()
+    end subroutine
+
+
+    subroutine demo2()
+        integer  :: i
+        real(dp) :: t, delta_t
+        real(dp) :: f_A, f_G, f_D, f_F, f_C
+
+        print *, "**** Demo 2 ****"
+        call create_WAV_file('demo2.wav')
+
+        attack = 10.0_dp
+        decay  = 40.0_dp
+
+        ! Notes frequencies:
+        f_A = PITCH / 2             ! A 220 Hz
+        f_C = f_A * SEMITONE**(-9)
+        f_G = f_A * SEMITONE**(-2)
+        f_F = f_G * SEMITONE**(-2)
+        f_D = f_C * SEMITONE**(+2)
+
+        ! Notes duration in seconds:
+        delta_t = 1.5_dp
+
+        print *, "Track 1: repeating G D F C chords..."
+        t = 0.0_dp
+        call add_major_chord(1, t,             t + delta_t,   f_G, 1.0_dp)
+        call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_D, 1.0_dp)
+        call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_F, 1.0_dp)
+        call add_major_chord(1, t + 3*delta_t, t + 4*delta_t, f_C, 1.0_dp)
+        ! Repeat those four chords until the end of the track:
+        do i = 1, 19
+            call copy_section(1, 1, t, t + 4*delta_t, 4 * delta_t * i)
+        end do
+
+        call apply_fuzz_effect(1, t, DURATION, 0.8_dp)
 
         print *, "Final mix..."
         call finalize_WAV_file()
