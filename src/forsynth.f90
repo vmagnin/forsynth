@@ -28,7 +28,7 @@ module forsynth
              & MAX_AMPLITUDE, SAMPLES
 
     public :: dp, test_the_machine, PITCH, PI, SEMITONE, RATE, TRACKS, &
-            & DURATION, left, right, finalize_WAV_file
+            & DURATION, left, right, finalize_WAV_file, copy_section
 contains
 
     subroutine test_the_machine
@@ -139,5 +139,24 @@ contains
         call mix_tracks()
         call write_normalized_data()
         close(u, iostat=status)
+    end subroutine
+
+
+    subroutine copy_section(from_track, to_track, t1, t2, t3)
+        ! Copy section t1...t2 at t3, either on the same track or another one.
+        integer, intent(in) :: from_track, to_track
+        real(dp), intent(in) :: t1, t2, t3
+        integer :: i, i0, j
+
+        i0 = int(t1*RATE)
+        do i = i0, int(t2*RATE)-1
+            j = int(t3*RATE) + (i-i0)
+            if (j <= SAMPLES) then
+                left(to_track,  j) = left(from_track,  i)
+                right(to_track, j) = right(from_track, i)
+            else
+                exit
+            end if
+        end do
     end subroutine
 end module forsynth
