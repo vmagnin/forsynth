@@ -34,14 +34,6 @@ contains
         delta_t = 3.0_dp
 
         print *, "Track 1: repeating Am C G Dm chords..."
-!         do i = 0, 9
-!             t = 4 * delta_t * i ;
-!             call add_minor_chord(1, t,             t + delta_t,   f_A, 1.0_dp)
-!             call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_C, 1.0_dp)
-!             call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_G, 1.0_dp)
-!             call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, f_D, 1.0_dp)
-!         end do
-
         t = 0.0_dp
         call add_minor_chord(1, t,             t + delta_t,   f_A, 1.0_dp)
         call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_C, 1.0_dp)
