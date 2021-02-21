@@ -7,7 +7,7 @@ module audio_effects
 
     private
 
-    public :: apply_delay_effect
+    public :: apply_delay_effect, apply_fuzz_effect
 
 contains
 
@@ -32,8 +32,25 @@ contains
         end do
     end subroutine
 
+
+    subroutine apply_fuzz_effect(track, t1, t2, level)
+        ! Apply distorsion with hard clipping
+        ! https://en.wikipedia.org/wiki/Distortion_(music)
+        integer, intent(in) :: track
+        real(kind=dp), intent(in) :: t1, t2, level
+        integer  :: i
+
+        do i = int(t1*RATE), int(t2*RATE) - 1
+            if (abs(left(track,  i)) > level) then
+                left(track,  i) = sign(level, left(track,  i))
+            end if
+            if (abs(right(track, i)) > level) then
+                right(track, i) = sign(level, right(track, i))
+            end if
+        end do
+    end subroutine
+
     ! void apply_tremolo_effect(int track, double t1, double t2, double f, double AmpLFO) {
     ! void apply_autopan_effect(int track, double t1, double t2, double f, double AmpLFO) {
-    ! void apply_fuzz_effect(int track, double t1, double t2, double niveau) {
 
 end module audio_effects
