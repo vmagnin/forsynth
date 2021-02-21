@@ -6,13 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Forsynth development version]
 
 ### Added
+- forsynth module: `copy_section()`
 - music module:
-    - `add_note()` to generate a note with a sum of harmonics.
-    - `add_major_chord()`
-    - `add_minor_chord()`
+  - `add_note()` to generate a note with a sum of harmonics.
+  - `add_major_chord()`
+  - `add_minor_chord()`
 - demos module:
-    - `demo1()`
-    - `demo2()`
+  - `demo1()`
+  - `demo2()`
 - envelopes module: `ADSR_envelope()` function
 - signals module: `add_karplus_strong()` for plucked strings
 - sound_effects module: 
