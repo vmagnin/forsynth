@@ -57,7 +57,10 @@ contains
             call add_karplus_strong(2, t, t + delta_t, chosen_note(int(r*4)), 1.0_dp)
         end do
 
-        call apply_delay_effect(2, 0.0_dp, DURATION, 0.3_dp, 0.25_dp)
+        ! Dotted quavers delay:
+        call apply_delay_effect(2, 0.0_dp, DURATION, delta_t*0.75_dp, 0.45_dp)
+        ! Plus a quavers delay:
+        call apply_delay_effect(2, 0.0_dp, DURATION, delta_t*0.50_dp, 0.30_dp)
 
         print *, "Final mix..."
         call finalize_WAV_file()
