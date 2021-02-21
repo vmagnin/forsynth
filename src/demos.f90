@@ -2,7 +2,7 @@ module demos
     ! Demonstrations subroutines
 
     use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, DURATION, &
-                      & finalize_WAV_file
+                      & finalize_WAV_file, copy_section
     use signals, only: add_sinusoidal_signal, add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
     use audio_effects, only: apply_delay_effect
@@ -34,12 +34,22 @@ contains
         delta_t = 3.0_dp
 
         print *, "Track 1: repeating Am C G Dm chords..."
-        do i = 0, 9
-            t = 4 * delta_t * i ;
-            call add_minor_chord(1, t,             t + delta_t,   f_A, 1.0_dp)
-            call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_C, 1.0_dp)
-            call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_G, 1.0_dp)
-            call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, f_D, 1.0_dp)
+!         do i = 0, 9
+!             t = 4 * delta_t * i ;
+!             call add_minor_chord(1, t,             t + delta_t,   f_A, 1.0_dp)
+!             call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_C, 1.0_dp)
+!             call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_G, 1.0_dp)
+!             call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, f_D, 1.0_dp)
+!         end do
+
+        t = 0.0_dp
+        call add_minor_chord(1, t,             t + delta_t,   f_A, 1.0_dp)
+        call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_C, 1.0_dp)
+        call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_G, 1.0_dp)
+        call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, f_D, 1.0_dp)
+        ! Repeat those four chords until the end of the track:
+        do i = 1, 9
+            call copy_section(1, 1, t, t + 4*delta_t, 4 * delta_t * i)
         end do
 
         print *, "Track 2: playing random A C G D notes using plucked strings..."
