@@ -6,7 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Forsynth development version]
 
 ### Added
-- forsynth module: `copy_section()`
+- forsynth module:
+  - `copy_section()`
+  - `clear_tracks()`
 - music module:
   - `add_note()` to generate a note with a sum of harmonics.
   - `add_major_chord()`

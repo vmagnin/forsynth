@@ -28,7 +28,9 @@ module forsynth
              & MAX_AMPLITUDE, SAMPLES
 
     public :: dp, test_the_machine, PITCH, PI, SEMITONE, RATE, TRACKS, &
-            & DURATION, left, right, finalize_WAV_file, copy_section
+            & DURATION, left, right, finalize_WAV_file, copy_section, &
+            & clear_tracks
+
 contains
 
     subroutine test_the_machine
@@ -38,6 +40,13 @@ contains
             print *, "INT16 and/or INT32 not supported!"
             error stop 1
         end if
+    end subroutine
+
+
+    subroutine clear_tracks()
+        ! Delete all tracks
+        left  = 0.0_dp
+        right = 0.0_dp
     end subroutine
 
 

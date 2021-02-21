@@ -2,7 +2,7 @@ module demos
     ! Demonstrations subroutines
 
     use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, DURATION, &
-                      & finalize_WAV_file, copy_section
+                      & finalize_WAV_file, copy_section, clear_tracks
     use signals, only: add_sinusoidal_signal, add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
     use audio_effects, only: apply_delay_effect, apply_fuzz_effect
@@ -24,6 +24,7 @@ contains
 
         print *, "**** Demo 1 ****"
         call create_WAV_file('demo1.wav')
+        call clear_tracks()
 
         ! Notes frequencies:
         f_A = PITCH / 2
@@ -75,6 +76,7 @@ contains
 
         print *, "**** Demo 2 ****"
         call create_WAV_file('demo2.wav')
+        call clear_tracks()
 
         attack = 10.0_dp
         decay  = 40.0_dp
