@@ -3,7 +3,8 @@ module demos
 
     use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks
-    use signals, only: add_sinusoidal_signal, add_karplus_strong
+    use signals, only: add_sinusoidal_signal, add_square_wave, &
+                     & add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
     use audio_effects, only: apply_delay_effect, apply_fuzz_effect, &
                            & apply_tremolo_effect, apply_autopan_effect
@@ -13,7 +14,7 @@ module demos
 
     private
 
-    public :: demo1, demo2
+    public :: demo1, demo2, demo3
 
 contains
 
@@ -106,6 +107,33 @@ contains
         call apply_fuzz_effect(1, t, DURATION, 0.8_dp)
         call apply_tremolo_effect(1, t, t + 4*delta_t, 4.0_dp, 0.3_dp)
         call apply_autopan_effect(1, t + 4*delta_t, t + 8*delta_t, 0.33_dp, 0.8_dp)
+
+        print *, "Final mix..."
+        call finalize_WAV_file()
+    end subroutine
+
+
+    subroutine demo3()
+        real(dp) :: t, delta_t
+        real(dp) :: f_A
+
+        print *, "**** Demo 3 ****"
+        call create_WAV_file('demo3.wav')
+        call clear_tracks()
+
+        attack = 30.0_dp
+        decay  = 20.0_dp
+
+        ! Notes frequencies:
+        f_A = PITCH / 2             ! A 220 Hz
+        ! Notes duration in seconds:
+        delta_t = 3.0_dp
+        t = 0.0_dp
+
+        print *, "Sinusoidal signal"
+        call add_sinusoidal_signal(1, t, t + delta_t, f_A, 1.0_dp)
+        print *, "Square wave"
+        call add_square_wave(1, t + delta_t, t + 2*delta_t, f_A, 1.0_dp)
 
         print *, "Final mix..."
         call finalize_WAV_file()

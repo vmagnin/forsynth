@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - demos module:
   - `demo1()`
   - `demo2()`
+  - `demo3()`
 - envelopes module: `ADSR_envelope()` function
 - signals module: 
   - `add_karplus_strong()` for plucked strings
