@@ -1,7 +1,7 @@
 module audio_effects
     ! Various audio effects
 
-    use forsynth, only: dp, RATE, left, right, PI
+    use forsynth, only: dp, RATE, left, right, PI, dt
 
     implicit none
 
@@ -18,7 +18,6 @@ contains
         integer, intent(in) :: track
         real(kind=dp), intent(in) :: t1, t2, delay, Amp
         integer  :: i, j
-        real(dp), parameter :: dt = 1.0_dp / RATE
         integer :: id 
 
         ! Delay as an integer:
@@ -61,7 +60,6 @@ contains
         real(kind=dp), intent(in) :: t1, t2, f, AmpLFO
         integer  :: i
         real(dp) :: omegaLFO
-        real(dp), parameter :: dt = 1.0_dp / RATE
         real(dp) :: t
 
         omegaLFO = 2 * PI * f
@@ -81,7 +79,6 @@ contains
         real(kind=dp), intent(in) :: t1, t2, f, AmpLFO
         integer  :: i
         real(dp) :: omegaLFO
-        real(dp), parameter :: dt = 1.0_dp / RATE
         real(dp), parameter :: phi = 0.0_dp
         real(dp) :: t
 

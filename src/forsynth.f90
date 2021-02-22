@@ -12,8 +12,9 @@ module forsynth
     integer, parameter :: MAX_AMPLITUDE = 32767
     ! Duration in seconds:
     real(kind=dp), parameter :: DURATION = 120.0_dp
-    ! Sampling frequency:
+    ! Sampling frequency and temporal step:
     integer, parameter :: RATE = 44100
+    real(dp), parameter :: dt = 1.0_dp / RATE
     ! Number of samples:
     integer, parameter :: SAMPLES = int(DURATION * RATE)
     ! Number of audio tracks (track 0 is reserved for the final mix):
@@ -27,7 +28,7 @@ module forsynth
     private :: u, status, write_header, mix_tracks, write_normalized_data, &
              & MAX_AMPLITUDE, SAMPLES
 
-    public :: dp, test_the_machine, PITCH, PI, SEMITONE, RATE, TRACKS, &
+    public :: dp, test_the_machine, PITCH, PI, SEMITONE, RATE, dt, TRACKS, &
             & DURATION, left, right, finalize_WAV_file, copy_section, &
             & clear_tracks
 

@@ -1,7 +1,7 @@
 module signals
     ! Subroutines generating different kind of signals
 
-    use forsynth, only: dp, RATE, PI, left, right
+    use forsynth, only: dp, RATE, dt, PI, left, right
     use envelopes, only: ADSR_enveloppe
 
     implicit none
@@ -19,8 +19,6 @@ contains
         real(kind=dp) :: omega
         ! Time in seconds:
         real(kind=dp) :: t
-        ! Duration of a sample, in seconds:
-        real(kind=dp), parameter :: dt = 1.0_dp / RATE
         ! Phase at t=0 s, radians:
         real(kind=dp), parameter :: phi = 0.0_dp
         ! ADSR Envelope value:
