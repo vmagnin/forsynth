@@ -7,7 +7,8 @@ module audio_effects
 
     private
 
-    public :: apply_delay_effect, apply_fuzz_effect, apply_tremolo_effect
+    public :: apply_delay_effect, apply_fuzz_effect, apply_tremolo_effect, &
+            & apply_autopan_effect
 
 contains
 
@@ -72,6 +73,25 @@ contains
         end do
     end subroutine
 
-    ! void apply_autopan_effect(int track, double t1, double t2, double f, double AmpLFO) {
+
+    subroutine apply_autopan_effect(track, t1, t2, f, AmpLFO)
+        ! Make the sound move from one channel to the other one at a frequency f
+        ! and with an amplitude AmpLFO in [0 ; 1].
+        integer, intent(in) :: track
+        real(kind=dp), intent(in) :: t1, t2, f, AmpLFO
+        integer  :: i
+        real(dp) :: omegaLFO
+        real(dp), parameter :: dt = 1.0_dp / RATE
+        real(dp), parameter :: phi = 0.0_dp
+        real(dp) :: t
+
+        omegaLFO = 2 * PI * f
+        t = 0
+        do i = int(t1*RATE), int(t2*RATE)-1
+            left(track,  i) = left(track,  i) * (1.0-AmpLFO*sin(omegaLFO*t+phi))
+            right(track, i) = right(track, i) * (1.0-AmpLFO*cos(omegaLFO*t+phi))
+            t = t + dt
+        end do
+    end subroutine
 
 end module audio_effects
