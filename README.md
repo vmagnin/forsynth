@@ -3,6 +3,7 @@ A small Fortran synthesizer to explore sound synthesis, sound effects, electroni
 
 But Forsynth could also be used for *data sonification:*
 https://fortran-lang.discourse.group/t/anecdotal-fortran/704/8
+or to teach programming in a fun way!
 
 ## Features
 
