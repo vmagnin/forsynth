@@ -8,7 +8,7 @@ module signals
 
     private
 
-    public :: add_sinusoidal_signal, add_karplus_strong
+    public :: add_sinusoidal_signal, add_square_wave, add_karplus_strong
 
 contains
 
@@ -41,6 +41,41 @@ contains
     end subroutine add_sinusoidal_signal
 
 
+    subroutine add_square_wave(track, t1, t2, f, Amp)
+        integer, intent(in) :: track
+        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        ! Period in seconds:
+        real(kind=dp) :: tau
+        ! Time in seconds:
+        real(kind=dp) :: t
+        real(kind=dp) :: signal
+        integer :: i, n
+        ! ADSR Envelope value:
+        real(kind=dp) :: env
+
+        tau = 1.0_dp / f
+        t = 0.0_dp
+        do i = int(t1*RATE), int(t2*RATE)-1
+            env = ADSR_enveloppe(t1+t, t1, t2)
+
+            ! Number of the half-period:
+            n = int(t / (tau/2.0_dp))
+
+            ! If n is even, signal is +Amp, if odd -Amp:
+            if (mod(n, 2) == 0) then
+                signal = +Amp * env
+            else
+                signal = -Amp * env
+            end if
+
+            left(track,  i) = left(track,  i) + signal
+            right(track, i) = right(track, i) + signal
+
+            t = t + dt
+        end do
+    end subroutine add_square_wave
+
+
     subroutine add_karplus_strong(track, t1, t2, f, Amp)
       ! Karplus and Strong algorithm (1983), for plucked-string
       ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
@@ -68,7 +103,6 @@ contains
       end do
   end subroutine add_karplus_strong
 
-    !void add_square_wave(int track, double t1, double t2, double f, double Amp) {
     !void add_sawtooth_wave(int track, double t1, double t2, double f, double Amp) {
     !void add_reverse_sawtooth_wave(int track, double t1, double t2, double f, double Amp)
     !void add_triangle_wave(int track, double t1, double t2, double f, double Amp) {
