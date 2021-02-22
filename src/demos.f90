@@ -5,7 +5,8 @@ module demos
                       & finalize_WAV_file, copy_section, clear_tracks
     use signals, only: add_sinusoidal_signal, add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
-    use audio_effects, only: apply_delay_effect, apply_fuzz_effect
+    use audio_effects, only: apply_delay_effect, apply_fuzz_effect, &
+                           & apply_tremolo_effect
     use envelopes, only: attack, decay
 
     implicit none
@@ -103,6 +104,7 @@ contains
         end do
 
         call apply_fuzz_effect(1, t, DURATION, 0.8_dp)
+        call apply_tremolo_effect(1, t, t + 4*delta_t, 4.0_dp, 0.3_dp)
 
         print *, "Final mix..."
         call finalize_WAV_file()
