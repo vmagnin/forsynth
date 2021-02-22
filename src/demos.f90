@@ -6,7 +6,7 @@ module demos
     use signals, only: add_sinusoidal_signal, add_karplus_strong
     use music, only: add_note, add_major_chord, add_minor_chord
     use audio_effects, only: apply_delay_effect, apply_fuzz_effect, &
-                           & apply_tremolo_effect
+                           & apply_tremolo_effect, apply_autopan_effect
     use envelopes, only: attack, decay
 
     implicit none
@@ -105,6 +105,7 @@ contains
 
         call apply_fuzz_effect(1, t, DURATION, 0.8_dp)
         call apply_tremolo_effect(1, t, t + 4*delta_t, 4.0_dp, 0.3_dp)
+        call apply_autopan_effect(1, t + 4*delta_t, t + 8*delta_t, 0.33_dp, 0.8_dp)
 
         print *, "Final mix..."
         call finalize_WAV_file()
