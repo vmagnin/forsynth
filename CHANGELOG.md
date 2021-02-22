@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - sound_effects module: 
   - `apply_delay_effect()`
   - `apply_fuzz_effect()`
+  - `apply_tremolo_effect()`
 
 ## [Forsynth 0.1 "Stockhausen"] 2021-02-19
 
