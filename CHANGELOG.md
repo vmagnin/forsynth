@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Forsynth development version]
 
+
+
+## [Forsynth 0.2 "Daft Punk"] 2021-02-23
+
 ### Added
 - forsynth module:
   - `copy_section()`
@@ -29,6 +33,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - `apply_fuzz_effect()`
   - `apply_tremolo_effect()`
   - `apply_autopan_effect()`
+
+### Changed
+- `add_sinusoidal_signal` has been renamed `add_sine_wave`, on the same model
+as the other waveforms.
 
 ## [Forsynth 0.1 "Stockhausen"] 2021-02-19
 

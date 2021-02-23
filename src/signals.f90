@@ -8,12 +8,12 @@ module signals
 
     private
 
-    public :: add_sinusoidal_signal, add_square_wave, add_sawtooth_wave,&
+    public :: add_sine_wave, add_square_wave, add_sawtooth_wave,&
             & add_triangle_wave, add_karplus_strong, add_noise
 
 contains
 
-    subroutine add_sinusoidal_signal(track, t1, t2, f, Amp)
+    subroutine add_sine_wave(track, t1, t2, f, Amp)
         integer, intent(in) :: track
         real(kind=dp), intent(in) :: t1, t2, f, Amp
         ! Pulsation (radians/second):
@@ -39,7 +39,7 @@ contains
 
             t = t + dt
         end do
-    end subroutine add_sinusoidal_signal
+    end subroutine add_sine_wave
 
 
     subroutine add_square_wave(track, t1, t2, f, Amp)

@@ -2,7 +2,7 @@ module music
     ! Various audio effects
 
     use forsynth, only: dp, SEMITONE
-    use signals, only: add_sinusoidal_signal
+    use signals, only: add_sine_wave
 
     implicit none
 
@@ -20,7 +20,7 @@ contains
 
         ! Adding harmonics 1f to 40f, with a decreasing amplitude:
         do h = 1, 40
-            call add_sinusoidal_signal(track, t1, t2, h*f, Amp / h**2)
+            call add_sine_wave(track, t1, t2, h*f, Amp / h**2)
         end do
     end subroutine
 

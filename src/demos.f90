@@ -3,7 +3,7 @@ module demos
 
     use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks
-    use signals, only: add_sinusoidal_signal, add_square_wave, &
+    use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &
                      & add_karplus_strong, add_noise
     use music, only: add_note, add_major_chord, add_minor_chord
@@ -132,7 +132,7 @@ contains
         t = 0.0_dp
 
         print *, "Sinusoidal signal"
-        call add_sinusoidal_signal(1, t, t + delta_t, f_A, 1.0_dp)
+        call add_sine_wave(1, t, t + delta_t, f_A, 1.0_dp)
         print *, "Square wave"
         call add_square_wave(1, t + delta_t, t + 2*delta_t, f_A, 1.0_dp)
         print *, "Sawtooth wave"
@@ -140,7 +140,7 @@ contains
         print *, "Triangle wave"
         call add_triangle_wave(1, t + 3*delta_t, t + 4*delta_t, f_A, 1.0_dp)
         print *, "Summing the four signals together"
-        call add_sinusoidal_signal(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
+        call add_sine_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
         call add_square_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
         call add_sawtooth_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
         call add_triangle_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
