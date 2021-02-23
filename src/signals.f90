@@ -188,9 +188,4 @@ contains
         end do
     end subroutine
 
-    !void add_reverse_sawtooth_wave(int track, double t1, double t2, double f, double Amp)
-    !void add_weird_signal(int track, double t1, double t2, double f, double Amp, unsigned int modulation) {
-    !void add_karplus_strong_drum(int track, double t1, double t2, double f, double Amp) {
-    !void add_percussion(int track, double t1, double t2, double f, double Amp, unsigned int numero) {
-    !void add_weierstrass_signal(int track, double t1, double t2, double f, double Amp) {
 end module signals
