@@ -4,7 +4,8 @@ module demos
     use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks
     use signals, only: add_sinusoidal_signal, add_square_wave, &
-                     & add_sawtooth_wave, add_triangle_wave, add_karplus_strong
+                     & add_sawtooth_wave, add_triangle_wave, &
+                     & add_karplus_strong, add_noise
     use music, only: add_note, add_major_chord, add_minor_chord
     use audio_effects, only: apply_delay_effect, apply_fuzz_effect, &
                            & apply_tremolo_effect, apply_autopan_effect
@@ -143,6 +144,8 @@ contains
         call add_square_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
         call add_sawtooth_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
         call add_triangle_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
+        print *, "Noise"
+        call add_noise(1, t + 5*delta_t, t + 6*delta_t, 1.0_dp)
 
         print *, "Final mix..."
         call finalize_WAV_file()
