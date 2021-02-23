@@ -9,7 +9,7 @@ module signals
     private
 
     public :: add_sinusoidal_signal, add_square_wave, add_sawtooth_wave,&
-            & add_triangle_wave, add_karplus_strong
+            & add_triangle_wave, add_karplus_strong, add_noise
 
 contains
 
@@ -171,10 +171,24 @@ contains
           left(track, i)  = Amp/2.0_dp * (left(track, i-P) + left(track, i-P-1))
           right(track, i) = left(track, i)
       end do
-  end subroutine add_karplus_strong
+    end subroutine add_karplus_strong
+
+
+    subroutine add_noise(track, t1, t2, Amp)
+        integer, intent(in) :: track
+        real(kind=dp), intent(in) :: t1, t2, Amp
+        integer :: i
+        real(kind=dp) :: r(1:2)
+
+        do i = int(t1*RATE), int(t2*RATE)-1
+            ! Noise is different in both channels:
+            call random_number(r)
+            left(track,  i) = left(track,  i) + Amp*(2.0_dp*r(1) - 1.0_dp)
+            right(track, i) = right(track, i) + Amp*(2.0_dp*r(2) - 1.0_dp)
+        end do
+    end subroutine
 
     !void add_reverse_sawtooth_wave(int track, double t1, double t2, double f, double Amp)
-    !void add_noise(int track, double t1, double t2, double Amp) {
     !void add_weird_signal(int track, double t1, double t2, double f, double Amp, unsigned int modulation) {
     !void add_karplus_strong_drum(int track, double t1, double t2, double f, double Amp) {
     !void add_percussion(int track, double t1, double t2, double f, double Amp, unsigned int numero) {

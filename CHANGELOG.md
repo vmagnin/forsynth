@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - `add_square_wave()`
   - `add_sawtooth_wave()`
   - `add_triangle_wave()`
+  - `add_noise()`
 - sound_effects module: 
   - `apply_delay_effect()`
   - `apply_fuzz_effect()`
