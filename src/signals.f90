@@ -9,7 +9,7 @@ module signals
     private
 
     public :: add_sinusoidal_signal, add_square_wave, add_sawtooth_wave,&
-            & add_karplus_strong
+            & add_triangle_wave, add_karplus_strong
 
 contains
 
@@ -105,6 +105,47 @@ contains
     end subroutine add_sawtooth_wave
 
 
+    subroutine add_triangle_wave(track, t1, t2, f, Amp)
+        integer, intent(in) :: track
+        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        ! Period in seconds:
+        real(kind=dp) :: tau
+        ! Time in seconds:
+        real(kind=dp) :: t
+        real(kind=dp) :: signal
+        integer :: i, n
+        ! ADSR Envelope value:
+        real(kind=dp) :: env
+        real(kind=dp) :: a, x
+
+        tau = 1.0_dp / f
+        t = 0.0_dp
+
+        a = (2.0_dp * Amp) / (tau/2.0_dp)
+
+        do i = int(t1*RATE), int(t2*RATE)-1
+            env = ADSR_enveloppe(t1+t, t1, t2)
+
+            ! Number of the half-period:
+            n = int(t / (tau/2.0_dp))
+
+            ! Is n even or odd ?
+            if (mod(n, 2) == 0) then
+                x = t - n*(tau/2.0_dp) ;
+                signal = a*x - Amp
+            else
+                x = t - n*(tau/2.0_dp) + tau/2.0_dp ;
+                signal = - a*x + 3.0_dp*Amp
+            end if
+
+            left(track,  i) = left(track,  i) + signal * env
+            right(track, i) = right(track, i) + signal * env
+
+            t = t + dt
+        end do
+    end subroutine add_triangle_wave
+
+
     subroutine add_karplus_strong(track, t1, t2, f, Amp)
       ! Karplus and Strong algorithm (1983), for plucked-string
       ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
@@ -133,7 +174,6 @@ contains
   end subroutine add_karplus_strong
 
     !void add_reverse_sawtooth_wave(int track, double t1, double t2, double f, double Amp)
-    !void add_triangle_wave(int track, double t1, double t2, double f, double Amp) {
     !void add_noise(int track, double t1, double t2, double Amp) {
     !void add_weird_signal(int track, double t1, double t2, double f, double Amp, unsigned int modulation) {
     !void add_karplus_strong_drum(int track, double t1, double t2, double f, double Amp) {
