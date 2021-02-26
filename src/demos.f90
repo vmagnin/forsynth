@@ -6,7 +6,8 @@ module demos
     use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &
                      & add_karplus_strong, add_noise
-    use music, only: add_note, add_major_chord, add_minor_chord
+    use music, only: add_note, add_major_chord, add_minor_chord, fr, &
+                   & MAJOR_SCALE, HEXATONIC_BLUES_SCALE
     use audio_effects, only: apply_delay_effect, apply_fuzz_effect, &
                            & apply_tremolo_effect, apply_autopan_effect
     use envelopes, only: attack, decay
@@ -22,28 +23,21 @@ contains
     subroutine demo1()
         integer  :: i
         real(dp) :: t, delta_t, r
-        real(dp) :: f_A, f_C, f_G, f_D
         real(dp) :: chosen_note(0:3)
 
         print *, "**** Demo 1 ****"
         call create_WAV_file('demo1.wav')
         call clear_tracks()
 
-        ! Notes frequencies:
-        f_A = PITCH / 2
-        f_C = f_A * SEMITONE**(-9)
-        f_G = f_A * SEMITONE**(-2)
-        f_D = f_C * SEMITONE**(+2)
-
         ! Notes duration in seconds:
         delta_t = 3.0_dp
 
         print *, "Track 1: repeating Am C G Dm chords..."
         t = 0.0_dp
-        call add_minor_chord(1, t,             t + delta_t,   f_A, 1.0_dp)
-        call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_C, 1.0_dp)
-        call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_G, 1.0_dp)
-        call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, f_D, 1.0_dp)
+        call add_minor_chord(1, t,             t + delta_t,   fr("A3"), 1.0_dp)
+        call add_major_chord(1, t + delta_t,   t + 2*delta_t, fr("C3"), 1.0_dp)
+        call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, fr("G3"), 1.0_dp)
+        call add_minor_chord(1, t + 3*delta_t, t + 4*delta_t, fr("D3"), 1.0_dp)
         ! Repeat those four chords until the end of the track:
         do i = 1, 9
             call copy_section(1, 1, t, t + 4*delta_t, 4 * delta_t * i)
@@ -51,10 +45,10 @@ contains
 
         print *, "Track 2: playing random A C G D notes using plucked strings..."
         delta_t = delta_t / 4
-        chosen_note(0) = f_A
-        chosen_note(1) = f_C
-        chosen_note(2) = f_G
-        chosen_note(3) = f_D
+        chosen_note(0) = fr("A3")
+        chosen_note(1) = fr("C3")
+        chosen_note(2) = fr("G3")
+        chosen_note(3) = fr("D3")
 
         do i = 0, 9*16
             t = delta_t * i
@@ -75,7 +69,6 @@ contains
     subroutine demo2()
         integer  :: i
         real(dp) :: t, delta_t
-        real(dp) :: f_A, f_G, f_D, f_F, f_C
 
         print *, "**** Demo 2 ****"
         call create_WAV_file('demo2.wav')
@@ -84,22 +77,15 @@ contains
         attack = 10.0_dp
         decay  = 40.0_dp
 
-        ! Notes frequencies:
-        f_A = PITCH / 2             ! A 220 Hz
-        f_C = f_A * SEMITONE**(-9)
-        f_G = f_A * SEMITONE**(-2)
-        f_F = f_G * SEMITONE**(-2)
-        f_D = f_C * SEMITONE**(+2)
-
         ! Notes duration in seconds:
         delta_t = 1.5_dp
 
         print *, "Track 1: repeating G D F C chords..."
         t = 0.0_dp
-        call add_major_chord(1, t,             t + delta_t,   f_G, 1.0_dp)
-        call add_major_chord(1, t + delta_t,   t + 2*delta_t, f_D, 1.0_dp)
-        call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, f_F, 1.0_dp)
-        call add_major_chord(1, t + 3*delta_t, t + 4*delta_t, f_C, 1.0_dp)
+        call add_major_chord(1, t,             t + delta_t,   fr("G3"), 1.0_dp)
+        call add_major_chord(1, t + delta_t,   t + 2*delta_t, fr("D3"), 1.0_dp)
+        call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, fr("F3"), 1.0_dp)
+        call add_major_chord(1, t + 3*delta_t, t + 4*delta_t, fr("C3"), 1.0_dp)
         ! Repeat those four chords until the end of the track:
         do i = 1, 19
             call copy_section(1, 1, t, t + 4*delta_t, 4 * delta_t * i)
@@ -116,7 +102,8 @@ contains
 
     subroutine demo3()
         real(dp) :: t, delta_t
-        real(dp) :: f_A
+        real(dp) :: f_A, r
+        integer :: i, k
 
         print *, "**** Demo 3 ****"
         call create_WAV_file('demo3.wav')
@@ -126,7 +113,7 @@ contains
         decay  = 20.0_dp
 
         ! Notes frequencies:
-        f_A = PITCH / 2             ! A 220 Hz
+        f_A = fr("A3")             ! A 220 Hz
         ! Notes duration in seconds:
         delta_t = 3.0_dp
         t = 0.0_dp
@@ -146,6 +133,42 @@ contains
         call add_triangle_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
         print *, "Noise"
         call add_noise(1, t + 5*delta_t, t + 6*delta_t, 1.0_dp)
+
+        print *, "C Major scale"
+        t = t + 6*delta_t
+        do i = 1, 7
+            call add_karplus_strong(1, t, t + delta_t/3.0_dp, fr(trim(MAJOR_SCALE(i))//'4'), 1.0_dp)
+            t = t + delta_t/3.0_dp
+        end do
+        call add_karplus_strong(1, t, t + delta_t/3.0_dp, fr(trim(MAJOR_SCALE(1))//'5'), 1.0_dp)
+
+        print *, "A blues scale"
+        t = t + delta_t
+        do i = 1, 6
+            call add_karplus_strong(1, t, t + delta_t/3.0_dp, &
+                              & fr(trim(HEXATONIC_BLUES_SCALE(i))//'3'), 1.0_dp)
+            t = t + delta_t/3.0_dp
+        end do
+
+        print *, "Random walk on that blues scale"
+        k = 1
+        do i = 1, 60
+            call random_number(r)
+            if (r < 0.5_dp) then
+                k = k - 1
+            else
+                k = k + 1
+            end if
+
+            if (k < 1) k = 1
+            if (k > 6) k = 6
+
+            call random_number(r)
+            r = min(1.0_dp, r+0.25_dp)/3.0_dp
+            call add_karplus_strong(1, t, t + delta_t*r, &
+                              & fr(trim(HEXATONIC_BLUES_SCALE(k))//'3'), 1.0_dp)
+            t = t + delta_t*r
+        end do
 
         print *, "Final mix..."
         call finalize_WAV_file()
