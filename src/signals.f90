@@ -147,30 +147,31 @@ contains
 
 
     subroutine add_karplus_strong(track, t1, t2, f, Amp)
-      ! Karplus and Strong algorithm (1983), for plucked-string
-      ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
-      ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
-      integer, intent(in) :: track
-      real(kind=dp), intent(in) :: t1, t2, f, Amp
-      integer :: i, P
-      real(kind=dp) :: signal, r
+        ! Karplus and Strong algorithm (1983), for plucked-string
+        ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
+        ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
+        integer, intent(in) :: track
+        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        integer :: i, P
+        real(kind=dp) :: signal, r
 
-      P = int(RATE / f) - 2
+        P = int(RATE / f) - 2
 
-      ! Initial noise:
-      do i = int(t1*RATE), int(t1*RATE) + P
-          ! 0 <= r < 1
-          call random_number(r)
-          ! -Amp <= signal < +Amp
-          signal = Amp * (2*r - 1.0_dp)
-          left(track, i)  = signal
-          right(track, i) = signal
-      end do
-      ! Delay and decay:
-      do i = int(t1*RATE) + P + 1, int(t2*RATE) - 1
-          left(track, i)  = Amp/2.0_dp * (left(track, i-P) + left(track, i-P-1))
-          right(track, i) = left(track, i)
-      end do
+        ! Initial noise:
+        do i = int(t1*RATE), int(t1*RATE) + P
+            ! 0 <= r < 1
+            call random_number(r)
+            ! -Amp <= signal < +Amp
+            signal = Amp * (2.0_dp*r - 1.0_dp)
+
+            left(track, i)  = signal
+            right(track, i) = signal
+        end do
+        ! Delay and decay:
+        do i = int(t1*RATE) + P + 1, int(t2*RATE) - 1
+            left(track, i)  = (left(track, i-P) + left(track, i-P-1)) / 2.0_dp
+            right(track, i) = left(track, i)
+        end do
     end subroutine add_karplus_strong
 
 

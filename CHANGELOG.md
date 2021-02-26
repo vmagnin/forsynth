@@ -5,7 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Forsynth development version]
 
+### Added
+- music module:
+  - function `fr()` to compute the frequency of a note, for example "A#3".
+  - Several music scales stored in arrays.
+- demos module:
+  - Added some scales in `demo3()`.
 
+### Fixed
+- A bug in add_karplus_strong().
 
 ## [Forsynth 0.2 "Daft Punk"] 2021-02-23
 
