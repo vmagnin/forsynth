@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - demos module:
   - Added some scales in `demo3()`.
 
+### Changed
+- Now under GNU GPLv3 license.
+
 ### Fixed
 - A bug in add_karplus_strong().
 
