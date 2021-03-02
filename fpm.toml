@@ -1,6 +1,6 @@
 name = "forsynth"
 version = "0.2.0"
-license = ""
+license = "GNU GPLv3"
 author = "Vincent Magnin"
 maintainer = "Vincent Magnin"
 copyright = "2021 Vincent Magnin"
