@@ -2,7 +2,7 @@ module demos
     ! Demonstrations subroutines
 
     use forsynth, only: dp, create_WAV_file, PITCH, SEMITONE, DURATION, &
-                      & finalize_WAV_file, copy_section, clear_tracks
+                      & finalize_WAV_file, copy_section, clear_tracks, file_t
     use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &
                      & add_karplus_strong, add_noise
@@ -18,6 +18,8 @@ module demos
 
     public :: demo1, demo2, demo3
 
+    type(file_t) :: d1, d2, d3
+
 contains
 
     subroutine demo1()
@@ -26,7 +28,7 @@ contains
         real(dp) :: chosen_note(0:3)
 
         print *, "**** Demo 1 ****"
-        call create_WAV_file('demo1.wav')
+        call d1%create_WAV_file('demo1.wav')
         call clear_tracks()
 
         ! Notes duration in seconds:
@@ -71,7 +73,7 @@ contains
         real(dp) :: t, delta_t
 
         print *, "**** Demo 2 ****"
-        call create_WAV_file('demo2.wav')
+        call d2%create_WAV_file('demo2.wav')
         call clear_tracks()
 
         attack = 10.0_dp
@@ -106,7 +108,7 @@ contains
         integer :: i, k
 
         print *, "**** Demo 3 ****"
-        call create_WAV_file('demo3.wav')
+        call d3%create_WAV_file('demo3.wav')
         call clear_tracks()
 
         attack = 30.0_dp

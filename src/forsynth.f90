@@ -25,7 +25,16 @@ module forsynth
     ! Two arrays stocking the stereo tracks:
     real(kind=dp), dimension(0:TRACKS, 0:SAMPLES) :: left, right
 
-    private :: u, status, write_header, mix_tracks, write_normalized_data, &
+
+    type file_t
+      character(len=:), allocatable :: filename
+      integer                       :: fileunit
+    contains
+      procedure :: create_WAV_file   
+    end type file_t
+
+
+    private :: u, status, mix_tracks, write_normalized_data, &
              & MAX_AMPLITUDE, SAMPLES
 
     public :: dp, test_the_machine, PITCH, PI, SEMITONE, RATE, dt, TRACKS, &
@@ -51,15 +60,28 @@ contains
     end subroutine
 
 
-    subroutine create_WAV_file(file_name)
-        character(len=*), intent(in) :: file_name
+    subroutine mix_tracks()
+        ! Tracks 1 to TRACKS-1 are mixed on track 0.
+        integer :: track
 
-        open(unit=u, file=file_name, access='stream', status='replace', &
-         action='write', iostat=status)
-
-        call write_header()
+        do track = 1, TRACKS-1
+            left(0, :)  = left(0, :)  + left(track, :)
+            right(0, :) = right(0, :) + right(track, :)
+        end do
     end subroutine
+   
+    subroutine create_WAV_file(self, filename)   
+      class(file_t), intent(inout)  :: self
+      character(*), intent(in)      :: filename
 
+      self%fileunit   = u
+      self%filename   = filename
+
+      open(unit=self%fileunit, file=self%filename, access='stream', status='replace', action='write')
+
+      call write_header()
+
+    end subroutine create_WAV_file
 
     subroutine write_header()
         ! Creates the WAV header (44 bytes)
@@ -114,17 +136,6 @@ contains
         data_size = SAMPLES * CHANNELS * (BITS_PER_SAMPLE / 8)
         write(u, iostat=status) data_size
     end subroutine write_header
-
-
-    subroutine mix_tracks()
-        ! Tracks 1 to TRACKS-1 are mixed on track 0.
-        integer :: track
-
-        do track = 1, TRACKS-1
-            left(0, :)  = left(0, :)  + left(track, :)
-            right(0, :) = right(0, :) + right(track, :)
-        end do
-    end subroutine
 
 
     subroutine write_normalized_data()
