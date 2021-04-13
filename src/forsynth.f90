@@ -1,5 +1,5 @@
 module forsynth
-    use ISO_FORTRAN_ENV, only: INT16, INT32, INT64, REAL64
+    use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL64
 
     implicit none
     integer, parameter:: dp = REAL64
