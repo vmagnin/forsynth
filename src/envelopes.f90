@@ -48,7 +48,7 @@ contains
                     ADSR_enveloppe = (sustain / 100.0_dp)
                 else
                     i5 = nint(t2 * RATE)
-                    if ((i >= i4) .and. (i < i5)) then
+                    if ((i >= i4) .and. (i <= i5)) then
                         ADSR_enveloppe = (sustain - (i-i4)/real(i5-i4, dp) * &
                                        & sustain) / 100.0_dp
                     else
