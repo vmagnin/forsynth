@@ -16,7 +16,7 @@ contains
         ! Add the sound from "delay" seconds before,
         ! and multiply by Amp<1 for dampening.
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, delay, Amp
+        real(dp), intent(in) :: t1, t2, delay, Amp
         integer  :: i, j
         integer :: id 
 
@@ -37,7 +37,7 @@ contains
         ! Apply distorsion with hard clipping
         ! https://en.wikipedia.org/wiki/Distortion_(music)
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, level
+        real(dp), intent(in) :: t1, t2, level
         integer  :: i
 
         do i = int(t1*RATE), int(t2*RATE) - 1
@@ -57,7 +57,7 @@ contains
         ! AmpLFO : tremolo amplitude in [0 ; 1]
         ! https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, f, AmpLFO
+        real(dp), intent(in) :: t1, t2, f, AmpLFO
         integer  :: i
         real(dp) :: omegaLFO
         real(dp) :: t
@@ -76,7 +76,7 @@ contains
         ! Make the sound move from one channel to the other one at a frequency f
         ! and with an amplitude AmpLFO in [0 ; 1].
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, f, AmpLFO
+        real(dp), intent(in) :: t1, t2, f, AmpLFO
         integer  :: i
         real(dp) :: omegaLFO
         real(dp), parameter :: phi = 0.0_dp

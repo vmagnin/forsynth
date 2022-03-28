@@ -6,12 +6,12 @@ module forsynth
     integer :: status
     ! Output unit:
     integer :: u
-    real(kind=dp), parameter :: PI = 4.0_dp * atan(1.0_dp)
-    real(kind=dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
+    real(dp), parameter :: PI = 4.0_dp * atan(1.0_dp)
+    real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
     ! Maximum amplitude in a WAV [-32768 ; +32767]:
     integer, parameter :: MAX_AMPLITUDE = 32767
     ! Duration in seconds:
-    real(kind=dp), parameter :: DURATION = 120.0_dp
+    real(dp), parameter :: DURATION = 120.0_dp
     ! Sampling frequency and temporal step:
     integer, parameter :: RATE = 44100
     real(dp), parameter :: dt = 1.0_dp / RATE
@@ -20,10 +20,10 @@ module forsynth
     ! Number of audio tracks (track 0 is reserved for the final mix):
     integer, parameter :: TRACKS = 8
     ! Concert pitch (A note):
-    real(kind=dp), parameter :: PITCH = 440d0
+    real(dp), parameter :: PITCH = 440d0
 
     ! Two arrays stocking the stereo tracks:
-    real(kind=dp), dimension(0:TRACKS, 0:SAMPLES) :: left, right
+    real(dp), dimension(0:TRACKS, 0:SAMPLES) :: left, right
 
 
     type file_t
@@ -142,7 +142,7 @@ contains
         ! This routine normalizes the sound amplitude on track 0, before saving
         ! the left and right channels in the WAV file.
         integer :: i
-        real(kind=dp) :: maxi
+        real(dp) :: maxi
 
         ! Looking for the maximum amplitude (must not be zero):
         maxi = max(1e-16_dp, maxval(abs(left(0, :))), maxval(abs(right(0, :))))

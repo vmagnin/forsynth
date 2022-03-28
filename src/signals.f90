@@ -15,16 +15,16 @@ contains
 
     subroutine add_sine_wave(track, t1, t2, f, Amp)
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        real(dp), intent(in) :: t1, t2, f, Amp
         ! Pulsation (radians/second):
-        real(kind=dp) :: omega
+        real(dp) :: omega
         ! Time in seconds:
-        real(kind=dp) :: t
+        real(dp) :: t
         ! Phase at t=0 s, radians:
-        real(kind=dp), parameter :: phi = 0.0_dp
+        real(dp), parameter :: phi = 0.0_dp
         ! ADSR Envelope value:
-        real(kind=dp) :: env
-        real(kind=dp) :: signal
+        real(dp) :: env
+        real(dp) :: signal
         integer :: i
 
         omega = 2.0_dp * PI * f
@@ -44,15 +44,15 @@ contains
 
     subroutine add_square_wave(track, t1, t2, f, Amp)
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        real(dp), intent(in) :: t1, t2, f, Amp
         ! Period in seconds:
-        real(kind=dp) :: tau
+        real(dp) :: tau
         ! Time in seconds:
-        real(kind=dp) :: t
-        real(kind=dp) :: signal
+        real(dp) :: t
+        real(dp) :: signal
         integer :: i, n
         ! ADSR Envelope value:
-        real(kind=dp) :: env
+        real(dp) :: env
 
         tau = 1.0_dp / f
         t = 0.0_dp
@@ -79,15 +79,15 @@ contains
 
     subroutine add_sawtooth_wave(track, t1, t2, f, Amp)
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        real(dp), intent(in) :: t1, t2, f, Amp
         ! Period in seconds:
-        real(kind=dp) :: tau
+        real(dp) :: tau
         ! Time in seconds:
-        real(kind=dp) :: t
-        real(kind=dp) :: signal
+        real(dp) :: t
+        real(dp) :: signal
         integer :: i
         ! ADSR Envelope value:
-        real(kind=dp) :: env
+        real(dp) :: env
 
         tau = 1.0_dp / f
         t = 0.0_dp
@@ -107,16 +107,16 @@ contains
 
     subroutine add_triangle_wave(track, t1, t2, f, Amp)
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        real(dp), intent(in) :: t1, t2, f, Amp
         ! Period in seconds:
-        real(kind=dp) :: tau
+        real(dp) :: tau
         ! Time in seconds:
-        real(kind=dp) :: t
-        real(kind=dp) :: signal
+        real(dp) :: t
+        real(dp) :: signal
         integer :: i, n
         ! ADSR Envelope value:
-        real(kind=dp) :: env
-        real(kind=dp) :: a, x
+        real(dp) :: env
+        real(dp) :: a, x
 
         tau = 1.0_dp / f
         t = 0.0_dp
@@ -151,9 +151,9 @@ contains
         ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
         ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, f, Amp
+        real(dp), intent(in) :: t1, t2, f, Amp
         integer :: i, P
-        real(kind=dp) :: signal, r
+        real(dp) :: signal, r
 
         P = int(RATE / f) - 2
 
@@ -177,9 +177,9 @@ contains
 
     subroutine add_noise(track, t1, t2, Amp)
         integer, intent(in) :: track
-        real(kind=dp), intent(in) :: t1, t2, Amp
+        real(dp), intent(in) :: t1, t2, Amp
         integer :: i
-        real(kind=dp) :: r(1:2)
+        real(dp) :: r(1:2)
 
         do i = int(t1*RATE), int(t2*RATE)-1
             ! Noise is different in both channels:

@@ -26,7 +26,7 @@ contains
     real(dp) function ADSR_enveloppe(t, t1, t2)
         ! Returns the level in [0, 1] of an ADSR envelope at time t1 < t < t2
 
-        real(kind=dp), intent(in) :: t, t1, t2
+        real(dp), intent(in) :: t, t1, t2
         integer :: i, i1, i2, i3, i4, i5
 
         i = nint(t * RATE)
