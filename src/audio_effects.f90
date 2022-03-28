@@ -23,7 +23,7 @@ contains
         ! Delay as an integer:
         id = nint(delay / dt)
 
-        do i = int(t1*RATE), int(t2*RATE) - 1
+        do i = nint(t1*RATE), nint(t2*RATE) - 1
             j = i - id
             if (j > 0) then
                 left(track,  i) = left(track,  i) + Amp * left(track,  j)
@@ -40,7 +40,7 @@ contains
         real(dp), intent(in) :: t1, t2, level
         integer              :: i
 
-        do i = int(t1*RATE), int(t2*RATE) - 1
+        do i = nint(t1*RATE), nint(t2*RATE) - 1
             if (abs(left(track,  i)) > level) then
                 left(track,  i) = sign(level, left(track,  i))
             end if
@@ -64,7 +64,7 @@ contains
 
         omegaLFO = 2 * PI * f
         t = 0
-        do i = int(t1*RATE), int(t2*RATE)-1
+        do i = nint(t1*RATE), nint(t2*RATE)-1
             left(track,  i) = left(track,  i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
             right(track, i) = right(track, i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
             t = t + dt
@@ -84,7 +84,7 @@ contains
 
         omegaLFO = 2 * PI * f
         t = 0
-        do i = int(t1*RATE), int(t2*RATE)-1
+        do i = nint(t1*RATE), nint(t2*RATE)-1
             left(track,  i) = left(track,  i) * (1.0 - AmpLFO * sin(omegaLFO*t + phi))
             right(track, i) = right(track, i) * (1.0 - AmpLFO * cos(omegaLFO*t + phi))
             t = t + dt

@@ -17,7 +17,7 @@ module forsynth
     integer, parameter  :: RATE = 44100
     real(dp), parameter :: dt = 1.0_dp / RATE
     ! Number of samples:
-    integer, parameter  :: SAMPLES = int(DURATION * RATE)
+    integer, parameter  :: SAMPLES = nint(DURATION * RATE)
     ! Number of audio tracks (track 0 is reserved for the final mix):
     integer, parameter  :: TRACKS = 8
     ! Concert pitch (A note):
@@ -151,8 +151,8 @@ contains
         do i = 0 , SAMPLES
             ! Writing the amplitude of left then right channels as 16 bit
             ! signed integers:
-            write(u, iostat=status) int((left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
-            write(u, iostat=status) int((right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
+            write(u, iostat=status) nint((left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
+            write(u, iostat=status) nint((right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
         end do
     end subroutine
 
@@ -170,9 +170,9 @@ contains
         real(dp), intent(in) :: t1, t2, t3
         integer :: i, i0, j
 
-        i0 = int(t1*RATE)
-        do i = i0, int(t2*RATE)-1
-            j = int(t3*RATE) + (i-i0)
+        i0 = nint(t1*RATE)
+        do i = i0, nint(t2*RATE)-1
+            j = nint(t3*RATE) + (i-i0)
             if (j <= SAMPLES) then
                 left(to_track,  j) = left(from_track,  i)
                 right(to_track, j) = right(from_track, i)

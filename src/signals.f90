@@ -30,7 +30,7 @@ contains
         omega = 2.0_dp * PI * f
 
         t = 0.0_dp
-        do i = int(t1*RATE), int(t2*RATE)-1
+        do i = nint(t1*RATE), nint(t2*RATE)-1
             env = ADSR_enveloppe(t1+t, t1, t2)
             signal = Amp * sin(omega*t + phi) * env
 
@@ -56,7 +56,7 @@ contains
 
         tau = 1.0_dp / f
         t = 0.0_dp
-        do i = int(t1*RATE), int(t2*RATE)-1
+        do i = nint(t1*RATE), nint(t2*RATE)-1
             env = ADSR_enveloppe(t1+t, t1, t2)
 
             ! Number of the half-period:
@@ -91,7 +91,7 @@ contains
 
         tau = 1.0_dp / f
         t = 0.0_dp
-        do i = int(t1*RATE), int(t2*RATE)-1
+        do i = nint(t1*RATE), nint(t2*RATE)-1
             env = ADSR_enveloppe(t1+t, t1, t2)
 
             ! We substract 0.5 for the signal to be centered on 0:
@@ -123,7 +123,7 @@ contains
 
         a = (2.0_dp * Amp) / (tau/2.0_dp)
 
-        do i = int(t1*RATE), int(t2*RATE)-1
+        do i = nint(t1*RATE), nint(t2*RATE)-1
             env = ADSR_enveloppe(t1+t, t1, t2)
 
             ! Number of the half-period:
@@ -155,10 +155,10 @@ contains
         real(dp) :: signal, r
         integer  :: i, P
 
-        P = int(RATE / f) - 2
+        P = nint(RATE / f) - 2
 
         ! Initial noise:
-        do i = int(t1*RATE), int(t1*RATE) + P
+        do i = nint(t1*RATE), nint(t1*RATE) + P
             ! 0 <= r < 1
             call random_number(r)
             ! -Amp <= signal < +Amp
@@ -168,7 +168,7 @@ contains
             right(track, i) = signal
         end do
         ! Delay and decay:
-        do i = int(t1*RATE) + P + 1, int(t2*RATE) - 1
+        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
             left(track, i)  = (left(track, i-P) + left(track, i-P-1)) / 2.0_dp
             right(track, i) = left(track, i)
         end do
@@ -181,7 +181,7 @@ contains
         real(dp) :: r(1:2)
         integer  :: i
 
-        do i = int(t1*RATE), int(t2*RATE)-1
+        do i = nint(t1*RATE), nint(t2*RATE)-1
             ! Noise is different in both channels:
             call random_number(r)
             left(track,  i) = left(track,  i) + Amp*(2.0_dp*r(1) - 1.0_dp)
