@@ -92,7 +92,7 @@ contains
                 gap = -4
             case ('G')
                 gap = -2
-            case ('A') 
+            case ('A')
                 gap = 0
             case ('B')
                 gap = +2
