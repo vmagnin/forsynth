@@ -1,5 +1,5 @@
 module music
-    ! Various audio effects
+    ! Music theory
 
     use forsynth, only: dp, PITCH, SEMITONE
     use signals, only: add_sine_wave
