@@ -35,7 +35,7 @@ contains
 
     subroutine add_note(track, t1, t2, f, Amp)
         ! https://en.wikipedia.org/wiki/Harmonic
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
         integer :: h
 
@@ -47,7 +47,7 @@ contains
 
     subroutine add_major_chord(track, t1, t2, f, Amp)
         ! https://en.wikipedia.org/wiki/Major_chord
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
 
         ! Root, major third and perfect fifth:
@@ -58,7 +58,7 @@ contains
 
     subroutine add_minor_chord(track, t1, t2, f, Amp)
         ! https://en.wikipedia.org/wiki/Minor_chord
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
 
         ! Root, minor third and perfect fifth:
