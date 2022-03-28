@@ -14,18 +14,18 @@ module signals
 contains
 
     subroutine add_sine_wave(track, t1, t2, f, Amp)
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
+        ! Phase at t=0 s, radians:
+        real(dp), parameter  :: phi = 0.0_dp
         ! Pulsation (radians/second):
         real(dp) :: omega
         ! Time in seconds:
         real(dp) :: t
-        ! Phase at t=0 s, radians:
-        real(dp), parameter :: phi = 0.0_dp
         ! ADSR Envelope value:
         real(dp) :: env
         real(dp) :: signal
-        integer :: i
+        integer  :: i
 
         omega = 2.0_dp * PI * f
 
@@ -43,16 +43,16 @@ contains
 
 
     subroutine add_square_wave(track, t1, t2, f, Amp)
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
         ! Period in seconds:
         real(dp) :: tau
         ! Time in seconds:
         real(dp) :: t
         real(dp) :: signal
-        integer :: i, n
         ! ADSR Envelope value:
         real(dp) :: env
+        integer  :: i, n
 
         tau = 1.0_dp / f
         t = 0.0_dp
@@ -85,9 +85,9 @@ contains
         ! Time in seconds:
         real(dp) :: t
         real(dp) :: signal
-        integer :: i
         ! ADSR Envelope value:
         real(dp) :: env
+        integer  :: i
 
         tau = 1.0_dp / f
         t = 0.0_dp
@@ -106,17 +106,17 @@ contains
 
 
     subroutine add_triangle_wave(track, t1, t2, f, Amp)
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
         ! Period in seconds:
         real(dp) :: tau
         ! Time in seconds:
         real(dp) :: t
         real(dp) :: signal
-        integer :: i, n
         ! ADSR Envelope value:
         real(dp) :: env
         real(dp) :: a, x
+        integer  :: i, n
 
         tau = 1.0_dp / f
         t = 0.0_dp
@@ -150,10 +150,10 @@ contains
         ! Karplus and Strong algorithm (1983), for plucked-string
         ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
         ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
-        integer :: i, P
         real(dp) :: signal, r
+        integer  :: i, P
 
         P = int(RATE / f) - 2
 
@@ -176,10 +176,10 @@ contains
 
 
     subroutine add_noise(track, t1, t2, Amp)
-        integer, intent(in) :: track
+        integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, Amp
-        integer :: i
         real(dp) :: r(1:2)
+        integer  :: i
 
         do i = int(t1*RATE), int(t2*RATE)-1
             ! Noise is different in both channels:

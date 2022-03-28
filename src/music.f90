@@ -10,20 +10,20 @@ module music
     ! Always use the trim() function to remove trailing spaces.
     ! https://en.wikipedia.org/wiki/Scale_(music)
     character(2), dimension(1:12) :: CHROMATIC_SCALE = &
-               & (/'C ','C#','D ','D#','E ','F ','F#','G ','G#','A ','A#','B '/)
+               & ['C ','C#','D ','D#','E ','F ','F#','G ','G#','A ','A#','B ']
     ! https://en.wikipedia.org/wiki/Major_scale
-    character(1), dimension(1:7) :: MAJOR_SCALE = (/'C','D','E','F','G','A','B'/)
+    character(1), dimension(1:7) :: MAJOR_SCALE = ['C','D','E','F','G','A','B']
     ! https://en.wikipedia.org/wiki/Minor_scale#Harmonic_minor_scale
     character(2), dimension(1:7) :: HARMONIC_MINOR_SCALE = &
-                                    & (/'A ','B ','C ','D ','E ','F ','G#'/)
+                                    & ['A ','B ','C ','D ','E ','F ','G#']
     ! https://en.wikipedia.org/wiki/Pentatonic_scale#Major_pentatonic_scale
-    character(1), dimension(1:5) :: MAJOR_PENTATONIC_SCALE = (/'C','D','E','G','A'/)
+    character(1), dimension(1:5) :: MAJOR_PENTATONIC_SCALE = ['C','D','E','G','A']
     ! https://en.wikipedia.org/wiki/Hexatonic_scale#Blues_scale
     character(2), dimension(1:6) :: HEXATONIC_BLUES_SCALE = &
-                                    & (/'C ','Eb','F ','Gb','G ','Bb'/)
+                                    & ['C ','Eb','F ','Gb','G ','Bb']
     ! https://en.wikipedia.org/wiki/Whole_tone_scale
     character(2), dimension(1:6) :: WHOLE_TONE_SCALE = &
-                                    & (/'C ','D ','E ','F#','G#','A#'/)
+                                    & ['C ','D ','E ','F#','G#','A#']
 
     private
 
@@ -70,8 +70,8 @@ contains
 
     real(dp) function fr(note)
         ! Returns the frequency of the note.
-        ! The note name is composed of two or three characters, 
-        ! for example "A4", "A#4", "Ab4", where the final character is 
+        ! The note name is composed of two or three characters,
+        ! for example "A4", "A#4", "Ab4", where the final character is
         ! the octave.
         character(*), intent(in) :: note
         ! 0 <= octave <=9

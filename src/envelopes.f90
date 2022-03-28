@@ -1,6 +1,6 @@
 module envelopes
     ! Subroutines generating envelopes
-    ! https:!en.wikipedia.org/wiki/Envelope_(music)
+    ! https://en.wikipedia.org/wiki/Envelope_(music)
 
     use forsynth, only: dp, RATE, PI, left, right
 

@@ -2,6 +2,7 @@ module forsynth
     use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL64
 
     implicit none
+    ! Double precision reals:
     integer, parameter:: dp = REAL64
     integer :: status
     ! Output unit:
@@ -9,16 +10,16 @@ module forsynth
     real(dp), parameter :: PI = 4.0_dp * atan(1.0_dp)
     real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
     ! Maximum amplitude in a WAV [-32768 ; +32767]:
-    integer, parameter :: MAX_AMPLITUDE = 32767
+    integer, parameter  :: MAX_AMPLITUDE = 32767
     ! Duration in seconds:
     real(dp), parameter :: DURATION = 120.0_dp
     ! Sampling frequency and temporal step:
-    integer, parameter :: RATE = 44100
+    integer, parameter  :: RATE = 44100
     real(dp), parameter :: dt = 1.0_dp / RATE
     ! Number of samples:
-    integer, parameter :: SAMPLES = int(DURATION * RATE)
+    integer, parameter  :: SAMPLES = int(DURATION * RATE)
     ! Number of audio tracks (track 0 is reserved for the final mix):
-    integer, parameter :: TRACKS = 8
+    integer, parameter  :: TRACKS = 8
     ! Concert pitch (A note):
     real(dp), parameter :: PITCH = 440d0
 
@@ -30,7 +31,7 @@ module forsynth
       character(len=:), allocatable :: filename
       integer                       :: fileunit
     contains
-      procedure :: create_WAV_file   
+      procedure :: create_WAV_file
     end type file_t
 
 
@@ -69,8 +70,8 @@ contains
             right(0, :) = right(0, :) + right(track, :)
         end do
     end subroutine
-   
-    subroutine create_WAV_file(self, filename)   
+
+    subroutine create_WAV_file(self, filename)
       class(file_t), intent(inout)  :: self
       character(*), intent(in)      :: filename
 
@@ -141,14 +142,14 @@ contains
     subroutine write_normalized_data()
         ! This routine normalizes the sound amplitude on track 0, before saving
         ! the left and right channels in the WAV file.
-        integer :: i
+        integer  :: i
         real(dp) :: maxi
 
         ! Looking for the maximum amplitude (must not be zero):
         maxi = max(1e-16_dp, maxval(abs(left(0, :))), maxval(abs(right(0, :))))
 
         do i = 0 , SAMPLES
-            ! Writing the amplitude of left then right channels as 16 bit 
+            ! Writing the amplitude of left then right channels as 16 bit
             ! signed integers:
             write(u, iostat=status) int((left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
             write(u, iostat=status) int((right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
@@ -165,7 +166,7 @@ contains
 
     subroutine copy_section(from_track, to_track, t1, t2, t3)
         ! Copy section t1...t2 at t3, either on the same track or another one.
-        integer, intent(in) :: from_track, to_track
+        integer, intent(in)  :: from_track, to_track
         real(dp), intent(in) :: t1, t2, t3
         integer :: i, i0, j
 
