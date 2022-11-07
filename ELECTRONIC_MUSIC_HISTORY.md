@@ -41,7 +41,7 @@ Before music produced by electronic circuits, experiments were made in the 1940s
 -   *Elektronische Musik Studie I* (1953): https://www.youtube.com/watch?v=Ovz6it26iSw
 -   *Elektronische Musik Studie II* (1954): https://www.youtube.com/watch?v=bwj6ZptPnDo
 -   *Telemusik* (1966): https://www.youtube.com/watch?v=N-vb97ukRjY
--   A more recent work, *Oktophonie* (1991): https://www.youtube.com/watch?v=ePBB-NO8vKg
+-   A more recent work, *Oktophonie* (1991): https://www.youtube.com/watch?v=8qTM_u4L7uA
 
 ## 50's: misc
 
@@ -66,8 +66,8 @@ First film whose soundtrack (Louis & Bebe Barron) is entirely electronic:
 
 ### Wendy Carlos
 
--   *Switched-On Bach* (1968): https://soundcloud.com/jackson-mades/sets/switched-on-bach
--   *A Clockwork Orange* (Stanley Kubrick) theme (1971): https://www.youtube.com/watch?v=NCBwiM3notI
+-   *Switched-On Bach* (1968): https://www.youtube.com/watch?v=Yn0HAWX1TSA&list=PLLICd7vQi7iGUyErozBAwgcr4F49kxiXY
+-   *A Clockwork Orange* (Stanley Kubrick) theme (1971): https://www.youtube.com/watch?v=U4-8-tvTmYw
 
 ### Popcorn (Gershon Kingsley, 1969)
 
@@ -116,7 +116,7 @@ Before becoming digital, the first synthesizers were analogue and modular: each 
 ### Tangerine Dream:
 
 -   Zeit (1972): https://youtu.be/rjvF36gzLF8?t=57m28s
--   Live at Conventry Cathedral (1975): https://www.youtube.com/watch?v=4w8pbGz7E8c
+-   Live at Conventry Cathedral (1975): https://www.youtube.com/watch?v=bGByDwiiECw
 
 ### Klaus Schulze:
 
@@ -171,7 +171,7 @@ Later famous works:
     -   *Radioactivity,* French TV (1978): https://www.youtube.com/watch?v=OPhUWrQx1zY
 -   *Trans-Europe Express* (1977): https://www.youtube.com/watch?v=Ms6kC-3yq0k&list=OLAK5uy_nDUpPT0EVhePgXihBpL0XZ6J09mu_TZlU
 -   "The Robots",  *The Man-Machine* (1978): https://www.youtube.com/watch?v=68d8GRgiec4&list=OLAK5uy\_lpF64nOVPBv72HvvFlP6PAJdyAlY1cxgM
-    -   *The Robots* (Roboter, original German version): https://www.youtube.com/watch?v=5DBc5NpyEoo
+    -   *The Robots* (Roboter, original German version): https://www.youtube.com/watch?v=0hoa9tXnZX8
 -   *Computer World* (1981):
     -   *Computer Love:* https://www.youtube.com/watch?v=ZtWTUt2RZh0
         -   The Coldplay tribute to Kraftwerk, *Talk,* (2005): https://www.youtube.com/watch?v=EH9meoWmAOM
@@ -184,23 +184,29 @@ Later famous works:
 -   *Chase,* soundtrack of *Midnight Express* (Alan Parker, 1978): https://www.youtube.com/watch?v=IrPWkIRWY9U
 -   Daft Punk tribute "Giorgio by Moroder", *RAM* (2014): https://www.youtube.com/watch?v=zhl-Cs1-sG4
 
-## 80's: the synth invasion (pop, techno, electro...)
+## 80's: the synth invasion (pop, techno, electro, new wave...)
 
 The synthesiser market skyrockets, prices fall. The year 1980 marks a turning point.
 
 -   Orchestral Manoeuvres In The Dark, *Enola Gay* (1980): https://www.youtube.com/watch?v=d5XJ2GiR6Bo
 -   Visage, *Fade to Grey* (1980): https://www.youtube.com/watch?v=DZiJQL9OLqI
 -   Taxi Girl,*Cherchez le garçon* (1980): https://www.youtube.com/watch?v=Av83iD8zn_w
+-   Grauzone, *Eisbaer* (1980): https://www.youtube.com/watch?v=bIIGKV27FaY
 -   Depeche Mode, *Just Can't Get Enough* (1981): https://www.youtube.com/watch?v=_6FBfAQ-NDE
 -   Soft Cell, *Tainted Love* (1981): https://www.youtube.com/watch?v=XZVpR3Pk-r8
     -   In fact a cover of Gloria Jones (1964): https://www.youtube.com/watch?v=OJKe2j9Wjh4
-    -   Another cover by Marilyn Manson (2001): https://www.youtube.com/watch?v=dbhjEDH4pIk
+-   The Human League, *Don't You Want Me* (1981): https://www.youtube.com/watch?v=uPudE8nDog0
+-   Kim Wilde, *Cambodia* (1981): https://www.youtube.com/watch?v=1y3TKv7Chk4
 -   Liaisons Dangereuses, *Los Niños del Parque* (1981): https://www.youtube.com/watch?v=cx12N1Tw14w
+-   Guerre Froide, *Demain Berlin* (1981): https://www.youtube.com/watch?v=ahs-oaAemjg
+-   Tears for Fears, *Mad World* (1982): https://www.youtube.com/watch?v=u1ZvPSpLxCg
 -   New Order, *Blue Monday* (1983): https://www.youtube.com/watch?v=FYH8DsU2WCk
 -   New Order, *Confusion* (1983): https://www.youtube.com/watch?v=QRf418ZUBGI
 -   Eurythmics, *Sweet Dreams (Are Made Of This)* (1983), https://www.youtube.com/watch?v=qeMFqkcPYcg
 -   Anne Clark, *Our Darkness* (1984): https://www.youtube.com/watch?v=XNSk45A923g
+-   Fad Gadget, *Collapsing New People* (1984): https://www.youtube.com/watch?v=ypINKMapdE0
 -   Talk Talk, *Such a Shame* (1984): https://www.youtube.com/watch?v=lLdvpFIPReA
+-   Bronski Beat, *Smalltown Boy* (1984): https://www.youtube.com/watch?v=U7-q1WRaKNg
 -   Art Of Noise, *Moments In Love* (1985): https://www.youtube.com/watch?v=cen22TBHo9M
 -   Kraftwerk, *Musique Non Stop* (1986): https://www.youtube.com/watch?v=O0lIlROWro8
 
