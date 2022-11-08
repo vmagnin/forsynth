@@ -213,6 +213,7 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   New Order, *Blue Monday* (1983): https://www.youtube.com/watch?v=FYH8DsU2WCk
 -   New Order, *Confusion* (1983): https://www.youtube.com/watch?v=QRf418ZUBGI
 -   Eurythmics, *Sweet Dreams (Are Made Of This)* (1983), https://www.youtube.com/watch?v=qeMFqkcPYcg
+-   The Neon Judgement, *The Fashion Party* (1983): https://www.youtube.com/watch?v=2krPtELFkks
 -   Anne Clark, *Our Darkness* (1984): https://www.youtube.com/watch?v=XNSk45A923g
 -   Fad Gadget, *Collapsing New People* (1984): https://www.youtube.com/watch?v=ypINKMapdE0
 -   Talk Talk, *Such a Shame* (1984): https://www.youtube.com/watch?v=lLdvpFIPReA
