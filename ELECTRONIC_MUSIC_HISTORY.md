@@ -209,7 +209,7 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   Liaisons Dangereuses, *Los Niños del Parque* (1981): https://www.youtube.com/watch?v=cx12N1Tw14w
 -   Guerre Froide, *Demain Berlin* (1981): https://www.youtube.com/watch?v=ahs-oaAemjg
 -   Tears for Fears, *Mad World* (1982): https://www.youtube.com/watch?v=u1ZvPSpLxCg
--   Front 242, Kampfbereit (1982): https://www.youtube.com/watch?v=fGle_qgl1Q4
+-   Front 242, *Kampfbereit* (1982): https://www.youtube.com/watch?v=fGle_qgl1Q4
 -   New Order, *Blue Monday* (1983): https://www.youtube.com/watch?v=FYH8DsU2WCk
 -   New Order, *Confusion* (1983): https://www.youtube.com/watch?v=QRf418ZUBGI
 -   Eurythmics, *Sweet Dreams (Are Made Of This)* (1983), https://www.youtube.com/watch?v=qeMFqkcPYcg
