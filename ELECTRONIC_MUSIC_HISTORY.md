@@ -89,6 +89,12 @@ He was a student of Stockhausen. As a guitarist, he will work for Moog and learn
 
 -   Paul Beaver & Bernard L. Krause - *The Nonesuch Guide To Electronic Music* (1968): https://www.youtube.com/watch?v=mqhFvITV7kM
 
+### The Beatles (*Abbey Road,* 1969)
+
+The Moog is used on the tracks "Maxwell's Silver Hammer", "I Want You (She's So Heavy)", "Here Comes The Sun", and "Because".
+
+- *Because:* https://www.youtube.com/watch?v=hL0tnrl2L_U
+
 ## About modular synthesizers
 
 Before becoming digital, the first synthesizers were analogue and modular: each function corresponds to a button, the functions and modules are connected by cables (wave generators, envelope generators, low frequency oscillators, filters, sequencers...) Ideal to understand what a synthesizer is!
