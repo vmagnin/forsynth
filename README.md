@@ -78,7 +78,7 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 ## Bibliography
 ### English
 
-* Jean-Claude Risset, *Computer music: why ?*, https://liberalarts.utexas.edu/france-ut/_files/pdf/resources/risset_2.pdf
+* Jean-Claude Risset, *Computer music: why ?*, https://www.posgrado.unam.mx/musica/lecturas/tecnologia/optativasRecomendadas/Risset_ComputerMusic%20why.pdf
 * Dave Benson, *Music - A Mathematical Offering*, 2008, https://homepages.abdn.ac.uk/d.j.benson/pages/html/music.pdf.
 * Jaffe, David A., and Julius O. Smith. “Extensions of the Karplus-Strong Plucked-String Algorithm.” *Computer Music Journal* 7, no. 2 (1983): 56. https://doi.org/10.2307/3680063.
 * Karplus, Kevin, and Alex Strong. “Digital Synthesis of Plucked-String and Drum Timbres.” *Computer Music Journal* 7, no. 2 (1983): 43–55. https://doi.org/10.2307/3680062.
@@ -89,7 +89,7 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 * Vincent Magnin, "Format WAV : créez des ondes sonores en C", *GNU/Linux Magazine* n°190, février 2016, https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-creez-des-ondes-sonores-en-C
 * Vincent Magnin, "Format WAV : des sons de plus en plus complexes", *GNU/Linux Magazine* n°190, février 2016, https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-des-sons-de-plus-en-plus-complexes
 * Some sounds created with the C version of the program: http://magnin.plil.net/spip.php?article131
-* Laurent de Wilde, *Les fous du son - D'Edison à nous jours,* Editions Grasset et Fasquelle, 560 pages, 2016, ISBN 9782246859277.
-* Laurent Fichet, *Les théories scientifiques de la musique aux XIXe et XXe siècles,* Vrin, 1996, ISBN 978-2-7116-4284-7.
-* Guillaume Kosmicki , *Musiques électroniques - Des avant-gardes aux dance floors,* Editions Le mot et le reste, 2nd edition, 2016, 416 p., ISBN 9782360541928.
+* Laurent de Wilde, [*Les fous du son - D'Edison à nos jours*](https://www.grasset.fr/livres/les-fous-du-son-9782246859277), Editions Grasset et Fasquelle, 560 pages, 2016, ISBN 9782246859277.
+* Laurent Fichet, [*Les théories scientifiques de la musique aux XIXe et XXe siècles*](https://www.vrin.fr/livre/9782711642847/les-theories-scientifiques-de-la-musique), Vrin, 1996, ISBN 978-2-7116-4284-7.
+* Guillaume Kosmicki , [*Musiques électroniques - Des avant-gardes aux dance floors*](https://lemotetlereste.com/musiques/musiqueselectroniquesnouvelleedition/), Editions Le mot et le reste, 2nd edition, 2016, 416 p., ISBN 9782360541928.
 
