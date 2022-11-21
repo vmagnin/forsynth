@@ -218,6 +218,7 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   Fad Gadget, *Collapsing New People* (1984): https://www.youtube.com/watch?v=ypINKMapdE0
 -   Talk Talk, *Such a Shame* (1984): https://www.youtube.com/watch?v=lLdvpFIPReA
 -   Bronski Beat, *Smalltown Boy* (1984): https://www.youtube.com/watch?v=U7-q1WRaKNg
+-   Alphaville, *Forever Young* (1984): https://www.youtube.com/watch?v=3D8bmo5Dlwc
 -   Art Of Noise, *Moments In Love* (1985): https://www.youtube.com/watch?v=cen22TBHo9M
 -   Kraftwerk, *Musique Non Stop* (1986): https://www.youtube.com/watch?v=O0lIlROWro8
 
