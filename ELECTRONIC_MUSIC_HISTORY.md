@@ -160,7 +160,7 @@ Later famous works:
 -   Pink Floyd, *On the Run* (1973, *The Dark Side of the Moon*): https://www.youtube.com/watch?v=2sUyk5zSbhM
 -   *Close Encounters of the Third Kind*(Steven Spielberg, 1977): https://www.youtube.com/watch?v=S4PYI6TzqYk
 -    David Bowie and Brian Eno, *Sense of Doubt* (1977,  *Heroes*): https://www.youtube.com/watch?v=ENqheXKftbo
--   Tubeway Army, *Are Friends Electric* (1979): https://www.youtube.com/watch?v=QzSM3pRtgcM
+-   Tubeway Army, *Are Friends Electric* (1979): https://www.youtube.com/watch?v=21ixpapHjkM
 
 ## 70's: Synth-Punk
 
