@@ -178,9 +178,10 @@ Later famous works:
     -   *Radioactivity* (Fukushima version), Tokyo - No Nukes 2012: https://www.youtube.com/watch?v=IWsQgmq-fNs
     -   *Radioactivity,* French TV (1978): https://www.youtube.com/watch?v=OPhUWrQx1zY
 -   *Trans-Europe Express* (1977): https://www.youtube.com/watch?v=Ms6kC-3yq0k&list=OLAK5uy_nDUpPT0EVhePgXihBpL0XZ6J09mu_TZlU
+-   *Die Mensch-Maschine* (1978): https://www.youtube.com/watch?v=8VApZHVH6iw
 -   "The Robots",  *The Man-Machine* (1978): https://www.youtube.com/watch?v=68d8GRgiec4&list=OLAK5uy\_lpF64nOVPBv72HvvFlP6PAJdyAlY1cxgM
     -   *The Robots* (Roboter, original German version): https://www.youtube.com/watch?v=0hoa9tXnZX8
-    -   *The Model*: https://www.youtube.com/watch?v=GEnx9xS79Lc
+-   *The Model* (1978): https://www.youtube.com/watch?v=GEnx9xS79Lc
 -   *Computer World* (1981):
     -   *Computer Love:* https://www.youtube.com/watch?v=ZtWTUt2RZh0
         -   The Coldplay tribute to Kraftwerk, *Talk,* (2005): https://www.youtube.com/watch?v=EH9meoWmAOM
