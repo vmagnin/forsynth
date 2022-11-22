@@ -150,7 +150,7 @@ Later famous works:
     -   *Oxygene: Live in Your Living Room* (2007): https://www.youtube.com/watch?v=hNeBT3mUxd8
 -   *Equinoxe* (1978):  https://youtu.be/qHSyLuYx2zU?t=759
 -   *Les champs magnétiques,* 1981: https://www.youtube.com/watch?v=JX5oI5YYIZM
--   Interview, Oct. 2015: http://www.liberation.fr/apps/2015/10/jmjarre/\#chapitre-0
+-   Interview, Oct. 2015: http://www.liberation.fr/apps/2015/10/jmjarre/
 
 ## 70's: misc
 
