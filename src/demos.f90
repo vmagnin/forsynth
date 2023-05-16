@@ -1,3 +1,8 @@
+! Forsynth: a multitracks stereo sound synthesis project
+! License GPL-3.0-or-later
+! Vincent Magnin
+! Last modifications: 2021-04-13
+
 module demos
     ! Demonstrations subroutines
 

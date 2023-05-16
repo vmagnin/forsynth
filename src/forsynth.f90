@@ -1,3 +1,8 @@
+! Forsynth: a multitracks stereo sound synthesis project
+! License GPL-3.0-or-later
+! Vincent Magnin
+! Last modifications: 2023-03-28
+
 module forsynth
     use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL64
 

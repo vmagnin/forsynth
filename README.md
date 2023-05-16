@@ -10,7 +10,7 @@ or to teach programming in a fun way!
 * By default, you have 8 stereo tracks. In fact 7 because the track 0 is used for the final mix. It takes 169 Mio in RAM for a two minutes duration. You can of course modify those parameters. Do you know The Beatles used 8 tracks the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
 * Forsynth is a semi-analog studio: time is discretized (44100 samples/s) but the amplitude is coded as a Fortran real and digitized as a 16 bits signed integer only when generating the output WAV file.
 * You need only a modern Fortran compiler and a media player, whatever your OS.
-* GNU GPLv3 license.
+* GPL-3.0-or-later license.
 
 ## Compilation and execution
 

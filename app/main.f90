@@ -1,5 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
-! Copyright (C) Vincent Magnin, 2014-07-26 (C version)
+! License GPL-3.0-or-later
+! Vincent Magnin
+! C version: 2014-07-26
 ! Fortran translation: 2021-02-16
 ! Last modification: 2021-02-22
 
