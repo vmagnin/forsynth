@@ -5,6 +5,20 @@ author = "Vincent Magnin"
 maintainer = "Vincent Magnin"
 copyright = "2021-2024 Vincent Magnin"
 
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+module-naming = false
+
+[install]
+library = false
+
+[fortran]
+implicit-typing = false
+implicit-external = false
+source-form = "free"
+
 [library]
 source-dir="src"
 
