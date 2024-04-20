@@ -63,4 +63,4 @@ as the other waveforms.
 - Initial commit.
 
 ### Changed
-- Translated from C.
+- Translated from the C version (2014-07-26).
