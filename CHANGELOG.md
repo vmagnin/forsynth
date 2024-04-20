@@ -1,6 +1,6 @@
 # Changelog
 All notable changes to the Forsynth project will be documented in this file.
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 
 ## [Forsynth development version]
@@ -14,9 +14,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - Now under GPL-3.0-or-later license.
+- `src/demos.f90` was removed and split into `example/demo1.f90`, 
+`example/demo2.f90` and `example/demo3.f90`. They can be run with the
+`fpm run --example` command.
+
+### Removed
+- `app/main.f90` was removed. The `test_the_machine()` subroutine is now called by `fpm test`.
 
 ### Fixed
 - A bug in add_karplus_strong().
+
 
 ## [Forsynth 0.2 "Daft Punk"] 2021-02-23
 
@@ -48,6 +55,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - `add_sinusoidal_signal` has been renamed `add_sine_wave`, on the same model
 as the other waveforms.
+
 
 ## [Forsynth 0.1 "Stockhausen"] 2021-02-19
 

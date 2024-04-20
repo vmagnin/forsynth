@@ -14,15 +14,21 @@ or to teach programming in a fun way!
 
 ## Compilation and execution
 
-You can easily build and run the project using the Fortran Package Manager fpm (https://github.com/fortran-lang/fpm) at the root of the project directory:
+You can easily build the project using the Fortran Package Manager fpm (https://github.com/fortran-lang/fpm) at the root of the project directory:
 ```
 $ fpm build
-$ fpm run
 ```
 
 Or you can also use the `build.sh` script if you don't have fpm installed.
 
-A WAV file was generated in the same directory, for example `demo1.wav`:
+### Running the examples
+The examples can be found in the `example/` directory. For example, the `demo1.f90` example can be run with the command:
+
+```bash
+$ fpm run --example demo1
+```
+
+A WAV file was generated in the root directory of the project:
 
 ```bash
 $ file demo1.wav
