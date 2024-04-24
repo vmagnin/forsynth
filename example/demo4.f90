@@ -48,7 +48,7 @@ program demo4
     print *, "Noise"
     call add_noise(1, t + 5*delta_t, t + 6*delta_t, 1.0_dp)
     print *, "Weierstrass"
-    call add_weierstrass(1, t + 6*delta_t, t + 6*delta_t + 1._dp, f_A, 1.0_dp)
+    call add_weierstrass(1, t + 6*delta_t, t + 7*delta_t, f_A, 1.0_dp)
 
     print *, "Final mix..."
     call finalize_WAV_file()

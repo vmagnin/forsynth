@@ -196,7 +196,7 @@ contains
     end subroutine
 
     ! https://en.wikipedia.org/wiki/Weierstrass_function
-    real(dp) function weierstrass(a, b, x)
+    pure real(dp) function weierstrass(a, b, x)
         real(dp), intent(in) :: a, b, x
         real(dp) :: w, ww
         integer  :: n
@@ -206,7 +206,7 @@ contains
         do
             ww = w
             w = w + a**n * cos(b**n * PI * x)
-            if (abs(ww - w) == 0._dp) exit
+            if (abs(ww - w) < 1e-16_dp) exit
 
             n = n + 1
         end do
