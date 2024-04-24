@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - music module:
   - function `fr()` to compute the frequency of a note, for example "A#3".
   - Several music scales stored in arrays.
+- `signals.f90`: a new fractal `add_weierstrass` signal.
 - demos module:
   - Added some scales in `demo3()`.
 
@@ -17,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `src/demos.f90` was removed and split into `example/demo1.f90`, 
 `example/demo2.f90` and `example/demo3.f90`. They can be run with the
 `fpm run --example` command.
+    - `example/demo3.f90` was split in two: demo3 (two scales and a blues) and demo4 (signals).
 
 ### Removed
 - `app/main.f90` was removed. The `test_the_machine()` subroutine is now called by `fpm test`.
