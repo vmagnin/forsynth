@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-03-28
+! Last modifications: 2024-04-24
 
 module signals
     ! Subroutines generating different kind of signals
@@ -14,7 +14,8 @@ module signals
     private
 
     public :: add_sine_wave, add_square_wave, add_sawtooth_wave,&
-            & add_triangle_wave, add_karplus_strong, add_noise
+            & add_triangle_wave, add_karplus_strong, add_noise, weierstrass, &
+            & add_weierstrass
 
 contains
 
@@ -193,5 +194,58 @@ contains
             right(track, i) = right(track, i) + Amp*(2.0_dp*r(2) - 1.0_dp)
         end do
     end subroutine
+
+    ! https://en.wikipedia.org/wiki/Weierstrass_function
+    real(dp) function weierstrass(a, b, x)
+        real(dp), intent(in) :: a, b, x
+        real(dp) :: w, ww
+        integer  :: n
+
+        n = 0
+        w = 0._dp
+        do
+            ww = w
+            w = w + a**n * cos(b**n * PI * x)
+            if (abs(ww - w) == 0._dp) exit
+
+            n = n + 1
+        end do
+
+        weierstrass = w
+    end function
+
+    ! A fractal signal:
+    subroutine add_weierstrass(track, t1, t2, f, Amp)
+        integer, intent(in)  :: track
+        real(dp), intent(in) :: t1, t2, f, Amp
+        ! Pulsation (radians/second):
+        real(dp) :: omega
+        ! Time in seconds:
+        real(dp) :: t
+        ! Phase at t=0 s, radians:
+        real(dp), parameter  :: phi = 0.0_dp
+        ! ADSR Envelope value:
+        real(dp) :: env
+        real(dp) :: signal
+        real(dp) :: a, b
+        integer  :: i
+
+        ! 0 < a < 1.
+        a = 0.975_dp
+        ! If a.b > 1 the function is fractal:
+        b = 1._dp/.975_dp + 0.005_dp ;
+
+        omega = 2.0_dp * PI * f
+        t = 0._dp
+        do i = nint(t1*RATE), nint(t2*RATE)-1
+            env = ADSR_enveloppe(t1+t, t1, t2)
+            signal = Amp * weierstrass(a, b, omega*t + phi) * env
+            ! It is addd to the already present signal:
+            left(track, i)  = left(track, i)  + signal
+            right(track, i) = right(track, i) + signal
+
+            t = t + dt
+        end do
+    end subroutine add_weierstrass
 
 end module signals
