@@ -54,6 +54,12 @@ In:2.32% 00:00:02.79 [00:01:57.21] Out:123k  [!=====|=====!] Hd:0.0 Clip:0
 
 You can also use [Audacity](https://www.audacityteam.org/) or [Sonic Visualiser](https://sonicvisualiser.org/) to visualise your music, either as a waveform or a spectrogram.
 
+You can use the optimization flags of your compiler, for example with GFortran:
+```shell
+$ fpm run --example demo1 --flag "-Ofast -static-libgfortran"
+```
+
+
 ## Contributing
 
 * Post a message in the GitHub *Issues* tab to discuss the function you want to work on.
