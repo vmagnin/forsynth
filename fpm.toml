@@ -46,3 +46,8 @@ main = "demo3.f90"
 name = "demo4"
 source-dir = "example"
 main = "demo4.f90"
+
+[[example]]
+name = "drum_machine"
+source-dir = "example"
+main = "drum_machine.f90"

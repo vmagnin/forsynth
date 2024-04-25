@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-24
+! Last modifications: 2024-04-25
 
 module signals
     ! Subroutines generating different kind of signals
@@ -14,8 +14,9 @@ module signals
     private
 
     public :: add_sine_wave, add_square_wave, add_sawtooth_wave,&
-            & add_triangle_wave, add_karplus_strong, add_noise, weierstrass, &
-            & add_weierstrass
+            & add_triangle_wave, add_karplus_strong, add_karplus_strong_drum, &
+            & add_karplus_strong_drum_stretched, &
+            & add_noise, weierstrass, add_weierstrass
 
 contains
 
@@ -179,6 +180,88 @@ contains
             right(track, i) = left(track, i)
         end do
     end subroutine add_karplus_strong
+
+    ! Karplus and Strong (1983) algorithm for obtaining a percussion sound.
+    ! Typically, P is taken to be between 150 and 1000.
+    ! Caution: this algorithm overwrites what may have existed on the
+    ! track at the chosen location.
+    ! You may also want to modify the b parameter to make some weird sounds,
+    ! somewhere between percussion and guitar...
+    ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
+    ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
+    subroutine add_karplus_strong_drum(track, t1, t2, P, Amp)
+        integer, intent(in)  :: track, P
+        real(dp), intent(in) :: t1, t2, Amp
+
+        real(dp) :: signal, r
+        integer  :: i
+        ! 0 <= b <= 1 but b = 0.5 is the best value for good drums:
+        real(dp), parameter :: b = 0.5_dp
+        real(dp) :: the_sign
+
+        ! Initial noise:
+        do i = nint(t1*RATE), nint(t1*RATE) + P
+            left(track, i)  = Amp
+            right(track, i) = Amp
+        end do
+
+        ! Evolution and decay:
+        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
+            ! The sign of the sample is random:
+            call random_number(r)
+            if (r < b) then
+                the_sign = +1._dp
+            else
+                the_sign = -1._dp
+            end if
+
+            ! Mean of samples i-P and i-P-1:
+            left(track, i)  = the_sign * 0.5_dp * (left(track, i-P) + left(track, i-P-1))
+            right(track, i) = left(track, i)
+        end do
+    end subroutine add_karplus_strong_drum
+
+
+    subroutine add_karplus_strong_drum_stretched(track, t1, t2, P, Amp)
+        integer,  intent(in) :: track, P
+        real(dp), intent(in) :: t1, t2, Amp
+
+        real(dp) :: r
+        integer  :: i
+        ! 0 <= b <= 1 but b = 0.5 is the best value for good drums:
+        real(dp), parameter :: b = 0.5_dp
+        ! Stretch factor S > 1:
+        real(dp), parameter :: S = 4._dp
+
+        ! Initial noise:
+        do i = nint(t1*RATE), nint(t1*RATE) + P
+            left(track, i)  = Amp
+            right(track, i) = Amp
+        end do
+
+        ! Evolution and decay:
+        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
+            ! The sign of the sample is random:
+            call random_number(r)
+            if (r < b) then
+                call random_number(r)
+                if (r < 1/S) then
+                    left(track, i) = +0.5_dp * (left(track, i-P) + left(track, i-P-1))
+                else
+                    left(track, i) = +left(track, i-P)
+                end if
+            else
+                call random_number(r)
+                if (r < 1/S) then
+                    left(track, i) = -0.5_dp * (left(track, i-P) + left(track, i-P-1))
+                else
+                    left(track, i) = -left(track, i-P)
+                end if
+            end if
+
+            right(track, i) = left(track, i)
+        end do
+    end subroutine add_karplus_strong_drum_stretched
 
 
     subroutine add_noise(track, t1, t2, Amp)

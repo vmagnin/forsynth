@@ -9,9 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - music module:
   - function `fr()` to compute the frequency of a note, for example "A#3".
   - Several music scales stored in arrays.
-- `signals.f90`: a new fractal `add_weierstrass` signal.
+- `signals.f90` module:
+  - a new fractal `add_weierstrass()` signal.
+  - `add_karplus_strong_drum()` signal.
+  - `add_karplus_strong_drum_stretched()`.
 - demos module:
   - Added some scales in `demo3()`.
+  - `drum_machine.f90` using Karplus Strong drums.
 
 ### Changed
 - Now under GPL-3.0-or-later license.
