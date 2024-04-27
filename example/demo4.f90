@@ -16,12 +16,12 @@ program demo4
 
     implicit none
     type(file_t) :: d4
-    real(dp) :: t, delta_t
+    real(dp) :: t, Dt
     real(dp) :: f_A, r
     integer  :: i, k
 
-    print *, "**** Demo 4 ****"
-    call d4%create_WAV_file('demo4.wav')
+    print *, "**** Demo of the available signals ****"
+    call d4%create_WAV_file('signals.wav')
     call clear_tracks()
 
     attack = 30.0_dp
@@ -30,30 +30,30 @@ program demo4
     ! Notes frequencies:
     f_A = fr("A3")             ! A 220 Hz
     ! Notes duration in seconds:
-    delta_t = 3.0_dp
-    t = 0.0_dp
+    Dt = 3.0_dp
 
+    t = 0.0_dp
     print *, "Sinusoidal signal"
-    call add_sine_wave(1, t, t + delta_t, f_A, 1.0_dp)
+    call add_sine_wave(1, t, t + Dt, f_A, 1.0_dp)
     print *, "Square wave"
-    call add_square_wave(1, t + delta_t, t + 2*delta_t, f_A, 1.0_dp)
+    call add_square_wave(1, t + Dt, t + 2*Dt, f_A, 1.0_dp)
     print *, "Sawtooth wave"
-    call add_sawtooth_wave(1, t + 2*delta_t, t + 3*delta_t, f_A, 1.0_dp)
+    call add_sawtooth_wave(1, t + 2*Dt, t + 3*Dt, f_A, 1.0_dp)
     print *, "Triangle wave"
-    call add_triangle_wave(1, t + 3*delta_t, t + 4*delta_t, f_A, 1.0_dp)
+    call add_triangle_wave(1, t + 3*Dt, t + 4*Dt, f_A, 1.0_dp)
     print *, "Summing the four signals together"
-    call add_sine_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
-    call add_square_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
-    call add_sawtooth_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
-    call add_triangle_wave(1, t + 4*delta_t, t + 5*delta_t, f_A, 0.5_dp)
+    call add_sine_wave(    1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
+    call add_square_wave(  1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
+    call add_sawtooth_wave(1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
+    call add_triangle_wave(1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
     print *, "Noise"
-    call add_noise(1, t + 5*delta_t, t + 6*delta_t, 1.0_dp)
+    call add_noise(1, t + 5*Dt, t + 6*Dt, 1.0_dp)
     print *, "Weierstrass"
-    call add_weierstrass(1, t + 6*delta_t, t + 7*delta_t, f_A, 1.0_dp)
+    call add_weierstrass(1, t + 6*Dt, t + 7*Dt, f_A, 1.0_dp)
     print *, "Karplus Strong"
-    call add_karplus_strong(1, t + 7*delta_t, t + 8*delta_t,  f_A, 1.0_dp)
+    call add_karplus_strong(1, t + 7*Dt, t + 8*Dt,  f_A, 1.0_dp)
     print *, "Karplus Strong stretched"
-    call add_karplus_strong_stretched(1, t + 8*delta_t, t + 9*delta_t,  f_A, 1.0_dp)
+    call add_karplus_strong_stretched(1, t + 8*Dt, t + 9*Dt,  f_A, 1.0_dp)
 
     print *, "Final mix..."
     call finalize_WAV_file()
