@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-25
+! Last modifications: 2024-04-27
 
 module signals
     ! Subroutines generating different kind of signals
@@ -14,8 +14,8 @@ module signals
     private
 
     public :: add_sine_wave, add_square_wave, add_sawtooth_wave,&
-            & add_triangle_wave, add_karplus_strong, add_karplus_strong_drum, &
-            & add_karplus_strong_drum_stretched, &
+            & add_triangle_wave, add_karplus_strong, add_karplus_strong_stretched, &
+            & add_karplus_strong_drum, add_karplus_strong_drum_stretched, &
             & add_noise, weierstrass, add_weierstrass
 
 contains
@@ -180,6 +180,40 @@ contains
             right(track, i) = left(track, i)
         end do
     end subroutine add_karplus_strong
+
+
+    subroutine add_karplus_strong_stretched(track, t1, t2, f, Amp)
+        integer, intent(in)  :: track
+        real(dp), intent(in) :: t1, t2, f, Amp
+
+        real(dp) :: r
+        integer  :: i
+        integer  :: P
+        ! Stretch factor S > 1:
+        real(dp), parameter :: S = 4._dp
+
+        P = nint(RATE / f) - 2._dp
+
+        ! Initial noise:
+        do i = nint(t1*RATE), nint(t1*RATE) + P
+            ! 0 <= r < 1
+            call random_number(r)
+            left(track, i)  = Amp * (2.0_dp*r - 1.0_dp)
+            right(track, i) = left(track, i)
+        end do
+
+        ! Delay and decay:
+        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
+            call random_number(r)
+            if (r < 1/S) then
+                left(track, i) = +0.5_dp * (left(track, i-P) + left(track, i-P-1))
+            else
+                left(track, i) = +left(track, i-P)
+            end if
+            right(track, i) = left(track, i)
+        end do
+    end subroutine add_karplus_strong_stretched
+
 
     ! Karplus and Strong (1983) algorithm for obtaining a percussion sound.
     ! Typically, P is taken to be between 150 and 1000.

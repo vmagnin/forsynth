@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - a new fractal `add_weierstrass()` signal.
   - `add_karplus_strong_drum()` signal.
   - `add_karplus_strong_drum_stretched()`.
+  - `karplus_strong_stretched()`
 - demos module:
   - Added some scales in `demo3()`.
   - `drum_machine.f90` using Karplus Strong drums.

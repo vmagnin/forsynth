@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-24
+! Last modifications: 2024-04-27
 
 ! Plays each type of available signal
 program demo4
@@ -10,7 +10,8 @@ program demo4
     use music, only: fr
     use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &
-                     & add_karplus_strong, add_noise, add_weierstrass
+                     & add_karplus_strong, add_karplus_strong_stretched, &
+                     & add_noise, add_weierstrass
     use envelopes, only: attack, decay
 
     implicit none
@@ -49,6 +50,10 @@ program demo4
     call add_noise(1, t + 5*delta_t, t + 6*delta_t, 1.0_dp)
     print *, "Weierstrass"
     call add_weierstrass(1, t + 6*delta_t, t + 7*delta_t, f_A, 1.0_dp)
+    print *, "Karplus Strong"
+    call add_karplus_strong(1, t + 7*delta_t, t + 8*delta_t,  f_A, 1.0_dp)
+    print *, "Karplus Strong stretched"
+    call add_karplus_strong_stretched(1, t + 8*delta_t, t + 9*delta_t,  f_A, 1.0_dp)
 
     print *, "Final mix..."
     call finalize_WAV_file()
