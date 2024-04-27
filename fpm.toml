@@ -43,9 +43,9 @@ source-dir = "example"
 main = "demo3.f90"
 
 [[example]]
-name = "demo4"
+name = "signals"
 source-dir = "example"
-main = "demo4.f90"
+main = "signals.f90"
 
 [[example]]
 name = "drum_machine"

@@ -24,6 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 `example/demo2.f90` and `example/demo3.f90`. They can be run with the
 `fpm run --example` command.
     - `example/demo3.f90` was split in two: demo3 (two scales and a blues) and demo4 (signals).
+- `demo4.f90` renamed `signals.f90`.
 
 ### Removed
 - `app/main.f90` was removed. The `test_the_machine()` subroutine is now called by `fpm test`.
