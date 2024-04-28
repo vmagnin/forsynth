@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-27
+! Last modifications: 2024-04-28
 
 module signals
     ! Subroutines generating different kind of signals
@@ -227,7 +227,7 @@ contains
         integer, intent(in)  :: track, P
         real(dp), intent(in) :: t1, t2, Amp
 
-        real(dp) :: signal, r
+        real(dp) :: r
         integer  :: i
         ! 0 <= b <= 1 but b = 0.5 is the best value for good drums:
         real(dp), parameter :: b = 0.5_dp

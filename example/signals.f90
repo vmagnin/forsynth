@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-27
+! Last modifications: 2024-04-28
 
 ! Plays each type of available signal
 program demo4
@@ -17,8 +17,7 @@ program demo4
     implicit none
     type(file_t) :: d4
     real(dp) :: t, Dt
-    real(dp) :: f_A, r
-    integer  :: i, k
+    real(dp) :: f_A
 
     print *, "**** Demo of the available signals ****"
     call d4%create_WAV_file('signals.wav')
