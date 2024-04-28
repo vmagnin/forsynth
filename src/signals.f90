@@ -192,7 +192,7 @@ contains
         ! Stretch factor S > 1:
         real(dp), parameter :: S = 4._dp
 
-        P = nint(RATE / f) - 2._dp
+        P = nint(RATE / f) - 2
 
         ! Initial noise:
         do i = nint(t1*RATE), nint(t1*RATE) + P
