@@ -1,8 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-20
-
+! Last modifications: 2024-04-28
 program demo2
     use forsynth, only: dp, create_WAV_file, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks, file_t
@@ -14,7 +13,7 @@ program demo2
     implicit none
     type(file_t) :: d2
     integer  :: i
-    real(dp) :: t, delta_t
+    real(dp) :: t, Dt
 
     print *, "**** Demo 2 ****"
     call d2%create_WAV_file('demo2.wav')
@@ -24,22 +23,22 @@ program demo2
     decay  = 40.0_dp
 
     ! Notes duration in seconds:
-    delta_t = 1.5_dp
+    Dt = 1.5_dp
 
     print *, "Track 1: repeating G D F C chords..."
     t = 0.0_dp
-    call add_major_chord(1, t,             t + delta_t,   fr("G3"), 1.0_dp)
-    call add_major_chord(1, t + delta_t,   t + 2*delta_t, fr("D3"), 1.0_dp)
-    call add_major_chord(1, t + 2*delta_t, t + 3*delta_t, fr("F3"), 1.0_dp)
-    call add_major_chord(1, t + 3*delta_t, t + 4*delta_t, fr("C3"), 1.0_dp)
+    call add_major_chord(1, t,        t + Dt,   fr("G3"), 1.0_dp)
+    call add_major_chord(1, t + Dt,   t + 2*Dt, fr("D3"), 1.0_dp)
+    call add_major_chord(1, t + 2*Dt, t + 3*Dt, fr("F3"), 1.0_dp)
+    call add_major_chord(1, t + 3*Dt, t + 4*Dt, fr("C3"), 1.0_dp)
     ! Repeat those four chords until the end of the track:
     do i = 1, 19
-        call copy_section(1, 1, t, t + 4*delta_t, 4 * delta_t * i)
+        call copy_section(1, 1, t, t + 4*Dt, 4 * Dt * i)
     end do
 
     call apply_fuzz_effect(1, t, DURATION, 0.8_dp)
-    call apply_tremolo_effect(1, t, t + 4*delta_t, 4.0_dp, 0.3_dp)
-    call apply_autopan_effect(1, t + 4*delta_t, t + 8*delta_t, 0.33_dp, 0.8_dp)
+    call apply_tremolo_effect(1, t, t + 4*Dt, 4.0_dp, 0.3_dp)
+    call apply_autopan_effect(1, t + 4*Dt, t + 8*Dt, 0.33_dp, 0.8_dp)
 
     print *, "Final mix..."
     call finalize_WAV_file()
