@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - demos module:
   - Added some scales in `demo3()`.
   - `drum_machine.f90` using Karplus Strong drums.
+  - `misc_sounds.f90`: creates miscellaneous sounds in WAV files, especially obtained by frequency or phase modulation.
 
 ### Changed
 - Now under GPL-3.0-or-later license.
