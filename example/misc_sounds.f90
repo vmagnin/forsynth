@@ -27,6 +27,7 @@ program misc_sounds
 
 contains
 
+    ! Add on the track a signal choosen by its number:
     subroutine add_misc_signal(track, t1, t2, f, Amp, choice)
         integer, intent(in)  :: track, choice
         real(dp), intent(in) :: t1, t2, f, Amp
@@ -77,7 +78,7 @@ contains
                 case (14) ! Tremolo
                     left(track, i) = left(track, i) + Amp * sin(omega*t + phi) + Amp * sin(1.001_dp*omega*t + phi) &
                                    & + Amp * sin(0.999_dp*omega*t + phi)
-                case (15) ! Poke... (a short percussion)
+                case (15) ! Poke... (a short percussion based on the Sinc function)
                     if (omega*t+phi /= 0._dp) then
                         left(track, i) = left(track, i) + Amp * sin(omega*t + phi) / (omega*t+phi)
                     else
