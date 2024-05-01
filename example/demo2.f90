@@ -2,6 +2,7 @@
 ! License GPL-3.0-or-later
 ! Vincent Magnin
 ! Last modifications: 2024-04-28
+
 program demo2
     use forsynth, only: dp, create_WAV_file, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks, file_t

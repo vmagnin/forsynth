@@ -20,6 +20,7 @@ module signals
 
 contains
 
+    ! Adds on the track a sine wave with an ADSR envelope:
     subroutine add_sine_wave(track, t1, t2, f, Amp)
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
@@ -48,7 +49,7 @@ contains
         end do
     end subroutine add_sine_wave
 
-
+    ! Adds on the track a square wave with an ADSR envelope:
     subroutine add_square_wave(track, t1, t2, f, Amp)
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
@@ -83,7 +84,7 @@ contains
         end do
     end subroutine add_square_wave
 
-
+    ! Adds on the track a sawtooth wave with an ADSR envelope:
     subroutine add_sawtooth_wave(track, t1, t2, f, Amp)
         integer, intent(in) :: track
         real(dp), intent(in) :: t1, t2, f, Amp
@@ -111,7 +112,7 @@ contains
         end do
     end subroutine add_sawtooth_wave
 
-
+    ! Adds on the track a triangle wave with an ADSR envelope:
     subroutine add_triangle_wave(track, t1, t2, f, Amp)
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
@@ -152,11 +153,10 @@ contains
         end do
     end subroutine add_triangle_wave
 
-
+    ! Karplus and Strong algorithm (1983), for plucked-string
+    ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
+    ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
     subroutine add_karplus_strong(track, t1, t2, f, Amp)
-        ! Karplus and Strong algorithm (1983), for plucked-string
-        ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
-        ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
         real(dp) :: signal, r
@@ -297,7 +297,7 @@ contains
         end do
     end subroutine add_karplus_strong_drum_stretched
 
-
+    ! Add white noise on the track:
     subroutine add_noise(track, t1, t2, Amp)
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, Amp
@@ -331,7 +331,7 @@ contains
         weierstrass = w
     end function
 
-    ! A fractal signal:
+    ! Add a fractal signal on the track with an envelope:
     subroutine add_weierstrass(track, t1, t2, f, Amp)
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp

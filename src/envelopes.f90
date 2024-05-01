@@ -3,15 +3,14 @@
 ! Vincent Magnin
 ! Last modifications: 2023-03-28
 
+! Subroutines generating envelopes
+! https://en.wikipedia.org/wiki/Envelope_(music)
 module envelopes
-    ! Subroutines generating envelopes
-    ! https://en.wikipedia.org/wiki/Envelope_(music)
-
     use forsynth, only: dp, RATE, PI, left, right
 
     implicit none
 
-    ! Parameters of the ADSR envelope:
+    ! Default parameters of the ADSR envelope:
     ! A   D S   R
     !    /\
     !   /  \____
@@ -28,9 +27,8 @@ module envelopes
 
 contains
 
+    ! Returns the level in [0, 1] of an ADSR envelope at time t1 < t < t2
     real(dp) function ADSR_enveloppe(t, t1, t2)
-        ! Returns the level in [0, 1] of an ADSR envelope at time t1 < t < t2
-
         real(dp), intent(in) :: t, t1, t2
         integer :: i, i1, i2, i3, i4, i5
 

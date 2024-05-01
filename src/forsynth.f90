@@ -75,6 +75,7 @@ contains
         end do
     end subroutine
 
+    ! Create a WAV file with a header:
     subroutine create_WAV_file(self, filename)
       class(file_t), intent(inout)  :: self
       character(*), intent(in)      :: filename
@@ -88,10 +89,8 @@ contains
 
     end subroutine create_WAV_file
 
+    ! Creates the 44 bytes WAV header and prints some information:
     subroutine write_header()
-        ! Creates the WAV header (44 bytes)
-        ! and prints some information.
-
         !****************
         ! WAV parameters:
         !****************

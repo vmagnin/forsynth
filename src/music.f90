@@ -40,6 +40,7 @@ module music
 
 contains
 
+    ! A note of fundamental frequency f with harmonics, based on sine waves:
     subroutine add_note(track, t1, t2, f, Amp)
         ! https://en.wikipedia.org/wiki/Harmonic
         integer, intent(in)  :: track
@@ -52,6 +53,7 @@ contains
         end do
     end subroutine
 
+    ! Those simple sounding notes are used to create major and minor chords:
     subroutine add_major_chord(track, t1, t2, f, Amp)
         ! https://en.wikipedia.org/wiki/Major_chord
         integer, intent(in)  :: track
@@ -74,12 +76,11 @@ contains
         call add_note(track, t1, t2, f * SEMITONE**7, Amp)
     end subroutine
 
-
+    ! Returns the frequency of the note.
+    ! The note name is composed of two or three characters,
+    ! for example "A4", "A#4", "Ab4", where the final character is
+    ! the octave.
     real(dp) function fr(note)
-        ! Returns the frequency of the note.
-        ! The note name is composed of two or three characters,
-        ! for example "A4", "A#4", "Ab4", where the final character is
-        ! the octave.
         character(*), intent(in) :: note
         ! 0 <= octave <=9
         integer :: octave

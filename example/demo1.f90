@@ -47,6 +47,7 @@ program demo1
         call add_karplus_strong(2, t, t + Dt, chosen_note(int(r*4)), 1.0_dp)
     end do
 
+    ! A double delay inspired by The Edge.
     ! Dotted quavers delay:
     call apply_delay_effect(2, 0.0_dp, DURATION, Dt*0.75_dp, 0.45_dp)
     ! Plus a quavers delay:
