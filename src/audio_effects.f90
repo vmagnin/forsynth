@@ -90,8 +90,8 @@ contains
         omegaLFO = 2 * PI * f
         t = 0
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            left(track,  i) = left(track,  i) * (1.0 - AmpLFO * sin(omegaLFO*t + phi))
-            right(track, i) = right(track, i) * (1.0 - AmpLFO * cos(omegaLFO*t + phi))
+            left(track,  i) = left(track,  i) * (1.0_dp - AmpLFO * sin(omegaLFO*t + phi))
+            right(track, i) = right(track, i) * (1.0_dp - AmpLFO * cos(omegaLFO*t + phi))
             t = t + dt
         end do
     end subroutine
