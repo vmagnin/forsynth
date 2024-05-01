@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-03-28
+! Last modifications: 2024-05-01
 
 module forsynth
     use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL64
@@ -13,7 +13,6 @@ module forsynth
     ! Output unit:
     integer :: u
     real(dp), parameter :: PI = 4.0_dp * atan(1.0_dp)
-    real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
     ! Maximum amplitude in a WAV [-32768 ; +32767]:
     integer, parameter  :: MAX_AMPLITUDE = 32767
     ! Duration in seconds:
@@ -43,7 +42,7 @@ module forsynth
     private :: u, status, mix_tracks, write_normalized_data, &
              & MAX_AMPLITUDE, SAMPLES
 
-    public :: dp, test_the_machine, PITCH, PI, SEMITONE, RATE, dt, TRACKS, &
+    public :: dp, test_the_machine, PITCH, PI, RATE, dt, TRACKS, &
             & DURATION, left, right, finalize_WAV_file, copy_section, &
             & clear_tracks
 

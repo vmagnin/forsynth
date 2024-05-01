@@ -1,12 +1,12 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-03-28
+! Last modifications: 2024-05-01
 
 module music
     ! Music theory
 
-    use forsynth, only: dp, PITCH, SEMITONE
+    use forsynth, only: dp, PITCH
     use signals, only: add_sine_wave
 
     implicit none
@@ -30,11 +30,13 @@ module music
     character(2), dimension(1:6) :: WHOLE_TONE_SCALE = &
                                     & ['C ','D ','E ','F#','G#','A#']
 
+    real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
+
     private
 
     public :: add_note, add_major_chord, add_minor_chord, fr, CHROMATIC_SCALE, &
             & MAJOR_SCALE, MAJOR_PENTATONIC_SCALE, WHOLE_TONE_SCALE, &
-            & HEXATONIC_BLUES_SCALE, HARMONIC_MINOR_SCALE
+            & HEXATONIC_BLUES_SCALE, HARMONIC_MINOR_SCALE, SEMITONE
 
 contains
 
