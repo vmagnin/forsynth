@@ -25,7 +25,7 @@ module forsynth
     ! Number of audio tracks (track 0 is reserved for the final mix):
     integer, parameter  :: TRACKS = 8
     ! Concert pitch (A note):
-    real(dp), parameter :: PITCH = 440d0
+    real(dp), parameter :: PITCH = 440.0_dp
 
     ! Two arrays stocking the stereo tracks:
     real(dp), dimension(0:TRACKS, 0:SAMPLES) :: left, right
