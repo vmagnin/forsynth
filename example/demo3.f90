@@ -1,13 +1,14 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-28
+! Last modifications: 2024-05-09
 
 program demo3
     use forsynth, only: dp, create_WAV_file, &
                       & finalize_WAV_file, clear_tracks, file_t
     use signals, only: add_karplus_strong
-    use music, only: fr, MAJOR_SCALE, HEXATONIC_BLUES_SCALE
+    use music, only: fr
+    use music_common, only: MAJOR_SCALE, HEXATONIC_BLUES_SCALE
     use envelopes, only: attack, decay
 
     implicit none

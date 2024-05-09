@@ -1,42 +1,21 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-01
+! Last modifications: 2024-05-09
 
 module music
-    ! Music theory
-
+    !---------------------------------------------------------------------------
+    ! Contains music theory elements: scales, circle of fifths, chords, etc.
+    !---------------------------------------------------------------------------
     use forsynth, only: dp, PITCH
     use signals, only: add_sine_wave
+    ! Music theory elements common to the ForMIDI and ForSynth projects:
+    use music_common
 
     implicit none
-
-    ! We define some scales. We don't include the octave of the first note.
-    ! Always use the trim() function to remove trailing spaces.
-    ! https://en.wikipedia.org/wiki/Scale_(music)
-    character(2), dimension(1:12) :: CHROMATIC_SCALE = &
-               & ['C ','C#','D ','D#','E ','F ','F#','G ','G#','A ','A#','B ']
-    ! https://en.wikipedia.org/wiki/Major_scale
-    character(1), dimension(1:7) :: MAJOR_SCALE = ['C','D','E','F','G','A','B']
-    ! https://en.wikipedia.org/wiki/Minor_scale#Harmonic_minor_scale
-    character(2), dimension(1:7) :: HARMONIC_MINOR_SCALE = &
-                                    & ['A ','B ','C ','D ','E ','F ','G#']
-    ! https://en.wikipedia.org/wiki/Pentatonic_scale#Major_pentatonic_scale
-    character(1), dimension(1:5) :: MAJOR_PENTATONIC_SCALE = ['C','D','E','G','A']
-    ! https://en.wikipedia.org/wiki/Hexatonic_scale#Blues_scale
-    character(2), dimension(1:6) :: HEXATONIC_BLUES_SCALE = &
-                                    & ['C ','Eb','F ','Gb','G ','Bb']
-    ! https://en.wikipedia.org/wiki/Whole_tone_scale
-    character(2), dimension(1:6) :: WHOLE_TONE_SCALE = &
-                                    & ['C ','D ','E ','F#','G#','A#']
-
     real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
 
-    private
-
-    public :: add_note, add_major_chord, add_minor_chord, fr, CHROMATIC_SCALE, &
-            & MAJOR_SCALE, MAJOR_PENTATONIC_SCALE, WHOLE_TONE_SCALE, &
-            & HEXATONIC_BLUES_SCALE, HARMONIC_MINOR_SCALE, SEMITONE
+    public
 
 contains
 
