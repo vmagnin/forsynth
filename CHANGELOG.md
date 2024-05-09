@@ -7,17 +7,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - music module:
-  - function `fr()` to compute the frequency of a note, for example "A#3".
-  - Several music scales stored in arrays.
+    - A subroutine `add_chord()`, using an array containing the intervals of the chord.
+    - A function `fr()` to compute the frequency of a note, for example "A#3".
+    - Several music scales stored in arrays.
 - `signals.f90` module:
-  - a new fractal `add_weierstrass()` signal.
-  - `add_karplus_strong_drum()` signal.
-  - `add_karplus_strong_drum_stretched()`.
-  - `karplus_strong_stretched()`
+    - a new fractal `add_weierstrass()` signal.
+    - `add_karplus_strong_drum()` signal.
+    - `add_karplus_strong_drum_stretched()`.
+    - `karplus_strong_stretched()`
 - demos module:
-  - Added some scales in `demo3()`.
-  - `drum_machine.f90` using Karplus Strong drums.
-  - `misc_sounds.f90`: creates miscellaneous sounds in WAV files, especially obtained by frequency or phase modulation.
+    - Added some scales in `demo3()`.
+    - `drum_machine.f90` using Karplus Strong drums.
+    - `misc_sounds.f90`: creates miscellaneous sounds in WAV files, especially obtained by frequency or phase modulation.
 - A `ROADMAP.md` file.
 
 ### Changed
@@ -31,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Removed
 - `app/main.f90` was removed. The `test_the_machine()` subroutine is now called by `fpm test`.
+- The routines `add_major_chord()` and `add_minor_chord()` in the `music` module (replaced by `add_chord()`).
 
 ### Fixed
 - A bug in add_karplus_strong().

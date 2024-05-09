@@ -13,9 +13,11 @@ module music
     use music_common
 
     implicit none
+    public
+
     real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
 
-    public
+    public :: SEMITONE, add_note, add_chord, fr
 
 contains
 
@@ -32,28 +34,19 @@ contains
         end do
     end subroutine
 
-    ! Those simple sounding notes are used to create major and minor chords:
-    subroutine add_major_chord(track, t1, t2, f, Amp)
-        ! https://en.wikipedia.org/wiki/Major_chord
+    ! Writes a chord using an array containing the intervals
+    ! (see the music_common module)
+    subroutine add_chord(track, t1, t2, f, Amp, chord)
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, Amp
+        integer, dimension(:), intent(in) :: chord
+        integer :: i, interval
 
-        ! Root, major third and perfect fifth:
-        call add_note(track, t1, t2, f, Amp)
-        call add_note(track, t1, t2, f * SEMITONE**4, Amp)
-        call add_note(track, t1, t2, f * SEMITONE**7, Amp)
-    end subroutine
-
-    subroutine add_minor_chord(track, t1, t2, f, Amp)
-        ! https://en.wikipedia.org/wiki/Minor_chord
-        integer, intent(in)  :: track
-        real(dp), intent(in) :: t1, t2, f, Amp
-
-        ! Root, minor third and perfect fifth:
-        call add_note(track, t1, t2, f, Amp)
-        call add_note(track, t1, t2, f * SEMITONE**3, Amp)
-        call add_note(track, t1, t2, f * SEMITONE**7, Amp)
-    end subroutine
+        do i = 1, size(chord)
+            interval = chord(i)
+            call add_note(track, t1, t2, f * SEMITONE**interval, Amp)
+        end do
+    end subroutine add_chord
 
     ! Returns the frequency of the note.
     ! The note name is composed of two or three characters,

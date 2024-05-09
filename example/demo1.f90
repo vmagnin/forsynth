@@ -1,13 +1,14 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-28
+! Last modifications: 2024-05-09
 
 program demo1
     use forsynth, only: dp, create_WAV_file, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks, file_t
     use signals, only: add_karplus_strong
-    use music, only: add_major_chord, add_minor_chord, fr
+    use music_common, only: MINOR_CHORD, MAJOR_CHORD
+    use music, only: add_chord, fr
     use audio_effects, only: apply_delay_effect
 
     implicit none
@@ -25,10 +26,10 @@ program demo1
 
     print *, "Track 1: repeating Am C G Dm chords..."
     t = 0.0_dp
-    call add_minor_chord(1, t,        t + Dt,   fr("A3"), 1.0_dp)
-    call add_major_chord(1, t + Dt,   t + 2*Dt, fr("C3"), 1.0_dp)
-    call add_major_chord(1, t + 2*Dt, t + 3*Dt, fr("G3"), 1.0_dp)
-    call add_minor_chord(1, t + 3*Dt, t + 4*Dt, fr("D3"), 1.0_dp)
+    call add_chord(1, t,        t + Dt,   fr("A3"), 1.0_dp, MINOR_CHORD)
+    call add_chord(1, t + Dt,   t + 2*Dt, fr("C3"), 1.0_dp, MAJOR_CHORD)
+    call add_chord(1, t + 2*Dt, t + 3*Dt, fr("G3"), 1.0_dp, MAJOR_CHORD)
+    call add_chord(1, t + 3*Dt, t + 4*Dt, fr("D3"), 1.0_dp, MINOR_CHORD)
     ! Repeat those four chords until the end of the track:
     do i = 1, 9
         call copy_section(1, 1, t, t + 4*Dt, 4 * Dt * i)
