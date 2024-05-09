@@ -1,6 +1,6 @@
 #!/bin/bash
 # Vincent Magnin
-# Last modification: 2024-04-29
+# Last modification: 2024-05-09
 
 # For a safer script:
 set -eu
@@ -23,3 +23,6 @@ rm -f *.mod
 "${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/signals.f90 -o build/signals.out
 "${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/drum_machine.f90 -o build/drum_machine.out
 "${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/misc_sounds.f90 -o build/misc_sounds.out
+
+# Cleanup to avoid any problem with fpm or another compiler:
+rm -f *.mod
