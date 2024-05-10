@@ -11,7 +11,7 @@
 * [ ] Improve the artistic quality of some examples.
 
 ### Documentation
-* [ ] Design a logo.
+* [x] Design a logo.
 
 
 

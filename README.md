@@ -1,4 +1,5 @@
-# Forsynth
+![](logo/logo_forsynth.svg)
+
 A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!
 
 But Forsynth could also be used for *data sonification:*
