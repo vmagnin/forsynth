@@ -15,6 +15,9 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk.
 * You just need a modern Fortran compiler and a media player, whatever your OS.
 * GPL-3.0-or-later license.
 
+If you are more interested by composing than sound synthesis, you may also be interested by its twin project [ForMIDI](https://github.com/vmagnin/formidi).
+
+
 ## Compilation and execution
 
 You can easily build the project using the Fortran Package Manager fpm (https://github.com/fortran-lang/fpm) at the root of the project directory:
