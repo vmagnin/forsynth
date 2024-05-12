@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-29
-! Last modifications: 2024-04-29
+! Last modifications: 2024-05-12
 
 ! Miscellaneous signals, especially obtained by frequency or phase modulation
 program misc_sounds
@@ -16,7 +16,7 @@ program misc_sounds
     character(2) :: number
 
     print *, "**** Creating misc_sounds WAV files ****"
-    do i = 0, 22
+    do i = 0, 23
         print *, i
         write(number, '(I0)') i
         call demo%create_WAV_file('misc_sounds'//trim(number)//'.wav')
@@ -104,6 +104,10 @@ contains
                     do j=1, 11, +2
                         left(track, i) = left(track, i) + Amp/j**0.7_dp * sin(j*omega*t)
                     end do
+                case (23) ! Bessel function of the first kind J1: pong...
+                    left(track, i) = left(track, i) + Amp * bessel_jn(1, omega*t)
+                case (24) ! Bessel functions of the first kind: ping (far shorter)
+                    left(track, i) = left(track, i) + Amp * bessel_jn(1, omega*t) * bessel_jn(2, omega*t)
             end select
             right(track, i) = left(track, i)
             t = t + dt
