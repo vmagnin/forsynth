@@ -1,16 +1,18 @@
 ![](logo/logo_forsynth.svg)
 
-A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!
+A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. But Forsynth could also be used for scientific data *sonification* or to teach programming in a fun way.
 
-But Forsynth could also be used for *data sonification:*
-https://fortran-lang.discourse.group/t/anecdotal-fortran/704/8
-or to teach programming in a fun way!
+Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk.
 
 ## Features
 
-* By default, you have 8 stereo tracks. In fact 7 because the track 0 is used for the final mix. It takes 169 Mio in RAM for a two minutes duration. You can of course modify those parameters. Do you know The Beatles used 8 tracks the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
 * Forsynth is a semi-analog studio: time is discretized (44100 samples/s) but the amplitude is coded as a Fortran real and digitized as a 16 bits signed integer only when generating the output WAV file.
-* You need only a modern Fortran compiler and a media player, whatever your OS.
+* By default, you have 8 stereo tracks. In fact 7 because the track 0 is used for the final mix. It takes 169 Mio in RAM for a two minutes duration. You can of course modify those parameters. Do you know The Beatles used a 8 tracks tape the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
+* Basic music theory elements (scales, circle of fifths, chords...).
+* Various signals and Karplus-Strong algorithms.
+* An ADSR envelope generator.
+* Some audio effects: delay, fuzz, tremolo and autopan.
+* You just need a modern Fortran compiler and a media player, whatever your OS.
 * GPL-3.0-or-later license.
 
 ## Compilation and execution
@@ -29,14 +31,25 @@ The examples can be found in the `example/` directory. For example, the `demo1.f
 $ fpm run --example demo1
 ```
 
+But you can also use the optimization flags of your compiler, for example with GFortran:
+```shell
+$ fpm run --example demo1 --flag "-Ofast -static-libgfortran"
+```
+
 A WAV file was generated in the root directory of the project:
 
 ```bash
 $ file demo1.wav
 demo1.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 44100 Hz
+$ hexdump -C demo1.wav
+00000000  52 49 46 46 a4 ff 42 01  57 41 56 45 66 6d 74 20  |RIFF..B.WAVEfmt |
+00000010  10 00 00 00 01 00 02 00  44 ac 00 00 10 b1 02 00  |........D.......|
+00000020  04 00 10 00 64 61 74 61  80 ff 42 01 3d 0e 3d 0e  |....data..B.=.=.|
+00000030  56 03 56 03 d4 f5 d4 f5  9d 0e 9d 0e 91 f6 91 f6  |V.V.............|
+...
 ```
 
-You can then listen to your WAV using any media player, for example the SoX play command (or the ALSA command `aplay`):
+You can listen to your WAV using any media player, for example the SoX play command (or the ALSA command `aplay`):
 
 ```bash
 $ play demo1.wav
@@ -54,11 +67,6 @@ In:2.32% 00:00:02.79 [00:01:57.21] Out:123k  [!=====|=====!] Hd:0.0 Clip:0
 ```
 
 You can also use [Audacity](https://www.audacityteam.org/) or [Sonic Visualiser](https://sonicvisualiser.org/) to visualise your music, either as a waveform or a spectrogram.
-
-You can use the optimization flags of your compiler, for example with GFortran:
-```shell
-$ fpm run --example demo1 --flag "-Ofast -static-libgfortran"
-```
 
 
 ## Contributing
@@ -105,4 +113,4 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 * Laurent de Wilde, [*Les fous du son - D'Edison à nos jours*](https://www.grasset.fr/livres/les-fous-du-son-9782246859277), Editions Grasset et Fasquelle, 560 pages, 2016, ISBN 9782246859277.
 * Laurent Fichet, [*Les théories scientifiques de la musique aux XIXe et XXe siècles*](https://www.vrin.fr/livre/9782711642847/les-theories-scientifiques-de-la-musique), Vrin, 1996, ISBN 978-2-7116-4284-7.
 * Guillaume Kosmicki , [*Musiques électroniques - Des avant-gardes aux dance floors*](https://lemotetlereste.com/musiques/musiqueselectroniquesnouvelleedition/), Editions Le mot et le reste, 2nd edition, 2016, 416 p., ISBN 9782360541928.
-
+* Bibliothèque Tangente n°11, [*Mathématiques et musique - des destinées parallèles*](https://www.lalibrairie.com/livres/mathematiques-et-musique--des-destinees-paralleles--2022_0-9115242_9782848842462.html), Paris : Éditions POLE, septembre 2022, ISBN 9782848842462.
