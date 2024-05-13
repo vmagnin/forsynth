@@ -6,12 +6,12 @@
 ! Miscellaneous signals, especially obtained by frequency or phase modulation
 program misc_sounds
     use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, file_t, &
+                      & clear_tracks, WAV_file, &
                       & RATE, PI, left, right
     use music, only: fr
 
     implicit none
-    type(file_t) :: demo
+    type(WAV_file) :: demo
     integer      :: i
     character(2) :: number
 

@@ -6,7 +6,7 @@
 ! Plays each type of available signal
 program demo4
     use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, file_t
+                      & clear_tracks, WAV_file
     use music, only: fr
     use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &
@@ -15,7 +15,7 @@ program demo4
     use envelopes, only: attack, decay
 
     implicit none
-    type(file_t) :: d4
+    type(WAV_file) :: d4
     real(dp) :: t, Dt
     real(dp) :: f_A
 

@@ -10,8 +10,6 @@ module forsynth
     ! Double precision reals:
     integer, parameter:: dp = REAL64
     integer :: status
-    ! Output unit:
-    integer :: u
     real(dp), parameter :: PI = 4.0_dp * atan(1.0_dp)
     ! Maximum amplitude in a WAV [-32768 ; +32767]:
     integer, parameter  :: MAX_AMPLITUDE = 32767
@@ -31,17 +29,18 @@ module forsynth
     real(dp), dimension(0:TRACKS, 0:SAMPLES) :: left, right
 
 
-    type file_t
+    type WAV_file
       character(len=:), allocatable :: filename
       integer                       :: fileunit
     contains
       procedure :: create_WAV_file
       procedure :: finalize_WAV_file
-    end type file_t
+      procedure, private :: write_header
+      procedure, private :: write_normalized_data
+    end type WAV_file
 
 
-    private :: u, status, write_normalized_data, &
-             & MAX_AMPLITUDE, SAMPLES
+    private :: status, MAX_AMPLITUDE, SAMPLES
 
     public :: dp, test_the_machine, PITCH, PI, RATE, dt, TRACKS, &
             & DURATION, left, right, copy_section, &
@@ -84,20 +83,21 @@ contains
 
     ! Create a WAV file with a header:
     subroutine create_WAV_file(self, filename)
-      class(file_t), intent(inout)  :: self
+      class(WAV_file), intent(inout)  :: self
       character(*), intent(in)      :: filename
 
-      self%fileunit   = u
       self%filename   = filename
 
-      open(unit=self%fileunit, file=self%filename, access='stream', status='replace', action='write')
+      open(newunit=self%fileunit, file=self%filename, access='stream', status='replace', action='write')
 
-      call write_header()
+      call self%write_header()
 
     end subroutine create_WAV_file
 
     ! Creates the 44 bytes WAV header and prints some information:
-    subroutine write_header()
+    subroutine write_header(self)
+        class(WAV_file), intent(inout)  :: self
+
         !****************
         ! WAV parameters:
         !****************
@@ -113,45 +113,47 @@ contains
         print *, "RAM:        ", DATA_BYTES * TRACKS, "bytes"
         print *, "File size ~ ", DATA_BYTES, "bytes"
 
-        ! RIFF format:
-        write(u, iostat=status) "RIFF"
-        ! Remaining bytes after this data:
-        file_size = 36 + DATA_BYTES
-        write(u, iostat=status) file_size
+        associate(u => self%fileunit)
+            ! RIFF format:
+            write(u, iostat=status) "RIFF"
+            ! Remaining bytes after this data:
+            file_size = 36 + DATA_BYTES
+            write(u, iostat=status) file_size
 
-        write(u, iostat=status) "WAVE"
+            write(u, iostat=status) "WAVE"
 
-        ! ***** First sub-chunk *****
-        ! Don't remove the final space in the string!
-        write(u, iostat=status) "fmt "
-        ! Remaining bytes in this sub-chunk, 16 for PCM (32 bits integer):
-        write(u, iostat=status) 16_INT32
-        ! Encoding is 1 for PCM (16 bits integer):
-        write(u, iostat=status) 1_INT16
+            ! ***** First sub-chunk *****
+            ! Don't remove the final space in the string!
+            write(u, iostat=status) "fmt "
+            ! Remaining bytes in this sub-chunk, 16 for PCM (32 bits integer):
+            write(u, iostat=status) 16_INT32
+            ! Encoding is 1 for PCM (16 bits integer):
+            write(u, iostat=status) 1_INT16
 
-        write(u, iostat=status) int(CHANNELS, kind=INT16)
-        ! Sampling frequency:
-        write(u, iostat=status) int(RATE, kind=INT32)
+            write(u, iostat=status) int(CHANNELS, kind=INT16)
+            ! Sampling frequency:
+            write(u, iostat=status) int(RATE, kind=INT32)
 
-        bytes_per_second = RATE * CHANNELS * (BITS_PER_SAMPLE / 8)
-        write(u, iostat=status) bytes_per_second
+            bytes_per_second = RATE * CHANNELS * (BITS_PER_SAMPLE / 8)
+            write(u, iostat=status) bytes_per_second
 
-        bytes_per_sample = CHANNELS * (BITS_PER_SAMPLE / 8)
-        write(u, iostat=status) bytes_per_sample
+            bytes_per_sample = CHANNELS * (BITS_PER_SAMPLE / 8)
+            write(u, iostat=status) bytes_per_sample
 
-        write(u, iostat=status) BITS_PER_SAMPLE
+            write(u, iostat=status) BITS_PER_SAMPLE
 
-        ! ***** Second sub-chunk *****
-        write(u, iostat=status) "data"
+            ! ***** Second sub-chunk *****
+            write(u, iostat=status) "data"
 
-        data_size = SAMPLES * CHANNELS * (BITS_PER_SAMPLE / 8)
-        write(u, iostat=status) data_size
+            data_size = SAMPLES * CHANNELS * (BITS_PER_SAMPLE / 8)
+            write(u, iostat=status) data_size
+        end associate
     end subroutine write_header
 
-
-    subroutine write_normalized_data()
-        ! This routine normalizes the sound amplitude on track 0, before saving
-        ! the left and right channels in the WAV file.
+    ! This method normalizes the sound amplitude on track 0, before saving
+    ! the left and right channels in the WAV file.
+    subroutine write_normalized_data(self)
+        class(WAV_file), intent(inout)  :: self
         integer  :: i
         real(dp) :: maxi
 
@@ -161,17 +163,17 @@ contains
         do i = 0 , SAMPLES
             ! Writing the amplitude of left then right channels as 16 bit
             ! signed integers:
-            write(u, iostat=status) nint((left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
-            write(u, iostat=status) nint((right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
+            write(self%fileunit, iostat=status) nint((left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
+            write(self%fileunit, iostat=status) nint((right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
         end do
     end subroutine
 
     ! Must be called at the end. It normalizes the channels, writes them in the
     ! WAV file and closes it.
     subroutine finalize_WAV_file(self)
-        class(file_t), intent(inout)  :: self
+        class(WAV_file), intent(inout)  :: self
 
-        call write_normalized_data()
+        call self%write_normalized_data()
         close(self%fileunit, iostat=status)
     end subroutine
 

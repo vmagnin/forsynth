@@ -5,14 +5,14 @@
 
 program demo3
     use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, file_t
+                      & clear_tracks, WAV_file
     use signals, only: add_karplus_strong
     use music, only: fr
     use music_common, only: MAJOR_SCALE, HEXATONIC_BLUES_SCALE
     use envelopes, only: attack, decay
 
     implicit none
-    type(file_t) :: d3
+    type(WAV_file) :: d3
     real(dp) :: t, Dt
     real(dp) :: f_A
     real(dp) :: r   ! Random number

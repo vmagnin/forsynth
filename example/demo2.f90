@@ -5,7 +5,7 @@
 
 program demo2
     use forsynth, only: dp, mix_tracks, DURATION, &
-                      & copy_section, clear_tracks, file_t
+                      & copy_section, clear_tracks, WAV_file
     use music_common, only: MAJOR_CHORD
     use music, only: fr, add_chord
     use audio_effects, only: apply_fuzz_effect, apply_tremolo_effect, &
@@ -13,7 +13,7 @@ program demo2
     use envelopes, only: attack, decay
 
     implicit none
-    type(file_t) :: d2
+    type(WAV_file) :: d2
     integer  :: i
     real(dp) :: t, Dt
 

@@ -5,11 +5,11 @@
 
 program drum_machine
     use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, file_t
+                      & clear_tracks, WAV_file
     use signals, only: add_karplus_strong_drum, add_karplus_strong_drum_stretched
 
     implicit none
-    type(file_t) :: demo
+    type(WAV_file) :: demo
     integer  :: i
     real(dp) :: dt
 

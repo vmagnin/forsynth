@@ -5,14 +5,14 @@
 
 program demo1
     use forsynth, only: dp, mix_tracks, DURATION, &
-                      & copy_section, clear_tracks, file_t
+                      & copy_section, clear_tracks, WAV_file
     use signals, only: add_karplus_strong
     use music_common, only: MINOR_CHORD, MAJOR_CHORD
     use music, only: add_chord, fr
     use audio_effects, only: apply_delay_effect
 
     implicit none
-    type(file_t) :: d1
+    type(WAV_file) :: d1
     integer  :: i
     real(dp) :: t, Dt, r
     real(dp) :: chosen_note(0:3)
