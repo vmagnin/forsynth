@@ -5,7 +5,7 @@
 
 program drum_machine
     use forsynth, only: dp, create_WAV_file, mix_tracks, &
-                      & finalize_WAV_file, clear_tracks, file_t
+                      & clear_tracks, file_t
     use signals, only: add_karplus_strong_drum, add_karplus_strong_drum_stretched
 
     implicit none
@@ -27,6 +27,6 @@ program drum_machine
 
     print *, "Final mix..."
     call mix_tracks()
-    call finalize_WAV_file()
+    call demo%finalize_WAV_file()
 
 end program drum_machine

@@ -36,6 +36,7 @@ module forsynth
       integer                       :: fileunit
     contains
       procedure :: create_WAV_file
+      procedure :: finalize_WAV_file
     end type file_t
 
 
@@ -43,7 +44,7 @@ module forsynth
              & MAX_AMPLITUDE, SAMPLES
 
     public :: dp, test_the_machine, PITCH, PI, RATE, dt, TRACKS, &
-            & DURATION, left, right, finalize_WAV_file, copy_section, &
+            & DURATION, left, right, copy_section, &
             & clear_tracks, mix_tracks
 
 contains
@@ -165,10 +166,13 @@ contains
         end do
     end subroutine
 
+    ! Must be called at the end. It normalizes the channels, writes them in the
+    ! WAV file and closes it.
+    subroutine finalize_WAV_file(self)
+        class(file_t), intent(inout)  :: self
 
-    subroutine finalize_WAV_file()
         call write_normalized_data()
-        close(u, iostat=status)
+        close(self%fileunit, iostat=status)
     end subroutine
 
 

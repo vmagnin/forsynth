@@ -5,7 +5,7 @@
 
 program demo1
     use forsynth, only: dp, create_WAV_file, mix_tracks, DURATION, &
-                      & finalize_WAV_file, copy_section, clear_tracks, file_t
+                      & copy_section, clear_tracks, file_t
     use signals, only: add_karplus_strong
     use music_common, only: MINOR_CHORD, MAJOR_CHORD
     use music, only: add_chord, fr
@@ -56,6 +56,6 @@ program demo1
 
     print *, "Final mix..."
     call mix_tracks()
-    call finalize_WAV_file()
+    call d1%finalize_WAV_file()
 
 end program demo1

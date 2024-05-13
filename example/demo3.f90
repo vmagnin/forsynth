@@ -5,7 +5,7 @@
 
 program demo3
     use forsynth, only: dp, create_WAV_file, mix_tracks, &
-                      & finalize_WAV_file, clear_tracks, file_t
+                      & clear_tracks, file_t
     use signals, only: add_karplus_strong
     use music, only: fr
     use music_common, only: MAJOR_SCALE, HEXATONIC_BLUES_SCALE
@@ -68,6 +68,6 @@ program demo3
 
     print *, "Final mix..."
     call mix_tracks()
-    call finalize_WAV_file()
+    call d3%finalize_WAV_file()
 
 end program demo3

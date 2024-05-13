@@ -5,7 +5,7 @@
 
 program demo2
     use forsynth, only: dp, create_WAV_file, mix_tracks, DURATION, &
-                      & finalize_WAV_file, copy_section, clear_tracks, file_t
+                      & copy_section, clear_tracks, file_t
     use music_common, only: MAJOR_CHORD
     use music, only: fr, add_chord
     use audio_effects, only: apply_fuzz_effect, apply_tremolo_effect, &
@@ -44,6 +44,6 @@ program demo2
 
     print *, "Final mix..."
     call mix_tracks()
-    call finalize_WAV_file()
+    call d2%finalize_WAV_file()
 
 end program demo2

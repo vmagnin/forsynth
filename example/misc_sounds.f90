@@ -6,7 +6,7 @@
 ! Miscellaneous signals, especially obtained by frequency or phase modulation
 program misc_sounds
     use forsynth, only: dp, create_WAV_file, mix_tracks, &
-                      & finalize_WAV_file, clear_tracks, file_t, &
+                      & clear_tracks, file_t, &
                       & RATE, PI, left, right
     use music, only: fr
 
@@ -23,7 +23,7 @@ program misc_sounds
         call clear_tracks()
         call add_misc_signal(1, 0._dp, 100._dp, fr("A4"), 1._dp, i)
         call mix_tracks()
-        call finalize_WAV_file()
+        call demo%finalize_WAV_file()
     end do
 
 contains

@@ -6,7 +6,7 @@
 ! Plays each type of available signal
 program demo4
     use forsynth, only: dp, create_WAV_file, mix_tracks, &
-                      & finalize_WAV_file, clear_tracks, file_t
+                      & clear_tracks, file_t
     use music, only: fr
     use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &
@@ -56,6 +56,6 @@ program demo4
 
     print *, "Final mix..."
     call mix_tracks()
-    call finalize_WAV_file()
+    call d4%finalize_WAV_file()
 
 end program demo4
