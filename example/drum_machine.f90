@@ -4,7 +4,7 @@
 ! Last modifications: 2024-05-13
 
 program drum_machine
-    use forsynth, only: dp, create_WAV_file, mix_tracks, &
+    use forsynth, only: dp, mix_tracks, &
                       & clear_tracks, file_t
     use signals, only: add_karplus_strong_drum, add_karplus_strong_drum_stretched
 

@@ -4,7 +4,7 @@
 ! Last modifications: 2024-05-13
 
 program demo2
-    use forsynth, only: dp, create_WAV_file, mix_tracks, DURATION, &
+    use forsynth, only: dp, mix_tracks, DURATION, &
                       & copy_section, clear_tracks, file_t
     use music_common, only: MAJOR_CHORD
     use music, only: fr, add_chord

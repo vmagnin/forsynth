@@ -4,7 +4,7 @@
 ! Last modifications: 2024-05-13
 
 program demo3
-    use forsynth, only: dp, create_WAV_file, mix_tracks, &
+    use forsynth, only: dp, mix_tracks, &
                       & clear_tracks, file_t
     use signals, only: add_karplus_strong
     use music, only: fr

@@ -5,7 +5,7 @@
 
 ! Miscellaneous signals, especially obtained by frequency or phase modulation
 program misc_sounds
-    use forsynth, only: dp, create_WAV_file, mix_tracks, &
+    use forsynth, only: dp, mix_tracks, &
                       & clear_tracks, file_t, &
                       & RATE, PI, left, right
     use music, only: fr

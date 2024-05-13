@@ -4,7 +4,7 @@
 ! Last modifications: 2024-05-13
 
 program demo1
-    use forsynth, only: dp, create_WAV_file, mix_tracks, DURATION, &
+    use forsynth, only: dp, mix_tracks, DURATION, &
                       & copy_section, clear_tracks, file_t
     use signals, only: add_karplus_strong
     use music_common, only: MINOR_CHORD, MAJOR_CHORD

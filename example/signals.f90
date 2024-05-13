@@ -5,7 +5,7 @@
 
 ! Plays each type of available signal
 program demo4
-    use forsynth, only: dp, create_WAV_file, mix_tracks, &
+    use forsynth, only: dp, mix_tracks, &
                       & clear_tracks, file_t
     use music, only: fr
     use signals, only: add_sine_wave, add_square_wave, &
