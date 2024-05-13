@@ -1,11 +1,11 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-04-28
+! Last modifications: 2024-05-13
 
 ! Plays each type of available signal
 program demo4
-    use forsynth, only: dp, create_WAV_file, &
+    use forsynth, only: dp, create_WAV_file, mix_tracks, &
                       & finalize_WAV_file, clear_tracks, file_t
     use music, only: fr
     use signals, only: add_sine_wave, add_square_wave, &
@@ -55,6 +55,7 @@ program demo4
     call add_karplus_strong_stretched(1, t + 8*Dt, t + 9*Dt,  f_A, 1.0_dp)
 
     print *, "Final mix..."
+    call mix_tracks()
     call finalize_WAV_file()
 
 end program demo4

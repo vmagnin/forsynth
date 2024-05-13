@@ -1,10 +1,10 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-09
+! Last modifications: 2024-05-13
 
 program demo1
-    use forsynth, only: dp, create_WAV_file, DURATION, &
+    use forsynth, only: dp, create_WAV_file, mix_tracks, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks, file_t
     use signals, only: add_karplus_strong
     use music_common, only: MINOR_CHORD, MAJOR_CHORD
@@ -55,6 +55,7 @@ program demo1
     call apply_delay_effect(2, 0.0_dp, DURATION, Dt*0.50_dp, 0.30_dp)
 
     print *, "Final mix..."
+    call mix_tracks()
     call finalize_WAV_file()
 
 end program demo1

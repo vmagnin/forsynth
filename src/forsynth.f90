@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-01
+! Last modifications: 2024-05-13
 
 module forsynth
     use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL64
@@ -39,12 +39,12 @@ module forsynth
     end type file_t
 
 
-    private :: u, status, mix_tracks, write_normalized_data, &
+    private :: u, status, write_normalized_data, &
              & MAX_AMPLITUDE, SAMPLES
 
     public :: dp, test_the_machine, PITCH, PI, RATE, dt, TRACKS, &
             & DURATION, left, right, finalize_WAV_file, copy_section, &
-            & clear_tracks
+            & clear_tracks, mix_tracks
 
 contains
 
@@ -65,13 +65,19 @@ contains
     end subroutine
 
 
-    subroutine mix_tracks()
-        ! Tracks 1 to TRACKS-1 are mixed on track 0.
+    ! Tracks 1 to TRACKS-1 are mixed on track 0.
+    subroutine mix_tracks(levels)
+        real(dp), dimension(1:TRACKS-1), intent(in), optional :: levels
         integer :: track
 
         do track = 1, TRACKS-1
-            left(0, :)  = left(0, :)  + left(track, :)
-            right(0, :) = right(0, :) + right(track, :)
+            if (.not.present(levels)) then
+                left(0, :)  = left(0, :)  + left(track, :)
+                right(0, :) = right(0, :) + right(track, :)
+            else
+                left(0, :)  = left(0, :)  + levels(track) * left(track, :)
+                right(0, :) = right(0, :) + levels(track) * right(track, :)
+            end if
         end do
     end subroutine
 
@@ -161,7 +167,6 @@ contains
 
 
     subroutine finalize_WAV_file()
-        call mix_tracks()
         call write_normalized_data()
         close(u, iostat=status)
     end subroutine

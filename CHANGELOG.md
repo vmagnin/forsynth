@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Forsynth development version]
 
 ### Added
+- `src/forsynth.f90`: the method `mix_tracks()` is now public. It accepts an optional array containing the levels of each track (except track 0) in the mix.
 - music module:
     - A subroutine `add_chord()`, using an array containing the intervals of the chord.
     - A function `fr()` to compute the frequency of a note, for example "A#3".

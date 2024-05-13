@@ -5,8 +5,8 @@
 ### Features
 * [x] A `music_common` module could gather the common code and parameters of ForMIDI and ForSynth.
 * [x] Add other chords: 7th, Sus2, Sus4... using the `music_common` module.
-* [ ] The duration (120 seconds by default) should be set when we create a new WAV, instead of being hard-set.
-* [ ] The method `mix_tracks()` could accept an optional array with the final levels of each track.
+* [ ] The duration (120 seconds by default) and number of tracks should be set when we create a new WAV, instead of being hard-set.
+* [x] The method `mix_tracks()` could accept an optional array with the final levels of each track.
 
 ### Examples
 * [ ] Improve the artistic quality of some examples.

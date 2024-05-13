@@ -1,10 +1,10 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-09
+! Last modifications: 2024-05-13
 
 program demo2
-    use forsynth, only: dp, create_WAV_file, DURATION, &
+    use forsynth, only: dp, create_WAV_file, mix_tracks, DURATION, &
                       & finalize_WAV_file, copy_section, clear_tracks, file_t
     use music_common, only: MAJOR_CHORD
     use music, only: fr, add_chord
@@ -43,6 +43,7 @@ program demo2
     call apply_autopan_effect(1, t + 4*Dt, t + 8*Dt, 0.33_dp, 0.8_dp)
 
     print *, "Final mix..."
+    call mix_tracks()
     call finalize_WAV_file()
 
 end program demo2

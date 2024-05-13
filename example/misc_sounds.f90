@@ -1,11 +1,11 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-29
-! Last modifications: 2024-05-12
+! Last modifications: 2024-05-13
 
 ! Miscellaneous signals, especially obtained by frequency or phase modulation
 program misc_sounds
-    use forsynth, only: dp, create_WAV_file, &
+    use forsynth, only: dp, create_WAV_file, mix_tracks, &
                       & finalize_WAV_file, clear_tracks, file_t, &
                       & RATE, PI, left, right
     use music, only: fr
@@ -22,6 +22,7 @@ program misc_sounds
         call demo%create_WAV_file('misc_sounds'//trim(number)//'.wav')
         call clear_tracks()
         call add_misc_signal(1, 0._dp, 100._dp, fr("A4"), 1._dp, i)
+        call mix_tracks()
         call finalize_WAV_file()
     end do
 

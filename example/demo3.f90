@@ -1,10 +1,10 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-09
+! Last modifications: 2024-05-13
 
 program demo3
-    use forsynth, only: dp, create_WAV_file, &
+    use forsynth, only: dp, create_WAV_file, mix_tracks, &
                       & finalize_WAV_file, clear_tracks, file_t
     use signals, only: add_karplus_strong
     use music, only: fr
@@ -67,6 +67,7 @@ program demo3
     end do
 
     print *, "Final mix..."
+    call mix_tracks()
     call finalize_WAV_file()
 
 end program demo3
