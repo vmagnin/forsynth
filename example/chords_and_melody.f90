@@ -3,7 +3,7 @@
 ! Vincent Magnin
 ! Last modifications: 2024-05-14
 
-program demo1
+program chords_and_melody
     use forsynth, only: dp, mix_tracks, DURATION, copy_section, clear_tracks
     use wav_file_class, only: WAV_file
     use signals, only: add_karplus_strong
@@ -12,13 +12,13 @@ program demo1
     use audio_effects, only: apply_delay_effect
 
     implicit none
-    type(WAV_file) :: d1
+    type(WAV_file) :: demo
     integer  :: i
     real(dp) :: t, Dt, r
     real(dp) :: chosen_note(0:3)
 
-    print *, "**** Demo 1 ****"
-    call d1%create_WAV_file('demo1.wav')
+    print *, "**** Demo chords and melody ****"
+    call demo%create_WAV_file('chords_and_melody.wav')
     call clear_tracks()
 
     ! Notes duration in seconds:
@@ -56,6 +56,6 @@ program demo1
 
     print *, "Final mix..."
     call mix_tracks()
-    call d1%finalize_WAV_file()
+    call demo%finalize_WAV_file()
 
-end program demo1
+end program chords_and_melody

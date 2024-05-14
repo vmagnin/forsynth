@@ -28,9 +28,9 @@ source-dir="test"
 main="main.f90"
 
 [[example]]
-name = "demo1"
+name = "chords_and_melody"
 source-dir = "example"
-main = "demo1.f90"
+main = "chords_and_melody.f90"
 
 [[example]]
 name = "demo2"

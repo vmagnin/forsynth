@@ -28,23 +28,23 @@ $ fpm build
 Or you can also use the `build.sh` script if you don't have fpm installed.
 
 ### Running the examples
-The examples can be found in the `example/` directory. For example, the `demo1.f90` example can be run with the command:
+The examples can be found in the `example/` directory. For example, the `chords_and_melody.f90` example can be run with the command:
 
 ```bash
-$ fpm run --example demo1
+$ fpm run --example chords_and_melody
 ```
 
 But you can also use the optimization flags of your compiler, for example with GFortran:
 ```shell
-$ fpm run --example demo1 --flag "-Ofast -static-libgfortran"
+$ fpm run --example chords_and_melody --flag "-Ofast -static-libgfortran"
 ```
 
 A WAV file was generated in the root directory of the project:
 
 ```bash
-$ file demo1.wav
-demo1.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 44100 Hz
-$ hexdump -C demo1.wav
+$ file chords_and_melody.wav
+chords_and_melody.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 44100 Hz
+$ hexdump -C chords_and_melody.wav
 00000000  52 49 46 46 a4 ff 42 01  57 41 56 45 66 6d 74 20  |RIFF..B.WAVEfmt |
 00000010  10 00 00 00 01 00 02 00  44 ac 00 00 10 b1 02 00  |........D.......|
 00000020  04 00 10 00 64 61 74 61  80 ff 42 01 3d 0e 3d 0e  |....data..B.=.=.|
@@ -55,9 +55,9 @@ $ hexdump -C demo1.wav
 You can listen to your WAV using any media player, for example the SoX play command (or the ALSA command `aplay`):
 
 ```bash
-$ play demo1.wav
+$ play chords_and_melody.wav
 
-demo1.wav:
+chords_and_melody.wav:
 
  File Size: 21.2M     Bit Rate: 1.41M
   Encoding: Signed PCM
