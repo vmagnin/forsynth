@@ -3,7 +3,7 @@
 ! Vincent Magnin
 ! Last modifications: 2024-05-14
 
-program demo3
+program blues
     use forsynth, only: dp, mix_tracks, &
                       & clear_tracks, WAV_file
     use signals, only: add_karplus_strong
@@ -13,13 +13,13 @@ program demo3
     use audio_effects, only: apply_tremolo_effect
 
     implicit none
-    type(WAV_file) :: blues
+    type(WAV_file) :: demo
     real(dp) :: t, Dt
     real(dp) :: r   ! Random number
     integer  :: i, k
 
-    print *, "**** Demo 3 ****"
-    call blues%create_WAV_file('demo3.wav')
+    print *, "**** Demo Blues ****"
+    call demo%create_WAV_file('blues.wav')
     call clear_tracks()
 
     attack = 30.0_dp
@@ -62,6 +62,6 @@ program demo3
 
     print *, "Final mix..."
     call mix_tracks()
-    call blues%finalize_WAV_file()
+    call demo%finalize_WAV_file()
 
-end program demo3
+end program blues
