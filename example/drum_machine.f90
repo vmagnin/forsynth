@@ -1,11 +1,11 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-25
-! Last modifications: 2024-05-13
+! Last modifications: 2024-05-14
 
 program drum_machine
-    use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, WAV_file
+    use forsynth, only: dp, mix_tracks, clear_tracks
+    use wav_file_class, only: WAV_file
     use signals, only: add_karplus_strong_drum, add_karplus_strong_drum_stretched
 
     implicit none

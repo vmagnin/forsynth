@@ -1,13 +1,13 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-29
-! Last modifications: 2024-05-13
+! Last modifications: 2024-05-14
 
 ! Miscellaneous signals, especially obtained by frequency or phase modulation
 program misc_sounds
     use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, WAV_file, &
-                      & RATE, PI, left, right
+                      & clear_tracks, RATE, PI, left, right
+    use wav_file_class, only: WAV_file
     use music, only: fr
 
     implicit none

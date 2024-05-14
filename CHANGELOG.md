@@ -25,8 +25,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - Now under GPL-3.0-or-later license.
-- `src/forsynth.f90`: the object `file_t` was renamed `WAV_file`. 
-- `src/forsynth.f90`: `finalize_WAV_file`, `write_header` and `write_normalized_data` are now methods of the object.
+- `src/forsynth.f90`: 
+    - the object `file_t` was renamed `WAV_file` and put in a separate file `wav_file_class.f90`
+        - `finalize_WAV_file`, `write_header` and `write_normalized_data` are now methods of the object.
 - `src/music.f90` was splitted in two files: `src/music.f90` and `src/music_common.f90` which contain music theory elements common to the ForMIDI and ForSynth projects.
 - `src/demos.f90` was removed and split into `example/demo1.f90`, 
 `example/demo2.f90` and `example/demo3.f90`. They can be run with the

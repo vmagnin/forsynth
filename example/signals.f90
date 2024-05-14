@@ -1,12 +1,13 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-13
+! Last modifications: 2024-05-14
 
 ! Plays each type of available signal
 program demo4
     use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, WAV_file
+                      & clear_tracks
+    use wav_file_class, only: WAV_file
     use music, only: fr
     use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &

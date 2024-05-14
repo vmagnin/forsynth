@@ -4,8 +4,8 @@
 ! Last modifications: 2024-05-14
 
 program blues
-    use forsynth, only: dp, mix_tracks, &
-                      & clear_tracks, WAV_file
+    use forsynth, only: dp, mix_tracks, clear_tracks
+    use wav_file_class, only: WAV_file
     use signals, only: add_karplus_strong
     use music, only: fr
     use music_common, only: HEXATONIC_BLUES_SCALE

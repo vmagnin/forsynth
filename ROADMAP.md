@@ -8,6 +8,9 @@
 * [ ] The duration (120 seconds by default) and number of tracks should be set when we create a new WAV, instead of being hard-set.
 * [x] The method `mix_tracks()` could accept an optional array with the final levels of each track.
 
+### Development
+* [ ] Start an OOP approach.
+
 ### Examples
 * [ ] Improve the artistic quality of some examples.
 
@@ -37,7 +40,7 @@
 * [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm, 
     * [ ] but that algorithm should be modified to not delete what is already present on the track.
 
-* [ ] Use OOP.
+* [ ] Use more OOP.
 * [ ] A drum pattern object to ease programming rhythms. Could be also used by ForMIDI.
 * [ ] A sequence object, accepting a string with notes, with methods to obtain one by one their parameters (physical or MIDI). Could be also used by ForMIDI.
     * [ ] The sequence could for example be coded as "A4,Q.,pf;A#4,Q,pf;..." (note, length, intensity).

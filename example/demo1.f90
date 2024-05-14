@@ -1,11 +1,11 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-13
+! Last modifications: 2024-05-14
 
 program demo1
-    use forsynth, only: dp, mix_tracks, DURATION, &
-                      & copy_section, clear_tracks, WAV_file
+    use forsynth, only: dp, mix_tracks, DURATION, copy_section, clear_tracks
+    use wav_file_class, only: WAV_file
     use signals, only: add_karplus_strong
     use music_common, only: MINOR_CHORD, MAJOR_CHORD
     use music, only: add_chord, fr
