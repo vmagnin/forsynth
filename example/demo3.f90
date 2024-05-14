@@ -10,23 +10,21 @@ program demo3
     use music, only: fr
     use music_common, only: HEXATONIC_BLUES_SCALE
     use envelopes, only: attack, decay
+    use audio_effects, only: apply_tremolo_effect
 
     implicit none
-    type(WAV_file) :: d3
+    type(WAV_file) :: blues
     real(dp) :: t, Dt
-    real(dp) :: f_A
     real(dp) :: r   ! Random number
     integer  :: i, k
 
     print *, "**** Demo 3 ****"
-    call d3%create_WAV_file('demo3.wav')
+    call blues%create_WAV_file('demo3.wav')
     call clear_tracks()
 
     attack = 30.0_dp
     decay  = 20.0_dp
 
-    ! Notes frequencies:
-    f_A = fr("A3")             ! A 220 Hz
     ! Notes duration in seconds:
     Dt = 0.5_dp
     t = 0.0_dp
@@ -54,13 +52,16 @@ program demo3
 
         call random_number(r)
         r = min(1.0_dp, r+0.25_dp)
-        call add_karplus_strong(1, t, t + Dt*r, &
-                            & fr(trim(HEXATONIC_BLUES_SCALE(k))//'3'), 1.0_dp)
-        t = t + Dt*r
+        call add_karplus_strong(1, t, t + Dt*(r + 0.25_dp), &
+                            & fr(trim(HEXATONIC_BLUES_SCALE(k))//'2'), 1.0_dp)
+        t = t + Dt*(r + 0.25_dp)
     end do
+
+    ! A tremolo at 3 Hz and an amplitude of 0.2:
+    call apply_tremolo_effect(1, 0.0_dp, t, 3.0_dp, 0.2_dp)
 
     print *, "Final mix..."
     call mix_tracks()
-    call d3%finalize_WAV_file()
+    call blues%finalize_WAV_file()
 
 end program demo3
