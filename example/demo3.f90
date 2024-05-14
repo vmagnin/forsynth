@@ -1,14 +1,14 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-13
+! Last modifications: 2024-05-14
 
 program demo3
     use forsynth, only: dp, mix_tracks, &
                       & clear_tracks, WAV_file
     use signals, only: add_karplus_strong
     use music, only: fr
-    use music_common, only: MAJOR_SCALE, HEXATONIC_BLUES_SCALE
+    use music_common, only: HEXATONIC_BLUES_SCALE
     use envelopes, only: attack, decay
 
     implicit none
@@ -30,13 +30,6 @@ program demo3
     ! Notes duration in seconds:
     Dt = 0.5_dp
     t = 0.0_dp
-
-    print *, "C Major scale"
-    do i = 1, 7
-        call add_karplus_strong(1, t, t + Dt, fr(trim(MAJOR_SCALE(i))//'4'), 1.0_dp)
-        t = t + Dt
-    end do
-    call add_karplus_strong(1, t, t + Dt, fr(trim(MAJOR_SCALE(1))//'5'), 1.0_dp)
 
     print *, "A blues scale"
     t = t + Dt
