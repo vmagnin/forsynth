@@ -5,8 +5,8 @@
 
 ! Class
 module wav_file_class
-    !use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL64
     use forsynth
+
     implicit none
     integer :: status
 
