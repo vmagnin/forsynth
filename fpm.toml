@@ -33,9 +33,9 @@ source-dir = "example"
 main = "chords_and_melody.f90"
 
 [[example]]
-name = "demo2"
+name = "demo_effects"
 source-dir = "example"
-main = "demo2.f90"
+main = "demo_effects.f90"
 
 [[example]]
 name = "blues"

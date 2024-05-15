@@ -35,6 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
     - `example/demo3.f90` was split in two: demo3 (two scales and a blues) and demo4 (signals).
         - and demo3 renamed `blues.f90`, and improved.
     - `demo1` was then renamed `chords_and_melody`.
+    - `demo2` was renamed `demo_effects`.
 - `demo4.f90` renamed `signals.f90`.
 
 ### Removed
