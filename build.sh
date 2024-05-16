@@ -1,6 +1,6 @@
 #!/bin/bash
 # Vincent Magnin
-# Last modification: 2024-05-15
+# Last modification: 2024-05-16
 
 # For a safer script:
 set -eu
@@ -17,12 +17,12 @@ fi
 
 rm -f *.mod
 
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/chords_and_melody.f90 -o build/chords_and_melody.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/demo_effects.f90 -o build/demo_effects.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/blues.f90 -o build/blues.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/signals.f90 -o build/signals.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/drum_machine.f90 -o build/drum_machine.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/misc_sounds.f90 -o build/misc_sounds.out
+"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/chords_and_melody.f90 -o build/chords_and_melody.out
+"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/demo_effects.f90 -o build/demo_effects.out
+"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/blues.f90 -o build/blues.out
+"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/signals.f90 -o build/signals.out
+"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/drum_machine.f90 -o build/drum_machine.out
+"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/misc_sounds.f90 -o build/misc_sounds.out
 
 # Cleanup to avoid any problem with fpm or another compiler:
 rm -f *.mod
