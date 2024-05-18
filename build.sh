@@ -6,9 +6,9 @@
 set -eu
 
 # Default compiler can be overrided, for example:
-# $ GFC='gfortran-8' ./build.sh
+# $ FC='gfortran-8' ./build.sh
 # Default:
-: ${GFC="gfortran"}
+: ${FC="gfortran"}
 
 # Create (if needed) the build directory:
 if [ ! -d build ]; then
@@ -17,12 +17,21 @@ fi
 
 rm -f *.mod
 
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/chords_and_melody.f90 -o build/chords_and_melody.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/demo_effects.f90 -o build/demo_effects.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/blues.f90 -o build/blues.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/all_signals.f90 -o build/all_signals.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/drum_machine.f90 -o build/drum_machine.out
-"${GFC}" -Wall -Wextra -pedantic -std=f2018 -O3 src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90 example/misc_sounds.f90 -o build/misc_sounds.out
+if [ "${FC}" = "ifx" ]; then
+  flags="-warn all -Ofast"
+else
+  # GFortran flags:
+  flags="-Wall -Wextra -pedantic -std=f2018 -Ofast -march=native -mtune=native"
+fi
+
+# Compiling modules:
+"${FC}" ${flags} -c src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90
+
+# Compiling examples:
+for file in "chords_and_melody" "demo_effects" "blues" "all_signals" "drum_machine" "misc_sounds"; do
+  echo "${file}"
+  "${FC}" ${flags} audio_effects.o  envelopes.o  forsynth.o  music_common.o  music.o  signals.o  tape_recorder_class.o  wav_file_class.o example/${file}.f90 -o build/${file}.out
+done
 
 # Cleanup to avoid any problem with fpm or another compiler:
 rm -f *.mod
