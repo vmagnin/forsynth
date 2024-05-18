@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-17
+! Last modifications: 2024-05-18
 
 program demo_effects
     use forsynth, only: dp
@@ -19,7 +19,6 @@ program demo_effects
 
     print *, "**** Demo of the audio effects ****"
     call demo%create_WAV_file('demo_effects.wav', 1, 120._dp)
-    call demo%clear_tracks()
 
     attack = 10.0_dp
     decay  = 40.0_dp

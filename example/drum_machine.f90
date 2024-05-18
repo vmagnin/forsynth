@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-25
-! Last modifications: 2024-05-17
+! Last modifications: 2024-05-18
 
 program drum_machine
     use forsynth, only: dp
@@ -15,7 +15,6 @@ program drum_machine
 
     print *, "**** Demo Drum Machine****"
     call demo%create_WAV_file('drum_machine.wav', 2, 21._dp)
-    call demo%clear_tracks()
 
     ! A binary rhythm:
     dt = 0.5_dp

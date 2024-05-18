@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `src/forsynth.f90`:
     - the class `file_t` was renamed `WAV_file` and put in a separate file `wav_file_class.f90`. `close_WAV_file()`, `write_header()` and `write_normalized_data()` are now methods of the object.
     - a class `tape_recorder` was created and moved to `tape_recorder_class.f90`. It contains the arrays and their related parameters, and the methods `clear_tracks`, `mix_tracks`, `copy_section`...
+- `clear_tracks()` is now automatically called when creating a `wav_file` or `tape_recorder` object.
 - `src/music.f90` was splitted in two files: `src/music.f90` and `src/music_common.f90` which contain music theory elements common to the ForMIDI and ForSynth projects.
 - `src/demos.f90` was removed and split into `example/demo1.f90`, `example/demo2.f90` and `example/demo3.f90`. They can be run with the `fpm run --example` command.
     - `example/demo3.f90` was split in two: demo3 (two scales and a blues) and demo4 (signals).

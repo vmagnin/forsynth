@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-17
+! Last modifications: 2024-05-18
 
 ! Plays each type of available signal
 program all_signals
@@ -21,7 +21,6 @@ program all_signals
 
     print *, "**** Demo of the available signals ****"
     call demo%create_WAV_file('all_signals.wav', 1, 30._dp)
-    call demo%clear_tracks()
 
     attack = 30.0_dp
     decay  = 20.0_dp

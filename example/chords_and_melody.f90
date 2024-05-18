@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-17
+! Last modifications: 2024-05-18
 
 program chords_and_melody
     use forsynth, only: dp
@@ -19,7 +19,6 @@ program chords_and_melody
 
     print *, "**** Demo chords and melody ****"
     call demo%create_WAV_file('chords_and_melody.wav', 2, 120._dp)
-    call demo%clear_tracks()
 
     ! Notes duration in seconds:
     Dt = 3.0_dp

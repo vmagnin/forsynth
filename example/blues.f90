@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-17
+! Last modifications: 2024-05-18
 
 program blues
     use forsynth, only: dp
@@ -20,7 +20,6 @@ program blues
 
     print *, "**** Demo Blues ****"
     call demo%create_WAV_file('blues.wav', 1, 35._dp)
-    call demo%clear_tracks()
 
     attack = 30.0_dp
     decay  = 20.0_dp

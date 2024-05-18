@@ -42,12 +42,14 @@ contains
 
         allocate(self%left (0:nb_tracks, 0:self%SAMPLES))
         allocate(self%right(0:nb_tracks, 0:self%SAMPLES))
+
+        call self%clear_tracks()
     end subroutine
 
-
+    ! Erase all tracks on all the channels of the tape.
     subroutine clear_tracks(self)
         class(tape_recorder), intent(inout)  :: self
-        ! Delete all tracks
+
         self%left  = 0.0_dp
         self%right = 0.0_dp
     end subroutine
