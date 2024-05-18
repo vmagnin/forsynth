@@ -23,6 +23,7 @@ module tape_recorder_class
         procedure :: mix_tracks
         procedure :: copy_section
         procedure :: finalize
+        final     :: auto_finalize
     end type tape_recorder
 
     public :: tape_recorder
@@ -92,9 +93,17 @@ contains
         end do
     end subroutine
 
-
+    ! Called by the close_WAV_file() method.
     subroutine finalize(self)
         class(tape_recorder), intent(inout)  :: self
+
+        deallocate(self%left)
+        deallocate(self%right)
+    end subroutine
+
+    ! An automatic finalizer, by security.
+    subroutine auto_finalize(self)
+        type(tape_recorder), intent(inout)  :: self
 
         deallocate(self%left)
         deallocate(self%right)
