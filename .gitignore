@@ -2,4 +2,4 @@ build/*
 *.backup
 *.mod
 *.wav
-*.gitignore~
+*.*~
