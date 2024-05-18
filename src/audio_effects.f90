@@ -1,12 +1,13 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-03-28
+! Last modifications: 2023-05-17
 
 module audio_effects
     ! Various audio effects
 
-    use forsynth, only: dp, RATE, left, right, PI, dt
+    use forsynth, only: dp, RATE, PI, dt
+    use tape_recorder_class
 
     implicit none
 
@@ -17,9 +18,10 @@ module audio_effects
 
 contains
 
-    subroutine apply_delay_effect(track, t1, t2, delay, Amp)
+    subroutine apply_delay_effect(tape, track, t1, t2, delay, Amp)
         ! Add the sound from "delay" seconds before,
         ! and multiply by Amp<1 for dampening.
+        type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, delay, Amp
         integer              :: i, j
@@ -31,36 +33,38 @@ contains
         do i = nint(t1*RATE), nint(t2*RATE) - 1
             j = i - id
             if (j > 0) then
-                left(track,  i) = left(track,  i) + Amp * left(track,  j)
-                right(track, i) = right(track, i) + Amp * right(track, j)
+                tape%left(track,  i) = tape%left(track,  i) + Amp * tape%left(track,  j)
+                tape%right(track, i) = tape%right(track, i) + Amp * tape%right(track, j)
             end if
         end do
     end subroutine
 
 
-    subroutine apply_fuzz_effect(track, t1, t2, level)
+    subroutine apply_fuzz_effect(tape, track, t1, t2, level)
         ! Apply distorsion with hard clipping
         ! https://en.wikipedia.org/wiki/Distortion_(music)
+        type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, level
         integer              :: i
 
         do i = nint(t1*RATE), nint(t2*RATE) - 1
-            if (abs(left(track,  i)) > level) then
-                left(track,  i) = sign(level, left(track,  i))
+            if (abs(tape%left(track,  i)) > level) then
+                tape%left(track,  i) = sign(level, tape%left(track,  i))
             end if
-            if (abs(right(track, i)) > level) then
-                right(track, i) = sign(level, right(track, i))
+            if (abs(tape%right(track, i)) > level) then
+                tape%right(track, i) = sign(level, tape%right(track, i))
             end if
         end do
     end subroutine
 
 
-    subroutine apply_tremolo_effect(track, t1, t2, f, AmpLFO)
+    subroutine apply_tremolo_effect(tape, track, t1, t2, f, AmpLFO)
         ! A sinusoidal modulation of the amplitude of a signal (tremolo) :
         ! f : tremolo frequency (typically a few Hz)
         ! AmpLFO : tremolo amplitude in [0 ; 1]
         ! https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/
+        type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, AmpLFO
         integer  :: i
@@ -70,16 +74,17 @@ contains
         omegaLFO = 2 * PI * f
         t = 0
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            left(track,  i) = left(track,  i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
-            right(track, i) = right(track, i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
+            tape%left(track,  i) = tape%left(track,  i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
+            tape%right(track, i) = tape%right(track, i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
             t = t + dt
         end do
     end subroutine
 
 
-    subroutine apply_autopan_effect(track, t1, t2, f, AmpLFO)
+    subroutine apply_autopan_effect(tape, track, t1, t2, f, AmpLFO)
         ! Make the sound move from one channel to the other one at a frequency f
         ! and with an amplitude AmpLFO in [0 ; 1].
+        type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(dp), intent(in) :: t1, t2, f, AmpLFO
         real(dp), parameter  :: phi = 0.0_dp
@@ -90,8 +95,8 @@ contains
         omegaLFO = 2 * PI * f
         t = 0
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            left(track,  i) = left(track,  i) * (1.0_dp - AmpLFO * sin(omegaLFO*t + phi))
-            right(track, i) = right(track, i) * (1.0_dp - AmpLFO * cos(omegaLFO*t + phi))
+            tape%left(track,  i) = tape%left(track,  i) * (1.0_dp - AmpLFO * sin(omegaLFO*t + phi))
+            tape%right(track, i) = tape%right(track, i) * (1.0_dp - AmpLFO * cos(omegaLFO*t + phi))
             t = t + dt
         end do
     end subroutine

@@ -1,12 +1,12 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-03-28
+! Last modifications: 2023-05-16
 
 ! Subroutines generating envelopes
 ! https://en.wikipedia.org/wiki/Envelope_(music)
 module envelopes
-    use forsynth, only: dp, RATE, PI, left, right
+    use forsynth, only: dp, RATE, PI
 
     implicit none
 

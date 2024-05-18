@@ -1,13 +1,13 @@
 ![](logo/logo_forsynth.svg)
 
-A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. But Forsynth could also be used for scientific data *sonification* or to teach programming in a fun way.
+A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. But ForSynth could also be used for scientific data *sonification*, for acoustic simulations or for teaching programming in a fun way.
 
 Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk.
 
 ## Features
 
-* Forsynth is a semi-analog studio: time is discretized (44100 samples/s) but the amplitude is coded as a Fortran real and digitized as a 16 bits signed integer only when generating the output WAV file.
-* By default, you have 8 stereo tracks. In fact 7 because the track 0 is used for the final mix. It takes 169 Mio in RAM for a two minutes duration. You can of course modify those parameters. Do you know The Beatles used a 8 tracks tape the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
+* ForSynth is a semi-analog semi-digital studio: time is discretized (44100 samples/s) but the amplitude is coded as a Fortran real and digitized as a 16 bits signed integer only after the final mixing, when generating the output WAV file.
+* You can use as many stereo tracks as you need. The track 0 is used for the final mix. Do you know The Beatles used a 8 tracks tape recorder the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
 * Basic music theory elements (scales, circle of fifths, chords...).
 * Various signals and Karplus-Strong algorithms.
 * An ADSR envelope generator.
@@ -117,3 +117,4 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 * Laurent Fichet, [*Les théories scientifiques de la musique aux XIXe et XXe siècles*](https://www.vrin.fr/livre/9782711642847/les-theories-scientifiques-de-la-musique), Vrin, 1996, ISBN 978-2-7116-4284-7.
 * Guillaume Kosmicki , [*Musiques électroniques - Des avant-gardes aux dance floors*](https://lemotetlereste.com/musiques/musiqueselectroniquesnouvelleedition/), Editions Le mot et le reste, 2nd edition, 2016, 416 p., ISBN 9782360541928.
 * Bibliothèque Tangente n°11, [*Mathématiques et musique - des destinées parallèles*](https://www.lalibrairie.com/livres/mathematiques-et-musique--des-destinees-paralleles--2022_0-9115242_9782848842462.html), Paris : Éditions POLE, septembre 2022, ISBN 9782848842462.
+* BLog [Devenir Ingeson](https://deveniringeson.com/public/).

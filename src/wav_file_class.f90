@@ -1,21 +1,22 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-14
+! Last modifications: 2024-05-18
 
-! Class
+! The main class that you will use to create your WAV files.
 module wav_file_class
-    use forsynth
+    use forsynth, only: dp, RATE, INT16, INT32, INT64, MAX_AMPLITUDE
+    use tape_recorder_class
 
     implicit none
     integer :: status
 
-    type WAV_file
+    type, extends(tape_recorder)    :: WAV_file
       character(len=:), allocatable :: filename
       integer                       :: fileunit
     contains
       procedure :: create_WAV_file
-      procedure :: finalize_WAV_file
+      procedure :: close_WAV_file
       procedure, private :: write_header
       procedure, private :: write_normalized_data
     end type WAV_file
@@ -27,35 +28,36 @@ module wav_file_class
 contains
 
     ! Create a WAV file with a header:
-    subroutine create_WAV_file(self, filename)
-      class(WAV_file), intent(inout)  :: self
-      character(*), intent(in)      :: filename
+    subroutine create_WAV_file(self, filename, nb_tracks, duration)
+        class(WAV_file), intent(inout) :: self
+        character(*), intent(in)       :: filename
+        integer, intent(in)  :: nb_tracks
+        real(dp), intent(in) :: duration
 
-      self%filename   = filename
+        call self%new(nb_tracks, duration)
 
-      open(newunit=self%fileunit, file=self%filename, access='stream', status='replace', action='write')
-
-      call self%write_header()
-
+        self%filename   = filename
+        open(newunit=self%fileunit, file=self%filename, access='stream', status='replace', action='write')
+        call self%write_header()
     end subroutine create_WAV_file
 
     ! Creates the 44 bytes WAV header and prints some information:
     subroutine write_header(self)
         class(WAV_file), intent(inout)  :: self
-
         !****************
         ! WAV parameters:
         !****************
         ! Number of channels: 1 for mono, 2 for stereo, etc.
         integer(INT16), parameter :: CHANNELS = 2
         integer(INT16), parameter :: BITS_PER_SAMPLE = 16
-        integer(INT64), parameter :: DATA_BYTES = (BITS_PER_SAMPLE / 8) &
-                                   & * CHANNELS * SAMPLES
+        integer(INT64) :: DATA_BYTES
         integer(INT32) :: file_size, bytes_per_second, data_size
         integer(INT16) :: bytes_per_sample
 
-        print *, "Tracks:", TRACKS
-        print *, "RAM:        ", DATA_BYTES * TRACKS, "bytes"
+        print *, "Nb of tracks, excluding track 0:", self%TRACKS
+
+        DATA_BYTES = (BITS_PER_SAMPLE / 8) * CHANNELS * self%SAMPLES
+        print *, "Used RAM:   ", DATA_BYTES * self%TRACKS, "bytes"
         print *, "File size ~ ", DATA_BYTES, "bytes"
 
         associate(u => self%fileunit)
@@ -90,7 +92,7 @@ contains
             ! ***** Second sub-chunk *****
             write(u, iostat=status) "data"
 
-            data_size = SAMPLES * CHANNELS * (BITS_PER_SAMPLE / 8)
+            data_size = self%SAMPLES * CHANNELS * (BITS_PER_SAMPLE / 8)
             write(u, iostat=status) data_size
         end associate
     end subroutine write_header
@@ -103,23 +105,24 @@ contains
         real(dp) :: maxi
 
         ! Looking for the maximum amplitude (must not be zero):
-        maxi = max(1e-16_dp, maxval(abs(left(0, :))), maxval(abs(right(0, :))))
+        maxi = max(1e-16_dp, maxval(abs(self%left(0, :))), maxval(abs(self%right(0, :))))
 
-        do i = 0 , SAMPLES
-            ! Writing the amplitude of left then right channels as 16 bit
-            ! signed integers:
-            write(self%fileunit, iostat=status) nint((left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
-            write(self%fileunit, iostat=status) nint((right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
+        do i = 0 , self%SAMPLES
+            ! Writing the amplitude of left then right channels as 16 bit signed integers:
+            write(self%fileunit, iostat=status) nint((self%left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
+            write(self%fileunit, iostat=status) nint((self%right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)
         end do
     end subroutine
 
     ! Must be called at the end. It normalizes the channels, writes them in the
-    ! WAV file and closes it.
-    subroutine finalize_WAV_file(self)
+    ! WAV file and closes it. It also deallocate the tape arrays.
+    subroutine close_WAV_file(self)
         class(WAV_file), intent(inout)  :: self
 
         call self%write_normalized_data()
         close(self%fileunit, iostat=status)
+
+        call self%tape_recorder%finalize()
     end subroutine
 
 end module wav_file_class

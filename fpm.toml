@@ -43,9 +43,9 @@ source-dir = "example"
 main = "blues.f90"
 
 [[example]]
-name = "signals"
+name = "all_signals"
 source-dir = "example"
-main = "signals.f90"
+main = "all_signals.f90"
 
 [[example]]
 name = "drum_machine"
