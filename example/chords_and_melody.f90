@@ -18,7 +18,7 @@ program chords_and_melody
     real(dp) :: chosen_note(0:3)
 
     print *, "**** Demo chords and melody ****"
-    call demo%create_WAV_file('chords_and_melody.wav', 2, 120._dp)
+    call demo%create_WAV_file('chords_and_melody.wav', nb_tracks=2, duration=120._dp)
 
     ! Notes duration in seconds:
     Dt = 3.0_dp

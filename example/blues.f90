@@ -19,7 +19,7 @@ program blues
     integer  :: i, k
 
     print *, "**** Demo Blues ****"
-    call demo%create_WAV_file('blues.wav', 1, 35._dp)
+    call demo%create_WAV_file('blues.wav', nb_tracks=1, duration=35._dp)
 
     attack = 30.0_dp
     decay  = 20.0_dp

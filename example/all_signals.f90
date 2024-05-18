@@ -20,7 +20,7 @@ program all_signals
     real(dp) :: f_A
 
     print *, "**** Demo of the available signals ****"
-    call demo%create_WAV_file('all_signals.wav', 1, 30._dp)
+    call demo%create_WAV_file('all_signals.wav', nb_tracks=1, duration=30._dp)
 
     attack = 30.0_dp
     decay  = 20.0_dp

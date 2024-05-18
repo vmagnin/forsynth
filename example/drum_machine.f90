@@ -14,7 +14,7 @@ program drum_machine
     real(dp) :: dt
 
     print *, "**** Demo Drum Machine****"
-    call demo%create_WAV_file('drum_machine.wav', 2, 21._dp)
+    call demo%create_WAV_file('drum_machine.wav', nb_tracks=2, duration=21._dp)
 
     ! A binary rhythm:
     dt = 0.5_dp
