@@ -10,18 +10,35 @@ program drum_machine
 
     implicit none
     type(WAV_file) :: demo
-    integer  :: i
-    real(dp) :: dt
+    integer  :: i, j
+    real(dp) :: t
+    real(dp) :: dt = 0.25_dp
+    ! Each line is a different drum:
+    integer, dimension(3, 16) :: pattern = reshape( [ &
+        1,0,0,0, 1,0,0,1, 1,0,0,0, 1,0,0,1,   &
+        0,1,0,0, 0,1,1,1, 0,1,0,0, 0,1,0,0,   &
+        1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0 ], &
+        shape(pattern), order = [2, 1] )
 
     print *, "**** Demo Drum Machine****"
-    call demo%create_WAV_file('drum_machine.wav', nb_tracks=2, duration=21._dp)
+    call demo%create_WAV_file('drum_machine.wav', nb_tracks=3, duration=64._dp)
 
-    ! A binary rhythm:
-    dt = 0.5_dp
-    do i = 1, 40
-       ! We use tracks 1 and 2 for the two drums:
-       call add_karplus_strong_drum(demo%tape_recorder,           1, i*dt + 0._dp, i*dt + 1._dp, 250, 1._dp)
-       call add_karplus_strong_drum_stretched(demo%tape_recorder, 2, i*dt + dt/2 , i*dt + dt   , 300, 0.5_dp)
+    ! A rhythm following the above pattern:
+    t = 0._dp
+    do i = 1, 8
+        do j = 1, 16
+            ! We use one track for each kind of drum:
+            if (pattern(1, j) == 1) then
+                call add_karplus_strong_drum(          demo%tape_recorder, 1, t, t+2*dt, 150, 1._dp)
+            end if
+            if (pattern(2, j) == 1) then
+                call add_karplus_strong_drum(          demo%tape_recorder, 2, t, t+2*dt, 400, 1._dp)
+            end if
+            if (pattern(3, j) == 1) then
+                call add_karplus_strong_drum_stretched(demo%tape_recorder, 3, t, t+2*dt, 150, 0.5_dp)
+            end if
+            t = t + dt
+        end do
     end do
 
     print *, "Final mix..."

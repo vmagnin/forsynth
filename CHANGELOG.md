@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
     - `karplus_strong_stretched()`
 - demos module:
     - Added some scales in `demo3()`.
-    - `drum_machine.f90` using Karplus Strong drums.
+    - `drum_machine.f90` using Karplus Strong drums, following a pattern defined in an array.
     - `misc_sounds.f90`: creates miscellaneous sounds in WAV files, especially obtained by frequency or phase modulation.
 - A `ROADMAP.md` file.
 - A `logo`.
