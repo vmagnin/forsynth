@@ -6,7 +6,7 @@
 ! A sequence of synth chords is repeated, and the corresponding notes are played
 ! randomly by plucked strings.
 program chords_and_melody
-    use forsynth, only: dp
+    use forsynth, only: wp
     use wav_file_class, only: WAV_file
     use signals, only: add_karplus_strong
     use music_common, only: MINOR_CHORD, MAJOR_CHORD
@@ -16,21 +16,21 @@ program chords_and_melody
     implicit none
     type(WAV_file) :: demo
     integer  :: i
-    real(dp) :: t, Dt, r
-    real(dp) :: chosen_note(0:3)
+    real(wp) :: t, Dt, r
+    real(wp) :: chosen_note(0:3)
 
     print *, "**** Demo chords and melody ****"
-    call demo%create_WAV_file('chords_and_melody.wav', tracks=2, duration=120._dp)
+    call demo%create_WAV_file('chords_and_melody.wav', tracks=2, duration=120._wp)
 
     ! Notes duration in seconds:
-    Dt = 3.0_dp
+    Dt = 3.0_wp
 
     print *, "Track 1: repeating Am C G Dm chords..."
-    t = 0.0_dp
-    call add_chord(demo%tape_recorder, track=1, t1=t,      t2=t+Dt,   f=fr("A3"), Amp=1.0_dp, chord=MINOR_CHORD)
-    call add_chord(demo%tape_recorder, track=1, t1=t+Dt,   t2=t+2*Dt, f=fr("C3"), Amp=1.0_dp, chord=MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, track=1, t1=t+2*Dt, t2=t+3*Dt, f=fr("G3"), Amp=1.0_dp, chord=MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, track=1, t1=t+3*Dt, t2=t+4*Dt, f=fr("D3"), Amp=1.0_dp, chord=MINOR_CHORD)
+    t = 0.0_wp
+    call add_chord(demo%tape_recorder, track=1, t1=t,      t2=t+Dt,   f=fr("A3"), Amp=1.0_wp, chord=MINOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+Dt,   t2=t+2*Dt, f=fr("C3"), Amp=1.0_wp, chord=MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+2*Dt, t2=t+3*Dt, f=fr("G3"), Amp=1.0_wp, chord=MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+3*Dt, t2=t+4*Dt, f=fr("D3"), Amp=1.0_wp, chord=MINOR_CHORD)
     ! Repeat those four chords until the end of the track:
     do i = 1, 9
         call demo%copy_section(from_track=1, to_track=1, t1=t, t2=t+4*Dt, t3=4*Dt*i)
@@ -46,14 +46,14 @@ program chords_and_melody
     do i = 0, 9*16
         t = Dt * i
         call random_number(r)
-        call add_karplus_strong(demo%tape_recorder, track=2, t1=t, t2=t+Dt, f=chosen_note(int(r*4)), Amp=1.0_dp)
+        call add_karplus_strong(demo%tape_recorder, track=2, t1=t, t2=t+Dt, f=chosen_note(int(r*4)), Amp=1.0_wp)
     end do
 
     ! A double delay inspired by The Edge.
     ! Dotted quavers delay:
-    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%duration, delay=Dt*0.75_dp, Amp=0.45_dp)
+    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_wp, t2=demo%duration, delay=Dt*0.75_wp, Amp=0.45_wp)
     ! Plus a quavers delay:
-    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%duration, delay=Dt*0.50_dp, Amp=0.30_dp)
+    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_wp, t2=demo%duration, delay=Dt*0.50_wp, Amp=0.30_wp)
 
     print *, "Final mix..."
     call demo%mix_tracks()

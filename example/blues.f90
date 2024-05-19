@@ -5,7 +5,7 @@
 
 ! A random walk on a blues scale.
 program blues
-    use forsynth, only: dp
+    use forsynth, only: wp
     use wav_file_class, only: WAV_file
     use signals, only: add_karplus_strong
     use music, only: fr
@@ -15,25 +15,25 @@ program blues
 
     implicit none
     type(WAV_file) :: demo
-    real(dp) :: t, Dt
-    real(dp) :: r   ! Random number
+    real(wp) :: t, Dt
+    real(wp) :: r   ! Random number
     integer  :: i, k
 
     print *, "**** Demo Blues ****"
-    call demo%create_WAV_file('blues.wav', tracks=1, duration=35._dp)
+    call demo%create_WAV_file('blues.wav', tracks=1, duration=35._wp)
 
-    attack = 30.0_dp
-    decay  = 20.0_dp
+    attack = 30.0_wp
+    decay  = 20.0_wp
 
     ! Notes duration in seconds:
-    Dt = 0.5_dp
-    t = 0.0_dp
+    Dt = 0.5_wp
+    t = 0.0_wp
 
     print *, "A blues scale"
     t = t + Dt
     do i = 1, 6
         call add_karplus_strong(demo%tape_recorder, track=1, t1=t, t2=t+Dt, &
-                            & f=fr(trim(HEXATONIC_BLUES_SCALE(i))//'3'), Amp=1.0_dp)
+                            & f=fr(trim(HEXATONIC_BLUES_SCALE(i))//'3'), Amp=1.0_wp)
         t = t + Dt
     end do
 
@@ -41,7 +41,7 @@ program blues
     k = 1
     do i = 1, 60
         call random_number(r)
-        if (r < 0.5_dp) then
+        if (r < 0.5_wp) then
             k = k - 1
         else
             k = k + 1
@@ -51,14 +51,14 @@ program blues
         if (k > 6) k = 6
 
         call random_number(r)
-        r = min(1.0_dp, r+0.25_dp)
-        call add_karplus_strong(demo%tape_recorder, track=1, t1=t, t2=t+Dt*(r+0.25_dp), &
-                            & f=fr(trim(HEXATONIC_BLUES_SCALE(k))//'2'), Amp=1.0_dp)
-        t = t + Dt*(r + 0.25_dp)
+        r = min(1.0_wp, r+0.25_wp)
+        call add_karplus_strong(demo%tape_recorder, track=1, t1=t, t2=t+Dt*(r+0.25_wp), &
+                            & f=fr(trim(HEXATONIC_BLUES_SCALE(k))//'2'), Amp=1.0_wp)
+        t = t + Dt*(r + 0.25_wp)
     end do
 
     ! A tremolo at 3 Hz and an amplitude of 0.2:
-    call apply_tremolo_effect(demo%tape_recorder, track=1, t1=0.0_dp, t2=t, f=3.0_dp, AmpLFO=0.2_dp)
+    call apply_tremolo_effect(demo%tape_recorder, track=1, t1=0.0_wp, t2=t, f=3.0_wp, AmpLFO=0.2_wp)
 
     print *, "Final mix..."
     call demo%mix_tracks()

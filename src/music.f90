@@ -7,7 +7,7 @@ module music
     !---------------------------------------------------------------------------
     ! Contains music theory elements: scales, circle of fifths, chords, etc.
     !---------------------------------------------------------------------------
-    use forsynth, only: dp
+    use forsynth, only: wp
     use signals, only: add_sine_wave
     ! Music theory elements common to the ForMIDI and ForSynth projects:
     use music_common
@@ -17,9 +17,9 @@ module music
     public
 
     ! Equal temperament: https://en.wikipedia.org/wiki/Equal_temperament
-    real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
+    real(wp), parameter :: SEMITONE = 2.0_wp**(1.0_wp/12.0_wp)
     ! Concert pitch (A note):
-    real(dp), parameter :: PITCH = 440.0_dp
+    real(wp), parameter :: PITCH = 440.0_wp
 
     public :: SEMITONE, PITCH, add_note, add_chord, fr
 
@@ -30,7 +30,7 @@ contains
         type(tape_recorder), intent(inout) :: tape
         ! https://en.wikipedia.org/wiki/Harmonic
         integer, intent(in)  :: track
-        real(dp), intent(in) :: t1, t2, f, Amp
+        real(wp), intent(in) :: t1, t2, f, Amp
         integer :: h
 
         ! Adding harmonics 1f to 40f, with a decreasing amplitude:
@@ -44,7 +44,7 @@ contains
     subroutine add_chord(tape, track, t1, t2, f, Amp, chord)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
-        real(dp), intent(in) :: t1, t2, f, Amp
+        real(wp), intent(in) :: t1, t2, f, Amp
         integer, dimension(:), intent(in) :: chord
         integer :: i, interval
 
@@ -58,7 +58,7 @@ contains
     ! The note name is composed of two or three characters,
     ! for example "A4", "A#4", "Ab4", where the final character is
     ! the octave.
-    real(dp) function fr(note)
+    real(wp) function fr(note)
         character(*), intent(in) :: note
         ! 0 <= octave <=9
         integer :: octave
@@ -107,6 +107,6 @@ contains
         end if
 
         ! Computing the frequency of the note:
-        fr = PITCH * SEMITONE**(real(gap, dp))
+        fr = PITCH * SEMITONE**(real(gap, wp))
     end function fr
 end module music

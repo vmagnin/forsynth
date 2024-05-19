@@ -4,7 +4,7 @@
 ! Last modifications: 2024-05-19
 
 module tape_recorder_class
-    use forsynth, only: dp, RATE
+    use forsynth, only: wp, RATE
 
     implicit none
 
@@ -12,11 +12,11 @@ module tape_recorder_class
         ! Number of audio tracks (excluding track 0 reserved for the final mix):
         integer  :: tracks
         ! Duration in seconds:
-        real(dp) :: duration
+        real(wp) :: duration
         ! Number of samples:
         integer  :: samples
         ! Two arrays stocking the stereo tracks:
-        real(dp), dimension(:, :), allocatable :: left, right
+        real(wp), dimension(:, :), allocatable :: left, right
     contains
         procedure :: new
         procedure :: clear_tracks
@@ -34,7 +34,7 @@ contains
         class(tape_recorder), intent(inout)  :: self
         ! Track 0 excluded:
         integer, intent(in)  :: tracks
-        real(dp), intent(in) :: duration
+        real(wp), intent(in) :: duration
 
         self%duration = duration
         self%tracks = tracks
@@ -51,15 +51,15 @@ contains
     subroutine clear_tracks(self)
         class(tape_recorder), intent(inout)  :: self
 
-        self%left  = 0.0_dp
-        self%right = 0.0_dp
+        self%left  = 0.0_wp
+        self%right = 0.0_wp
     end subroutine
 
 
     ! Tracks 1 to tracks-1 are mixed on track 0.
     subroutine mix_tracks(self, levels)
         class(tape_recorder), intent(inout)  :: self
-        real(dp), dimension(1:self%tracks), intent(in), optional :: levels
+        real(wp), dimension(1:self%tracks), intent(in), optional :: levels
         integer :: track
 
         do track = 1, self%tracks
@@ -78,7 +78,7 @@ contains
         class(tape_recorder), intent(inout)  :: self
         ! Copy section t1...t2 at t3, either on the same track or another one.
         integer, intent(in)  :: from_track, to_track
-        real(dp), intent(in) :: t1, t2, t3
+        real(wp), intent(in) :: t1, t2, t3
         integer :: i, i0, j
 
         i0 = nint(t1*RATE)

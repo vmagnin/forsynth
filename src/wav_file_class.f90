@@ -5,7 +5,7 @@
 
 ! The main class that you will use to create your WAV files.
 module wav_file_class
-    use forsynth, only: dp, RATE, INT16, INT32, INT64
+    use forsynth, only: wp, RATE, INT16, INT32, INT64
     use tape_recorder_class
 
     implicit none
@@ -34,7 +34,7 @@ contains
         class(WAV_file), intent(inout) :: self
         character(*), intent(in)       :: filename
         integer, intent(in)  :: tracks
-        real(dp), intent(in) :: duration
+        real(wp), intent(in) :: duration
 
         call self%new(tracks, duration)
 
@@ -104,10 +104,10 @@ contains
     subroutine write_normalized_data(self)
         class(WAV_file), intent(inout)  :: self
         integer  :: i
-        real(dp) :: maxi
+        real(wp) :: maxi
 
         ! Looking for the maximum amplitude (must not be zero):
-        maxi = max(1e-16_dp, maxval(abs(self%left(0, :))), maxval(abs(self%right(0, :))))
+        maxi = max(1e-16_wp, maxval(abs(self%left(0, :))), maxval(abs(self%right(0, :))))
 
         do i = 0 , self%samples
             ! Writing the amplitude of left then right channels as 16 bit signed integers:

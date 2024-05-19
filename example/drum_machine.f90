@@ -5,15 +5,15 @@
 
 ! A rhythm following a pattern stored in an array.
 program drum_machine
-    use forsynth, only: dp
+    use forsynth, only: wp
     use wav_file_class, only: WAV_file
     use signals, only: add_karplus_strong_drum, add_karplus_strong_drum_stretched
 
     implicit none
     type(WAV_file) :: demo
     integer  :: i, j
-    real(dp) :: t
-    real(dp) :: dt = 0.25_dp
+    real(wp) :: t
+    real(wp) :: dt = 0.25_wp
     ! Each line is a different drum:
     integer, dimension(3, 16) :: pattern = reshape( [ &
         1,0,0,0, 1,0,0,1, 1,0,0,0, 1,0,0,1,   &
@@ -22,21 +22,21 @@ program drum_machine
         shape(pattern), order = [2, 1] )
 
     print *, "**** Demo Drum Machine****"
-    call demo%create_WAV_file('drum_machine.wav', tracks=3, duration=33._dp)
+    call demo%create_WAV_file('drum_machine.wav', tracks=3, duration=33._wp)
 
     ! A rhythm following the above pattern:
-    t = 0._dp
+    t = 0._wp
     do i = 1, 8
         do j = 1, 16
             ! We use one track for each kind of drum:
             if (pattern(1, j) == 1) then
-                call add_karplus_strong_drum(          demo%tape_recorder, track=1, t1=t, t2=t+2*dt, P=150, Amp=1._dp)
+                call add_karplus_strong_drum(          demo%tape_recorder, track=1, t1=t, t2=t+2*dt, P=150, Amp=1._wp)
             end if
             if (pattern(2, j) == 1) then
-                call add_karplus_strong_drum(          demo%tape_recorder, track=2, t1=t, t2=t+2*dt, P=400, Amp=1._dp)
+                call add_karplus_strong_drum(          demo%tape_recorder, track=2, t1=t, t2=t+2*dt, P=400, Amp=1._wp)
             end if
             if (pattern(3, j) == 1) then
-                call add_karplus_strong_drum_stretched(demo%tape_recorder, track=3, t1=t, t2=t+2*dt, P=150, Amp=0.5_dp)
+                call add_karplus_strong_drum_stretched(demo%tape_recorder, track=3, t1=t, t2=t+2*dt, P=150, Amp=0.5_wp)
             end if
             t = t + dt
         end do

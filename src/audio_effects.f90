@@ -6,7 +6,7 @@
 module audio_effects
     ! Various audio effects
 
-    use forsynth, only: dp, RATE, PI, dt
+    use forsynth, only: wp, RATE, PI, dt
     use tape_recorder_class
 
     implicit none
@@ -23,7 +23,7 @@ contains
         ! and multiply by Amp<1 for dampening.
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
-        real(dp), intent(in) :: t1, t2, delay, Amp
+        real(wp), intent(in) :: t1, t2, delay, Amp
         integer              :: i, j
         integer              :: id
 
@@ -45,7 +45,7 @@ contains
         ! https://en.wikipedia.org/wiki/Distortion_(music)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
-        real(dp), intent(in) :: t1, t2, level
+        real(wp), intent(in) :: t1, t2, level
         integer              :: i
 
         do i = nint(t1*RATE), nint(t2*RATE) - 1
@@ -66,16 +66,16 @@ contains
         ! https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
-        real(dp), intent(in) :: t1, t2, f, AmpLFO
+        real(wp), intent(in) :: t1, t2, f, AmpLFO
         integer  :: i
-        real(dp) :: omegaLFO
-        real(dp) :: t
+        real(wp) :: omegaLFO
+        real(wp) :: t
 
         omegaLFO = 2 * PI * f
         t = 0
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            tape%left(track,  i) = tape%left(track,  i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
-            tape%right(track, i) = tape%right(track, i) * (1.0_dp - AmpLFO*sin(omegaLFO*t))
+            tape%left(track,  i) = tape%left(track,  i) * (1.0_wp - AmpLFO*sin(omegaLFO*t))
+            tape%right(track, i) = tape%right(track, i) * (1.0_wp - AmpLFO*sin(omegaLFO*t))
             t = t + dt
         end do
     end subroutine
@@ -86,17 +86,17 @@ contains
         ! and with an amplitude AmpLFO in [0 ; 1].
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
-        real(dp), intent(in) :: t1, t2, f, AmpLFO
-        real(dp), parameter  :: phi = 0.0_dp
+        real(wp), intent(in) :: t1, t2, f, AmpLFO
+        real(wp), parameter  :: phi = 0.0_wp
         integer  :: i
-        real(dp) :: omegaLFO
-        real(dp) :: t
+        real(wp) :: omegaLFO
+        real(wp) :: t
 
         omegaLFO = 2 * PI * f
         t = 0
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            tape%left(track,  i) = tape%left(track,  i) * (1.0_dp - AmpLFO * sin(omegaLFO*t + phi))
-            tape%right(track, i) = tape%right(track, i) * (1.0_dp - AmpLFO * cos(omegaLFO*t + phi))
+            tape%left(track,  i) = tape%left(track,  i) * (1.0_wp - AmpLFO * sin(omegaLFO*t + phi))
+            tape%right(track, i) = tape%right(track, i) * (1.0_wp - AmpLFO * cos(omegaLFO*t + phi))
             t = t + dt
         end do
     end subroutine
