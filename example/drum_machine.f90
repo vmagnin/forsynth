@@ -3,6 +3,7 @@
 ! Vincent Magnin, 2024-04-25
 ! Last modifications: 2024-05-18
 
+! A rhythm following a pattern stored in an array.
 program drum_machine
     use forsynth, only: dp
     use wav_file_class, only: WAV_file

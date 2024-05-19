@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
     - `misc_sounds.f90`: creates miscellaneous sounds in WAV files, especially obtained by frequency or phase modulation.
 - A `ROADMAP.md` file.
 - A `logo`.
+- A `example/README.md` file.
 
 ### Changed
 - `src/forsynth.f90`:

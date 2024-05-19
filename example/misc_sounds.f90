@@ -3,7 +3,8 @@
 ! Vincent Magnin, 2024-04-29
 ! Last modifications: 2024-05-18
 
-! Miscellaneous signals, especially obtained by frequency or phase modulation
+! Miscellaneous signals, especially obtained by frequency or phase modulation.
+! A WAV file is created for each sound.
 program misc_sounds
     use forsynth, only: dp, RATE, PI
     use wav_file_class, only: WAV_file
