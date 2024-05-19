@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-16
+! Last modifications: 2024-05-19
 
 module forsynth
     use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL64
@@ -15,10 +15,8 @@ module forsynth
     ! Sampling frequency and temporal step:
     integer, parameter  :: RATE = 44100
     real(dp), parameter :: dt = 1.0_dp / RATE
-    ! Concert pitch (A note):
-    real(dp), parameter :: PITCH = 440.0_dp
 
-    public :: dp, test_the_machine, PITCH, PI, RATE, dt, MAX_AMPLITUDE
+    public :: dp, test_the_machine, PI, RATE, dt, MAX_AMPLITUDE
 
 contains
 

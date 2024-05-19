@@ -7,7 +7,7 @@ module music
     !---------------------------------------------------------------------------
     ! Contains music theory elements: scales, circle of fifths, chords, etc.
     !---------------------------------------------------------------------------
-    use forsynth, only: dp, PITCH
+    use forsynth, only: dp
     use signals, only: add_sine_wave
     ! Music theory elements common to the ForMIDI and ForSynth projects:
     use music_common
@@ -16,9 +16,12 @@ module music
     implicit none
     public
 
+    ! Equal temperament: https://en.wikipedia.org/wiki/Equal_temperament
     real(dp), parameter :: SEMITONE = 2.0_dp**(1.0_dp/12.0_dp)
+    ! Concert pitch (A note):
+    real(dp), parameter :: PITCH = 440.0_dp
 
-    public :: SEMITONE, add_note, add_chord, fr
+    public :: SEMITONE, PITCH, add_note, add_chord, fr
 
 contains
 
