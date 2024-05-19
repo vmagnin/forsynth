@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 module tape_recorder_class
     use forsynth, only: dp, RATE
@@ -9,12 +9,12 @@ module tape_recorder_class
     implicit none
 
     type tape_recorder
-        ! Number of audio tracks (excluding track 0 is reserved for the final mix):
-        integer  :: TRACKS
+        ! Number of audio tracks (excluding track 0 reserved for the final mix):
+        integer  :: tracks
         ! Duration in seconds:
-        real(dp) :: DURATION
+        real(dp) :: duration
         ! Number of samples:
-        integer  :: SAMPLES
+        integer  :: samples
         ! Two arrays stocking the stereo tracks:
         real(dp), dimension(:, :), allocatable :: left, right
     contains
@@ -30,19 +30,19 @@ module tape_recorder_class
 
 contains
 
-    subroutine new(self, nb_tracks, duration)
+    subroutine new(self, tracks, duration)
         class(tape_recorder), intent(inout)  :: self
         ! Track 0 excluded:
-        integer, intent(in)  :: nb_tracks
+        integer, intent(in)  :: tracks
         real(dp), intent(in) :: duration
 
-        self%DURATION = duration
-        self%TRACKS = nb_tracks
+        self%duration = duration
+        self%tracks = tracks
 
-        self%SAMPLES = nint(duration * RATE)
+        self%samples = nint(duration * RATE)
 
-        allocate(self%left (0:nb_tracks, 0:self%SAMPLES))
-        allocate(self%right(0:nb_tracks, 0:self%SAMPLES))
+        allocate(self%left (0:tracks, 0:self%samples))
+        allocate(self%right(0:tracks, 0:self%samples))
 
         call self%clear_tracks()
     end subroutine
@@ -56,13 +56,13 @@ contains
     end subroutine
 
 
-    ! Tracks 1 to TRACKS-1 are mixed on track 0.
+    ! Tracks 1 to tracks-1 are mixed on track 0.
     subroutine mix_tracks(self, levels)
         class(tape_recorder), intent(inout)  :: self
-        real(dp), dimension(1:self%TRACKS), intent(in), optional :: levels
+        real(dp), dimension(1:self%tracks), intent(in), optional :: levels
         integer :: track
 
-        do track = 1, self%TRACKS
+        do track = 1, self%tracks
             if (.not.present(levels)) then
                 self%left(0, :)  = self%left(0, :)  + self%left(track, :)
                 self%right(0, :) = self%right(0, :) + self%right(track, :)
@@ -84,7 +84,7 @@ contains
         i0 = nint(t1*RATE)
         do i = i0, nint(t2*RATE)-1
             j = nint(t3*RATE) + (i-i0)
-            if (j <= self%SAMPLES) then
+            if (j <= self%samples) then
                 self%left(to_track,  j) = self%left(from_track,  i)
                 self%right(to_track, j) = self%right(from_track, i)
             else

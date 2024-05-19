@@ -22,7 +22,7 @@ program drum_machine
         shape(pattern), order = [2, 1] )
 
     print *, "**** Demo Drum Machine****"
-    call demo%create_WAV_file('drum_machine.wav', nb_tracks=3, duration=33._dp)
+    call demo%create_WAV_file('drum_machine.wav', tracks=3, duration=33._dp)
 
     ! A rhythm following the above pattern:
     t = 0._dp

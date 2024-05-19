@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 ! The main class that you will use to create your WAV files.
 module wav_file_class
@@ -28,13 +28,13 @@ module wav_file_class
 contains
 
     ! Create a WAV file with a header:
-    subroutine create_WAV_file(self, filename, nb_tracks, duration)
+    subroutine create_WAV_file(self, filename, tracks, duration)
         class(WAV_file), intent(inout) :: self
         character(*), intent(in)       :: filename
-        integer, intent(in)  :: nb_tracks
+        integer, intent(in)  :: tracks
         real(dp), intent(in) :: duration
 
-        call self%new(nb_tracks, duration)
+        call self%new(tracks, duration)
 
         self%filename   = filename
         open(newunit=self%fileunit, file=self%filename, access='stream', status='replace', action='write')
@@ -54,10 +54,10 @@ contains
         integer(INT32) :: file_size, bytes_per_second, data_size
         integer(INT16) :: bytes_per_sample
 
-        print *, "Nb of tracks, excluding track 0:", self%TRACKS
+        print *, "Nb of tracks, excluding track 0:", self%tracks
 
-        DATA_BYTES = (BITS_PER_SAMPLE / 8) * CHANNELS * self%SAMPLES
-        print *, "Used RAM:   ", DATA_BYTES * self%TRACKS, "bytes"
+        DATA_BYTES = (BITS_PER_SAMPLE / 8) * CHANNELS * self%samples
+        print *, "Used RAM:   ", DATA_BYTES * self%tracks, "bytes"
         print *, "File size ~ ", DATA_BYTES, "bytes"
 
         associate(u => self%fileunit)
@@ -92,7 +92,7 @@ contains
             ! ***** Second sub-chunk *****
             write(u, iostat=status) "data"
 
-            data_size = self%SAMPLES * CHANNELS * (BITS_PER_SAMPLE / 8)
+            data_size = self%samples * CHANNELS * (BITS_PER_SAMPLE / 8)
             write(u, iostat=status) data_size
         end associate
     end subroutine write_header
@@ -107,7 +107,7 @@ contains
         ! Looking for the maximum amplitude (must not be zero):
         maxi = max(1e-16_dp, maxval(abs(self%left(0, :))), maxval(abs(self%right(0, :))))
 
-        do i = 0 , self%SAMPLES
+        do i = 0 , self%samples
             ! Writing the amplitude of left then right channels as 16 bit signed integers:
             write(self%fileunit, iostat=status) nint((self%left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
             write(self%fileunit, iostat=status) nint((self%right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)

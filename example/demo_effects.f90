@@ -19,7 +19,7 @@ program demo_effects
     real(dp) :: t, Dt
 
     print *, "**** Demo of the audio effects ****"
-    call demo%create_WAV_file('demo_effects.wav', nb_tracks=1, duration=120._dp)
+    call demo%create_WAV_file('demo_effects.wav', tracks=1, duration=120._dp)
 
     attack = 10.0_dp
     decay  = 40.0_dp

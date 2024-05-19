@@ -20,7 +20,7 @@ program misc_sounds
     do i = 0, 23
         print *, i
         write(number, '(I0)') i
-        call demo%create_WAV_file('misc_sounds'//trim(number)//'.wav', nb_tracks=1, duration=30._dp)
+        call demo%create_WAV_file('misc_sounds'//trim(number)//'.wav', tracks=1, duration=30._dp)
         call add_misc_signal(demo%tape_recorder, track=1, t1=0._dp, t2=30._dp, f=fr("A4"), Amp=1._dp, choice=i)
         call demo%mix_tracks()
         call demo%close_WAV_file()

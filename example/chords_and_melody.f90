@@ -20,7 +20,7 @@ program chords_and_melody
     real(dp) :: chosen_note(0:3)
 
     print *, "**** Demo chords and melody ****"
-    call demo%create_WAV_file('chords_and_melody.wav', nb_tracks=2, duration=120._dp)
+    call demo%create_WAV_file('chords_and_melody.wav', tracks=2, duration=120._dp)
 
     ! Notes duration in seconds:
     Dt = 3.0_dp
@@ -51,9 +51,9 @@ program chords_and_melody
 
     ! A double delay inspired by The Edge.
     ! Dotted quavers delay:
-    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%DURATION, delay=Dt*0.75_dp, Amp=0.45_dp)
+    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%duration, delay=Dt*0.75_dp, Amp=0.45_dp)
     ! Plus a quavers delay:
-    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%DURATION, delay=Dt*0.50_dp, Amp=0.30_dp)
+    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%duration, delay=Dt*0.50_dp, Amp=0.30_dp)
 
     print *, "Final mix..."
     call demo%mix_tracks()
