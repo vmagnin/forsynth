@@ -1,6 +1,6 @@
 #!/bin/bash
 # Vincent Magnin
-# Last modification: 2024-05-18
+# Last modification: 2024-05-19
 
 # For a safer script:
 set -eu
@@ -35,3 +35,4 @@ done
 
 # Cleanup to avoid any problem with fpm or another compiler:
 rm -f *.mod
+rm *.o
