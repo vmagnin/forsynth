@@ -56,3 +56,8 @@ main = "drum_machine.f90"
 name = "misc_sounds"
 source-dir = "example"
 main = "misc_sounds.f90"
+
+[[example]]
+name = "drone_music"
+source-dir = "example"
+main = "drone_music.f90"

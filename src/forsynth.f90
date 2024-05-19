@@ -7,10 +7,11 @@ module forsynth
     use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64, REAL32, REAL64
 
     implicit none
-    ! The default working precision wp is REAL32. It accelerates computations,
-    ! especially with mathematical functions defined by Taylor series.
-    ! REAL64 can be set if needed.
-    integer, parameter  :: wp = REAL32
+    ! The default working precision wp is REAL64.
+    ! REAL32 can be set: it will accelerate computations and give good results
+    ! most of the time. But in certain situations, for example drone music, it
+    ! can introduce artefacts.
+    integer, parameter  :: wp = REAL64
     real(wp), parameter :: PI = 4.0_wp * atan(1.0_wp)
 
     ! Sampling frequency and temporal step:

@@ -16,17 +16,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
     - `add_karplus_strong_drum()` signal.
     - `add_karplus_strong_drum_stretched()`.
     - `karplus_strong_stretched()`
-- demos module:
+- Demos in `example`:
     - Added some scales in `demo3()`.
     - `drum_machine.f90` using Karplus Strong drums, following a pattern defined in an array.
     - `misc_sounds.f90`: creates miscellaneous sounds in WAV files, especially obtained by frequency or phase modulation.
+    - `drone_music.f90`: experimental drone music.
 - A `ROADMAP.md` file.
 - A `logo`.
 - A `example/README.md` file.
 
 ### Changed
 - `src/forsynth.f90`:
-    - the default working precision `wp` is now REAL32. It accelerates computations, especially with mathematical functions defined by Taylor series. REAL64 can be set if needed.
+    - the working precision is now `wp` instead of `dp`.
     - The class `file_t` was renamed `WAV_file` and put in a separate file `wav_file_class.f90`. `close_WAV_file()`, `write_header()` and `write_normalized_data()` are now methods of the object.
     - A class `tape_recorder` was created and moved to `tape_recorder_class.f90`. It contains the arrays and their related parameters, and the methods `clear_tracks`, `mix_tracks`, `copy_section`...
 - `clear_tracks()` is now automatically called when creating a `wav_file` or `tape_recorder` object.
