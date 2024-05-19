@@ -13,7 +13,7 @@ program drum_machine
     type(WAV_file) :: demo
     integer  :: i, j
     real(wp) :: t
-    real(wp) :: dt = 0.25_wp
+    real(wp) :: step = 0.25_wp
     ! Each line is a different drum:
     integer, dimension(3, 16) :: pattern = reshape( [ &
         1,0,0,0, 1,0,0,1, 1,0,0,0, 1,0,0,1,   &
@@ -30,15 +30,15 @@ program drum_machine
         do j = 1, 16
             ! We use one track for each kind of drum:
             if (pattern(1, j) == 1) then
-                call add_karplus_strong_drum(          demo%tape_recorder, track=1, t1=t, t2=t+2*dt, P=150, Amp=1._wp)
+                call add_karplus_strong_drum(          demo%tape_recorder, track=1, t1=t, t2=t+2*step, P=150, Amp=1._wp)
             end if
             if (pattern(2, j) == 1) then
-                call add_karplus_strong_drum(          demo%tape_recorder, track=2, t1=t, t2=t+2*dt, P=400, Amp=1._wp)
+                call add_karplus_strong_drum(          demo%tape_recorder, track=2, t1=t, t2=t+2*step, P=400, Amp=1._wp)
             end if
             if (pattern(3, j) == 1) then
-                call add_karplus_strong_drum_stretched(demo%tape_recorder, track=3, t1=t, t2=t+2*dt, P=150, Amp=0.5_wp)
+                call add_karplus_strong_drum_stretched(demo%tape_recorder, track=3, t1=t, t2=t+2*step, P=150, Amp=0.5_wp)
             end if
-            t = t + dt
+            t = t + step
         end do
     end do
 
