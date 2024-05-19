@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-29
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 ! Miscellaneous signals, especially obtained by frequency or phase modulation.
 ! A WAV file is created for each sound.
@@ -21,7 +21,7 @@ program misc_sounds
         print *, i
         write(number, '(I0)') i
         call demo%create_WAV_file('misc_sounds'//trim(number)//'.wav', nb_tracks=1, duration=30._dp)
-        call add_misc_signal(demo%tape_recorder, 1, 0._dp, 30._dp, fr("A4"), 1._dp, i)
+        call add_misc_signal(demo%tape_recorder, track=1, t1=0._dp, t2=30._dp, f=fr("A4"), Amp=1._dp, choice=i)
         call demo%mix_tracks()
         call demo%close_WAV_file()
     end do

@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 ! A random walk on a blues scale.
 program blues
@@ -32,8 +32,8 @@ program blues
     print *, "A blues scale"
     t = t + Dt
     do i = 1, 6
-        call add_karplus_strong(demo%tape_recorder, 1, t, t + Dt, &
-                            & fr(trim(HEXATONIC_BLUES_SCALE(i))//'3'), 1.0_dp)
+        call add_karplus_strong(demo%tape_recorder, track=1, t1=t, t2=t+Dt, &
+                            & f=fr(trim(HEXATONIC_BLUES_SCALE(i))//'3'), Amp=1.0_dp)
         t = t + Dt
     end do
 
@@ -52,13 +52,13 @@ program blues
 
         call random_number(r)
         r = min(1.0_dp, r+0.25_dp)
-        call add_karplus_strong(demo%tape_recorder, 1, t, t + Dt*(r + 0.25_dp), &
-                            & fr(trim(HEXATONIC_BLUES_SCALE(k))//'2'), 1.0_dp)
+        call add_karplus_strong(demo%tape_recorder, track=1, t1=t, t2=t+Dt*(r+0.25_dp), &
+                            & f=fr(trim(HEXATONIC_BLUES_SCALE(k))//'2'), Amp=1.0_dp)
         t = t + Dt*(r + 0.25_dp)
     end do
 
     ! A tremolo at 3 Hz and an amplitude of 0.2:
-    call apply_tremolo_effect(demo%tape_recorder, 1, 0.0_dp, t, 3.0_dp, 0.2_dp)
+    call apply_tremolo_effect(demo%tape_recorder, track=1, t1=0.0_dp, t2=t, f=3.0_dp, AmpLFO=0.2_dp)
 
     print *, "Final mix..."
     call demo%mix_tracks()

@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 ! A sequence of synth chords is repeated, and the corresponding notes are played
 ! randomly by plucked strings.
@@ -27,13 +27,13 @@ program chords_and_melody
 
     print *, "Track 1: repeating Am C G Dm chords..."
     t = 0.0_dp
-    call add_chord(demo%tape_recorder, 1, t,        t + Dt,   fr("A3"), 1.0_dp, MINOR_CHORD)
-    call add_chord(demo%tape_recorder, 1, t + Dt,   t + 2*Dt, fr("C3"), 1.0_dp, MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, 1, t + 2*Dt, t + 3*Dt, fr("G3"), 1.0_dp, MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, 1, t + 3*Dt, t + 4*Dt, fr("D3"), 1.0_dp, MINOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t,      t2=t+Dt,   f=fr("A3"), Amp=1.0_dp, chord=MINOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+Dt,   t2=t+2*Dt, f=fr("C3"), Amp=1.0_dp, chord=MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+2*Dt, t2=t+3*Dt, f=fr("G3"), Amp=1.0_dp, chord=MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+3*Dt, t2=t+4*Dt, f=fr("D3"), Amp=1.0_dp, chord=MINOR_CHORD)
     ! Repeat those four chords until the end of the track:
     do i = 1, 9
-        call demo%copy_section(1, 1, t, t + 4*Dt, 4 * Dt * i)
+        call demo%copy_section(from_track=1, to_track=1, t1=t, t2=t+4*Dt, t3=4*Dt*i)
     end do
 
     print *, "Track 2: playing random A C G D notes using plucked strings..."
@@ -46,14 +46,14 @@ program chords_and_melody
     do i = 0, 9*16
         t = Dt * i
         call random_number(r)
-        call add_karplus_strong(demo%tape_recorder, 2, t, t + Dt, chosen_note(int(r*4)), 1.0_dp)
+        call add_karplus_strong(demo%tape_recorder, track=2, t1=t, t2=t+Dt, f=chosen_note(int(r*4)), Amp=1.0_dp)
     end do
 
     ! A double delay inspired by The Edge.
     ! Dotted quavers delay:
-    call apply_delay_effect(demo%tape_recorder, 2, 0.0_dp, demo%DURATION, Dt*0.75_dp, 0.45_dp)
+    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%DURATION, delay=Dt*0.75_dp, Amp=0.45_dp)
     ! Plus a quavers delay:
-    call apply_delay_effect(demo%tape_recorder, 2, 0.0_dp, demo%DURATION, Dt*0.50_dp, 0.30_dp)
+    call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_dp, t2=demo%DURATION, delay=Dt*0.50_dp, Amp=0.30_dp)
 
     print *, "Final mix..."
     call demo%mix_tracks()

@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 ! Plays sequentially each type of available signal.
 program all_signals
@@ -32,26 +32,26 @@ program all_signals
 
     t = 0.0_dp
     print *, "Sinusoidal signal"
-    call add_sine_wave(demo%tape_recorder, 1, t, t + Dt, f_A, 1.0_dp)
+    call add_sine_wave(demo%tape_recorder, track=1, t1=t, t2=t+Dt, f=f_A, Amp=1.0_dp)
     print *, "Square wave"
-    call add_square_wave(demo%tape_recorder, 1, t + Dt, t + 2*Dt, f_A, 1.0_dp)
+    call add_square_wave(demo%tape_recorder, track=1, t1=t+Dt, t2=t+2*Dt, f=f_A, Amp=1.0_dp)
     print *, "Sawtooth wave"
-    call add_sawtooth_wave(demo%tape_recorder, 1, t + 2*Dt, t + 3*Dt, f_A, 1.0_dp)
+    call add_sawtooth_wave(demo%tape_recorder, track=1, t1=t+2*Dt, t2=t+3*Dt, f=f_A, Amp=1.0_dp)
     print *, "Triangle wave"
-    call add_triangle_wave(demo%tape_recorder, 1, t + 3*Dt, t + 4*Dt, f_A, 1.0_dp)
+    call add_triangle_wave(demo%tape_recorder, track=1, t1=t+3*Dt, t2=t+4*Dt, f=f_A, Amp=1.0_dp)
     print *, "Summing the four signals together"
-    call add_sine_wave(demo%tape_recorder,     1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
-    call add_square_wave(demo%tape_recorder,   1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
-    call add_sawtooth_wave(demo%tape_recorder, 1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
-    call add_triangle_wave(demo%tape_recorder, 1, t + 4*Dt, t + 5*Dt, f_A, 0.5_dp)
+    call add_sine_wave(demo%tape_recorder,     track=1, t1=t+4*Dt, t2=t+5*Dt, f=f_A, Amp=0.5_dp)
+    call add_square_wave(demo%tape_recorder,   track=1, t1=t+4*Dt, t2=t+5*Dt, f=f_A, Amp=0.5_dp)
+    call add_sawtooth_wave(demo%tape_recorder, track=1, t1=t+4*Dt, t2=t+5*Dt, f=f_A, Amp=0.5_dp)
+    call add_triangle_wave(demo%tape_recorder, track=1, t1=t+4*Dt, t2=t+5*Dt, f=f_A, Amp=0.5_dp)
     print *, "Noise"
-    call add_noise(demo%tape_recorder, 1, t + 5*Dt, t + 6*Dt, 1.0_dp)
+    call add_noise(demo%tape_recorder, track=1, t1=t+5*Dt, t2=t+6*Dt, Amp=1.0_dp)
     print *, "Weierstrass"
-    call add_weierstrass(demo%tape_recorder, 1, t + 6*Dt, t + 7*Dt, f_A, 1.0_dp)
+    call add_weierstrass(demo%tape_recorder, track=1, t1=t+6*Dt, t2=t+7*Dt, f=f_A, Amp=1.0_dp)
     print *, "Karplus Strong"
-    call add_karplus_strong(demo%tape_recorder, 1, t + 7*Dt, t + 8*Dt,  f_A, 1.0_dp)
+    call add_karplus_strong(demo%tape_recorder, track=1, t1=t+7*Dt, t2=t+8*Dt, f=f_A, Amp=1.0_dp)
     print *, "Karplus Strong stretched"
-    call add_karplus_strong_stretched(demo%tape_recorder, 1, t + 8*Dt, t + 9*Dt,  f_A, 1.0_dp)
+    call add_karplus_strong_stretched(demo%tape_recorder, track=1, t1=t+8*Dt, t2=t+9*Dt, f=f_A, Amp=1.0_dp)
 
     print *, "Final mix..."
     call demo%mix_tracks()

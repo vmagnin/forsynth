@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-25
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 ! A rhythm following a pattern stored in an array.
 program drum_machine
@@ -30,13 +30,13 @@ program drum_machine
         do j = 1, 16
             ! We use one track for each kind of drum:
             if (pattern(1, j) == 1) then
-                call add_karplus_strong_drum(          demo%tape_recorder, 1, t, t+2*dt, 150, 1._dp)
+                call add_karplus_strong_drum(          demo%tape_recorder, track=1, t1=t, t2=t+2*dt, P=150, Amp=1._dp)
             end if
             if (pattern(2, j) == 1) then
-                call add_karplus_strong_drum(          demo%tape_recorder, 2, t, t+2*dt, 400, 1._dp)
+                call add_karplus_strong_drum(          demo%tape_recorder, track=2, t1=t, t2=t+2*dt, P=400, Amp=1._dp)
             end if
             if (pattern(3, j) == 1) then
-                call add_karplus_strong_drum_stretched(demo%tape_recorder, 3, t, t+2*dt, 150, 0.5_dp)
+                call add_karplus_strong_drum_stretched(demo%tape_recorder, track=3, t1=t, t2=t+2*dt, P=150, Amp=0.5_dp)
             end if
             t = t + dt
         end do

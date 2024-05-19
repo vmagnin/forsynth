@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-18
+! Last modifications: 2024-05-19
 
 ! All available audio effects are applied sequentially on a chord sequence.
 program demo_effects
@@ -29,21 +29,21 @@ program demo_effects
 
     print *, "Track 1: repeating G D F C chords..."
     t = 0.0_dp
-    call add_chord(demo%tape_recorder, 1, t,        t + Dt,   fr("G3"), 1.0_dp, MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, 1, t + Dt,   t + 2*Dt, fr("D3"), 1.0_dp, MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, 1, t + 2*Dt, t + 3*Dt, fr("F3"), 1.0_dp, MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, 1, t + 3*Dt, t + 4*Dt, fr("C3"), 1.0_dp, MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t,      t2=t+Dt,   f=fr("G3"), Amp=1.0_dp, chord=MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+Dt,   t2=t+2*Dt, f=fr("D3"), Amp=1.0_dp, chord=MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+2*Dt, t2=t+3*Dt, f=fr("F3"), Amp=1.0_dp, chord=MAJOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t+3*Dt, t2=t+4*Dt, f=fr("C3"), Amp=1.0_dp, chord=MAJOR_CHORD)
     ! Repeat those four chords until the end of the track:
     do i = 1, 19
-        call demo%copy_section(1, 1, t, t + 4*Dt, 4 * Dt * i)
+        call demo%copy_section(from_track=1, to_track=1, t1=t, t2=t+4*Dt, t3=4*Dt*i)
     end do
 
     ! Apply the different effects, every four chords, 
     ! after four chords without effect:
-    call apply_fuzz_effect(   demo%tape_recorder, 1, t + 4*Dt,  t + 8*Dt,  0.8_dp)
-    call apply_tremolo_effect(demo%tape_recorder, 1, t + 8*Dt,  t + 12*Dt, 4.0_dp,  0.3_dp)
-    call apply_autopan_effect(demo%tape_recorder, 1, t + 12*Dt, t + 16*Dt, 0.33_dp, 0.8_dp)
-    call apply_delay_effect(  demo%tape_recorder, 1, t + 16*Dt, t + 20*Dt, 0.4_dp,  0.4_dp)
+    call apply_fuzz_effect(   demo%tape_recorder, track=1, t1=t+4*Dt,  t2=t+8*Dt,  level=0.8_dp)
+    call apply_tremolo_effect(demo%tape_recorder, track=1, t1=t+8*Dt,  t2=t+12*Dt, f=4.0_dp,  AmpLFO=0.3_dp)
+    call apply_autopan_effect(demo%tape_recorder, track=1, t1=t+12*Dt, t2=t+16*Dt, f=0.33_dp, AmpLFO=0.8_dp)
+    call apply_delay_effect(  demo%tape_recorder, track=1, t1=t+16*Dt, t2=t+20*Dt, delay=0.4_dp,  Amp=0.4_dp)
 
     print *, "Final mix..."
     call demo%mix_tracks()
