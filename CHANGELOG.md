@@ -36,6 +36,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
     - `demo1` was renamed `chords_and_melody`.
     - `demo2` was renamed `demo_effects`.
 - `demo4.f90` renamed `signals.f90`.
+- Examples are now using keyword argument lists to better document how the API must be used.
+- The alternative `build.sh` was improved.
 - Now under GPL-3.0-or-later license.
 
 ### Removed
