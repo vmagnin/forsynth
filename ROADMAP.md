@@ -1,5 +1,7 @@
 # Roadmap
 
+The stars in parenthesis are an evaluation of the difficulty.
+
 ## ForSynth 0.3 "Éliane Radigue"
 
 ### Development
@@ -13,6 +15,7 @@
 
 ### Examples
 * [x] Improve the artistic quality of some examples.
+* [x] A drone music example.
 
 ### Documentation
 * [x] Design a logo.
@@ -21,50 +24,49 @@
 ## ForSynth 0.4 "?????"
 
 ### Development
-* [ ] More OOP.
+* [ ] More OOP. (***)
 
 ### Features
 * [ ] in `src/envelopes.f90`:
-    * [ ] The ADSR parameter of the envelope should be passed as arguments.
-    * [ ] Add `fade_in()` and `fade_out()` functions or subroutines.
+    * [ ] The ADSR parameter of the envelope should be passed as arguments. (*)
+    * [ ] Add `fade_in()` and `fade_out()` functions or subroutines. (*)
 
 ### Examples
 * [ ] More examples.
-* [ ] Add comments to document the usage of the API.
+* [ ] Add comments to document the usage of the API. (*)
 
 
 ## Ideas for further developments
 
 * [ ] Add more [audio effects](https://en.wikipedia.org/wiki/Category:Audio_effects)
-    * [ ] A function reverse() (or backward)
-    * [ ] Compressor
-    * [ ] Expander
-    * [ ] [Flanger](https://en.wikipedia.org/wiki/Flanging)
-    * [ ] [Phaser](https://en.wikipedia.org/wiki/Phaser_(effect))
-    * [ ] [Chorus](https://en.wikipedia.org/wiki/Chorus_(audio_effect))
-    * [ ] Reverb
+    * [ ] A function reverse() (or backward) (*)
+    * [ ] Compressor (**)
+    * [ ] Expander (?)
+    * [ ] [Flanger](https://en.wikipedia.org/wiki/Flanging) (**)
+    * [ ] [Phaser](https://en.wikipedia.org/wiki/Phaser_(effect)) (***)
+    * [ ] [Chorus](https://en.wikipedia.org/wiki/Chorus_(audio_effect)) (***)
+    * [ ] Reverb (***)
 
 * [ ] Examples
-    * [ ] Simulate Doppler effect
+    * [ ] Simulate Doppler effect (*)
         * [ ] Could be used to obtain a Leslie speaker effect?
-    * [ ] Synthesis: a bell
-    * [ ] Drone music
+    * [ ] Synthesis: a bell (**)
 
-* [ ] `mix_tracks()` could accept an optional array with panoramic settings.
+* [ ] `mix_tracks()` could accept an optional array with panoramic settings. (*)
 
-* [ ] Physical modelling
+* [ ] Physical modelling (***)
     * [ ] Using https://gitlab.com/certik/stringsim ?
 
-* [ ] Soustractive synthesis: add filters (FFT?)
+* [ ] Soustractive synthesis: add filters (FFT?) (***)
 
-* [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm, 
-    * [ ] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track.
+* [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 
+    * [ ] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track. (*)
 
-* [ ] A drum pattern object to ease programming rhythms, inspired by the pattern system used in `example/drum_machine.f90`. Could be also used by ForMIDI.
-* [ ] A note sequencer repeating a pattern. Could be also used by ForMIDI.
-* [ ] A sequence object, accepting a string with notes, with methods to obtain one by one their parameters (physical or MIDI). Could be also used by ForMIDI.
+* [ ] A drum pattern object to ease programming rhythms, inspired by the pattern system used in `example/drum_machine.f90`. Could be also used by ForMIDI. (***)
+* [ ] A note sequencer repeating a pattern. Could be also used by ForMIDI. (***)
+* [ ] A sequence object, accepting a string with notes, with methods to obtain one by one their parameters (physical or MIDI). Could be also used by ForMIDI. (***)
     * [ ] The sequence could for example be coded as "A4,Q.,pf;A#4,Q,pf;..." (note, length, intensity).
 
-* [ ] A function converting dB to linear scale would be useful to set the sound level.
+* [ ] A function converting dB to linear scale would be useful to set the sound level. (*)
 
-* [ ] Scientific data sonification: by reading a data file? or by passing an array?
+* [ ] Scientific data sonification: by reading a data file? or by passing an array? (**)
