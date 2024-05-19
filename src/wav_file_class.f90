@@ -5,10 +5,12 @@
 
 ! The main class that you will use to create your WAV files.
 module wav_file_class
-    use forsynth, only: dp, RATE, INT16, INT32, INT64, MAX_AMPLITUDE
+    use forsynth, only: dp, RATE, INT16, INT32, INT64
     use tape_recorder_class
 
     implicit none
+    ! Maximum amplitude in a WAV [-32768 ; +32767]:
+    integer, parameter :: MAX_AMPLITUDE = 32767
     integer :: status
 
     type, extends(tape_recorder)    :: WAV_file

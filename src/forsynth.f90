@@ -8,15 +8,14 @@ module forsynth
 
     implicit none
     ! Double precision reals:
-    integer, parameter:: dp = REAL64
+    integer, parameter  :: dp = REAL64
     real(dp), parameter :: PI = 4.0_dp * atan(1.0_dp)
-    ! Maximum amplitude in a WAV [-32768 ; +32767]:
-    integer, parameter  :: MAX_AMPLITUDE = 32767
+
     ! Sampling frequency and temporal step:
     integer, parameter  :: RATE = 44100
     real(dp), parameter :: dt = 1.0_dp / RATE
 
-    public :: dp, test_the_machine, PI, RATE, dt, MAX_AMPLITUDE
+    public :: dp, test_the_machine, PI, RATE, dt
 
 contains
 
