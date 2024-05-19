@@ -6,7 +6,7 @@
 ! Miscellaneous signals, especially obtained by frequency or phase modulation.
 ! A WAV file is created for each sound.
 program misc_sounds
-    use forsynth, only: wp, RATE, PI
+    use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
     use tape_recorder_class
     use music, only: fr
@@ -38,7 +38,6 @@ contains
         real(wp) :: omega
         ! Time in seconds:
         real(wp) :: t
-        real(wp), parameter :: dt = 1._wp / RATE
         real(wp), parameter :: phi = -3 * PI     ! Phase in radians at t=0
         integer  :: i, j
 
