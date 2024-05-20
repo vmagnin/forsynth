@@ -104,6 +104,7 @@ Before becoming digital, the first synthesizers were analogue and modular: each 
 -   Silver Apples, *Dust* (1968): https://youtu.be/A7J1zMMv61Y
 -   Eliane Radigue (drone music)
     -   *Stress-osaka* (1969): https://www.youtube.com/watch?v=jr5he-HGuEg
+    -   A later work, *L'Île Re-sonante* (2000): https://www.youtube.com/watch?v=1RrsiGmLp_E
     -   IMA Portrait documentary: https://www.youtube.com/watch?v=lcy5fLcAsQQ
 
 -   The Analog Session (Alexander Robotnick & Ludus Pinsky):
@@ -211,6 +212,7 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   Guerre Froide, *Demain Berlin* (1981): https://www.youtube.com/watch?v=ahs-oaAemjg
 -   Tears for Fears, *Mad World* (1982): https://www.youtube.com/watch?v=u1ZvPSpLxCg
 -   Front 242, *Kampfbereit* (1982): https://www.youtube.com/watch?v=fGle_qgl1Q4
+    -    The bass line is an homage to Kraftwerk's *Kometenmelodie 2* (*Autobahn* album, 1974): https://www.youtube.com/watch?v=FyzkykVO6wM
 -   New Order, *Blue Monday* (1983): https://www.youtube.com/watch?v=FYH8DsU2WCk
 -   New Order, *Confusion* (1983): https://www.youtube.com/watch?v=QRf418ZUBGI
 -   Eurythmics, *Sweet Dreams (Are Made Of This)* (1983), https://www.youtube.com/watch?v=qeMFqkcPYcg
