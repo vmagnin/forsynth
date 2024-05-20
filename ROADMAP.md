@@ -30,16 +30,24 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] in `src/envelopes.f90`:
     * [ ] The ADSR parameter of the envelope should be passed as arguments. (*)
     * [ ] Add `fade_in()` and `fade_out()` functions or subroutines. (*)
+* [ ] in `src/audio_effects.f90`:
+    * [ ] A function reverse() (or backward) (*)
+* [ ] `mix_tracks()` could accept an optional array with panoramic settings. (*)
+* [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 
+    * [ ] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track. (*)
 
 ### Examples
-* [ ] More examples.
-* [ ] Add comments to document the usage of the API. (*)
+* [ ] More examples. (**)
+    * [ ] Simulate Doppler effect (*)
+        * [ ] Could be used to obtain a Leslie speaker effect?
+
+### Documentation
+* [ ] Add comments in examples to document the usage of the API. (*)
 
 
 ## Ideas for further developments
 
 * [ ] Add more [audio effects](https://en.wikipedia.org/wiki/Category:Audio_effects)
-    * [ ] A function reverse() (or backward) (*)
     * [ ] Compressor (**)
     * [ ] Expander (?)
     * [ ] [Flanger](https://en.wikipedia.org/wiki/Flanging) (**)
@@ -48,19 +56,15 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [ ] Reverb (***)
 
 * [ ] Examples
-    * [ ] Simulate Doppler effect (*)
-        * [ ] Could be used to obtain a Leslie speaker effect?
     * [ ] Synthesis: a bell (**)
+    * [ ] [Shepard–Risset glissando](http://csoundjournal.com/issue21/interp_visual_phenom.html) (***)
 
-* [ ] `mix_tracks()` could accept an optional array with panoramic settings. (*)
+* [ ] Find algorithms for good drums, especially bass drums.
 
 * [ ] Physical modelling (***)
     * [ ] Using https://gitlab.com/certik/stringsim ?
 
 * [ ] Soustractive synthesis: add filters (FFT?) (***)
-
-* [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 
-    * [ ] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track. (*)
 
 * [ ] A drum pattern object to ease programming rhythms, inspired by the pattern system used in `example/drum_machine.f90`. Could be also used by ForMIDI. (***)
 * [ ] A note sequencer repeating a pattern. Could be also used by ForMIDI. (***)
