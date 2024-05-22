@@ -62,6 +62,11 @@ First film whose soundtrack (Louis & Bebe Barron) is entirely electronic:
 -   The great machine: http://www.youtube.com/watch?v=HHXfMjp2zqI
 -   Main Titles Overture: http://www.youtube.com/watch?v=WR-MkDKWWW0&list=PLRLCwrdOigtm7KXEfoL7zJCE3EyJ0\_ijV
 
+## 60's: computers
+
+- *Music From Mathematics* (I.B.M. 7090), 2nd edition, DECCA, 1962: https://www.youtube.com/watch?v=FgKKA9sdfs4
+    - Contains especially a few pieces by Max Mathews (Bell Labs). 
+
 ## 60's: Moog synthesizers
 
 ### Wendy Carlos
