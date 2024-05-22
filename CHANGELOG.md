@@ -2,8 +2,14 @@
 All notable changes to the Forsynth project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [ForSynth 0.4 "?"]
 
-## [Forsynth 0.3 "Éliane Radigue"] 2024-05-20
+### Added
+
+- `example/shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch.
+
+
+## [ForSynth 0.3 "Éliane Radigue"] 2024-05-20
 
 ### Added
 - music module:
@@ -50,7 +56,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - A bug in `add_karplus_strong()`.
 
 
-## [Forsynth 0.2 "Daft Punk"] 2021-02-23
+## [ForSynth 0.2 "Daft Punk"] 2021-02-23
 
 ### Added
 - forsynth module:
@@ -82,7 +88,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 as the other waveforms.
 
 
-## [Forsynth 0.1 "Stockhausen"] 2021-02-19
+## [ForSynth 0.1 "Stockhausen"] 2021-02-19
 
 ### Added
 - Initial commit.
