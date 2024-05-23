@@ -1,9 +1,10 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-20
-! Last modifications: 2024-05-22
+! Last modifications: 2024-05-23
 
-! A Shepard scale, giving the illusion of an ever increasing pitch.
+! A Shepard scale, giving the illusion of an ever increasing pitch in the first
+! half of the tape and an ever decreasing pitch in the 2nd half.
 ! Shepard, Roger N. "Circularity in Judgments of Relative Pitch",
 ! The Journal of the Acoustical Society of America 36, no. 12,
 ! (December 1, 1964): 2346–53. https://doi.org/10.1121/1.1919362.
@@ -11,6 +12,7 @@
 program shepard_scale
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
+    use audio_effects, only: apply_reverse_effect
 
     implicit none
     type(WAV_file) :: demo
@@ -41,6 +43,8 @@ program shepard_scale
     real(wp), parameter :: d = 0.125_wp
     real(wp), parameter :: ds = 0.840_wp
     real(wp) :: teta, f
+    ! Number of repetitions:
+    integer, parameter ::  kmax = 9
 
     print *, "**** Creating shepard_scale.wav ****"
     call demo%create_WAV_file('shepard_scale.wav', tracks=1, duration=120._wp)
@@ -48,7 +52,7 @@ program shepard_scale
     associate(tape => demo%tape_recorder)
 
     ! Repeat the Shepard scale:
-    do k = 0, 9
+    do k = 0, kmax
         ! Tones loop:
         do t = 1, tmax
             ! Components loop:
@@ -73,6 +77,8 @@ program shepard_scale
         end do
     end do
     tape%right = tape%left
+    ! The 2nd half of the track is reversed to obtain an ever decreasing pitch:
+    call apply_reverse_effect(tape, track=1, t1=(1+kmax)/2*tmax*(d+ds), t2=(1+kmax)*tmax*(d+ds) + d)
     end associate
 
     call demo%mix_tracks()

@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-05-17
+! Last modifications: 2023-05-23
 
 module audio_effects
     ! Various audio effects
@@ -14,7 +14,7 @@ module audio_effects
     private
 
     public :: apply_delay_effect, apply_fuzz_effect, apply_tremolo_effect, &
-            & apply_autopan_effect
+            & apply_autopan_effect, apply_reverse_effect
 
 contains
 
@@ -99,6 +99,26 @@ contains
             tape%right(track, i) = tape%right(track, i) * (1.0_wp - AmpLFO * cos(omegaLFO*t + phi))
             t = t + dt
         end do
+    end subroutine
+
+    ! Copy the samples at the same t1 but in reverse order:
+    subroutine apply_reverse_effect(tape, track, t1, t2)
+        type(tape_recorder), intent(inout) :: tape
+        integer, intent(in)  :: track
+        real(wp), intent(in) :: t1, t2
+        integer              :: i, i1, i2
+
+        i1 = nint(t1*RATE)
+        i2 = nint(t2*RATE) - 1
+
+        ! Track 0 is used as an auxiliary track:
+        do i = i1, i2
+            tape%left(0,  i) = tape%left(track,  i1-i+i2)
+            tape%right(0, i) = tape%right(track, i1-i+i2)
+        end do
+        ! Transfer on the good track:
+        tape%left(track,  i1:i2) = tape%left(0,  i1:i2)
+        tape%right(track, i1:i2) = tape%right(0, i1:i2)
     end subroutine
 
 end module audio_effects

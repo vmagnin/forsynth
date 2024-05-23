@@ -31,7 +31,7 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [ ] The ADSR parameter of the envelope should be passed as arguments. (*)
     * [ ] Add `fade_in()` and `fade_out()` functions or subroutines. (*)
 * [ ] in `src/audio_effects.f90`:
-    * [ ] A function reverse() (or backward) (*)
+    * [x] A subroutine `apply_reverse_effect()`. (*)
 * [ ] `mix_tracks()` could accept an optional array with panoramic settings. (*)
 * [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 
     * [ ] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track. (*)

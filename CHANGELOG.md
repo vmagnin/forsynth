@@ -6,7 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- `example/shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch.
+- `example/shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch in the first half of the tape and an ever decreasing pitch in the 2nd half.
+- In `/src/audio_effects.f90`: an `apply_reverse_effect(tape, track, t1, t2)` subroutine to reverse the order of samples.
 
 
 ## [ForSynth 0.3 "Éliane Radigue"] 2024-05-20

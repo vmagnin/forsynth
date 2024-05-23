@@ -11,7 +11,7 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk.
 * Basic music theory elements (scales, circle of fifths, chords...).
 * Various signals and Karplus-Strong algorithms.
 * An ADSR envelope generator.
-* Some audio effects: delay, fuzz, tremolo and autopan.
+* Some audio effects: delay, fuzz, tremolo, reverse and autopan.
 * Various examples.
 * You just need a modern Fortran compiler and a media player, whatever your OS.
 * GPL-3.0-or-later license.
