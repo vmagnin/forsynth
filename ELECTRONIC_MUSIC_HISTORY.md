@@ -167,6 +167,7 @@ Later famous works:
 -   *Close Encounters of the Third Kind*(Steven Spielberg, 1977): https://www.youtube.com/watch?v=S4PYI6TzqYk
 -    David Bowie and Brian Eno, *Sense of Doubt* (1977,  *Heroes*): https://www.youtube.com/watch?v=ENqheXKftbo
 -   Tubeway Army, *Are Friends Electric* (1979): https://www.youtube.com/watch?v=21ixpapHjkM
+    - A "recent" version (AllSaints Basement Sessions): https://www.youtube.com/watch?v=22Z4Tv1zn-s
 
 ## 70's: Synth-Punk
 
