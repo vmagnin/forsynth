@@ -7,9 +7,9 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk.
 ## Features
 
 * ForSynth is a semi-analog semi-digital studio: time is discretized (44100 samples/s) but the amplitude is coded as a Fortran real and digitized as a 16 bits signed integer only after the final mixing, when generating the output WAV file.
-* You can use as many stereo tracks as you need. The track 0 is used for the final mix. Do you know The Beatles used a 8 tracks tape recorder the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
+* You can use as many stereo tracks as you need. The track 0 is used for the final mix and some algorithms also use it as an auxilliary track. Do you know The Beatles used a 8 tracks tape recorder the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
 * Basic music theory elements (scales, circle of fifths, chords...).
-* Various signals and Karplus-Strong algorithms.
+* Various signals and Karplus-Strong algorithms (guitar and drums).
 * An ADSR envelope generator.
 * Some audio effects: delay, fuzz, tremolo, reverse and autopan.
 * Various examples.

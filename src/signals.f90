@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-16
+! Last modifications: 2024-05-25
 
 module signals
     ! Subroutines generating different kind of signals
@@ -167,24 +167,32 @@ contains
         real(wp), intent(in) :: t1, t2, f, Amp
         real(wp) :: signal, r
         integer  :: i, P
+        integer  :: i1, i2
+
+        i1 = nint(t1*RATE)
+        i2 = nint(t2*RATE) - 1
 
         P = nint(RATE / f) - 2
 
         ! Initial noise:
-        do i = nint(t1*RATE), nint(t1*RATE) + P
+        do i = i1, i1 + P
             ! 0 <= r < 1
             call random_number(r)
             ! -Amp <= signal < +Amp
             signal = Amp * (2.0_wp*r - 1.0_wp)
-
-            tape%left(track, i)  = signal
-            tape%right(track, i) = signal
+            ! Track 0 is used as an auxiliary track:
+            tape%left( 0, i) = signal
+            tape%right(0, i) = signal
         end do
         ! Delay and decay:
-        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
-            tape%left(track, i)  = (tape%left(track, i-P) + tape%left(track, i-P-1)) / 2.0_wp
-            tape%right(track, i) = tape%left(track, i)
+        do i = i1 + P + 1, i2
+            tape%left( 0, i) = (tape%left(0, i-P) + tape%left(0, i-P-1)) / 2.0_wp
+            tape%right(0, i) = tape%left(0, i)
         end do
+
+        ! Transfer (add) on the good track:
+        tape%left( track, i1:i2) = tape%left( track, i1:i2) + tape%left( 0, i1:i2)
+        tape%right(track, i1:i2) = tape%right(track, i1:i2) + tape%right(0, i1:i2)
     end subroutine add_karplus_strong
 
 
@@ -192,33 +200,41 @@ contains
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
-
+        integer  :: i1, i2
         real(wp) :: r
         integer  :: i
         integer  :: P
         ! Stretch factor S > 1:
         real(wp), parameter :: S = 4._wp
 
+        i1 = nint(t1*RATE)
+        i2 = nint(t2*RATE) - 1
+
         P = nint(RATE / f) - 2
 
         ! Initial noise:
-        do i = nint(t1*RATE), nint(t1*RATE) + P
+        do i = i1, i1 + P
             ! 0 <= r < 1
             call random_number(r)
-            tape%left(track, i)  = Amp * (2.0_wp*r - 1.0_wp)
-            tape%right(track, i) = tape%left(track, i)
+            ! Track 0 is used as an auxiliary track:
+            tape%left( 0, i) = Amp * (2.0_wp*r - 1.0_wp)
+            tape%right(0, i) = tape%left(0, i)
         end do
 
         ! Delay and decay:
-        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
+        do i = i1 + P + 1, i2
             call random_number(r)
             if (r < 1/S) then
-                tape%left(track, i) = +0.5_wp * (tape%left(track, i-P) + tape%left(track, i-P-1))
+                tape%left(0, i) = +0.5_wp * (tape%left(0, i-P) + tape%left(0, i-P-1))
             else
-                tape%left(track, i) = +tape%left(track, i-P)
+                tape%left(0, i) = +tape%left(0, i-P)
             end if
-            tape%right(track, i) = tape%left(track, i)
+            tape%right(0, i) = tape%left(0, i)
         end do
+
+        ! Transfer (add) on the good track:
+        tape%left( track, i1:i2) = tape%left( track, i1:i2) + tape%left( 0, i1:i2)
+        tape%right(track, i1:i2) = tape%right(track, i1:i2) + tape%right(0, i1:i2)
     end subroutine add_karplus_strong_stretched
 
 
@@ -234,6 +250,7 @@ contains
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track, P
         real(wp), intent(in) :: t1, t2, Amp
+        integer  :: i1, i2
 
         real(wp) :: r
         integer  :: i
@@ -241,14 +258,18 @@ contains
         real(wp), parameter :: b = 0.5_wp
         real(wp) :: the_sign
 
+        i1 = nint(t1*RATE)
+        i2 = nint(t2*RATE) - 1
+
         ! Initial noise:
-        do i = nint(t1*RATE), nint(t1*RATE) + P
-            tape%left(track, i)  = Amp
-            tape%right(track, i) = Amp
+        do i = i1, i1 + P
+           ! Track 0 is used as an auxiliary track:
+            tape%left( 0, i) = Amp
+            tape%right(0, i) = Amp
         end do
 
         ! Evolution and decay:
-        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
+        do i = i1 + P + 1, i2
             ! The sign of the sample is random:
             call random_number(r)
             if (r < b) then
@@ -258,9 +279,13 @@ contains
             end if
 
             ! Mean of samples i-P and i-P-1:
-            tape%left(track, i)  = the_sign * 0.5_wp * (tape%left(track, i-P) + tape%left(track, i-P-1))
-            tape%right(track, i) = tape%left(track, i)
+            tape%left( 0, i) = the_sign * 0.5_wp * (tape%left(0, i-P) + tape%left(0, i-P-1))
+            tape%right(0, i) = tape%left(0, i)
         end do
+
+        ! Transfer (add) on the good track:
+        tape%left( track, i1:i2) = tape%left( track, i1:i2) + tape%left( 0, i1:i2)
+        tape%right(track, i1:i2) = tape%right(track, i1:i2) + tape%right(0, i1:i2)
     end subroutine add_karplus_strong_drum
 
 
@@ -268,6 +293,7 @@ contains
         type(tape_recorder), intent(inout) :: tape
         integer,  intent(in) :: track, P
         real(wp), intent(in) :: t1, t2, Amp
+        integer  :: i1, i2
 
         real(wp) :: r
         integer  :: i
@@ -276,35 +302,44 @@ contains
         ! Stretch factor S > 1:
         real(wp), parameter :: S = 4._wp
 
+        i1 = nint(t1*RATE)
+        i2 = nint(t2*RATE) - 1
+
         ! Initial noise:
-        do i = nint(t1*RATE), nint(t1*RATE) + P
-            tape%left(track, i)  = Amp
-            tape%right(track, i) = Amp
+        do i = i1, i1 + P
+            ! Track 0 is used as an auxiliary track:
+            tape%left( 0, i)  = Amp
+            tape%right(0, i) = Amp
         end do
 
         ! Evolution and decay:
-        do i = nint(t1*RATE) + P + 1, nint(t2*RATE) - 1
+        do i = i1 + P + 1, i2
             ! The sign of the sample is random:
             call random_number(r)
             if (r < b) then
                 call random_number(r)
                 if (r < 1/S) then
-                    tape%left(track, i) = +0.5_wp * (tape%left(track, i-P) + tape%left(track, i-P-1))
+                    tape%left(0, i) = +0.5_wp * (tape%left(0, i-P) + tape%left(0, i-P-1))
                 else
-                    tape%left(track, i) = +tape%left(track, i-P)
+                    tape%left(0, i) = +tape%left(0, i-P)
                 end if
             else
                 call random_number(r)
                 if (r < 1/S) then
-                    tape%left(track, i) = -0.5_wp * (tape%left(track, i-P) + tape%left(track, i-P-1))
+                    tape%left(0, i) = -0.5_wp * (tape%left(0, i-P) + tape%left(0, i-P-1))
                 else
-                    tape%left(track, i) = -tape%left(track, i-P)
+                    tape%left(0, i) = -tape%left(0, i-P)
                 end if
             end if
 
-            tape%right(track, i) = tape%left(track, i)
+            tape%right(0, i) = tape%left(0, i)
         end do
+
+        ! Transfer (add) on the good track:
+        tape%left( track, i1:i2) = tape%left( track, i1:i2) + tape%left( 0, i1:i2)
+        tape%right(track, i1:i2) = tape%right(track, i1:i2) + tape%right(0, i1:i2)
     end subroutine add_karplus_strong_drum_stretched
+
 
     ! Add white noise on the track:
     subroutine add_noise(tape, track, t1, t2, Amp)
