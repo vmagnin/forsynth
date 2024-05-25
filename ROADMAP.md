@@ -2,26 +2,7 @@
 
 The stars in parenthesis are an evaluation of the difficulty.
 
-## ForSynth 0.3 "Éliane Radigue"
-
-### Development
-* [x] Start an OOP approach.
-
-### Features
-* [x] A `music_common` module could gather the common code and parameters of ForMIDI and ForSynth.
-* [x] Add other chords: 7th, Sus2, Sus4... using the `music_common` module.
-* [x] The duration (120 seconds by default) and number of tracks should be set when we create a new WAV, instead of being hard-set.
-* [x] The method `mix_tracks()` could accept an optional array with the final levels of each track.
-
-### Examples
-* [x] Improve the artistic quality of some examples.
-* [x] A drone music example.
-
-### Documentation
-* [x] Design a logo.
-
-
-## ForSynth 0.4 "?????"
+## ForSynth 0.4
 
 ### Development
 * [ ] More OOP. (***)
@@ -40,6 +21,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] More examples. (**)
     * [ ] Simulate Doppler effect (*)
         * [ ] Could be used to obtain a Leslie speaker effect?
+    * [x] [Shepard–Risset glissando](http://csoundjournal.com/issue21/interp_visual_phenom.html) (***)
 
 ### Documentation
 * [ ] Add comments in examples to document the usage of the API. (*)
@@ -57,7 +39,6 @@ The stars in parenthesis are an evaluation of the difficulty.
 
 * [ ] Examples
     * [ ] Synthesis: a bell (**)
-    * [ ] [Shepard–Risset glissando](http://csoundjournal.com/issue21/interp_visual_phenom.html) (***)
 
 * [ ] Find algorithms for good drums, especially bass drums.
 

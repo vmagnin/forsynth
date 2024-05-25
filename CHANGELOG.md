@@ -2,11 +2,12 @@
 All notable changes to the Forsynth project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [ForSynth 0.4 "?"]
+## [ForSynth dev]
 
 ### Added
 
 - `example/shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch in the first half of the tape and an ever decreasing pitch in the 2nd half.
+- `example/shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale.
 - In `/src/audio_effects.f90`: an `apply_reverse_effect(tape, track, t1, t2)` subroutine to reverse the order of samples.
 
 

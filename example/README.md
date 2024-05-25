@@ -7,4 +7,5 @@
 - `drone_music.f90`: experimental drone music.
 - `drum_machine.f90`: a rhythm following a pattern stored in an array.
 - `misc_sounds.f90`: miscellaneous signals, especially obtained by frequency or phase modulation. A WAV file is created for each sound.
+- `shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale.
 - `shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch.

@@ -66,3 +66,8 @@ main = "drone_music.f90"
 name = "shepard_scale"
 source-dir = "example"
 main = "shepard_scale.f90"
+
+[[example]]
+name = "shepard_risset_glissando"
+source-dir = "example"
+main = "shepard_risset_glissando.f90"
