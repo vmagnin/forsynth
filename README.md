@@ -26,7 +26,7 @@ You can easily build the project using the Fortran Package Manager fpm (https://
 $ fpm build
 ```
 
-Or you can also use the `build.sh` script if you don't have fpm installed.
+Or if you don't have fpm, you can use the `build.sh` script (the examples will be built inside the `build/` directory).
 
 ### Running the examples
 The examples can be found in the `example/` directory. For example, the `chords_and_melody.f90` example can be run with the command:
