@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-25
+! Last modifications: 2024-05-26
 
 module signals
     ! Subroutines generating different kind of signals
@@ -261,12 +261,11 @@ contains
         i1 = nint(t1*RATE)
         i2 = nint(t2*RATE) - 1
 
-        ! Initial noise:
-        do i = i1, i1 + P
-           ! Track 0 is used as an auxiliary track:
-            tape%left( 0, i) = Amp
-            tape%right(0, i) = Amp
-        end do
+        ! Track 0 is used as an auxiliary track.
+
+        ! Attack:
+        tape%left( 0, i1:i1+P) = Amp
+        tape%right(0, i1:i1+P) = Amp
 
         ! Evolution and decay:
         do i = i1 + P + 1, i2
@@ -305,12 +304,11 @@ contains
         i1 = nint(t1*RATE)
         i2 = nint(t2*RATE) - 1
 
-        ! Initial noise:
-        do i = i1, i1 + P
-            ! Track 0 is used as an auxiliary track:
-            tape%left( 0, i)  = Amp
-            tape%right(0, i) = Amp
-        end do
+        ! Track 0 is used as an auxiliary track.
+
+        ! Attack:
+        tape%left( 0, i1:i1+P) = Amp
+        tape%right(0, i1:i1+P) = Amp
 
         ! Evolution and decay:
         do i = i1 + P + 1, i2
