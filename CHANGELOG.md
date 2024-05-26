@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 - `src/signals.f90`: the Karplus-Strong algorithms are now using the track 0 as an auxilliary track, to avoid overwriting what is already present on the track of the signal.
+- `/src/audio_effects.f90`: the effects now use `do concurrent` loops (except for delay).
 
 
 ## [ForSynth 0.3 "Éliane Radigue"] 2024-05-20

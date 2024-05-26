@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-05-23
+! Last modifications: 2023-05-26
 
 module audio_effects
     ! Various audio effects
@@ -30,6 +30,7 @@ contains
         ! Delay as an integer:
         id = nint(delay / dt)
 
+        ! Can not be parallelized:
         do i = nint(t1*RATE), nint(t2*RATE) - 1
             j = i - id
             if (j > 0) then
@@ -48,7 +49,7 @@ contains
         real(wp), intent(in) :: t1, t2, level
         integer              :: i
 
-        do i = nint(t1*RATE), nint(t2*RATE) - 1
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE) - 1)
             if (abs(tape%left(track,  i)) > level) then
                 tape%left(track,  i) = sign(level, tape%left(track,  i))
             end if
@@ -72,11 +73,11 @@ contains
         real(wp) :: t
 
         omegaLFO = 2 * PI * f
-        t = 0
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+            t = (i - nint(t1*RATE)) * dt
             tape%left(track,  i) = tape%left(track,  i) * (1.0_wp - AmpLFO*sin(omegaLFO*t))
             tape%right(track, i) = tape%right(track, i) * (1.0_wp - AmpLFO*sin(omegaLFO*t))
-            t = t + dt
         end do
     end subroutine
 
@@ -93,11 +94,11 @@ contains
         real(wp) :: t
 
         omegaLFO = 2 * PI * f
-        t = 0
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+            t = (i - nint(t1*RATE)) * dt
             tape%left(track,  i) = tape%left(track,  i) * (1.0_wp - AmpLFO * sin(omegaLFO*t + phi))
             tape%right(track, i) = tape%right(track, i) * (1.0_wp - AmpLFO * cos(omegaLFO*t + phi))
-            t = t + dt
         end do
     end subroutine
 
@@ -112,7 +113,7 @@ contains
         i2 = nint(t2*RATE) - 1
 
         ! Track 0 is used as an auxiliary track:
-        do i = i1, i2
+        do concurrent(i = i1:i2)
             tape%left(0,  i) = tape%left(track,  i1-i+i2)
             tape%right(0, i) = tape%right(track, i1-i+i2)
         end do
