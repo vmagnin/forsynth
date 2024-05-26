@@ -8,8 +8,8 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] More OOP. (***)
 
 ### Features
-* [ ] in `src/envelopes.f90`:
-    * [ ] The ADSR parameter of the envelope should be passed as arguments. (*)
+* [x] in `src/envelopes.f90`:
+    * [x] The ADSR parameter of the envelope should be passed as arguments (via an object). (**)
     * [x] Add `apply_fade_in()` and `apply_fade_out()` subroutines. (*)
 * [ ] in `src/audio_effects.f90`:
     * [x] A subroutine `apply_reverse_effect()`. (*)

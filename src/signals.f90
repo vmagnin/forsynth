@@ -7,7 +7,7 @@ module signals
     ! Subroutines generating different kind of signals
 
     use forsynth, only: wp, RATE, dt, PI
-    use envelopes, only: ADSR_enveloppe
+    use envelopes, only: ADSR_envelope
     use tape_recorder_class
 
     implicit none
@@ -22,10 +22,11 @@ module signals
 contains
 
     ! Adds on the track a sine wave with an ADSR envelope:
-    subroutine add_sine_wave(tape, track, t1, t2, f, Amp)
+    subroutine add_sine_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
+        type(ADSR_envelope), optional, intent(in) :: envelope
         ! Phase at t=0 s, radians:
         real(wp), parameter  :: phi = 0.0_wp
         ! Pulsation (radians/second):
@@ -37,11 +38,12 @@ contains
         real(wp) :: signal
         integer  :: i
 
+        env = 1._wp     ! Default value if no envelope is passed
         omega = 2.0_wp * PI * f
-
         t = 0.0_wp
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            env = ADSR_enveloppe(t1+t, t1, t2)
+            if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
+
             signal = Amp * sin(omega*t + phi) * env
 
             tape%left(track, i)  = tape%left(track, i)  + signal
@@ -52,10 +54,11 @@ contains
     end subroutine add_sine_wave
 
     ! Adds on the track a square wave with an ADSR envelope:
-    subroutine add_square_wave(tape, track, t1, t2, f, Amp)
+    subroutine add_square_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
+        type(ADSR_envelope), optional, intent(in) :: envelope
         ! Period in seconds:
         real(wp) :: tau
         ! Time in seconds:
@@ -65,10 +68,11 @@ contains
         real(wp) :: env
         integer  :: i, n
 
+        env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
         t = 0.0_wp
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            env = ADSR_enveloppe(t1+t, t1, t2)
+            if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
             ! Number of the half-period:
             n = int(t / (tau/2.0_wp))
@@ -88,10 +92,11 @@ contains
     end subroutine add_square_wave
 
     ! Adds on the track a sawtooth wave with an ADSR envelope:
-    subroutine add_sawtooth_wave(tape, track, t1, t2, f, Amp)
+    subroutine add_sawtooth_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in) :: track
         real(wp), intent(in) :: t1, t2, f, Amp
+        type(ADSR_envelope), optional, intent(in) :: envelope
         ! Period in seconds:
         real(wp) :: tau
         ! Time in seconds:
@@ -101,10 +106,11 @@ contains
         real(wp) :: env
         integer  :: i
 
+        env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
         t = 0.0_wp
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            env = ADSR_enveloppe(t1+t, t1, t2)
+            if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
             ! We substract 0.5 for the signal to be centered on 0:
             signal = 2 * (((t/tau) - floor(t/tau)) - 0.5_wp) * Amp * env
@@ -117,10 +123,11 @@ contains
     end subroutine add_sawtooth_wave
 
     ! Adds on the track a triangle wave with an ADSR envelope:
-    subroutine add_triangle_wave(tape, track, t1, t2, f, Amp)
+    subroutine add_triangle_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
+        type(ADSR_envelope), optional, intent(in) :: envelope
         ! Period in seconds:
         real(wp) :: tau
         ! Time in seconds:
@@ -131,13 +138,13 @@ contains
         real(wp) :: a, x
         integer  :: i, n
 
+        env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
         t = 0.0_wp
-
         a = (2.0_wp * Amp) / (tau/2.0_wp)
 
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            env = ADSR_enveloppe(t1+t, t1, t2)
+            if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
             ! Number of the half-period:
             n = int(t / (tau/2.0_wp))
@@ -375,10 +382,11 @@ contains
     end function
 
     ! Add a fractal signal on the track with an envelope:
-    subroutine add_weierstrass(tape, track, t1, t2, f, Amp)
+    subroutine add_weierstrass(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
+        type(ADSR_envelope), optional, intent(in) :: envelope
         ! Pulsation (radians/second):
         real(wp) :: omega
         ! Time in seconds:
@@ -396,10 +404,11 @@ contains
         ! If a.b > 1 the function is fractal:
         b = 1._wp/.975_wp + 0.005_wp ;
 
+        env = 1._wp     ! Default value if no envelope is passed
         omega = 2.0_wp * PI * f
         t = 0._wp
         do i = nint(t1*RATE), nint(t2*RATE)-1
-            env = ADSR_enveloppe(t1+t, t1, t2)
+            if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
             signal = Amp * weierstrass(a, b, omega*t + phi) * env
             ! It is addd to the already present signal:
             tape%left(track, i)  = tape%left(track, i)  + signal

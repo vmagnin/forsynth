@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-19
+! Last modifications: 2024-05-26
 
 ! A random walk on a blues scale.
 program blues
@@ -10,7 +10,6 @@ program blues
     use signals, only: add_karplus_strong
     use music, only: fr
     use music_common, only: HEXATONIC_BLUES_SCALE
-    use envelopes, only: attack, decay
     use audio_effects, only: apply_tremolo_effect
 
     implicit none
@@ -21,9 +20,6 @@ program blues
 
     print *, "**** Demo Blues ****"
     call demo%create_WAV_file('blues.wav', tracks=1, duration=35._wp)
-
-    attack = 30.0_wp
-    decay  = 20.0_wp
 
     ! Notes duration in seconds:
     Dt = 0.5_wp

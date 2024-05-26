@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-16
+! Last modifications: 2024-05-26
 
 module music
     !---------------------------------------------------------------------------
@@ -12,6 +12,7 @@ module music
     ! Music theory elements common to the ForMIDI and ForSynth projects:
     use music_common
     use tape_recorder_class
+    use envelopes, only: ADSR_envelope
 
     implicit none
     public
@@ -26,31 +27,33 @@ module music
 contains
 
     ! A note of fundamental frequency f with harmonics, based on sine waves:
-    subroutine add_note(tape, track, t1, t2, f, Amp)
+    subroutine add_note(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         ! https://en.wikipedia.org/wiki/Harmonic
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
+        type(ADSR_envelope), optional, intent(inout) :: envelope
         integer :: h
 
         ! Adding harmonics 1f to 40f, with a decreasing amplitude:
         do h = 1, 40
-            call add_sine_wave(tape, track, t1, t2, h*f, Amp / h**2)
+            call add_sine_wave(tape, track, t1, t2, h*f, Amp / h**2, envelope)
         end do
     end subroutine
 
     ! Writes a chord using an array containing the intervals
     ! (see the music_common module)
-    subroutine add_chord(tape, track, t1, t2, f, Amp, chord)
+    subroutine add_chord(tape, track, t1, t2, f, Amp, chord, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
         integer, dimension(:), intent(in) :: chord
+        type(ADSR_envelope), optional, intent(inout) :: envelope
         integer :: i, interval
 
         do i = 1, size(chord)
             interval = chord(i)
-            call add_note(tape, track, t1, t2, f * SEMITONE**interval, Amp)
+            call add_note(tape, track, t1, t2, f * SEMITONE**interval, Amp, envelope)
         end do
     end subroutine add_chord
 

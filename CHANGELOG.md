@@ -9,11 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `example/shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale.
 - In `src/audio_effects.f90`: an `apply_reverse_effect(tape, track, t1, t2)` subroutine to reverse the order of samples.
 - In `src/envelopes.f90`: `apply_fade_in()` and `apply_fade_out()` subroutines.
+- An `ADSR_envelope` object can now be passed optionally to `add_sine_wave()`, `add_square_wave()`, `add_triangle_wav()`, `add_sawtooth_wave()`, `add_weierstrass()` signals, and `add_note()` and `add_chord()` subroutines.
 
 ### Changed
 - `src/signals.f90`: the Karplus-Strong algorithms are now using the track 0 as an auxilliary track, to avoid overwriting what is already present on the track of the signal.
 - `src/audio_effects.f90`: the effects now use `do concurrent` loops (except for delay).
 - `example/drone_music.f90` and `example/shepard_risset_glissando.f90`: added fade in and fade out.
+- `src/envelopes.f90`: the ADSR envelope is now a class `ADSR_envelope`.
 
 
 ## [ForSynth 0.3 "Éliane Radigue"] 2024-05-20
