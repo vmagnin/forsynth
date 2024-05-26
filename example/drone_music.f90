@@ -1,13 +1,14 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-19
-! Last modifications: 2024-05-19
+! Last modifications: 2024-05-26
 
 ! Experimental drone music.
 program drone_music
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
     use music, only: SEMITONE
+    use envelopes, only: apply_fade_in, apply_fade_out
 
     implicit none
     type(WAV_file) :: demo
@@ -48,6 +49,9 @@ program drone_music
         tape%right(1, i) = tape%left(1, i)
         t = t + dt
     end do
+
+    call apply_fade_in( tape, track=1, t1=0._wp, t2=3._wp)
+    call apply_fade_out(tape, track=1, t1=t2-3,  t2=t2)
 
     end associate
 

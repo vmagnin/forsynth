@@ -1,12 +1,13 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-05-16
+! Last modifications: 2023-05-26
 
-! Subroutines generating envelopes
+! Functions and subroutines generating envelopes
 ! https://en.wikipedia.org/wiki/Envelope_(music)
 module envelopes
-    use forsynth, only: wp, RATE, PI
+    use forsynth, only: wp, RATE
+    use tape_recorder_class
 
     implicit none
 
@@ -23,7 +24,8 @@ module envelopes
 
     private
 
-    public :: ADSR_enveloppe, attack, decay, sustain, release
+    public :: ADSR_enveloppe, attack, decay, sustain, release, &
+            & apply_fade_in, apply_fade_out
 
 contains
 
@@ -61,6 +63,38 @@ contains
                 end if
             end if
         end if
-    end function
+    end function ADSR_enveloppe
+
+    ! A linear fade in, from relative level 0 to 1:
+    subroutine apply_fade_in(tape, track, t1, t2)
+        type(tape_recorder), intent(inout) :: tape
+        integer, intent(in)  :: track
+        real(wp), intent(in) :: t1, t2
+        integer :: i, i1, i2
+
+        i1 = nint(t1 * RATE)
+        i2 = nint(t2 * RATE) - 1
+
+        do concurrent(i = i1:i2)
+            tape%left( track, i) = tape%left( track, i) * (i-i1) / (i2-i1)
+            tape%right(track, i) = tape%right(track, i) * (i-i1) / (i2-i1)
+        end do
+    end subroutine apply_fade_in
+
+    ! A linear fade out, from relative level 1 to 0:
+    subroutine apply_fade_out(tape, track, t1, t2)
+        type(tape_recorder), intent(inout) :: tape
+        integer, intent(in)  :: track
+        real(wp), intent(in) :: t1, t2
+        integer :: i, i1, i2
+
+        i1 = nint(t1 * RATE)
+        i2 = nint(t2 * RATE) - 1
+
+        do concurrent(i = i1:i2)
+            tape%left( track, i) = tape%left( track, i) * (i-i2) / (i1-i2)
+            tape%right(track, i) = tape%right(track, i) * (i-i2) / (i1-i2)
+        end do
+    end subroutine apply_fade_out
 
 end module envelopes

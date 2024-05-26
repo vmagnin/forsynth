@@ -10,7 +10,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 ### Features
 * [ ] in `src/envelopes.f90`:
     * [ ] The ADSR parameter of the envelope should be passed as arguments. (*)
-    * [ ] Add `fade_in()` and `fade_out()` functions or subroutines. (*)
+    * [x] Add `apply_fade_in()` and `apply_fade_out()` subroutines. (*)
 * [ ] in `src/audio_effects.f90`:
     * [x] A subroutine `apply_reverse_effect()`. (*)
 * [ ] `mix_tracks()` could accept an optional array with panoramic settings. (*)
