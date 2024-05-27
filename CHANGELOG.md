@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `example/shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale.
 - In `src/audio_effects.f90`: an `apply_reverse_effect(tape, track, t1, t2)` subroutine to reverse the order of samples.
 - In `src/envelopes.f90`: `apply_fade_in()` and `apply_fade_out()` subroutines.
-- An `ADSR_envelope` object can now be passed optionally to `add_sine_wave()`, `add_square_wave()`, `add_triangle_wav()`, `add_sawtooth_wave()`, `add_weierstrass()` signals, and `add_note()` and `add_chord()` subroutines.
+- An `ADSR_envelope` object can now be passed optionally to `add_sine_wave()`, `add_square_wave()`, `add_triangle_wav()`, `add_sawtooth_wave()`, `add_noise()`, `add_weierstrass()` signals, and `add_note()` and `add_chord()` subroutines.
 - In `tape_recorder_class.f90`, the method `mix_tracks()` now accepts an optional array with the panoramic settings of each track.
 
 ### Changed

@@ -14,7 +14,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] in `src/audio_effects.f90`:
     * [x] A subroutine `apply_reverse_effect()`. (*)
 * [ ] In `src/signals.f90`:
-    * [ ] add an optional envelope to `add_noise()`. (*)
+    * [x] add an optional envelope to `add_noise()`. (*)
     * [ ] use `do concurrent` loops when possible. (*)
 * [x] `mix_tracks()` could accept an optional array with panoramic settings. (*)
 * [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 

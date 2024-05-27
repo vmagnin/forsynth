@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-26
+! Last modifications: 2024-05-27
 
 ! Plays sequentially each type of available signal.
 program all_signals
@@ -45,7 +45,7 @@ program all_signals
     call add_sawtooth_wave(demo%tape_recorder, track=1, t1=t+4*Dt, t2=t+5*Dt, f=f_A, Amp=0.5_wp, envelope=env)
     call add_triangle_wave(demo%tape_recorder, track=1, t1=t+4*Dt, t2=t+5*Dt, f=f_A, Amp=0.5_wp, envelope=env)
     print *, "Noise"
-    call add_noise(demo%tape_recorder, track=1, t1=t+5*Dt, t2=t+6*Dt, Amp=1.0_wp)
+    call add_noise(demo%tape_recorder, track=1, t1=t+5*Dt, t2=t+6*Dt, Amp=1.0_wp, envelope=env)
     print *, "Weierstrass"
     call add_weierstrass(demo%tape_recorder, track=1, t1=t+6*Dt, t2=t+7*Dt, f=f_A, Amp=1.0_wp, envelope=env)
     print *, "Karplus Strong"

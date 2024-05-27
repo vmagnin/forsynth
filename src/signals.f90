@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-26
+! Last modifications: 2024-05-27
 
 module signals
     ! Subroutines generating different kind of signals
@@ -347,18 +347,30 @@ contains
 
 
     ! Add white noise on the track:
-    subroutine add_noise(tape, track, t1, t2, Amp)
+    subroutine add_noise(tape, track, t1, t2, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, Amp
+        type(ADSR_envelope), optional, intent(in) :: envelope
+        ! ADSR Envelope value:
+        real(wp) :: env
         real(wp) :: r(1:2)
         integer  :: i
+        ! Time in seconds:
+        real(wp) :: t
 
+        ! Default value:
+        env = 1._wp
+
+        t = 0._wp
         do i = nint(t1*RATE), nint(t2*RATE)-1
             ! Noise is different in both channels:
             call random_number(r)
-            tape%left(track,  i) = tape%left(track,  i) + Amp*(2.0_wp*r(1) - 1.0_wp)
-            tape%right(track, i) = tape%right(track, i) + Amp*(2.0_wp*r(2) - 1.0_wp)
+            if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
+            tape%left(track,  i) = tape%left(track,  i) + Amp*env*(2.0_wp*r(1) - 1.0_wp)
+            tape%right(track, i) = tape%right(track, i) + Amp*env*(2.0_wp*r(2) - 1.0_wp)
+
+            t = t + dt
         end do
     end subroutine
 
