@@ -5,7 +5,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 ## ForSynth 0.4
 
 ### Development
-* [ ] More OOP. (***)
+* [>] More OOP. (***)
 
 ### Features
 * [x] in `src/envelopes.f90`:
@@ -13,13 +13,16 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [x] Add `apply_fade_in()` and `apply_fade_out()` subroutines. (*)
 * [ ] in `src/audio_effects.f90`:
     * [x] A subroutine `apply_reverse_effect()`. (*)
+* [ ] In `src/signals.f90`:
+    * [ ] add an optional envelope to `add_noise()`. (*)
+    * [ ] use `do concurrent` loops when possible. (*)
 * [x] `mix_tracks()` could accept an optional array with panoramic settings. (*)
 * [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 
     * [x] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track. (*)
 
 ### Examples
 * [ ] More examples. (**)
-    * [ ] Simulate Doppler effect (*)
+    * [ ] Simulate [Doppler effect](https://en.wikipedia.org/wiki/Doppler_effect) (**)
         * [ ] Could be used to obtain a Leslie speaker effect?
     * [x] [Shepard–Risset glissando](http://csoundjournal.com/issue21/interp_visual_phenom.html) (***)
 
@@ -35,7 +38,7 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [ ] [Flanger](https://en.wikipedia.org/wiki/Flanging) (**)
     * [ ] [Phaser](https://en.wikipedia.org/wiki/Phaser_(effect)) (***)
     * [ ] [Chorus](https://en.wikipedia.org/wiki/Chorus_(audio_effect)) (***)
-    * [ ] Reverb (***)
+    * [ ] Reverb (***): https://freeverb3-vst.sourceforge.io/
 
 * [ ] Examples
     * [ ] Synthesis: a bell (**)
