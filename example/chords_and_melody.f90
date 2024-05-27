@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-19
+! Last modifications: 2024-05-27
 
 ! A sequence of synth chords is repeated, and the corresponding notes are played
 ! randomly by plucked strings.
@@ -46,7 +46,7 @@ program chords_and_melody
     do i = 0, 9*16
         t = Dt * i
         call random_number(r)
-        call add_karplus_strong(demo%tape_recorder, track=2, t1=t, t2=t+Dt, f=chosen_note(int(r*4)), Amp=1.0_wp)
+        call add_karplus_strong(demo%tape_recorder, track=2, t1=t, t2=t+Dt, f=chosen_note(int(r*4)), Amp=1._wp)
     end do
 
     ! A double delay inspired by The Edge.
@@ -56,7 +56,9 @@ program chords_and_melody
     call apply_delay_effect(demo%tape_recorder, track=2, t1=0.0_wp, t2=demo%duration, delay=Dt*0.50_wp, Amp=0.30_wp)
 
     print *, "Final mix..."
-    call demo%mix_tracks()
+    ! In the mix, chords are rather on the left
+    ! and plucked strings on the right (and their level is lowered):
+    call demo%mix_tracks(levels=[1._wp, 0.5_wp], pan=[-0.5_wp, +0.5_wp])
     call demo%close_WAV_file()
 
 end program chords_and_melody

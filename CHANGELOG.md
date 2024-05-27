@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - In `src/audio_effects.f90`: an `apply_reverse_effect(tape, track, t1, t2)` subroutine to reverse the order of samples.
 - In `src/envelopes.f90`: `apply_fade_in()` and `apply_fade_out()` subroutines.
 - An `ADSR_envelope` object can now be passed optionally to `add_sine_wave()`, `add_square_wave()`, `add_triangle_wav()`, `add_sawtooth_wave()`, `add_weierstrass()` signals, and `add_note()` and `add_chord()` subroutines.
+- In `tape_recorder_class.f90`, the method `mix_tracks()` now accepts an optional array with the panoramic settings of each track.
 
 ### Changed
 - `src/signals.f90`: the Karplus-Strong algorithms are now using the track 0 as an auxilliary track, to avoid overwriting what is already present on the track of the signal.

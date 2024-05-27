@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-25
-! Last modifications: 2024-05-19
+! Last modifications: 2024-05-27
 
 ! A rhythm following a pattern stored in an array.
 program drum_machine
@@ -43,7 +43,8 @@ program drum_machine
     end do
 
     print *, "Final mix..."
-    call demo%mix_tracks()
+    ! The three drums are positionned on the left, the center and the right:
+    call demo%mix_tracks(pan=[-0.5_wp, 0._wp, +0.5_wp])
     call demo%close_WAV_file()
 
 end program drum_machine

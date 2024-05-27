@@ -12,6 +12,7 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk.
 * Various signals and Karplus-Strong algorithms (guitar and drums).
 * Envelopes generators: ADSR, fade in, fade out.
 * Some audio effects: delay, fuzz, tremolo, reverse and autopan.
+* Final mixing with the level and panoramic of each track.
 * Various examples.
 * You just need a modern Fortran compiler and a media player, whatever your OS.
 * GPL-3.0-or-later license.

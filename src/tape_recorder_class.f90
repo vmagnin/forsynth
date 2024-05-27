@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-19
+! Last modifications: 2024-05-27
 
 module tape_recorder_class
     use forsynth, only: wp, RATE
@@ -57,18 +57,42 @@ contains
 
 
     ! Tracks 1 to tracks-1 are mixed on track 0.
-    subroutine mix_tracks(self, levels)
+    subroutine mix_tracks(self, levels, pan)
         class(tape_recorder), intent(inout)  :: self
         real(wp), dimension(1:self%tracks), intent(in), optional :: levels
-        integer :: track
+        real(wp), dimension(1:self%tracks), intent(in), optional :: pan
+        real(wp), dimension(1:self%tracks) :: pano
+        real(wp) :: panL, panR
+        integer  :: track
+
+        ! Pan is centered on 0 and -1 < pan < +1
+        ! Default is 0:
+        if (.not.present(pan)) then
+            pano = 0._wp
+        else
+            ! Each element of pan(:) must be in [-1 ; +1]
+            pano = max(-1._wp, min(+1._wp, pan))
+        end if
 
         do track = 1, self%tracks
-            if (.not.present(levels)) then
-                self%left(0, :)  = self%left(0, :)  + self%left(track, :)
-                self%right(0, :) = self%right(0, :) + self%right(track, :)
+            ! Panoramic factors:
+            if (pano(track) > 0._wp) then
+                panL = 1._wp - pano(track)
+                panR = 1._wp
+            else if (pano(track) < 0._wp) then
+                panL = 1._wp
+                panR = 1._wp + pano(track)
             else
-                self%left(0, :)  = self%left(0, :)  + levels(track) * self%left(track, :)
-                self%right(0, :) = self%right(0, :) + levels(track) * self%right(track, :)
+                panL = 1._wp
+                panR = 1._wp
+            end if
+
+            if (.not.present(levels)) then
+                self%left( 0, :) = self%left( 0, :) + panL * self%left( track, :)
+                self%right(0, :) = self%right(0, :) + panR * self%right(track, :)
+            else
+                self%left( 0, :) = self%left( 0, :) + panL * levels(track) * self%left( track, :)
+                self%right(0, :) = self%right(0, :) + panR * levels(track) * self%right(track, :)
             end if
         end do
     end subroutine
