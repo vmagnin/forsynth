@@ -13,7 +13,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - In `tape_recorder_class.f90`, the method `mix_tracks()` now accepts an optional array with the panoramic settings of each track.
 
 ### Changed
-- `src/signals.f90`: the Karplus-Strong algorithms are now using the track 0 as an auxilliary track, to avoid overwriting what is already present on the track of the signal.
+- `src/signals.f90`:
+    - the Karplus-Strong algorithms are now using the track 0 as an auxilliary track, to avoid overwriting what is already present on the track of the signal.
+    - Signals use `do concurrent` loops when possible.
 - `src/audio_effects.f90`: the effects now use `do concurrent` loops (except for delay).
 - `example/drone_music.f90` and `example/shepard_risset_glissando.f90`: added fade in and fade out.
 - `src/envelopes.f90`: the ADSR envelope is now a class `ADSR_envelope`.

@@ -11,11 +11,11 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [x] in `src/envelopes.f90`:
     * [x] The ADSR parameter of the envelope should be passed as arguments (via an object). (**)
     * [x] Add `apply_fade_in()` and `apply_fade_out()` subroutines. (*)
-* [ ] in `src/audio_effects.f90`:
+* [x] in `src/audio_effects.f90`:
     * [x] A subroutine `apply_reverse_effect()`. (*)
-* [ ] In `src/signals.f90`:
+* [x] In `src/signals.f90`:
     * [x] add an optional envelope to `add_noise()`. (*)
-    * [ ] use `do concurrent` loops when possible. (*)
+    * [x] use `do concurrent` loops when possible. (*)
 * [x] `mix_tracks()` could accept an optional array with panoramic settings. (*)
 * [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 
     * [x] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track. (*)

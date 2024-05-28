@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-27
+! Last modifications: 2024-05-28
 
 module signals
     ! Subroutines generating different kind of signals
@@ -40,16 +40,16 @@ contains
 
         env = 1._wp     ! Default value if no envelope is passed
         omega = 2.0_wp * PI * f
-        t = 0.0_wp
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+            t = (i - nint(t1*RATE)) * dt
+
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
             signal = Amp * sin(omega*t + phi) * env
 
             tape%left(track, i)  = tape%left(track, i)  + signal
             tape%right(track, i) = tape%right(track, i) + signal
-
-            t = t + dt
         end do
     end subroutine add_sine_wave
 
@@ -70,8 +70,10 @@ contains
 
         env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
-        t = 0.0_wp
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+            t = (i - nint(t1*RATE)) * dt
+
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
             ! Number of the half-period:
@@ -86,8 +88,6 @@ contains
 
             tape%left(track,  i) = tape%left(track,  i) + signal
             tape%right(track, i) = tape%right(track, i) + signal
-
-            t = t + dt
         end do
     end subroutine add_square_wave
 
@@ -108,8 +108,10 @@ contains
 
         env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
-        t = 0.0_wp
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+            t = (i - nint(t1*RATE)) * dt
+
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
             ! We substract 0.5 for the signal to be centered on 0:
@@ -117,8 +119,6 @@ contains
 
             tape%left(track,  i) = tape%left(track,  i) + signal
             tape%right(track, i) = tape%right(track, i) + signal
-
-            t = t + dt
         end do
     end subroutine add_sawtooth_wave
 
@@ -140,10 +140,11 @@ contains
 
         env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
-        t = 0.0_wp
         a = (2.0_wp * Amp) / (tau/2.0_wp)
 
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+            t = (i - nint(t1*RATE)) * dt
+
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
             ! Number of the half-period:
@@ -160,8 +161,6 @@ contains
 
             tape%left(track,  i) = tape%left(track,  i) + signal * env
             tape%right(track, i) = tape%right(track, i) + signal * env
-
-            t = t + dt
         end do
     end subroutine add_triangle_wave
 
@@ -418,15 +417,15 @@ contains
 
         env = 1._wp     ! Default value if no envelope is passed
         omega = 2.0_wp * PI * f
-        t = 0._wp
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+
+        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+            t = (i - nint(t1*RATE)) * dt
+
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
             signal = Amp * weierstrass(a, b, omega*t + phi) * env
             ! It is addd to the already present signal:
             tape%left(track, i)  = tape%left(track, i)  + signal
             tape%right(track, i) = tape%right(track, i) + signal
-
-            t = t + dt
         end do
     end subroutine add_weierstrass
 
