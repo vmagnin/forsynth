@@ -106,13 +106,13 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 
 * Jean-Claude Risset, ["Computer music: why ?"](https://www.posgrado.unam.mx/musica/lecturas/tecnologia/optativasRecomendadas/Risset_ComputerMusic%20why.pdf), 2003.
 * Dave Benson, *[Music - A Mathematical Offering](https://homepages.abdn.ac.uk/d.j.benson/pages/html/music.pdf)*, 531 pages, 2008.
-* Jaffe, David A., and Julius O. Smith. “Extensions of the Karplus-Strong Plucked-String Algorithm.” *Computer Music Journal* 7, no. 2 (1983): 56. https://doi.org/10.2307/3680063.
-* Karplus, Kevin, and Alex Strong. “Digital Synthesis of Plucked-String and Drum Timbres.” *Computer Music Journal* 7, no. 2 (1983): 43–55. https://doi.org/10.2307/3680062.
-* Lähdevaara, Jarmo. *Science of Electric Guitars and Guitar Electronics.* Helsinki, Finland: Books On Demand, 2012.
-* Deutsch, Diana. "The Paradox of Pitch Circularity"’. *Acoustics Today* 6, no. 3 (July 2010): 8–14. https://doi.org/10.1121/1.3488670.
-* Mathews, M. V. ["The Digital Computer as a Musical Instrument"](http://www.jstor.org/stable/1712380), *Science* 142, no. 3592 (1963): 553–57.
+* David A. Jaffe and Julius O. Smith, “Extensions of the Karplus-Strong Plucked-String Algorithm.” *Computer Music Journal* 7, no. 2 (1983): 56. https://doi.org/10.2307/3680063.
+* Kevin Karplus and Alex Strong, “Digital Synthesis of Plucked-String and Drum Timbres.” *Computer Music Journal* 7, no. 2 (1983): 43–55. https://doi.org/10.2307/3680062.
+* Jarmo Lähdevaara, *Science of Electric Guitars and Guitar Electronics.* Helsinki, Finland: Books On Demand, 2012.
+* Diana Deutsch, "The Paradox of Pitch Circularity"’. *Acoustics Today* 6, no. 3 (July 2010): 8–14. https://doi.org/10.1121/1.3488670.
+* M.V. Mathews, ["The Digital Computer as a Musical Instrument"](http://www.jstor.org/stable/1712380), *Science* 142, no. 3592 (1963): 553–57.
     * ["The First Computer Musician"](https://archive.nytimes.com/opinionator.blogs.nytimes.com/2011/06/08/the-first-computer-musician/), by R. Luke DuBois, NYT, June 8, 2011.
-* M. V. Mathews, F. R. Moore and J. C. Risset, ["Computers and Future Music"](https://www.jstor.org/stable/1737597), *Science,* New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.  
+* M.V. Mathews, F.R. Moore and J.-C. Risset, ["Computers and Future Music"](https://www.jstor.org/stable/1737597), *Science,* New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.  
 
 ### French
 * Vincent Magnin, ["Format WAV : créez des ondes sonores en C"](https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-creez-des-ondes-sonores-en-C), *GNU/Linux Magazine* n°190, février 2016.
