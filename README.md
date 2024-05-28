@@ -104,8 +104,8 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 ## Bibliography
 ### English
 
-* Jean-Claude Risset, *Computer music: why ?*, https://www.posgrado.unam.mx/musica/lecturas/tecnologia/optativasRecomendadas/Risset_ComputerMusic%20why.pdf
-* Dave Benson, *Music - A Mathematical Offering*, 2008, https://homepages.abdn.ac.uk/d.j.benson/pages/html/music.pdf.
+* Jean-Claude Risset, ["Computer music: why ?"](https://www.posgrado.unam.mx/musica/lecturas/tecnologia/optativasRecomendadas/Risset_ComputerMusic%20why.pdf), 2003.
+* Dave Benson, *[Music - A Mathematical Offering](https://homepages.abdn.ac.uk/d.j.benson/pages/html/music.pdf)*, 531 pages, 2008.
 * Jaffe, David A., and Julius O. Smith. “Extensions of the Karplus-Strong Plucked-String Algorithm.” *Computer Music Journal* 7, no. 2 (1983): 56. https://doi.org/10.2307/3680063.
 * Karplus, Kevin, and Alex Strong. “Digital Synthesis of Plucked-String and Drum Timbres.” *Computer Music Journal* 7, no. 2 (1983): 43–55. https://doi.org/10.2307/3680062.
 * Lähdevaara, Jarmo. *Science of Electric Guitars and Guitar Electronics.* Helsinki, Finland: Books On Demand, 2012.
@@ -115,8 +115,8 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 * M. V. Mathews, F. R. Moore and J. C. Risset, ["Computers and Future Music"](https://www.jstor.org/stable/1737597), *Science,* New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.  
 
 ### French
-* Vincent Magnin, "Format WAV : créez des ondes sonores en C", *GNU/Linux Magazine* n°190, février 2016, https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-creez-des-ondes-sonores-en-C
-* Vincent Magnin, "Format WAV : des sons de plus en plus complexes", *GNU/Linux Magazine* n°190, février 2016, https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-des-sons-de-plus-en-plus-complexes
+* Vincent Magnin, ["Format WAV : créez des ondes sonores en C"](https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-creez-des-ondes-sonores-en-C), *GNU/Linux Magazine* n°190, février 2016.
+* Vincent Magnin, ["Format WAV : des sons de plus en plus complexes"](https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-des-sons-de-plus-en-plus-complexes), *GNU/Linux Magazine* n°190, février 2016.
 * Some sounds created with the C version of the program: http://magnin.plil.net/spip.php?article131
 * Laurent de Wilde, [*Les fous du son - D'Edison à nos jours*](https://www.grasset.fr/livres/les-fous-du-son-9782246859277), Editions Grasset et Fasquelle, 560 pages, 2016, ISBN 9782246859277.
 * Laurent Fichet, [*Les théories scientifiques de la musique aux XIXe et XXe siècles*](https://www.vrin.fr/livre/9782711642847/les-theories-scientifiques-de-la-musique), Vrin, 1996, ISBN 978-2-7116-4284-7.
