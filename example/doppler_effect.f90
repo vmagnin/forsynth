@@ -50,7 +50,7 @@ program doppler_effect
     do i = 0, nint(duration*RATE) - 1
         ! The frequency perceived by the observer (Doppler effect)
         ! is fobs = f / (1 - vr/c) but we don't need to compute it.
-        ! The signal heared by the observer at tobs was emitted earlier by the
+        ! The signal heard by the observer at tobs was emitted earlier by the
         ! car at t, from a distance r(t):
         ! tobs = t + r(t) / c
         ! By developing r(t) we can finally obtain a quadratic equation:
