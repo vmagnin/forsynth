@@ -71,3 +71,8 @@ main = "shepard_scale.f90"
 name = "shepard_risset_glissando"
 source-dir = "example"
 main = "shepard_risset_glissando.f90"
+
+[[example]]
+name = "doppler_effect"
+source-dir = "example"
+main = "doppler_effect.f90"

@@ -22,9 +22,9 @@ The stars in parenthesis are an evaluation of the difficulty.
 
 ### Examples
 * [ ] More examples. (**)
-    * [ ] Simulate [Doppler effect](https://en.wikipedia.org/wiki/Doppler_effect) (**)
-        * [ ] Could be used to obtain a Leslie speaker effect?
+    * [x] Simulate [Doppler effect](https://en.wikipedia.org/wiki/Doppler_effect) (**)
     * [x] [Shepard–Risset glissando](http://csoundjournal.com/issue21/interp_visual_phenom.html) (***)
+    * [ ] An example using brokken chords.
 
 ### Documentation
 * [ ] Add comments in examples to document the usage of the API. (*)
@@ -39,6 +39,7 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [ ] [Phaser](https://en.wikipedia.org/wiki/Phaser_(effect)) (***)
     * [ ] [Chorus](https://en.wikipedia.org/wiki/Chorus_(audio_effect)) (***)
     * [ ] Reverb (***): https://freeverb3-vst.sourceforge.io/
+    * [ ] Could Doppler effect be used to obtain a Leslie speaker effect?
 
 * [ ] Examples
     * [ ] Synthesis: a bell (**)

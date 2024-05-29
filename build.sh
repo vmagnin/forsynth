@@ -1,6 +1,6 @@
 #!/bin/bash
 # Vincent Magnin
-# Last modification: 2024-05-25
+# Last modification: 2024-05-29
 
 # For a safer script:
 set -eu
@@ -28,7 +28,7 @@ fi
 "${FC}" ${flags} -c src/forsynth.f90 src/tape_recorder_class.f90 src/wav_file_class.f90 src/envelopes.f90 src/signals.f90 src/music_common.f90 src/music.f90 src/audio_effects.f90
 
 # Compiling examples:
-for file in "chords_and_melody" "demo_effects" "blues" "all_signals" "drum_machine" "misc_sounds" "drone_music" "shepard_scale" "shepard_risset_glissando"; do
+for file in "chords_and_melody" "demo_effects" "blues" "all_signals" "drum_machine" "misc_sounds" "drone_music" "shepard_scale" "shepard_risset_glissando" "doppler_effect" ; do
   echo "${file}"
   "${FC}" ${flags} audio_effects.o  envelopes.o  forsynth.o  music_common.o  music.o  signals.o  tape_recorder_class.o  wav_file_class.o example/${file}.f90 -o build/${file}.out
 done
