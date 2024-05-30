@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-19
-! Last modifications: 2024-05-26
+! Last modifications: 2024-05-30
 
 ! Experimental drone music.
 program drone_music
@@ -39,7 +39,7 @@ program drone_music
         ! Fundamental:
         f1 = f0 * (1 + 0.01_wp*sin(omegaLFO1 * t))
         omega1 = 2*PI * f1
-        tape%left(1, i)  = tape%left(1, i) + Amp * sin(omega1*t)
+        tape%left(1, i)  = Amp * sin(omega1*t)
 
         ! Perfect fifth (7 semitones higher):
         f2 = f0*(SEMITONE**7) * (1 + 0.01_wp*sin(omegaLFO2 * t))
