@@ -2,7 +2,7 @@
 
 A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. But ForSynth could also be used for scientific data *sonification*, for acoustic simulations or for teaching programming in a fun way.
 
-Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk.
+Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk (see the [ELECTRONIC_MUSIC_HISTORY.md](./ELECTRONIC_MUSIC_HISTORY.md) file).
 
 ## Features
 
