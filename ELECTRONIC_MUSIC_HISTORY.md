@@ -216,12 +216,14 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   Kim Wilde, *Cambodia* (1981): https://www.youtube.com/watch?v=1y3TKv7Chk4
 -   Liaisons Dangereuses, *Los Niños del Parque* (1981): https://www.youtube.com/watch?v=cx12N1Tw14w
 -   Guerre Froide, *Demain Berlin* (1981): https://www.youtube.com/watch?v=ahs-oaAemjg
+-   Yazoo, *Don't Go* (1982): https://www.youtube.com/watch?v=_sQGwDeambg
 -   Tears for Fears, *Mad World* (1982): https://www.youtube.com/watch?v=u1ZvPSpLxCg
 -   Front 242, *Kampfbereit* (1982): https://www.youtube.com/watch?v=fGle_qgl1Q4
     -    The bass line is an homage to Kraftwerk's *Kometenmelodie 2* (*Autobahn* album, 1974): https://www.youtube.com/watch?v=FyzkykVO6wM
 -   New Order, *Blue Monday* (1983): https://www.youtube.com/watch?v=FYH8DsU2WCk
 -   New Order, *Confusion* (1983): https://www.youtube.com/watch?v=QRf418ZUBGI
 -   Eurythmics, *Sweet Dreams (Are Made Of This)* (1983), https://www.youtube.com/watch?v=qeMFqkcPYcg
+-   Frankie Goes To Hollywood, *Relax* (1983): https://www.youtube.com/watch?v=Yem_iEHiyJ0
 -   The Neon Judgement, *The Fashion Party* (1983): https://www.youtube.com/watch?v=lVYl32t9uNE
 -   Anne Clark, *Our Darkness* (1984): https://www.youtube.com/watch?v=XNSk45A923g
 -   Fad Gadget, *Collapsing New People* (1984): https://www.youtube.com/watch?v=ypINKMapdE0
