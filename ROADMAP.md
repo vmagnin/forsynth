@@ -5,7 +5,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 ## ForSynth 0.4
 
 ### Development
-* [>] More OOP. (***)
+* [x] More OOP. (***)
 
 ### Features
 * [x] in `src/envelopes.f90`:
@@ -17,14 +17,14 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [x] add an optional envelope to `add_noise()`. (*)
     * [x] use `do concurrent` loops when possible. (*)
 * [x] `mix_tracks()` could accept an optional array with panoramic settings. (*)
-* [ ] Major and minor brokken chords routines. Would use Karplus-Strong algorithm (*), 
+* [x] Broken chords routine. Would use Karplus-Strong algorithm (*),
     * [x] but that algorithm should be modified to not delete what is already present on the track: the track 0 could be used as an auxilliary track before copying on the track. (*)
 
 ### Examples
-* [ ] More examples. (**)
+* [x] More examples. (**)
     * [x] Simulate [Doppler effect](https://en.wikipedia.org/wiki/Doppler_effect) (**)
     * [x] [Shepard–Risset glissando](http://csoundjournal.com/issue21/interp_visual_phenom.html) (***)
-    * [ ] An example using brokken chords.
+    * [x] An example using brokken chords.
 
 ### Documentation
 * [ ] Add comments in examples to document the usage of the API. (*)

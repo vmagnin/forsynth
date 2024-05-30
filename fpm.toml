@@ -76,3 +76,8 @@ main = "shepard_risset_glissando.f90"
 name = "doppler_effect"
 source-dir = "example"
 main = "doppler_effect.f90"
+
+[[example]]
+name = "arpeggios"
+source-dir = "example"
+main = "arpeggios.f90"

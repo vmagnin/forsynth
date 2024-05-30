@@ -1,6 +1,7 @@
 # Examples
 
 - `all_signals.f90`: plays sequentially each type of available signal.
+- `arpeggios.f90`: arpeggios played in various ways using the circles of fifths.
 - `blues.f90`: a random walk on a blues scale.
 - `chords_and_melody.f90`: a sequence of synth chords is repeated, and the corresponding notes are played randomly by plucked strings (a double delay effect is applied).
 - `demo_effects.f90`: all available audio effects are applied sequentially on a chord sequence.

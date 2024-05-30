@@ -1,14 +1,14 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-26
+! Last modifications: 2024-05-30
 
 module music
     !---------------------------------------------------------------------------
     ! Contains music theory elements: scales, circle of fifths, chords, etc.
     !---------------------------------------------------------------------------
     use forsynth, only: wp
-    use signals, only: add_sine_wave
+    use signals, only: add_sine_wave, add_karplus_strong
     ! Music theory elements common to the ForMIDI and ForSynth projects:
     use music_common
     use tape_recorder_class
@@ -56,6 +56,31 @@ contains
             call add_note(tape, track, t1, t2, f * SEMITONE**interval, Amp, envelope)
         end do
     end subroutine add_chord
+
+    ! Writes a broken chord using an array containing the intervals
+    ! (see the music_common module). It uses plucked strings (Karplus-Strong).
+    ! For the moment, each note has the same duration.
+    ! https://en.wikipedia.org/wiki/Arpeggio
+    subroutine add_broken_chord(tape, track, t1, t2, f, Amp, chord)
+        type(tape_recorder), intent(inout) :: tape
+        integer, intent(in)  :: track
+        real(wp), intent(in) :: t1, t2, f, Amp
+        integer, dimension(:), intent(in) :: chord
+        integer :: i, interval
+        real(wp) :: dnote   ! duration of each note of the chord
+        real(wp) :: fnote
+        real(wp) :: t
+
+        dnote = (t2-t1) / size(chord)
+
+        t = t1
+        do i = 1, size(chord)
+            interval = chord(i)
+            fnote = f * SEMITONE**interval
+            call add_karplus_strong(tape, track, t1=t, t2=t+dnote, f=fnote, Amp=Amp)
+            t = t + dnote
+        end do
+    end subroutine add_broken_chord
 
     ! Returns the frequency of the note.
     ! The note name is composed of two or three characters,

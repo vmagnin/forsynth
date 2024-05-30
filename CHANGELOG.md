@@ -5,13 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [ForSynth dev]
 
 ### Added
-- `example/shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch in the first half of the tape and an ever decreasing pitch in the 2nd half.
-- `example/shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale.
-- `example/doppler_effect.f90`: a simulation of Doppler effect, with a car passing in front of you.
 - In `src/audio_effects.f90`: an `apply_reverse_effect(tape, track, t1, t2)` subroutine to reverse the order of samples.
 - In `src/envelopes.f90`: `apply_fade_in()` and `apply_fade_out()` subroutines.
+- In `src/music.f90`: `add_broken_chord()` writes a broken chord using an array containing the intervals. It uses plucked strings (Karplus-Strong).
 - An `ADSR_envelope` object can now be passed optionally to `add_sine_wave()`, `add_square_wave()`, `add_triangle_wav()`, `add_sawtooth_wave()`, `add_noise()`, `add_weierstrass()` signals, and `add_note()` and `add_chord()` subroutines.
 - In `tape_recorder_class.f90`, the method `mix_tracks()` now accepts an optional array with the panoramic settings of each track.
+- In `example/`:
+    - `shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch in the first half of the tape and an ever decreasing pitch in the 2nd half.
+    - `shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale.
+    - `doppler_effect.f90`: a simulation of Doppler effect, with a car passing in front of you.
+    - `arpeggios.f90`: arpeggios played in various ways using the circles of fifths.
 
 ### Changed
 - `src/signals.f90`:
