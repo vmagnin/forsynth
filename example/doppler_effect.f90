@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-28
-! Last modifications: 2024-05-29
+! Last modifications: 2024-05-31
 
 ! A simulation of Doppler effect, with a car passing in front of you.
 ! https://fr.wikipedia.org/wiki/Effet_Doppler
@@ -84,6 +84,8 @@ program doppler_effect
 
     call demo%mix_tracks()
     call demo%close_WAV_file()
+
+    print *,"You can now play the file ", demo%get_name()
 
 contains
 

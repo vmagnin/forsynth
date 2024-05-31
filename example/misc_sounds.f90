@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-29
-! Last modifications: 2024-05-30
+! Last modifications: 2024-05-31
 
 ! Miscellaneous signals, especially obtained by frequency or phase modulation.
 ! A WAV file is created for each sound.
@@ -25,6 +25,8 @@ program misc_sounds
         call demo%mix_tracks()
         call demo%close_WAV_file()
     end do
+
+    print *,"You can now play the file ", demo%get_name()
 
 contains
 

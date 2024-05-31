@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - In `src/music.f90`: `add_broken_chord()` writes a broken chord using an array containing the intervals. It uses plucked strings (Karplus-Strong).
 - An `ADSR_envelope` object can now be passed optionally to `add_sine_wave()`, `add_square_wave()`, `add_triangle_wav()`, `add_sawtooth_wave()`, `add_noise()`, `add_weierstrass()` signals, and `add_note()` and `add_chord()` subroutines.
 - In `tape_recorder_class.f90`, the method `mix_tracks()` now accepts an optional array with the panoramic settings of each track.
+- In `wav_file_class.f90`, a method `get_name()` that returns the filename.
 - In `example/`:
     - `shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch in the first half of the tape and an ever decreasing pitch in the 2nd half.
     - `shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale.

@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-20
-! Last modifications: 2024-05-23
+! Last modifications: 2024-05-31
 
 ! A Shepard scale, giving the illusion of an ever increasing pitch in the first
 ! half of the tape and an ever decreasing pitch in the 2nd half.
@@ -84,4 +84,5 @@ program shepard_scale
     call demo%mix_tracks()
     call demo%close_WAV_file()
 
+    print *,"You can now play the file ", demo%get_name()
 end program shepard_scale

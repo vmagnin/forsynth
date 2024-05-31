@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-19
-! Last modifications: 2024-05-30
+! Last modifications: 2024-05-31
 
 ! Experimental drone music.
 program drone_music
@@ -58,4 +58,5 @@ program drone_music
     call demo%mix_tracks()
     call demo%close_WAV_file()
 
+    print *,"You can now play the file ", demo%get_name()
 end program drone_music

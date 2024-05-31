@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-19
+! Last modifications: 2024-05-31
 
 ! The main class that you will use to create your WAV files.
 module wav_file_class
@@ -19,6 +19,7 @@ module wav_file_class
     contains
       procedure :: create_WAV_file
       procedure :: close_WAV_file
+      procedure :: get_name
       procedure, private :: write_header
       procedure, private :: write_normalized_data
     end type WAV_file
@@ -42,6 +43,14 @@ contains
         open(newunit=self%fileunit, file=self%filename, access='stream', status='replace', action='write')
         call self%write_header()
     end subroutine create_WAV_file
+
+    ! Returns the name of the WAV file:
+    function get_name(self)
+        class(WAV_file), intent(inout) :: self
+        character(len(self%filename)) :: get_name
+
+        get_name = self%filename
+    end function
 
     ! Creates the 44 bytes WAV header and prints some information:
     subroutine write_header(self)

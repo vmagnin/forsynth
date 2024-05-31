@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-26
+! Last modifications: 2024-05-31
 
 ! A random walk on a blues scale.
 program blues
@@ -60,4 +60,5 @@ program blues
     call demo%mix_tracks()
     call demo%close_WAV_file()
 
+    print *,"You can now play the file ", demo%get_name()
 end program blues

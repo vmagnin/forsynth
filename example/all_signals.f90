@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-27
+! Last modifications: 2024-05-31
 
 ! Plays sequentially each type of available signal.
 program all_signals
@@ -57,4 +57,5 @@ program all_signals
     call demo%mix_tracks()
     call demo%close_WAV_file()
 
+    print *,"You can now play the file ", demo%get_name()
 end program all_signals

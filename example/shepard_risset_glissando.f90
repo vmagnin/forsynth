@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-24
-! Last modifications: 2024-05-26
+! Last modifications: 2024-05-31
 
 ! A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
 ! It is the continuous version of the Shepard scale.
@@ -88,4 +88,5 @@ program shepard_risset_glissando
     call demo%mix_tracks()
     call demo%close_WAV_file()
 
+    print *,"You can now play the file ", demo%get_name()
 end program shepard_risset_glissando

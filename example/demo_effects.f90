@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-26
+! Last modifications: 2024-05-31
 
 ! All available audio effects are applied sequentially on a chord sequence.
 program demo_effects
@@ -49,4 +49,5 @@ program demo_effects
     call demo%mix_tracks()
     call demo%close_WAV_file()
 
+    print *,"You can now play the file ", demo%get_name()
 end program demo_effects

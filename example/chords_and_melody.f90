@@ -65,4 +65,5 @@ program chords_and_melody
     call demo%mix_tracks(levels=[1._wp, 0.5_wp], pan=[-0.5_wp, +0.5_wp])
     call demo%close_WAV_file()
 
+    print *,"You can now play the file ", demo%get_name()
 end program chords_and_melody
