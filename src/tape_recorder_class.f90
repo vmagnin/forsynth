@@ -65,6 +65,11 @@ contains
         real(wp) :: panL, panR
         integer  :: track
 
+        ! As the track 0 can be used as an auxiliary track by some routines,
+        ! it is important to clear it before the final mixing:
+        self%left( 0, :) = 0.0_wp
+        self%right(0, :) = 0.0_wp
+
         ! Pan is centered on 0 and -1 < pan < +1
         ! Default is 0:
         if (.not.present(pan)) then

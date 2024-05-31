@@ -24,6 +24,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `example/drone_music.f90` and `example/shepard_risset_glissando.f90`: added fade in and fade out.
 - `src/envelopes.f90`: the ADSR envelope is now a class `ADSR_envelope`.
 
+### Fixed
+- In `tape_recorder_class.f90`, the routine `mix_tracks()` is now clearing first the track 0, which can be used previously as an auxiliary track by some routines.
+
 
 ## [ForSynth 0.3 "Éliane Radigue"] 2024-05-20
 
