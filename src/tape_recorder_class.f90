@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-27
+! Last modifications: 2024-05-31
 
 module tape_recorder_class
     use forsynth, only: wp, RATE
@@ -98,19 +98,23 @@ contains
     end subroutine
 
 
+    ! Copy section t1...t2 at t3, either on the same track or another one.
+    ! The content already present at t3 is overwritten.
+    ! The code suppose that t1 < t2 < t3.
     subroutine copy_section(self, from_track, to_track, t1, t2, t3)
         class(tape_recorder), intent(inout)  :: self
-        ! Copy section t1...t2 at t3, either on the same track or another one.
         integer, intent(in)  :: from_track, to_track
         real(wp), intent(in) :: t1, t2, t3
-        integer :: i, i0, j
+        integer :: i, i1, i3
 
-        i0 = nint(t1*RATE)
-        do i = i0, nint(t2*RATE)-1
-            j = nint(t3*RATE) + (i-i0)
-            if (j <= self%samples) then
-                self%left(to_track,  j) = self%left(from_track,  i)
-                self%right(to_track, j) = self%right(from_track, i)
+        i1 = nint(t1*RATE)
+        do i = i1, nint(t2*RATE)-1
+            ! The position of the sample receiving the copy:
+            i3 = nint(t3*RATE) + (i-i1)
+            ! To avoid pasting beyond the end of the track:
+            if (i3 <= self%samples) then
+                self%left( to_track, i3) = self%left( from_track, i)
+                self%right(to_track, i3) = self%right(from_track, i)
             else
                 exit
             end if
