@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-05-26
+! Last modifications: 2023-05-31
 
 ! Functions and subroutines generating envelopes
 module envelopes
@@ -107,8 +107,8 @@ contains
         i2 = nint(t2 * RATE) - 1
 
         do concurrent(i = i1:i2)
-            tape%left( track, i) = tape%left( track, i) * (i-i2) / (i1-i2)
-            tape%right(track, i) = tape%right(track, i) * (i-i2) / (i1-i2)
+            tape%left( track, i) = tape%left( track, i) * ((i-i2) / real(i1-i2, kind=wp))
+            tape%right(track, i) = tape%right(track, i) * ((i-i2) / real(i1-i2, kind=wp))
         end do
     end subroutine apply_fade_out
 
