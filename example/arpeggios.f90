@@ -108,7 +108,7 @@ program arpeggios
     print *, "Final mix..."
     ! In the mix, chords are rather on the left
     ! and plucked strings on the right (and their level is lowered):
-    call demo%mix_tracks(levels=[1.2_wp, 1._wp], pan=[-0.5_wp, +0.5_wp])
+    call demo%mix_tracks(levels=[1._wp, 1.2_wp], pan=[-0.5_wp, +0.5_wp])
     call demo%close_WAV_file()
 
     print *,"You can now play the file ", demo%get_name()
