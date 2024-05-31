@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-27
+! Last modifications: 2024-05-31
 
 ! A sequence of synth chords is repeated, and the corresponding notes are played
 ! randomly by plucked strings.
@@ -12,9 +12,11 @@ program chords_and_melody
     use music_common, only: MINOR_CHORD, MAJOR_CHORD
     use music, only: add_chord, fr
     use audio_effects, only: apply_delay_effect
+    use envelopes, only: ADSR_envelope
 
     implicit none
     type(WAV_file) :: demo
+    type(ADSR_envelope) :: env
     integer  :: i
     real(wp) :: t, Dt, r
     real(wp) :: chosen_note(0:3)
@@ -22,15 +24,17 @@ program chords_and_melody
     print *, "**** Demo chords and melody ****"
     call demo%create_WAV_file('chords_and_melody.wav', tracks=2, duration=120._wp)
 
+    call env%new(A=15._wp, D=40._wp, S=80._wp, R=15._wp)
+
     ! Notes duration in seconds:
     Dt = 3.0_wp
 
     print *, "Track 1: repeating Am C G Dm chords..."
     t = 0.0_wp
-    call add_chord(demo%tape_recorder, track=1, t1=t,      t2=t+Dt,   f=fr("A3"), Amp=1.0_wp, chord=MINOR_CHORD)
-    call add_chord(demo%tape_recorder, track=1, t1=t+Dt,   t2=t+2*Dt, f=fr("C3"), Amp=1.0_wp, chord=MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, track=1, t1=t+2*Dt, t2=t+3*Dt, f=fr("G3"), Amp=1.0_wp, chord=MAJOR_CHORD)
-    call add_chord(demo%tape_recorder, track=1, t1=t+3*Dt, t2=t+4*Dt, f=fr("D3"), Amp=1.0_wp, chord=MINOR_CHORD)
+    call add_chord(demo%tape_recorder, track=1, t1=t,      t2=t+Dt,   f=fr("A3"), Amp=1.0_wp, chord=MINOR_CHORD, envelope=env)
+    call add_chord(demo%tape_recorder, track=1, t1=t+Dt,   t2=t+2*Dt, f=fr("C3"), Amp=1.0_wp, chord=MAJOR_CHORD, envelope=env)
+    call add_chord(demo%tape_recorder, track=1, t1=t+2*Dt, t2=t+3*Dt, f=fr("G3"), Amp=1.0_wp, chord=MAJOR_CHORD, envelope=env)
+    call add_chord(demo%tape_recorder, track=1, t1=t+3*Dt, t2=t+4*Dt, f=fr("D3"), Amp=1.0_wp, chord=MINOR_CHORD, envelope=env)
     ! Repeat those four chords until the end of the track:
     do i = 1, 9
         call demo%copy_section(from_track=1, to_track=1, t1=t, t2=t+4*Dt, t3=4*Dt*i)
