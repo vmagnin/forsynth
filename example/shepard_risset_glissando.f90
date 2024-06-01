@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-24
-! Last modifications: 2024-05-31
+! Last modifications: 2024-06-01
 
 ! A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
 ! It is the continuous version of the Shepard scale.
@@ -30,7 +30,7 @@ program shepard_risset_glissando
     integer, parameter  :: cmax = 9
     ! Bandwidth:
     real(wp), parameter :: fmin = 20._wp         ! Hz
-    real(wp), parameter :: fmax = 10000._wp      ! Hz
+    real(wp), parameter :: fmax = 10240._wp      ! Hz
     ! Frequencies of each component:
     real(wp) :: f(cmax)
     ! Gaussian window, central frequency in log scale:
@@ -39,12 +39,16 @@ program shepard_risset_glissando
     real(wp), parameter :: sigma = 0.25_wp
     ! Total duration of the WAV:
     real(wp), parameter :: length = 120._wp
+    real(wp), parameter :: increase = 2**(+1/(d*RATE))
 
     ! Initializing the components, separated by octaves:
     do j = 1, cmax
         f(j) = fmin * 2**(j-1)
         print *, j, f(j), "Hz"
     end do
+
+    print *, "Log Central frequency:", muf
+    print *, "Pitch increase:", increase
 
     print *, "**** Creating shepard_risset_glissando.wav ****"
     call demo%create_WAV_file('shepard_risset_glissando.wav', tracks=1, duration=length)
@@ -56,7 +60,7 @@ program shepard_risset_glissando
         ! Computing and adding each component on the track:
         do j = 1, cmax
             omega = 2*PI*f(j)
-            ! Amplitude fo the signal (gaussian distribution):
+            ! Amplitude of the signal (gaussian distribution):
             Amp = 1/(sqrt(2*PI)*sigma) * exp(-(log10(f(j)) - muf)**2 / (2 * sigma**2))
 
             tape%left(1, i)  = tape%left(1, i) + Amp * sin(omega*t)
@@ -67,11 +71,11 @@ program shepard_risset_glissando
         ! Modifying frequencies very progressively before next iteration:
         do j = 1, cmax
             ! Increasing pitch:
-            f(j) = f(j) * 2**(+1/(d*RATE))
-
+            f(j) = f(j) * increase
             ! Each component must stay between fmin and fmax:
             if (f(j) > fmax) then
                 f(j) = fmin
+                print *, j, "f(j) > fmax"
             else if (f(j) < fmin) then
                 f(j) = fmax
             end if
