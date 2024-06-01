@@ -8,8 +8,8 @@
 ! It is not perfect, as we can hear that globally the whole is getting slowly
 ! higher. It is also visible when zooming in the waveform woth audacity.
 ! Some kind of beating might occur due to the fact that in the sin(),
-! both omega and t are varying at each step. Or a slight desynchronization
-! of the octaves could occur while multiplying f(j) ?
+! both omega and t are varying at each step. But as the f() are now redefined
+! regularly, things are unclear for the moment...
 ! https://en.wikipedia.org/wiki/Shepard_tone
 program shepard_risset_glissando
     use forsynth, only: wp, dt, RATE, PI
@@ -23,7 +23,7 @@ program shepard_risset_glissando
     real(wp) :: omega
     real(wp) :: t
     real(wp) :: Amp
-    integer  :: i, j
+    integer  :: i, j, k
     !--------------------------
     ! Glissando parameters:
     !--------------------------
@@ -79,11 +79,19 @@ program shepard_risset_glissando
             f(j) = f(j) * increase
             ! Each component must stay between fmin and fmax:
             if (f(j) >= fmax) then
-                f(j) = fmin
-                print *, j, "f(j) > fmax"
+                ! As each component is separated by one octave, we can
+                ! redefine all the components as they were at t=0 (in that way,
+                ! we are sure they won't diverge at all due to numerical
+                ! problems):
+                do k = 1, cmax
+                    f(k) = fmin * 2**(k-1)
+                end do
+                print *, i, j, "f(j) > fmax"
             else if (f(j) <= fmin) then
                 ! Would be useful for a decreasing glissando:
-                f(j) = fmax
+                do k = 1, cmax
+                    f(k) = fmin * 2**(k-1)
+                end do
             end if
         end do
     end do
