@@ -14,7 +14,7 @@ program blues
 
     implicit none
     type(WAV_file) :: demo
-    real(wp) :: t, Dt
+    real(wp) :: t, dnote
     real(wp) :: r   ! Random number
     integer  :: i, k
 
@@ -25,15 +25,15 @@ program blues
     associate(tape => demo%tape_recorder)
 
     ! Notes duration in seconds:
-    Dt = 0.5_wp
+    dnote = 0.5_wp
     t = 0.0_wp
 
     print *, "A blues scale"
-    t = t + Dt
+    t = t + dnote
     do i = 1, 6
-        call add_karplus_strong(tape, track=1, t1=t, t2=t+Dt, &
+        call add_karplus_strong(tape, track=1, t1=t, t2=t+dnote, &
                             & f=fr(trim(HEXATONIC_BLUES_SCALE(i))//'3'), Amp=1.0_wp)
-        t = t + Dt
+        t = t + dnote
     end do
 
     print *, "Random walk on that blues scale"
@@ -51,9 +51,9 @@ program blues
 
         call random_number(r)
         r = min(1.0_wp, r+0.25_wp)
-        call add_karplus_strong(tape, track=1, t1=t, t2=t+Dt*(r+0.25_wp), &
+        call add_karplus_strong(tape, track=1, t1=t, t2=t+dnote*(r+0.25_wp), &
                             & f=fr(trim(HEXATONIC_BLUES_SCALE(k))//'2'), Amp=1.0_wp)
-        t = t + Dt*(r + 0.25_wp)
+        t = t + dnote*(r + 0.25_wp)
     end do
 
     ! A tremolo at 3 Hz and an amplitude of 0.2:

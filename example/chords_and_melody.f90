@@ -18,7 +18,7 @@ program chords_and_melody
     type(WAV_file) :: demo
     type(ADSR_envelope) :: env
     integer  :: i
-    real(wp) :: t, Dt, r
+    real(wp) :: t, dnote, r
     real(wp) :: chosen_note(0:3)
 
     print *, "**** Demo chords and melody ****"
@@ -28,23 +28,23 @@ program chords_and_melody
     call env%new(A=15._wp, D=40._wp, S=80._wp, R=15._wp)
 
     ! Notes duration in seconds:
-    Dt = 3.0_wp
+    dnote = 3.0_wp
 
     associate(tape => demo%tape_recorder)
 
     print *, "Track 1: repeating Am C G Dm chords..."
     t = 0.0_wp
-    call add_chord(tape, track=1, t1=t,      t2=t+Dt,   f=fr("A3"), Amp=1.0_wp, chord=MINOR_CHORD, envelope=env)
-    call add_chord(tape, track=1, t1=t+Dt,   t2=t+2*Dt, f=fr("C3"), Amp=1.0_wp, chord=MAJOR_CHORD, envelope=env)
-    call add_chord(tape, track=1, t1=t+2*Dt, t2=t+3*Dt, f=fr("G3"), Amp=1.0_wp, chord=MAJOR_CHORD, envelope=env)
-    call add_chord(tape, track=1, t1=t+3*Dt, t2=t+4*Dt, f=fr("D3"), Amp=1.0_wp, chord=MINOR_CHORD, envelope=env)
+    call add_chord(tape, track=1, t1=t,      t2=t+dnote,   f=fr("A3"), Amp=1.0_wp, chord=MINOR_CHORD, envelope=env)
+    call add_chord(tape, track=1, t1=t+dnote,   t2=t+2*dnote, f=fr("C3"), Amp=1.0_wp, chord=MAJOR_CHORD, envelope=env)
+    call add_chord(tape, track=1, t1=t+2*dnote, t2=t+3*dnote, f=fr("G3"), Amp=1.0_wp, chord=MAJOR_CHORD, envelope=env)
+    call add_chord(tape, track=1, t1=t+3*dnote, t2=t+4*dnote, f=fr("D3"), Amp=1.0_wp, chord=MINOR_CHORD, envelope=env)
     ! Repeat those four chords until the end of the track:
     do i = 1, 9
-        call demo%copy_section(from_track=1, to_track=1, t1=t, t2=t+4*Dt, t3=4*Dt*i)
+        call demo%copy_section(from_track=1, to_track=1, t1=t, t2=t+4*dnote, t3=4*dnote*i)
     end do
 
     print *, "Track 2: playing random A C G D notes using plucked strings..."
-    Dt = Dt / 4
+    dnote = dnote / 4
     ! An array of notes that can be played:
     chosen_note(0) = fr("A3")
     chosen_note(1) = fr("C3")
@@ -52,16 +52,16 @@ program chords_and_melody
     chosen_note(3) = fr("D3")
 
     do i = 0, 9*16
-        t = Dt * i
+        t = dnote * i
         call random_number(r)
-        call add_karplus_strong(tape, track=2, t1=t, t2=t+Dt, f=chosen_note(int(r*4)), Amp=1._wp)
+        call add_karplus_strong(tape, track=2, t1=t, t2=t+dnote, f=chosen_note(int(r*4)), Amp=1._wp)
     end do
 
     ! A double delay inspired by The Edge.
     ! Dotted quavers delay:
-    call apply_delay_effect(tape, track=2, t1=0.0_wp, t2=demo%duration, delay=Dt*0.75_wp, Amp=0.45_wp)
+    call apply_delay_effect(tape, track=2, t1=0.0_wp, t2=demo%duration, delay=dnote*0.75_wp, Amp=0.45_wp)
     ! Plus a quavers delay:
-    call apply_delay_effect(tape, track=2, t1=0.0_wp, t2=demo%duration, delay=Dt*0.50_wp, Amp=0.30_wp)
+    call apply_delay_effect(tape, track=2, t1=0.0_wp, t2=demo%duration, delay=dnote*0.50_wp, Amp=0.30_wp)
 
     end associate
 
