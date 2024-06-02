@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-31
+! Last modifications: 2024-06-02
 
 ! A random walk on a blues scale.
 program blues
@@ -22,6 +22,8 @@ program blues
     ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('blues.wav', tracks=1, duration=35._wp)
 
+    associate(tape => demo%tape_recorder)
+
     ! Notes duration in seconds:
     Dt = 0.5_wp
     t = 0.0_wp
@@ -29,7 +31,7 @@ program blues
     print *, "A blues scale"
     t = t + Dt
     do i = 1, 6
-        call add_karplus_strong(demo%tape_recorder, track=1, t1=t, t2=t+Dt, &
+        call add_karplus_strong(tape, track=1, t1=t, t2=t+Dt, &
                             & f=fr(trim(HEXATONIC_BLUES_SCALE(i))//'3'), Amp=1.0_wp)
         t = t + Dt
     end do
@@ -49,13 +51,15 @@ program blues
 
         call random_number(r)
         r = min(1.0_wp, r+0.25_wp)
-        call add_karplus_strong(demo%tape_recorder, track=1, t1=t, t2=t+Dt*(r+0.25_wp), &
+        call add_karplus_strong(tape, track=1, t1=t, t2=t+Dt*(r+0.25_wp), &
                             & f=fr(trim(HEXATONIC_BLUES_SCALE(k))//'2'), Amp=1.0_wp)
         t = t + Dt*(r + 0.25_wp)
     end do
 
     ! A tremolo at 3 Hz and an amplitude of 0.2:
-    call apply_tremolo_effect(demo%tape_recorder, track=1, t1=0.0_wp, t2=t, f=3.0_wp, AmpLFO=0.2_wp)
+    call apply_tremolo_effect(tape, track=1, t1=0.0_wp, t2=t, f=3.0_wp, AmpLFO=0.2_wp)
+
+    end associate
 
     print *, "Final mix..."
     ! All tracks will be mixed on track 0.

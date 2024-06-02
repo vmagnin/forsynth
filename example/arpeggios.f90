@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-30
-! Last modifications: 2024-05-31
+! Last modifications: 2024-06-02
 
 ! Arpeggios played in various ways using the circles of fifths
 ! https://en.wikipedia.org/wiki/Arpeggio
