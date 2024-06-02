@@ -22,6 +22,7 @@ program drum_machine
         shape(pattern), order = [2, 1] )
 
     print *, "**** Demo Drum Machine****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('drum_machine.wav', tracks=3, duration=33._wp)
 
     ! A rhythm following the above pattern:

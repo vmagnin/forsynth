@@ -19,6 +19,7 @@ program blues
     integer  :: i, k
 
     print *, "**** Demo Blues ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('blues.wav', tracks=1, duration=35._wp)
 
     ! Notes duration in seconds:
@@ -57,6 +58,8 @@ program blues
     call apply_tremolo_effect(demo%tape_recorder, track=1, t1=0.0_wp, t2=t, f=3.0_wp, AmpLFO=0.2_wp)
 
     print *, "Final mix..."
+    ! All tracks will be mixed on track 0.
+    ! Needed even if there is only one track!
     call demo%mix_tracks()
     call demo%close_WAV_file()
 

@@ -47,6 +47,7 @@ program shepard_scale
     integer, parameter ::  kmax = 9
 
     print *, "**** Creating shepard_scale.wav ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('shepard_scale.wav', tracks=1, duration=120._wp)
 
     associate(tape => demo%tape_recorder)
@@ -81,6 +82,8 @@ program shepard_scale
     call apply_reverse_effect(tape, track=1, t1=(1+kmax)/2*tmax*(d+ds), t2=(1+kmax)*tmax*(d+ds) + d)
     end associate
 
+    ! All tracks will be mixed on track 0.
+    ! Needed even if there is only one track!
     call demo%mix_tracks()
     call demo%close_WAV_file()
 

@@ -30,6 +30,7 @@ program drone_music
     print *, "**** Creating drone_music.wav ****"
     t1 = 0._wp
     t2 = 180._wp
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('drone_music.wav', tracks=1, duration=t2)
 
     associate(tape => demo%tape_recorder)
@@ -55,6 +56,8 @@ program drone_music
 
     end associate
 
+    ! All tracks will be mixed on track 0.
+    ! Needed even if there is only one track!
     call demo%mix_tracks()
     call demo%close_WAV_file()
 

@@ -21,6 +21,7 @@ program arpeggios
     character(3) :: name
 
     print *, "**** Demo arpeggios ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('arpeggios.wav', tracks=2, duration=40._wp)
 
     associate(tape => demo%tape_recorder)

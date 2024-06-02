@@ -20,8 +20,12 @@ program misc_sounds
     do i = 0, 23
         print *, i
         write(number, '(I0)') i
+        ! We create a new WAV file, and define the number of tracks and its duration:
         call demo%create_WAV_file('misc_sounds'//trim(number)//'.wav', tracks=1, duration=30._wp)
+        ! We call the subroutine for signal i:
         call add_misc_signal(demo%tape_recorder, track=1, t1=0._wp, t2=30._wp, f=fr("A4"), Amp=1._wp, choice=i)
+        ! All tracks will be mixed on track 0.
+        ! Needed even if there is only one track!
         call demo%mix_tracks()
         call demo%close_WAV_file()
     end do

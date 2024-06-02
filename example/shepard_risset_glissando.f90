@@ -56,6 +56,7 @@ program shepard_risset_glissando
     print *, "Pitch increase:", increase
 
     print *, "**** Creating shepard_risset_glissando.wav ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('shepard_risset_glissando.wav', tracks=1, duration=length)
 
     associate(tape => demo%tape_recorder)
@@ -103,6 +104,8 @@ program shepard_risset_glissando
 
     end associate
 
+    ! All tracks will be mixed on track 0.
+    ! Needed even if there is only one track!
     call demo%mix_tracks()
     call demo%close_WAV_file()
 

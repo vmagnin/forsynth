@@ -2,7 +2,7 @@
 
 The stars in parenthesis are an evaluation of the difficulty.
 
-## ForSynth 0.4
+## ForSynth 0.4 "Jean-Claude Risset"
 
 ### Development
 * [x] More OOP. (***)
@@ -27,7 +27,7 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [x] An example using brokken chords.
 
 ### Documentation
-* [ ] Add comments in examples to document the usage of the API. (*)
+* [x] Add comments in examples to document the usage of the API. (*)
 
 
 ## Ideas for further developments

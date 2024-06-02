@@ -26,6 +26,7 @@ program doppler_effect
     real(wp), parameter :: f = 50    ! Hz
 
     print *, "**** Creating doppler_effect.wav ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('doppler_effect.wav', tracks=1, duration=duration)
 
     associate(tape => demo%tape_recorder)
@@ -82,6 +83,8 @@ program doppler_effect
 
     end associate
 
+    ! All tracks will be mixed on track 0.
+    ! Needed even if there is only one track!
     call demo%mix_tracks()
     call demo%close_WAV_file()
 

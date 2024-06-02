@@ -21,16 +21,19 @@ program all_signals
     real(wp) :: f_A
 
     print *, "**** Demo of the available signals ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('all_signals.wav', tracks=1, duration=30._wp)
-
+    ! We create an ADSR envelope that will be passed to signals:
     call env%new(A=30._wp, D=20._wp, S=80._wp, R=30._wp)
 
-    ! Notes frequencies:
+    ! Notes frequencies are obtained with the fr() function:
     f_A = fr("A3")             ! A 220 Hz
     ! Notes duration in seconds:
     Dt = 3.0_wp
 
     t = 0.0_wp
+
+    ! We add each signal on the track between times t1 and t2:
     print *, "Sinusoidal signal"
     call add_sine_wave(demo%tape_recorder, track=1, t1=t, t2=t+Dt, f=f_A, Amp=1.0_wp, envelope=env)
     print *, "Square wave"
@@ -54,6 +57,8 @@ program all_signals
     call add_karplus_strong_stretched(demo%tape_recorder, track=1, t1=t+8*Dt, t2=t+9*Dt, f=f_A, Amp=1.0_wp)
 
     print *, "Final mix..."
+    ! All tracks will be mixed on track 0.
+    ! Needed even if there is only one track!
     call demo%mix_tracks()
     call demo%close_WAV_file()
 

@@ -22,8 +22,9 @@ program chords_and_melody
     real(wp) :: chosen_note(0:3)
 
     print *, "**** Demo chords and melody ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('chords_and_melody.wav', tracks=2, duration=120._wp)
-
+    ! We create an ADSR envelope that will be passed to signals (add_chord):
     call env%new(A=15._wp, D=40._wp, S=80._wp, R=15._wp)
 
     ! Notes duration in seconds:
@@ -42,6 +43,7 @@ program chords_and_melody
 
     print *, "Track 2: playing random A C G D notes using plucked strings..."
     Dt = Dt / 4
+    ! An array of notes that can be played:
     chosen_note(0) = fr("A3")
     chosen_note(1) = fr("C3")
     chosen_note(2) = fr("G3")

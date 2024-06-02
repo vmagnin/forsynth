@@ -20,8 +20,9 @@ program demo_effects
     real(wp) :: t, Dt
 
     print *, "**** Demo of the audio effects ****"
+    ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('demo_effects.wav', tracks=1, duration=120._wp)
-
+    ! We create an ADSR envelope that will be passed to signals (add_chord):
     call env%new(A=10._wp, D=40._wp, S=80._wp, R=30._wp)
 
     ! Notes duration in seconds:
@@ -46,6 +47,8 @@ program demo_effects
     call apply_delay_effect(  demo%tape_recorder, track=1, t1=t+16*Dt, t2=t+20*Dt, delay=0.4_wp,  Amp=0.4_wp)
 
     print *, "Final mix..."
+    ! All tracks will be mixed on track 0.
+    ! Needed even if there is only one track!
     call demo%mix_tracks()
     call demo%close_WAV_file()
 
