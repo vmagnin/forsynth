@@ -23,7 +23,7 @@ program shepard_risset_glissando
     real(wp) :: omega
     real(wp) :: t
     real(wp) :: Amp
-    integer  :: i, j, k
+    integer  :: i, j
     !--------------------------
     ! Glissando parameters:
     !--------------------------
@@ -42,6 +42,7 @@ program shepard_risset_glissando
     ! Setting the increase rate:
     real(wp), parameter :: d = 16._wp
     real(wp), parameter :: increase = 2**(+1/(d*RATE))
+    logical :: restart
 
     ! Useful for debugging and setting the envelope parameters:
     !call write_amplitude_envelope()
@@ -75,26 +76,30 @@ program shepard_risset_glissando
         t = i*dt
 
         ! Modifying frequencies very progressively before next iteration:
+        restart = .false.
         do j = 1, cmax
             ! Increasing pitch:
             f(j) = f(j) * increase
             ! Each component must stay between fmin and fmax:
             if (f(j) >= fmax) then
-                ! As each component is separated by one octave, we can
-                ! redefine all the components as they were at t=0 (in that way,
-                ! we are sure they won't diverge at all due to numerical
-                ! problems):
-                do k = 1, cmax
-                    f(k) = fmin * 2**(k-1)
-                end do
                 print *, i, j, "f(j) > fmax"
+                restart = .true.
             else if (f(j) <= fmin) then
                 ! Would be useful for a decreasing glissando:
-                do k = 1, cmax
-                    f(k) = fmin * 2**(k-1)
-                end do
+                print *, i, j, "f(j) > fmax"
+                restart = .true.
             end if
         end do
+
+        ! As each component is separated by one octave, we can
+        ! redefine all the components as they were at t=0, each time one has
+        ! passed the last octave. In that way, we are sure they won't diverge
+        ! at all due to numerical problems:
+        if (restart) then
+            do j = 1, cmax
+                f(j) = fmin * 2**(j-1)
+            end do
+        end if
     end do
 
     tape%right = tape%left
