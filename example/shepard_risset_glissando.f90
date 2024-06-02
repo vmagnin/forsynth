@@ -62,8 +62,8 @@ program shepard_risset_glissando
 
     associate(tape => demo%tape_recorder)
 
-    t = 0._wp
     do i = 0, nint(length*RATE)-1
+        t = i*dt
         ! Computing and adding each component on the track:
         do j = 1, cmax
             omega = 2*PI*f(j)
@@ -73,23 +73,13 @@ program shepard_risset_glissando
             tape%left(1, i)  = tape%left(1, i) + Amp * sin(omega*t)
         end do
 
-        t = i*dt
-
-        ! Modifying frequencies very progressively before next iteration:
+        ! Increasing pitch of each component:
+        f = f * increase
         restart = .false.
-        do j = 1, cmax
-            ! Increasing pitch:
-            f(j) = f(j) * increase
-            ! Each component must stay between fmin and fmax:
-            if (f(j) >= fmax) then
-                print *, i, j, "f(j) > fmax"
-                restart = .true.
-            else if (f(j) <= fmin) then
-                ! Would be useful for a decreasing glissando:
-                print *, i, j, "f(j) > fmax"
-                restart = .true.
-            end if
-        end do
+        ! Each component must stay between fmin and fmax:
+        if (maxval(f) >= fmax) restart = .true.
+        ! Would be useful for a decreasing glissando:
+        if (minval(f) <= fmin) restart = .true.
 
         ! As each component is separated by one octave, we can
         ! redefine all the components as they were at t=0, each time one has
