@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-24
-! Last modifications: 2024-06-02
+! Last modifications: 2024-06-03
 
 ! A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
 ! It is the continuous version of the Shepard scale.
@@ -48,10 +48,8 @@ program shepard_risset_glissando
     !call write_amplitude_envelope()
 
     ! Initializing the components, separated by octaves:
-    do j = 1, cmax
-        f(j) = fmin * 2**(j-1)
-        print *, j, f(j), "Hz"
-    end do
+    call initialize_frequencies()
+    print *, "Frequencies:", f
 
     print *, "Log Central frequency:", muf
     print *, "Pitch increase:", increase
@@ -86,9 +84,7 @@ program shepard_risset_glissando
         ! passed the last octave. In that way, we are sure they won't diverge
         ! at all due to numerical problems:
         if (restart) then
-            do j = 1, cmax
-                f(j) = fmin * 2**(j-1)
-            end do
+            call initialize_frequencies
         end if
     end do
 
@@ -107,6 +103,14 @@ program shepard_risset_glissando
     print *,"You can now play the file ", demo%get_name()
 
 contains
+
+    subroutine initialize_frequencies()
+        integer :: j
+
+        do j = 1, cmax
+            f(j) = fmin * 2**(j-1)
+        end do
+    end subroutine
 
     ! Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.
     real(wp) function linear1(freq, f1, f2)
