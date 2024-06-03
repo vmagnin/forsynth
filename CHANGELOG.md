@@ -2,7 +2,7 @@
 All notable changes to the Forsynth project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [ForSynth dev]
+## [ForSynth 0.4 "Jean-Claude Risset"] 2024-06-03
 
 ### Added
 - In `src/audio_effects.f90`: an `apply_reverse_effect(tape, track, t1, t2)` subroutine to reverse the order of samples.
