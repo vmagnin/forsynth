@@ -67,6 +67,9 @@ First film whose soundtrack (Louis & Bebe Barron) is entirely electronic:
 - *Music From Mathematics* (I.B.M. 7090), 2nd edition, DECCA, 1962: https://www.youtube.com/watch?v=FgKKA9sdfs4
     - Contains especially a few pieces by Max Mathews (Bell Labs). 
 
+## 60's: some famous electric keyboards
+- The Doors, *When The Music's Over* (1967): https://www.youtube.com/watch?v=pSZ-vSrFhZE (Ray Manzarek is generally playing a Fender Rhodes electric piano keyboard bass and a Vox Continental combo organ)
+
 ## 60's: Moog synthesizers
 
 ### Wendy Carlos
@@ -206,6 +209,7 @@ Later famous works:
 The synthesiser market skyrockets, prices fall. The year 1980 marks a turning point.
 
 -   Orchestral Manoeuvres In The Dark, *Enola Gay* (1980): https://www.youtube.com/watch?v=d5XJ2GiR6Bo
+-   Joy Division, *Isolation* (1980): https://www.youtube.com/watch?v=5ViMA_qDKTU
 -   Visage, *Fade to Grey* (1980): https://www.youtube.com/watch?v=DZiJQL9OLqI
 -   Taxi Girl,*Cherchez le garçon* (1980): https://www.youtube.com/watch?v=Av83iD8zn_w
 -   Grauzone, *Eisbaer* (1980): https://www.youtube.com/watch?v=bIIGKV27FaY
@@ -230,6 +234,7 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   Talk Talk, *Such a Shame* (1984): https://www.youtube.com/watch?v=lLdvpFIPReA
 -   Bronski Beat, *Smalltown Boy* (1984): https://www.youtube.com/watch?v=U7-q1WRaKNg
 -   Alphaville, *Forever Young* (1984): https://www.youtube.com/watch?v=3D8bmo5Dlwc
+-   Harold Faltermeyer, *Axel F* (1984) Beverly Hills﻿ Cop Soundtrack: https://www.youtube.com/watch?v=Qx2gvHjNhQ0
 -   Art Of Noise, *Moments In Love* (1985): https://www.youtube.com/watch?v=cen22TBHo9M
 -   Kraftwerk, *Musique Non Stop* (1986): https://www.youtube.com/watch?v=O0lIlROWro8
 
