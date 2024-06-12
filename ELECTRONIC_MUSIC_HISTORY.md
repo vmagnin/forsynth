@@ -208,8 +208,9 @@ Later famous works:
 
 The synthesiser market skyrockets, prices fall. The year 1980 marks a turning point.
 
--   Orchestral Manoeuvres In The Dark, *Enola Gay* (1980): https://www.youtube.com/watch?v=d5XJ2GiR6Bo
 -   Joy Division, *Isolation* (1980): https://www.youtube.com/watch?v=5ViMA_qDKTU
+-   Orchestral Manoeuvres In The Dark, *Statues* (1980): https://www.youtube.com/watch?v=tpcSuLNuWp4
+-   Orchestral Manoeuvres In The Dark, *Enola Gay* (1980): https://www.youtube.com/watch?v=d5XJ2GiR6Bo
 -   Visage, *Fade to Grey* (1980): https://www.youtube.com/watch?v=DZiJQL9OLqI
 -   Taxi Girl,*Cherchez le garçon* (1980): https://www.youtube.com/watch?v=Av83iD8zn_w
 -   Grauzone, *Eisbaer* (1980): https://www.youtube.com/watch?v=bIIGKV27FaY
