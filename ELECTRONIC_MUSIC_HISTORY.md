@@ -223,6 +223,8 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   Guerre Froide, *Demain Berlin* (1981): https://www.youtube.com/watch?v=ahs-oaAemjg
 -   Yazoo, *Don't Go* (1982): https://www.youtube.com/watch?v=_sQGwDeambg
 -   Tears for Fears, *Mad World* (1982): https://www.youtube.com/watch?v=u1ZvPSpLxCg
+    - Cover by Gary Jules (2001): https://www.youtube.com/watch?v=etSbOs3aUqI
+    - Gary Jules in 2023: https://www.youtube.com/watch?v=CHPL9kGWNY4
 -   Front 242, *Kampfbereit* (1982): https://www.youtube.com/watch?v=fGle_qgl1Q4
     -    The bass line is an homage to Kraftwerk's *Kometenmelodie 2* (*Autobahn* album, 1974): https://www.youtube.com/watch?v=FyzkykVO6wM
 -   New Order, *Blue Monday* (1983): https://www.youtube.com/watch?v=FYH8DsU2WCk
