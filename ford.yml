@@ -1,10 +1,12 @@
-project:             ForMIDI
-summary:             A small Fortran MIDI sequencer for composing music,
-                     exploring algorithmic music and music theory.
-version:             0.3.0
+project:             ForSynth
+summary:             A small Fortran synthesizer to explore sound synthesis,
+                     sound effects, electronic music, algorithmic music, etc.
+                     Humbly follow the steps of Stockhausen, Kraftwerk and the
+                     Daft Punk!
+version:             0.4.0
 license:             GPL
 year:                2021-2024
-project_github:      https://github.com/vmagnin/forMIDI
+project_github:      https://github.com/vmagnin/forsynth
 author:              Vincent Magnin
 github:              https://github.com/vmagnin
 src_dir:             ./src
