@@ -1,0 +1,1399 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>tape_recorder_class &ndash; ForMIDI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>tape_recorder_class
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="12.8% of total for modules and submodules.">95 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/tape_recorder_class.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/tape_recorder_class.f90.html'>tape_recorder_class.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">tape_recorder_class</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/tape_recorder_class.html#type-tape_recorder">tape_recorder</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/tape_recorder_class.html#proc-auto_finalize">auto_finalize</a>
+            <a class="list-group-item" href="../module/tape_recorder_class.html#proc-clear_tracks">clear_tracks</a>
+            <a class="list-group-item" href="../module/tape_recorder_class.html#proc-copy_section">copy_section</a>
+            <a class="list-group-item" href="../module/tape_recorder_class.html#proc-finalize">finalize</a>
+            <a class="list-group-item" href="../module/tape_recorder_class.html#proc-mix_tracks">mix_tracks</a>
+            <a class="list-group-item" href="../module/tape_recorder_class.html#proc-new">new</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~tape_recorder_class~~UsesGraph Pages: 1 -->
+<svg id="moduletape_recorder_classUsesGraph" width="349pt" height="32pt"
+ viewBox="0.00 0.00 349.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~tape_recorder_class~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>module~~tape_recorder_class~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 345,-28 345,4 -4,4"/>
+<!-- module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsesGraph_node1" class="node">
+<title>module~tape_recorder_class</title>
+<polygon fill="none" stroke="black" points="341,-24 222,-24 222,0 341,0 341,-24"/>
+<text text-anchor="middle" x="281.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">tape_recorder_class</text>
+</g>
+<!-- module~forsynth -->
+<g id="module~~tape_recorder_class~~UsesGraph_node2" class="node">
+<title>module~forsynth</title>
+<g id="a_module~~tape_recorder_class~~UsesGraph_node2"><a xlink:href="../module/forsynth.html" xlink:title="forsynth">
+<polygon fill="#337ab7" stroke="#337ab7" points="186,-24 130,-24 130,0 186,0 186,-24"/>
+<text text-anchor="middle" x="158" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth</text>
+</a>
+</g>
+</g>
+<!-- module~tape_recorder_class&#45;&gt;module~forsynth -->
+<g id="module~~tape_recorder_class~~UsesGraph_edge1" class="edge">
+<title>module~tape_recorder_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M221.89,-12C213.19,-12 204.44,-12 196.35,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="196.14,-8.5 186.14,-12 196.14,-15.5 196.14,-8.5"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~tape_recorder_class~~UsesGraph_node3" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~tape_recorder_class~~UsesGraph_node3"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth&#45;&gt;iso_fortran_env -->
+<g id="module~~tape_recorder_class~~UsesGraph_edge2" class="edge">
+<title>module~forsynth&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M129.78,-12C122.07,-12 113.39,-12 104.63,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.37,-8.5 94.37,-12 104.37,-15.5 104.37,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~tape_recorder_class~~UsedByGraph Pages: 1 -->
+<svg id="moduletape_recorder_classUsedByGraph" width="624pt" height="486pt"
+ viewBox="0.00 0.00 624.00 485.74" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~tape_recorder_class~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 481.74)">
+<title>module~~tape_recorder_class~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-481.74 620,-481.74 620,4 -4,4"/>
+<!-- module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node1" class="node">
+<title>module~tape_recorder_class</title>
+<polygon fill="none" stroke="black" points="119,-248 0,-248 0,-224 119,-224 119,-248"/>
+<text text-anchor="middle" x="59.5" y="-233.6" font-family="Helvetica,sans-Serif" font-size="10.50">tape_recorder_class</text>
+</g>
+<!-- module~audio_effects -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node2" class="node">
+<title>module~audio_effects</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node2"><a xlink:href="../module/audio_effects.html" xlink:title="audio_effects">
+<polygon fill="#337ab7" stroke="#337ab7" points="433.5,-404 349.5,-404 349.5,-380 433.5,-380 433.5,-404"/>
+<text text-anchor="middle" x="391.5" y="-389.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">audio_effects</text>
+</a>
+</g>
+</g>
+<!-- module~audio_effects&#45;&gt;module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge1" class="edge">
+<title>module~audio_effects&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M370.35,-379.8C323.31,-351.41 208.74,-282.76 189.5,-276"/>
+</g>
+<!-- module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node3" class="node">
+<title>module~envelopes</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node3"><a xlink:href="../module/envelopes.html" xlink:title="envelopes">
+<polygon fill="#337ab7" stroke="#337ab7" points="222,-248 155,-248 155,-224 222,-224 222,-248"/>
+<text text-anchor="middle" x="188.5" y="-233.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">envelopes</text>
+</a>
+</g>
+</g>
+<!-- module~envelopes&#45;&gt;module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge2" class="edge">
+<title>module~envelopes&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M154.79,-236C146.89,-236 138.15,-236 129.27,-236"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="129.22,-232.5 119.22,-236 129.22,-239.5 129.22,-232.5"/>
+</g>
+<!-- module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node4" class="node">
+<title>module~music</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node4"><a xlink:href="../module/music.html" xlink:title="music">
+<polygon fill="#337ab7" stroke="#337ab7" points="418.5,-286 364.5,-286 364.5,-262 418.5,-262 418.5,-286"/>
+<text text-anchor="middle" x="391.5" y="-271.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge3" class="edge">
+<title>module~music&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M284,-276C242.18,-272.11 229.12,-289.92 189.5,-276"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M187.5,-276C162.41,-267.18 134.21,-258.21 110.78,-251"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="111.63,-247.61 101.05,-248.03 109.59,-254.3 111.63,-247.61"/>
+</g>
+<!-- module~music&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge11" class="edge">
+<title>module~music&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M364.24,-276.12C343.07,-277.45 312.56,-278.47 286,-276"/>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M284,-276C260.28,-273.79 235.57,-262.98 217.36,-253.15"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="218.9,-250.01 208.47,-248.16 215.47,-256.11 218.9,-250.01"/>
+</g>
+<!-- module~signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node5" class="node">
+<title>module~signals</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node5"><a xlink:href="../module/signals.html" xlink:title="signals">
+<polygon fill="#337ab7" stroke="#337ab7" points="312,-248 258,-248 258,-224 312,-224 312,-248"/>
+<text text-anchor="middle" x="285" y="-233.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">signals</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge26" class="edge">
+<title>module~music&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M364.4,-264.51C351.56,-259.84 335.87,-254.14 321.92,-249.06"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="322.72,-245.63 312.13,-245.5 320.33,-252.21 322.72,-245.63"/>
+</g>
+<!-- module~signals&#45;&gt;module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge4" class="edge">
+<title>module~signals&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M278.13,-223.81C264.86,-198.17 230.5,-142.04 189.5,-155"/>
+</g>
+<!-- module~signals&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge12" class="edge">
+<title>module~signals&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M257.93,-236C250,-236 241.06,-236 232.33,-236"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="232.24,-232.5 222.24,-236 232.24,-239.5 232.24,-232.5"/>
+</g>
+<!-- module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node6" class="node">
+<title>module~wav_file_class</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node6"><a xlink:href="../module/wav_file_class.html" xlink:title="wav_file_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="435,-168 348,-168 348,-144 435,-144 435,-168"/>
+<text text-anchor="middle" x="391.5" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class</text>
+</a>
+</g>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge5" class="edge">
+<title>module~wav_file_class&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M347.8,-148.37C306.31,-142.66 242.07,-138.38 189.5,-155"/>
+</g>
+<!-- program~misc_sounds -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node7" class="node">
+<title>program~misc_sounds</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node7"><a xlink:href="../program/misc_sounds.html" xlink:title="misc_sounds">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="583.5,-198 503.5,-198 503.5,-174 583.5,-174 583.5,-198"/>
+<text text-anchor="middle" x="543.5" y="-183.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">misc_sounds</text>
+</a>
+</g>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~tape_recorder_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge6" class="edge">
+<title>program~misc_sounds&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M503.19,-180.17C491.94,-177.06 480.24,-172.3 471,-165 445.7,-145.01 462.89,-118.19 435,-102 338.45,-45.97 295.22,-119.16 189.5,-155"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M187.5,-155C145.24,-165.37 104.27,-196.48 80.76,-216.98"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="78.32,-214.47 73.2,-223.74 82.99,-219.69 78.32,-214.47"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge25" class="edge">
+<title>program~misc_sounds&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M503.47,-194.26C492.59,-197.41 481.01,-201.58 471,-207 447.92,-219.49 425.55,-239.62 410.64,-254.56"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="408.03,-252.23 403.55,-261.83 413.04,-257.11 408.03,-252.23"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge40" class="edge">
+<title>program~misc_sounds&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M503.48,-178.2C485.59,-174.62 464.12,-170.32 444.86,-166.47"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="445.5,-163.03 435.01,-164.5 444.13,-169.9 445.5,-163.03"/>
+</g>
+<!-- program~all_signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node8" class="node">
+<title>program~all_signals</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node8"><a xlink:href="../program/all_signals.html" xlink:title="all_signals">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="577,-114 510,-114 510,-90 577,-90 577,-114"/>
+<text text-anchor="middle" x="543.5" y="-99.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">all_signals</text>
+</a>
+</g>
+</g>
+<!-- program~all_signals&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge13" class="edge">
+<title>program~all_signals&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M509.84,-101.18C478.93,-101.29 431.57,-103.81 392.5,-116"/>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M390.5,-116C320.04,-137.98 248.39,-189.17 212.71,-217.06"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="210.09,-214.66 204.43,-223.62 214.44,-220.15 210.09,-214.66"/>
+</g>
+<!-- program~all_signals&#45;&gt;module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge19" class="edge">
+<title>program~all_signals&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M509.98,-105.88C496.74,-108.81 481.99,-113.96 471,-123 449.42,-140.76 416.85,-214.76 401.33,-252.16"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="397.99,-251.08 397.43,-261.66 404.47,-253.74 397.99,-251.08"/>
+</g>
+<!-- program~all_signals&#45;&gt;module~signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge27" class="edge">
+<title>program~all_signals&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M390.5,-116C370.75,-122.16 363.55,-121.35 348,-135 322.79,-157.13 304.54,-192.03 294.62,-214.47"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="291.34,-213.24 290.65,-223.81 297.78,-215.97 291.34,-213.24"/>
+</g>
+<!-- program~all_signals&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge32" class="edge">
+<title>program~all_signals&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M509.86,-110.75C497.58,-114.26 483.55,-118.53 471,-123 456.88,-128.02 441.63,-134.25 428.36,-139.93"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="426.88,-136.76 419.09,-143.94 429.66,-143.18 426.88,-136.76"/>
+</g>
+<!-- program~arpeggios -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node9" class="node">
+<title>program~arpeggios</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node9"><a xlink:href="../program/arpeggios.html" xlink:title="arpeggios">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="576.5,-282 510.5,-282 510.5,-258 576.5,-258 576.5,-282"/>
+<text text-anchor="middle" x="543.5" y="-267.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">arpeggios</text>
+</a>
+</g>
+</g>
+<!-- program~arpeggios&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge14" class="edge">
+<title>program~arpeggios&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M510.38,-279.5C489.19,-285.26 460.7,-292.05 435,-295 356.82,-303.97 331.61,-317.84 258,-290 256.63,-289.48 231.85,-269.83 212.48,-254.38"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="214.59,-251.59 204.6,-248.08 210.23,-257.06 214.59,-251.59"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge20" class="edge">
+<title>program~arpeggios&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M510.32,-270.86C486.37,-271.5 453.65,-272.37 428.77,-273.03"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="428.54,-269.54 418.64,-273.3 428.73,-276.54 428.54,-269.54"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge28" class="edge">
+<title>program~arpeggios&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M510.09,-264.5C488.79,-260.98 460.28,-256.44 435,-253 396.58,-247.77 352.43,-242.87 322.22,-239.69"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="322.46,-236.2 312.15,-238.64 321.73,-243.16 322.46,-236.2"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge33" class="edge">
+<title>program~arpeggios&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M510.18,-264.71C497.26,-261.56 482.71,-256.63 471,-249 442.32,-230.3 418.5,-198.02 404.88,-176.84"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="407.78,-174.88 399.51,-168.24 401.84,-178.58 407.78,-174.88"/>
+</g>
+<!-- program~blues -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node10" class="node">
+<title>program~blues</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node10"><a xlink:href="../program/blues.html" xlink:title="blues">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="570.5,-324 516.5,-324 516.5,-300 570.5,-300 570.5,-324"/>
+<text text-anchor="middle" x="543.5" y="-309.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blues</text>
+</a>
+</g>
+</g>
+<!-- program~blues&#45;&gt;module~audio_effects -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge7" class="edge">
+<title>program~blues&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M516.22,-316.7C502.18,-319.94 484.97,-325.12 471,-333 452.1,-343.67 452.34,-352.94 435,-366 431.14,-368.9 426.95,-371.78 422.75,-374.5"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="420.85,-371.56 414.22,-379.82 424.55,-377.5 420.85,-371.56"/>
+</g>
+<!-- program~blues&#45;&gt;module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge21" class="edge">
+<title>program~blues&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M516.37,-305.38C492.03,-299.22 455.53,-289.97 428.45,-283.11"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="429.13,-279.67 418.58,-280.61 427.41,-286.46 429.13,-279.67"/>
+</g>
+<!-- program~blues&#45;&gt;module~signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge29" class="edge">
+<title>program~blues&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M516.28,-315C477.59,-318.29 403.77,-320.17 348,-295 345.36,-293.81 322.89,-272.13 305.75,-255.4"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="307.94,-252.64 298.34,-248.15 303.04,-257.64 307.94,-252.64"/>
+</g>
+<!-- program~blues&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge34" class="edge">
+<title>program~blues&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M516.18,-309.1C501.63,-306.38 483.93,-301.14 471,-291 433.02,-261.22 409.9,-207.58 399.34,-177.66"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="402.64,-176.5 396.13,-168.15 396.01,-178.74 402.64,-176.5"/>
+</g>
+<!-- program~chords_and_melody -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node11" class="node">
+<title>program~chords_and_melody</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node11"><a xlink:href="../program/chords_and_melody.html" xlink:title="chords_and_melody">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603,-450 484,-450 484,-426 603,-426 603,-450"/>
+<text text-anchor="middle" x="543.5" y="-435.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody</text>
+</a>
+</g>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~audio_effects -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge8" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M500.86,-425.94C491.06,-423.06 480.65,-419.95 471,-417 460.84,-413.89 449.97,-410.48 439.66,-407.21"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="440.57,-403.83 429.98,-404.13 438.45,-410.5 440.57,-403.83"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge15" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M390.5,-470C346.3,-455.72 326.31,-493.07 286,-470"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge22" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M485.74,-425.99C480.46,-423.53 475.44,-420.57 471,-417 450.31,-400.36 417.82,-331.39 401.91,-295.67"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="404.95,-293.88 397.71,-286.14 398.54,-296.7 404.95,-293.88"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge30" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M520.02,-450.01C490.35,-464.23 436.72,-484.28 392.5,-470"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M390.5,-470C319.01,-446.91 314.35,-266.2 312,-262 310.75,-259.76 309.24,-257.58 307.6,-255.5"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="310.13,-253.07 300.81,-248.03 304.95,-257.78 310.13,-253.07"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge35" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M483.91,-426.84C479.12,-424.21 474.71,-420.97 471,-417 420.1,-362.43 458.09,-323.96 435,-253 426.28,-226.2 412.77,-196.72 403.33,-177.37"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="406.38,-175.66 398.81,-168.25 400.11,-178.76 406.38,-175.66"/>
+</g>
+<!-- program~demo_effects -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node12" class="node">
+<title>program~demo_effects</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node12"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="586,-408 501,-408 501,-384 586,-384 586,-408"/>
+<text text-anchor="middle" x="543.5" y="-393.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
+</a>
+</g>
+</g>
+<!-- program~demo_effects&#45;&gt;module~audio_effects -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge9" class="edge">
+<title>program~demo_effects&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M500.72,-394.89C483.02,-394.41 462.22,-393.86 443.62,-393.36"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="443.63,-389.86 433.54,-393.09 443.44,-396.86 443.63,-389.86"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge16" class="edge">
+<title>program~demo_effects&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M501.52,-408.02C429.4,-429.15 287.21,-470.67 286,-470"/>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M284,-470C200.28,-422.08 275.9,-342 222,-262 220.33,-259.53 218.36,-257.18 216.22,-254.97"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="218.31,-252.15 208.53,-248.08 213.64,-257.36 218.31,-252.15"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge23" class="edge">
+<title>program~demo_effects&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M500.83,-388.47C490.51,-385.38 479.88,-381.04 471,-375 440.64,-354.33 416.75,-318.21 403.64,-295.24"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="406.59,-293.34 398.69,-286.28 400.46,-296.72 406.59,-293.34"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge36" class="edge">
+<title>program~demo_effects&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M500.95,-391.13C490.02,-388.04 479.06,-383.05 471,-375 431,-335.05 454.38,-306.11 435,-253 425.28,-226.38 411.86,-196.65 402.72,-177.21"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="405.82,-175.58 398.37,-168.05 399.5,-178.58 405.82,-175.58"/>
+</g>
+<!-- program~doppler_effect -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node13" class="node">
+<title>program~doppler_effect</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node13"><a xlink:href="../program/doppler_effect.html" xlink:title="doppler_effect">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="588.5,-156 498.5,-156 498.5,-132 588.5,-132 588.5,-156"/>
+<text text-anchor="middle" x="543.5" y="-141.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">doppler_effect</text>
+</a>
+</g>
+</g>
+<!-- program~doppler_effect&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge37" class="edge">
+<title>program~doppler_effect&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M498.31,-147.54C481.62,-148.87 462.47,-150.4 445.09,-151.79"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="444.78,-148.31 435.09,-152.59 445.34,-155.28 444.78,-148.31"/>
+</g>
+<!-- program~drone_music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node14" class="node">
+<title>program~drone_music</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node14"><a xlink:href="../program/drone_music.html" xlink:title="drone_music">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="583.5,-240 503.5,-240 503.5,-216 583.5,-216 583.5,-240"/>
+<text text-anchor="middle" x="543.5" y="-225.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drone_music</text>
+</a>
+</g>
+</g>
+<!-- program~drone_music&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge17" class="edge">
+<title>program~drone_music&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M503.14,-221.41C448,-213.27 344.79,-201.99 258,-215 249.34,-216.3 240.25,-218.47 231.64,-220.94"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="230.34,-217.68 221.79,-223.94 232.38,-224.37 230.34,-217.68"/>
+</g>
+<!-- program~drone_music&#45;&gt;module~music -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge24" class="edge">
+<title>program~drone_music&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M503.49,-239.28C492.93,-242.39 481.52,-245.78 471,-249 457.05,-253.27 441.75,-258.11 428.4,-262.38"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="427.07,-259.13 418.62,-265.52 429.21,-265.79 427.07,-259.13"/>
+</g>
+<!-- program~drone_music&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge38" class="edge">
+<title>program~drone_music&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M503.43,-218.98C492.66,-215.84 481.15,-211.86 471,-207 453.43,-198.59 451.32,-192.64 435,-182 430.67,-179.18 426.05,-176.26 421.51,-173.44"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="423.32,-170.44 412.97,-168.19 419.66,-176.41 423.32,-170.44"/>
+</g>
+<!-- program~drum_machine -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node15" class="node">
+<title>program~drum_machine</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node15"><a xlink:href="../program/drum_machine.html" xlink:title="drum_machine">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="590,-72 497,-72 497,-48 590,-48 590,-72"/>
+<text text-anchor="middle" x="543.5" y="-57.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drum_machine</text>
+</a>
+</g>
+</g>
+<!-- program~drum_machine&#45;&gt;module~signals -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge31" class="edge">
+<title>program~drum_machine&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M496.73,-58.78C453.9,-59.99 390.34,-68.11 348,-102 312.53,-130.39 296.46,-183.7 289.92,-213.81"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="286.46,-213.28 287.93,-223.77 293.33,-214.65 286.46,-213.28"/>
+</g>
+<!-- program~drum_machine&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge39" class="edge">
+<title>program~drum_machine&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M496.98,-68.54C487.87,-71.54 478.73,-75.58 471,-81 448.87,-96.51 454.9,-111.72 435,-130 431.85,-132.9 428.32,-135.65 424.69,-138.19"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="422.62,-135.37 416.14,-143.76 426.44,-141.24 422.62,-135.37"/>
+</g>
+<!-- program~shepard_risset_glissando -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node16" class="node">
+<title>program~shepard_risset_glissando</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node16"><a xlink:href="../program/shepard_risset_glissando.html" xlink:title="shepard_risset_glissando">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="616,-24 471,-24 471,0 616,0 616,-24"/>
+<text text-anchor="middle" x="543.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_risset_glissando</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;module~envelopes -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge18" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M470.88,-21.94C432.67,-29.37 385.85,-42 348,-63 280.03,-100.72 225.32,-178.33 201.87,-215.41"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="198.89,-213.57 196.59,-223.91 204.84,-217.26 198.89,-213.57"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge41" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M493.86,-24.06C485.49,-27.8 477.43,-32.67 471,-39 440.01,-69.51 462.99,-96.71 435,-130 432.57,-132.88 429.74,-135.54 426.72,-137.96"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="424.55,-135.2 418.38,-143.82 428.58,-140.93 424.55,-135.2"/>
+</g>
+<!-- program~shepard_scale -->
+<g id="module~~tape_recorder_class~~UsedByGraph_node17" class="node">
+<title>program~shepard_scale</title>
+<g id="a_module~~tape_recorder_class~~UsedByGraph_node17"><a xlink:href="../program/shepard_scale.html" xlink:title="shepard_scale">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="588,-366 499,-366 499,-342 588,-342 588,-366"/>
+<text text-anchor="middle" x="543.5" y="-351.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_scale</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~audio_effects -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge10" class="edge">
+<title>program~shepard_scale&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M498.71,-365.09C481.35,-369.49 461.26,-374.58 443.27,-379.14"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="442.35,-375.76 433.51,-381.61 444.07,-382.55 442.35,-375.76"/>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~wav_file_class -->
+<g id="module~~tape_recorder_class~~UsedByGraph_edge42" class="edge">
+<title>program~shepard_scale&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M498.99,-347.66C488.93,-344.54 478.88,-339.91 471,-333 469.42,-331.61 422.25,-224.04 401.81,-177.29"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="404.98,-175.81 397.76,-168.05 398.56,-178.62 404.98,-175.81"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+
+
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-tape_recorder"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/tape_recorder.html'>tape_recorder</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-duration~3"></span>
+              real(kind=wp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>duration</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-left"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>left</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-right"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), allocatable
+            </td>
+            <td>::</td>
+            <td><strong>right</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-samples"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>samples</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tracks~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tracks</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+        <h4>Finalizations Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>final :: <strong>auto_finalize</strong></td>
+                <td></td>
+              </tr>
+          </tbody>
+        </table>
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/tape_recorder.html#boundprocedure-clear_tracks'>clear_tracks</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/tape_recorder.html#boundprocedure-copy_section'>copy_section</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/tape_recorder.html#boundprocedure-finalize'>finalize</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/tape_recorder.html#boundprocedure-mix_tracks'>mix_tracks</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/tape_recorder.html#boundprocedure-new~2'>new</a></strong></td>
+                <td></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-auto_finalize"></span> <h3>public  subroutine <a href='../proc/auto_finalize.html'>auto_finalize</a>(self)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~13"></span>
+              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-clear_tracks"></span> <h3>public  subroutine <a href='../proc/clear_tracks.html'>clear_tracks</a>(self)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~9"></span>
+              class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-copy_section"></span> <h3>public  subroutine <a href='../proc/copy_section.html'>copy_section</a>(self, from_track, to_track, t1, t2, t3)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~11"></span>
+              class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-from_track"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>from_track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-to_track"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>to_track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t1~25"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2~25"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t3"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t3</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-finalize"></span> <h3>public  subroutine <a href='../proc/finalize.html'>finalize</a>(self)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~12"></span>
+              class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mix_tracks"></span> <h3>public  subroutine <a href='../proc/mix_tracks.html'>mix_tracks</a>(self, levels, pan)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~10"></span>
+              class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-levels"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td>optional,</td>            <td>
+              dimension(1:self%tracks)
+            </td>
+            <td>::</td>
+            <td><strong>levels</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pan"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in),</td>
+              <td>optional,</td>            <td>
+              dimension(1:self%tracks)
+            </td>
+            <td>::</td>
+            <td><strong>pan</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-new"></span> <h3>public  subroutine <a href='../proc/new.html'>new</a>(self, tracks, duration)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~8"></span>
+              class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tracks~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tracks</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-duration~4"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>duration</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

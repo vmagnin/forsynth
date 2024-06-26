@@ -1,0 +1,759 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>music_common &ndash; ForMIDI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>music_common
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 2.8% of total for modules and submodules.">21 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/music_common.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/music_common.f90.html'>music_common.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">music_common</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/music_common.html#variable-chromatic_scale">CHROMATIC_SCALE</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-circle_of_fifths_major">CIRCLE_OF_FIFTHS_MAJOR</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-circle_of_fifths_minor">CIRCLE_OF_FIFTHS_MINOR</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-cluster_chord">CLUSTER_CHORD</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-dominant_7th_chord">DOMINANT_7TH_CHORD</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-harmonic_minor_scale">HARMONIC_MINOR_SCALE</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-hexatonic_blues_scale">HEXATONIC_BLUES_SCALE</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-major_chord">MAJOR_CHORD</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-major_pentatonic_scale">MAJOR_PENTATONIC_SCALE</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-major_scale">MAJOR_SCALE</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-minor_chord">MINOR_CHORD</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-power_chord">POWER_CHORD</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-sus2_chord">SUS2_CHORD</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-sus4_chord">SUS4_CHORD</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-whole_tone_scale">WHOLE_TONE_SCALE</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-j~3">j</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>      
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~music_common~~UsedByGraph Pages: 1 -->
+<svg id="modulemusic_commonUsedByGraph" width="350pt" height="284pt"
+ viewBox="0.00 0.00 350.00 284.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~music_common~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 280)">
+<title>module~~music_common~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-280 346,-280 346,4 -4,4"/>
+<!-- module~music_common -->
+<g id="module~~music_common~~UsedByGraph_node1" class="node">
+<title>module~music_common</title>
+<polygon fill="none" stroke="black" points="97,-150 0,-150 0,-126 97,-126 97,-150"/>
+<text text-anchor="middle" x="48.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">music_common</text>
+</g>
+<!-- module~music -->
+<g id="module~~music_common~~UsedByGraph_node2" class="node">
+<title>module~music</title>
+<g id="a_module~~music_common~~UsedByGraph_node2"><a xlink:href="../module/music.html" xlink:title="music">
+<polygon fill="#337ab7" stroke="#337ab7" points="187,-150 133,-150 133,-126 187,-126 187,-150"/>
+<text text-anchor="middle" x="160" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~music_common -->
+<g id="module~~music_common~~UsedByGraph_edge1" class="edge">
+<title>module~music&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M132.77,-138C125.05,-138 116.28,-138 107.39,-138"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="107.36,-134.5 97.36,-138 107.36,-141.5 107.36,-134.5"/>
+</g>
+<!-- program~arpeggios -->
+<g id="module~~music_common~~UsedByGraph_node3" class="node">
+<title>program~arpeggios</title>
+<g id="a_module~~music_common~~UsedByGraph_node3"><a xlink:href="../program/arpeggios.html" xlink:title="arpeggios">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="315.5,-276 249.5,-276 249.5,-252 315.5,-252 315.5,-276"/>
+<text text-anchor="middle" x="282.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">arpeggios</text>
+</a>
+</g>
+</g>
+<!-- program~arpeggios&#45;&gt;module~music_common -->
+<g id="module~~music_common~~UsedByGraph_edge2" class="edge">
+<title>program~arpeggios&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M249.32,-261.98C224.48,-259.58 189.62,-254.36 161,-243"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~music -->
+<g id="module~~music_common~~UsedByGraph_edge7" class="edge">
+<title>program~arpeggios&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M249.35,-256.87C240.15,-253.72 230.57,-249.26 223,-243 196,-220.67 178,-183.32 168.64,-159.71"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="171.87,-158.34 165.06,-150.23 165.32,-160.82 171.87,-158.34"/>
+</g>
+<!-- program~blues -->
+<g id="module~~music_common~~UsedByGraph_node4" class="node">
+<title>program~blues</title>
+<g id="a_module~~music_common~~UsedByGraph_node4"><a xlink:href="../program/blues.html" xlink:title="blues">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="309.5,-234 255.5,-234 255.5,-210 309.5,-210 309.5,-234"/>
+<text text-anchor="middle" x="282.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blues</text>
+</a>
+</g>
+</g>
+<!-- program~blues&#45;&gt;module~music_common -->
+<g id="module~~music_common~~UsedByGraph_edge3" class="edge">
+<title>program~blues&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M255.25,-229.85C225.13,-238.28 177.73,-249.64 161,-243"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M159,-243C116.51,-226.14 81.31,-183.89 63.04,-158.42"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="65.89,-156.38 57.3,-150.18 60.14,-160.38 65.89,-156.38"/>
+</g>
+<!-- program~blues&#45;&gt;module~music -->
+<g id="module~~music_common~~UsedByGraph_edge8" class="edge">
+<title>program~blues&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M255.29,-215.36C244.76,-212 232.82,-207.28 223,-201 205.01,-189.5 188.27,-171.89 176.72,-158.21"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="179.28,-155.81 170.24,-150.29 173.87,-160.25 179.28,-155.81"/>
+</g>
+<!-- program~chords_and_melody -->
+<g id="module~~music_common~~UsedByGraph_node5" class="node">
+<title>program~chords_and_melody</title>
+<g id="a_module~~music_common~~UsedByGraph_node5"><a xlink:href="../program/chords_and_melody.html" xlink:title="chords_and_melody">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="342,-66 223,-66 223,-42 342,-42 342,-66"/>
+<text text-anchor="middle" x="282.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody</text>
+</a>
+</g>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~music_common -->
+<g id="module~~music_common~~UsedByGraph_edge4" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M222.88,-44.75C202.57,-43.91 180.11,-45.75 161,-54"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~music -->
+<g id="module~~music_common~~UsedByGraph_edge9" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M240.42,-66.07C234.36,-68.61 228.36,-71.57 223,-75 205.01,-86.5 188.27,-104.11 176.72,-117.79"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="173.87,-115.75 170.24,-125.71 179.28,-120.19 173.87,-115.75"/>
+</g>
+<!-- program~demo_effects -->
+<g id="module~~music_common~~UsedByGraph_node6" class="node">
+<title>program~demo_effects</title>
+<g id="a_module~~music_common~~UsedByGraph_node6"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="325,-24 240,-24 240,0 325,0 325,-24"/>
+<text text-anchor="middle" x="282.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
+</a>
+</g>
+</g>
+<!-- program~demo_effects&#45;&gt;module~music_common -->
+<g id="module~~music_common~~UsedByGraph_edge5" class="edge">
+<title>program~demo_effects&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M242.42,-24.03C218.57,-31.76 187.64,-42.49 161,-54"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M159,-54C123.27,-69.43 88.8,-99.1 68.37,-118.72"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="65.69,-116.45 61.01,-125.95 70.6,-121.44 65.69,-116.45"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~music -->
+<g id="module~~music_common~~UsedByGraph_edge10" class="edge">
+<title>program~demo_effects&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M239.91,-22.82C233.85,-25.53 227.99,-28.87 223,-33 196,-55.33 178,-92.68 168.64,-116.29"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="165.32,-115.18 165.06,-125.77 171.87,-117.66 165.32,-115.18"/>
+</g>
+<!-- program~all_signals -->
+<g id="module~~music_common~~UsedByGraph_node7" class="node">
+<title>program~all_signals</title>
+<g id="a_module~~music_common~~UsedByGraph_node7"><a xlink:href="../program/all_signals.html" xlink:title="all_signals">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="316,-192 249,-192 249,-168 316,-168 316,-192"/>
+<text text-anchor="middle" x="282.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">all_signals</text>
+</a>
+</g>
+</g>
+<!-- program~all_signals&#45;&gt;module~music -->
+<g id="module~~music_common~~UsedByGraph_edge6" class="edge">
+<title>program~all_signals&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M248.89,-168.63C232.84,-163.04 213.46,-156.28 196.98,-150.54"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="197.75,-147.1 187.15,-147.12 195.44,-153.71 197.75,-147.1"/>
+</g>
+<!-- program~drone_music -->
+<g id="module~~music_common~~UsedByGraph_node8" class="node">
+<title>program~drone_music</title>
+<g id="a_module~~music_common~~UsedByGraph_node8"><a xlink:href="../program/drone_music.html" xlink:title="drone_music">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="322.5,-150 242.5,-150 242.5,-126 322.5,-126 322.5,-150"/>
+<text text-anchor="middle" x="282.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drone_music</text>
+</a>
+</g>
+</g>
+<!-- program~drone_music&#45;&gt;module~music -->
+<g id="module~~music_common~~UsedByGraph_edge11" class="edge">
+<title>program~drone_music&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M242.38,-138C227.92,-138 211.6,-138 197.4,-138"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="197.01,-134.5 187.01,-138 197.01,-141.5 197.01,-134.5"/>
+</g>
+<!-- program~misc_sounds -->
+<g id="module~~music_common~~UsedByGraph_node9" class="node">
+<title>program~misc_sounds</title>
+<g id="a_module~~music_common~~UsedByGraph_node9"><a xlink:href="../program/misc_sounds.html" xlink:title="misc_sounds">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="322.5,-108 242.5,-108 242.5,-84 322.5,-84 322.5,-108"/>
+<text text-anchor="middle" x="282.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">misc_sounds</text>
+</a>
+</g>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~music -->
+<g id="module~~music_common~~UsedByGraph_edge12" class="edge">
+<title>program~misc_sounds&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M246.97,-108.04C231.19,-113.54 212.51,-120.05 196.6,-125.59"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="195.4,-122.3 187.11,-128.9 197.7,-128.91 195.4,-122.3"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-chromatic_scale"></span>
+              character(len=2),
+            </td>
+              <td>public,</td>
+            <td>
+parameter,               dimension(1:12)
+            </td>
+            <td>::</td>
+            <td><strong>CHROMATIC_SCALE</strong></td>
+<td> =</td>
+                <td>[&#39;C &#39;, &#39;C#&#39;, &#39;D &#39;, &#39;D#&#39;, &#39;E &#39;, &#39;F &#39;, &#39;F#&#39;, &#39;G &#39;, &#39;G#&#39;, &#39;A &#39;, &#39;A#&#39;, &#39;B &#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-circle_of_fifths_major"></span>
+              character(len=2),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(1:12)
+            </td>
+            <td>::</td>
+            <td><strong>CIRCLE_OF_FIFTHS_MAJOR</strong></td>
+<td> =</td>
+                <td>[&#39;C &#39;, &#39;G &#39;, &#39;D &#39;, &#39;A &#39;, &#39;E &#39;, &#39;B &#39;, &#39;Gb&#39;, &#39;Db&#39;, &#39;Ab&#39;, &#39;Eb&#39;, &#39;Bb&#39;, &#39;F &#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-circle_of_fifths_minor"></span>
+              character(len=2),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(1:12)
+            </td>
+            <td>::</td>
+            <td><strong>CIRCLE_OF_FIFTHS_MINOR</strong></td>
+<td> =</td>
+                <td>[&#39;A &#39;, &#39;E &#39;, &#39;B &#39;, &#39;F#&#39;, &#39;C#&#39;, &#39;G#&#39;, &#39;Eb&#39;, &#39;Bb&#39;, &#39;F &#39;, &#39;C &#39;, &#39;G &#39;, &#39;D &#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cluster_chord"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>CLUSTER_CHORD</strong>(1:12)</td>
+<td> =</td>
+                <td>[(j, j=0, 11)]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dominant_7th_chord"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>DOMINANT_7TH_CHORD</strong>(1:4)</td>
+<td> =</td>
+                <td>[0, 4, 7, 10]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-harmonic_minor_scale"></span>
+              character(len=2),
+            </td>
+              <td>public,</td>
+            <td>
+parameter,               dimension(1:7)
+            </td>
+            <td>::</td>
+            <td><strong>HARMONIC_MINOR_SCALE</strong></td>
+<td> =</td>
+                <td>[&#39;A &#39;, &#39;B &#39;, &#39;C &#39;, &#39;D &#39;, &#39;E &#39;, &#39;F &#39;, &#39;G#&#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hexatonic_blues_scale"></span>
+              character(len=2),
+            </td>
+              <td>public,</td>
+            <td>
+parameter,               dimension(1:6)
+            </td>
+            <td>::</td>
+            <td><strong>HEXATONIC_BLUES_SCALE</strong></td>
+<td> =</td>
+                <td>[&#39;C &#39;, &#39;Eb&#39;, &#39;F &#39;, &#39;Gb&#39;, &#39;G &#39;, &#39;Bb&#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-major_chord"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MAJOR_CHORD</strong>(1:3)</td>
+<td> =</td>
+                <td>[0, 4, 7]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-major_pentatonic_scale"></span>
+              character(len=1),
+            </td>
+              <td>public,</td>
+            <td>
+parameter,               dimension(1:5)
+            </td>
+            <td>::</td>
+            <td><strong>MAJOR_PENTATONIC_SCALE</strong></td>
+<td> =</td>
+                <td>[&#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;G&#39;, &#39;A&#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-major_scale"></span>
+              character(len=1),
+            </td>
+              <td>public,</td>
+            <td>
+parameter,               dimension(1:7)
+            </td>
+            <td>::</td>
+            <td><strong>MAJOR_SCALE</strong></td>
+<td> =</td>
+                <td>[&#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;A&#39;, &#39;B&#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-minor_chord"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MINOR_CHORD</strong>(1:3)</td>
+<td> =</td>
+                <td>[0, 3, 7]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-power_chord"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>POWER_CHORD</strong>(1:3)</td>
+<td> =</td>
+                <td>[0, 7, 12]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sus2_chord"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>SUS2_CHORD</strong>(1:3)</td>
+<td> =</td>
+                <td>[0, 2, 7]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sus4_chord"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>SUS4_CHORD</strong>(1:3)</td>
+<td> =</td>
+                <td>[0, 5, 7]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-whole_tone_scale"></span>
+              character(len=2),
+            </td>
+              <td>public,</td>
+            <td>
+parameter,               dimension(1:6)
+            </td>
+            <td>::</td>
+            <td><strong>WHOLE_TONE_SCALE</strong></td>
+<td> =</td>
+                <td>[&#39;C &#39;, &#39;D &#39;, &#39;E &#39;, &#39;F#&#39;, &#39;G#&#39;, &#39;A#&#39;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~3"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

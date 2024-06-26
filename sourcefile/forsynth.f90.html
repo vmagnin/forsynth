@@ -1,0 +1,825 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>forsynth.f90 &ndash; ForMIDI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>forsynth.f90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.2% of total for source files.">16 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/forsynth.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">forsynth.f90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/forsynth.html">forsynth</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/forsynth.f90.html#src">forsynth.f90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~forsynth.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefileforsynthf90AfferentGraph" width="641pt" height="538pt"
+ viewBox="0.00 0.00 641.00 537.60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~forsynth.f90~~AfferentGraph" class="graph" transform="scale(1.3 1.3) rotate(0) translate(4 694.62)">
+<title>sourcefile~~forsynth.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-694.62 829,-694.62 829,4 -4,4"/>
+<!-- sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~forsynth.f90</title>
+<polygon fill="none" stroke="black" points="76,-421 0,-421 0,-397 76,-397 76,-421"/>
+<text text-anchor="middle" x="38" y="-406.6" font-family="Helvetica,sans-Serif" font-size="10.50">forsynth.f90</text>
+</g>
+<!-- sourcefile~all_signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~all_signals.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/all_signals.f90.html" xlink:title="all_signals.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="786.5,-537 698.5,-537 698.5,-513 786.5,-513 786.5,-537"/>
+<text text-anchor="middle" x="742.5" y="-522.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">all_signals.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~all_signals.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~all_signals.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M569.5,-640C516.29,-651.51 501.28,-635.77 447,-640"/>
+</g>
+<!-- sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node11" class="node">
+<title>sourcefile~envelopes.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node11"><a xlink:href="../sourcefile/envelopes.f90.html" xlink:title="envelopes.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="375,-536 287,-536 287,-512 375,-512 375,-536"/>
+<text text-anchor="middle" x="331" y="-521.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">envelopes.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~all_signals.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge22" class="edge">
+<title>sourcefile~all_signals.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M698.21,-529.19C684.87,-532.21 670.85,-537.34 660,-546 632.67,-567.83 649.3,-591.84 624,-616 605.44,-633.72 596.54,-634.43 571.5,-640"/>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M569.5,-640C532.96,-648.13 443.97,-600.73 411,-583 390.14,-571.78 368.75,-555.45 353.49,-542.82"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="355.59,-540.01 345.7,-536.23 351.08,-545.36 355.59,-540.01"/>
+</g>
+<!-- sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node13" class="node">
+<title>sourcefile~music.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node13"><a xlink:href="../sourcefile/music.f90.html" xlink:title="music.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="602.5,-498 538.5,-498 538.5,-474 602.5,-474 602.5,-498"/>
+<text text-anchor="middle" x="570.5" y="-483.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~all_signals.f90&#45;&gt;sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge30" class="edge">
+<title>sourcefile~all_signals.f90&#45;&gt;sourcefile~music.f90</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M698.16,-515.06C671.85,-509.02 638.46,-501.36 612.57,-495.42"/>
+<polygon fill="#001dff" stroke="#001dff" points="613.22,-491.98 602.69,-493.15 611.65,-498.8 613.22,-491.98"/>
+</g>
+<!-- sourcefile~signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node16" class="node">
+<title>sourcefile~signals.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node16"><a xlink:href="../sourcefile/signals.f90.html" xlink:title="signals.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="481,-574 411,-574 411,-550 481,-550 481,-574"/>
+<text text-anchor="middle" x="446" y="-559.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">signals.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~all_signals.f90&#45;&gt;sourcefile~signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge37" class="edge">
+<title>sourcefile~all_signals.f90&#45;&gt;sourcefile~signals.f90</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M698.27,-536.19C656.36,-546.8 595.67,-561.49 571.5,-564"/>
+</g>
+<!-- sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node18" class="node">
+<title>sourcefile~wav_file_class.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node18"><a xlink:href="../sourcefile/wav_file_class.f90.html" xlink:title="wav_file_class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="624,-300 517,-300 517,-276 624,-276 624,-300"/>
+<text text-anchor="middle" x="570.5" y="-285.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~all_signals.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge49" class="edge">
+<title>sourcefile~all_signals.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M698.49,-522.2C684.7,-519.31 670.33,-513.91 660,-504 620.12,-465.75 645.26,-436 624,-385 612.66,-357.78 595.96,-328.21 584.46,-308.97"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="587.3,-306.9 579.13,-300.16 581.31,-310.53 587.3,-306.9"/>
+</g>
+<!-- sourcefile~arpeggios.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~arpeggios.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/arpeggios.f90.html" xlink:title="arpeggios.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="785.5,-579 699.5,-579 699.5,-555 785.5,-555 785.5,-579"/>
+<text text-anchor="middle" x="742.5" y="-564.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">arpeggios.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~arpeggios.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~arpeggios.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445,-678C394.77,-661.15 384.27,-648.68 332,-640"/>
+</g>
+<!-- sourcefile~arpeggios.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge23" class="edge">
+<title>sourcefile~arpeggios.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M729.44,-579.28C709.49,-598.76 667.5,-636.32 624,-654 550.46,-683.89 521.63,-705.06 447,-678"/>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M445,-678C385.51,-658.04 352.23,-583.46 338.91,-545.9"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="342.21,-544.71 335.68,-536.37 335.58,-546.96 342.21,-544.71"/>
+</g>
+<!-- sourcefile~arpeggios.f90&#45;&gt;sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge31" class="edge">
+<title>sourcefile~arpeggios.f90&#45;&gt;sourcefile~music.f90</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M699.34,-560.39C686.21,-557.23 672.02,-552.64 660,-546 640.73,-535.36 642.06,-524.58 624,-512 619.19,-508.65 613.88,-505.49 608.54,-502.6"/>
+<polygon fill="#001dff" stroke="#001dff" points="610.12,-499.47 599.62,-498.02 606.92,-505.7 610.12,-499.47"/>
+</g>
+<!-- sourcefile~arpeggios.f90&#45;&gt;sourcefile~signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge38" class="edge">
+<title>sourcefile~arpeggios.f90&#45;&gt;sourcefile~signals.f90</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M699.46,-563.44C664.98,-561.2 614.95,-559.49 571.5,-564"/>
+</g>
+<!-- sourcefile~arpeggios.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge50" class="edge">
+<title>sourcefile~arpeggios.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M699.34,-564.89C685.12,-562.11 670.27,-556.6 660,-546 608.99,-493.33 649.69,-453.67 624,-385 613.62,-357.26 596.62,-327.63 584.78,-308.52"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="587.73,-306.63 579.44,-300.04 581.81,-310.36 587.73,-306.63"/>
+</g>
+<!-- sourcefile~audio_effects.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~audio_effects.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node4"><a xlink:href="../sourcefile/audio_effects.f90.html" xlink:title="audio_effects.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="622.5,-418 518.5,-418 518.5,-394 622.5,-394 622.5,-418"/>
+<text text-anchor="middle" x="570.5" y="-403.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">audio_effects.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~audio_effects.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~audio_effects.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M543.21,-393.88C534.71,-389.73 525.33,-384.89 517,-380 484.46,-360.92 482.44,-344.94 447,-332"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445,-332C377.64,-307.41 194.68,-287.93 182.5,-294"/>
+</g>
+<!-- sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node17" class="node">
+<title>sourcefile~tape_recorder_class.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node17"><a xlink:href="../sourcefile/tape_recorder_class.f90.html" xlink:title="tape_recorder_class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="251,-421 112,-421 112,-397 251,-397 251,-421"/>
+<text text-anchor="middle" x="181.5" y="-406.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~audio_effects.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge43" class="edge">
+<title>sourcefile~audio_effects.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M445,-332C397.82,-314.78 381.38,-322.86 332,-332"/>
+</g>
+<!-- sourcefile~blues.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~blues.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node5"><a xlink:href="../sourcefile/blues.f90.html" xlink:title="blues.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="773,-495 712,-495 712,-471 773,-471 773,-495"/>
+<text text-anchor="middle" x="742.5" y="-480.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blues.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~blues.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~blues.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M711.61,-484.62C694.86,-486.92 674.48,-492.17 660,-504 631.68,-527.14 651.32,-553.68 624,-578 592.87,-605.71 488.56,-636.85 447,-640"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445,-640C394.93,-643.9 381.54,-648.23 332,-640"/>
+</g>
+<!-- sourcefile~blues.f90&#45;&gt;sourcefile~audio_effects.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge18" class="edge">
+<title>sourcefile~blues.f90&#45;&gt;sourcefile~audio_effects.f90</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M711.72,-477.66C695.95,-474.26 676.5,-469.13 660,-462 636.84,-451.98 612.77,-436.36 595.6,-424.16"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="597.44,-421.17 587.28,-418.14 593.33,-426.84 597.44,-421.17"/>
+</g>
+<!-- sourcefile~blues.f90&#45;&gt;sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge32" class="edge">
+<title>sourcefile~blues.f90&#45;&gt;sourcefile~music.f90</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M711.89,-483.52C684.57,-484 643.74,-484.73 613.14,-485.27"/>
+<polygon fill="#001dff" stroke="#001dff" points="612.72,-481.77 602.79,-485.45 612.85,-488.77 612.72,-481.77"/>
+</g>
+<!-- sourcefile~blues.f90&#45;&gt;sourcefile~signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge39" class="edge">
+<title>sourcefile~blues.f90&#45;&gt;sourcefile~signals.f90</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M711.78,-486.75C695.66,-489.72 675.86,-494.94 660,-504 640.35,-515.22 642.58,-527.09 624,-540 602.93,-554.64 597.02,-561.35 571.5,-564"/>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M569.5,-564C543.72,-566.68 514.73,-566.35 491.43,-565.28"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="491.32,-561.77 481.15,-564.74 490.96,-568.76 491.32,-561.77"/>
+</g>
+<!-- sourcefile~blues.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge51" class="edge">
+<title>sourcefile~blues.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M711.94,-481.51C695.08,-479.28 674.5,-474.04 660,-462 630.93,-437.87 641,-418.74 624,-385 610.66,-358.52 594.25,-328.59 583.37,-309.07"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="586.3,-307.14 578.36,-300.13 580.19,-310.56 586.3,-307.14"/>
+</g>
+<!-- sourcefile~chords_and_melody.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node6" class="node">
+<title>sourcefile~chords_and_melody.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node6"><a xlink:href="../sourcefile/chords_and_melody.f90.html" xlink:title="chords_and_melody.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="811.5,-453 673.5,-453 673.5,-429 811.5,-429 811.5,-453"/>
+<text text-anchor="middle" x="742.5" y="-438.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445,-522C428.12,-525.85 424.2,-529.8 411,-541 368.07,-577.41 387.53,-649.22 332,-640"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M330,-640C247.73,-626.34 258.14,-559.12 182.5,-524"/>
+</g>
+<!-- sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~audio_effects.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge19" class="edge">
+<title>sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~audio_effects.f90</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M683,-428.95C666.77,-425.61 649.11,-421.98 632.74,-418.61"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="633.23,-415.14 622.73,-416.55 631.82,-421.99 633.23,-415.14"/>
+</g>
+<!-- sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge24" class="edge">
+<title>sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M677.92,-453C671.62,-455.46 665.52,-458.43 660,-462 638.49,-475.91 644.82,-492.08 624,-507 603.83,-521.45 595.25,-518.82 571.5,-526"/>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M569.5,-526C517.35,-541.75 500.11,-509.88 447,-522"/>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M445,-522C425.79,-526.39 404.25,-527.64 385.18,-527.54"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="385.22,-524.04 375.16,-527.37 385.1,-531.04 385.22,-524.04"/>
+</g>
+<!-- sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge33" class="edge">
+<title>sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~music.f90</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M694.5,-453C683.19,-455.92 671.16,-459.05 660,-462 644.49,-466.1 627.49,-470.69 612.56,-474.75"/>
+<polygon fill="#001dff" stroke="#001dff" points="611.33,-471.46 602.6,-477.46 613.17,-478.21 611.33,-471.46"/>
+</g>
+<!-- sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge40" class="edge">
+<title>sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~signals.f90</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M569.5,-526C543.41,-533.88 514.13,-542.5 490.74,-549.32"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="489.72,-545.97 481.1,-552.13 491.68,-552.69 489.72,-545.97"/>
+</g>
+<!-- sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge52" class="edge">
+<title>sourcefile~chords_and_melody.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M676.36,-428.95C670.57,-426.49 665.01,-423.55 660,-420 620.12,-391.76 593.06,-339.41 580.17,-309.83"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="583.31,-308.26 576.2,-300.39 576.85,-310.97 583.31,-308.26"/>
+</g>
+<!-- sourcefile~demo_effects.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node7" class="node">
+<title>sourcefile~demo_effects.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node7"><a xlink:href="../sourcefile/demo_effects.f90.html" xlink:title="demo_effects.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="795,-411 690,-411 690,-387 795,-387 795,-411"/>
+<text text-anchor="middle" x="742.5" y="-396.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~demo_effects.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~demo_effects.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M690.32,-386.89C642.09,-373.63 569.55,-348.8 517,-309 476.32,-278.19 494.76,-235.95 447,-218"/>
+</g>
+<!-- sourcefile~demo_effects.f90&#45;&gt;sourcefile~audio_effects.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge20" class="edge">
+<title>sourcefile~demo_effects.f90&#45;&gt;sourcefile~audio_effects.f90</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M689.57,-401.14C671.61,-401.88 651.32,-402.71 632.68,-403.48"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="632.37,-399.99 622.53,-403.9 632.66,-406.98 632.37,-399.99"/>
+</g>
+<!-- sourcefile~demo_effects.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge25" class="edge">
+<title>sourcefile~demo_effects.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M692.71,-411.03C671.62,-416.12 646.63,-422.02 624,-427 529.68,-447.75 499.98,-432.44 411,-470 390.14,-478.8 369.11,-493.53 353.99,-505.39"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="351.42,-502.97 345.83,-511.97 355.81,-508.42 351.42,-502.97"/>
+</g>
+<!-- sourcefile~demo_effects.f90&#45;&gt;sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge34" class="edge">
+<title>sourcefile~demo_effects.f90&#45;&gt;sourcefile~music.f90</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M689.66,-407.5C679.38,-410.5 669,-414.55 660,-420 639.55,-432.4 643.06,-445.55 624,-460 619.59,-463.34 614.69,-466.44 609.7,-469.24"/>
+<polygon fill="#001dff" stroke="#001dff" points="607.94,-466.21 600.71,-473.96 611.19,-472.41 607.94,-466.21"/>
+</g>
+<!-- sourcefile~demo_effects.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge53" class="edge">
+<title>sourcefile~demo_effects.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M721.22,-386.97C704.61,-377.02 680.59,-362.4 660,-349 638.56,-335.05 614.7,-318.54 597.16,-306.22"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="598.8,-303.1 588.61,-300.2 594.77,-308.82 598.8,-303.1"/>
+</g>
+<!-- sourcefile~doppler_effect.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node8" class="node">
+<title>sourcefile~doppler_effect.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node8"><a xlink:href="../sourcefile/doppler_effect.f90.html" xlink:title="doppler_effect.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="797.5,-24 687.5,-24 687.5,0 797.5,0 797.5,-24"/>
+<text text-anchor="middle" x="742.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">doppler_effect.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~doppler_effect.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~doppler_effect.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M687.47,-22.94C678.1,-25.67 668.61,-28.99 660,-33 616.22,-53.36 618.73,-85.99 571.5,-96"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M569.5,-96C513.74,-107.82 502.13,-119.52 447,-134"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445,-134C384.47,-149.89 389.39,-193.04 332,-218"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M330,-218C262.37,-247.41 249.17,-262.48 182.5,-294"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M180.5,-294C130.18,-317.79 82.24,-363.14 57.14,-389.22"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="54.44,-386.98 50.11,-396.65 59.53,-391.79 54.44,-386.98"/>
+</g>
+<!-- sourcefile~doppler_effect.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge54" class="edge">
+<title>sourcefile~doppler_effect.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M687.11,-17.86C677.14,-21.06 667.52,-25.85 660,-33 621.17,-69.89 641.41,-97.35 624,-148 609.48,-190.23 590.77,-238.92 580.06,-266.32"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="576.76,-265.14 576.37,-275.72 583.28,-267.69 576.76,-265.14"/>
+</g>
+<!-- sourcefile~drone_music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node9" class="node">
+<title>sourcefile~drone_music.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node9"><a xlink:href="../sourcefile/drone_music.f90.html" xlink:title="drone_music.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="792.5,-340 692.5,-340 692.5,-316 792.5,-316 792.5,-340"/>
+<text text-anchor="middle" x="742.5" y="-325.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drone_music.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~drone_music.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge8" class="edge">
+<title>sourcefile~drone_music.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M692.22,-320.23C681.12,-317.17 669.75,-312.91 660,-307 639.55,-294.6 641.64,-283.15 624,-267 587.71,-233.78 493.77,-118.74 447,-134"/>
+</g>
+<!-- sourcefile~drone_music.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge26" class="edge">
+<title>sourcefile~drone_music.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M692.18,-336.69C645.91,-345.73 575.3,-361.83 517,-385 466.89,-404.91 453.93,-411.38 411,-444 387.36,-461.96 363.92,-486.82 348.79,-504.04"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="345.96,-501.97 342.07,-511.82 351.26,-506.54 345.96,-501.97"/>
+</g>
+<!-- sourcefile~drone_music.f90&#45;&gt;sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge35" class="edge">
+<title>sourcefile~drone_music.f90&#45;&gt;sourcefile~music.f90</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M716.26,-340.19C699.22,-349.17 676.86,-362.49 660,-378 640.11,-396.3 641,-405.99 624,-427 613.17,-440.38 600.34,-454.82 590.07,-466.07"/>
+<polygon fill="#001dff" stroke="#001dff" points="587.31,-463.91 583.11,-473.64 592.46,-468.65 587.31,-463.91"/>
+</g>
+<!-- sourcefile~drone_music.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge55" class="edge">
+<title>sourcefile~drone_music.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M692.33,-316.43C673.62,-312.03 652.08,-306.96 632.41,-302.33"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="633.17,-298.91 622.63,-300.03 631.56,-305.73 633.17,-298.91"/>
+</g>
+<!-- sourcefile~drum_machine.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node10" class="node">
+<title>sourcefile~drum_machine.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node10"><a xlink:href="../sourcefile/drum_machine.f90.html" xlink:title="drum_machine.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="799,-108 686,-108 686,-84 799,-84 799,-108"/>
+<text text-anchor="middle" x="742.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drum_machine.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~drum_machine.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge9" class="edge">
+<title>sourcefile~drum_machine.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M685.77,-90.22C652.29,-88.17 609.03,-88.04 571.5,-96"/>
+</g>
+<!-- sourcefile~drum_machine.f90&#45;&gt;sourcefile~signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge41" class="edge">
+<title>sourcefile~drum_machine.f90&#45;&gt;sourcefile~signals.f90</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M685.97,-102.39C676.44,-105.58 667.28,-110.23 660,-117 623.26,-151.17 658.44,-187.51 624,-224 588.82,-261.27 548.46,-226.54 517,-267 442.96,-362.23 541.51,-431.65 481,-536 479.53,-538.53 477.71,-540.9 475.68,-543.09"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="473.25,-540.57 468.18,-549.87 477.95,-545.76 473.25,-540.57"/>
+</g>
+<!-- sourcefile~drum_machine.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge56" class="edge">
+<title>sourcefile~drum_machine.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M685.93,-101.78C676.29,-105.01 667.1,-109.84 660,-117 613.26,-164.16 665.61,-210.25 624,-262 621.49,-265.12 618.51,-267.9 615.27,-270.36"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="613.26,-267.49 606.77,-275.86 617.06,-273.37 613.26,-267.49"/>
+</g>
+<!-- sourcefile~envelopes.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge10" class="edge">
+<title>sourcefile~envelopes.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M286.74,-533.04C256.26,-537.3 215.21,-538.67 182.5,-524"/>
+</g>
+<!-- sourcefile~envelopes.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge44" class="edge">
+<title>sourcefile~envelopes.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M314.49,-511.91C288.67,-491.77 236.68,-451.24 206.22,-427.5"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="208.28,-424.66 198.24,-421.27 203.98,-430.18 208.28,-424.66"/>
+</g>
+<!-- sourcefile~misc_sounds.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node12" class="node">
+<title>sourcefile~misc_sounds.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node12"><a xlink:href="../sourcefile/misc_sounds.f90.html" xlink:title="misc_sounds.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="792.5,-298 692.5,-298 692.5,-274 792.5,-274 792.5,-298"/>
+<text text-anchor="middle" x="742.5" y="-283.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">misc_sounds.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~misc_sounds.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge11" class="edge">
+<title>sourcefile~misc_sounds.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M733.94,-273.62C713.08,-241.01 651,-153.92 571.5,-134"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M569.5,-134C516.69,-120.77 499.66,-120.17 447,-134"/>
+</g>
+<!-- sourcefile~misc_sounds.f90&#45;&gt;sourcefile~music.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge36" class="edge">
+<title>sourcefile~misc_sounds.f90&#45;&gt;sourcefile~music.f90</title>
+<path fill="none" stroke="#001dff" stroke-dasharray="5,2" d="M692.12,-290.29C680.38,-293.43 668.74,-298.59 660,-307 619.86,-345.59 651.15,-378.39 624,-427 615.82,-441.64 603.48,-455.76 592.81,-466.51"/>
+<polygon fill="#001dff" stroke="#001dff" points="590.14,-464.22 585.42,-473.71 595.03,-469.24 590.14,-464.22"/>
+</g>
+<!-- sourcefile~misc_sounds.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge45" class="edge">
+<title>sourcefile~misc_sounds.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M569.5,-134C524.18,-120.67 392.89,-232.99 287,-318 257.19,-341.93 224.12,-371.22 203.33,-389.99"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="200.79,-387.56 195.73,-396.87 205.49,-392.75 200.79,-387.56"/>
+</g>
+<!-- sourcefile~misc_sounds.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge57" class="edge">
+<title>sourcefile~misc_sounds.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M692.33,-286.58C674.21,-286.79 653.43,-287.04 634.27,-287.26"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="634.08,-283.76 624.12,-287.38 634.16,-290.76 634.08,-283.76"/>
+</g>
+<!-- sourcefile~music.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge12" class="edge">
+<title>sourcefile~music.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M538.49,-483.88C513.69,-482.58 478.07,-481.57 447,-484"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445,-484C374.49,-489.52 356.84,-491.8 287,-503 240.22,-510.5 225.72,-543.39 182.5,-524"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M180.5,-524C129.76,-500.44 81.64,-454.61 56.71,-428.48"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="59.13,-425.95 49.74,-421.05 54.03,-430.74 59.13,-425.95"/>
+</g>
+<!-- sourcefile~music.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge27" class="edge">
+<title>sourcefile~music.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M445,-484C416.63,-486.22 386.32,-497.48 364.24,-507.49"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="362.58,-504.41 355.01,-511.82 365.55,-510.75 362.58,-504.41"/>
+</g>
+<!-- sourcefile~music.f90&#45;&gt;sourcefile~signals.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge42" class="edge">
+<title>sourcefile~music.f90&#45;&gt;sourcefile~signals.f90</title>
+<path fill="none" stroke="#f000ff" stroke-dasharray="5,2" d="M543.16,-498.02C534.65,-502.17 525.29,-507.03 517,-512 500.92,-521.64 483.79,-533.84 470.49,-543.78"/>
+<polygon fill="#f000ff" stroke="#f000ff" points="468.22,-541.11 462.36,-549.94 472.44,-546.69 468.22,-541.11"/>
+</g>
+<!-- sourcefile~music.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge46" class="edge">
+<title>sourcefile~music.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M556.3,-473.89C514.32,-435.94 383.58,-322.46 332,-332"/>
+</g>
+<!-- sourcefile~shepard_risset_glissando.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node14" class="node">
+<title>sourcefile~shepard_risset_glissando.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node14"><a xlink:href="../sourcefile/shepard_risset_glissando.f90.html" xlink:title="shepard_risset_glissando.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="825,-66 660,-66 660,-42 825,-42 825,-66"/>
+<text text-anchor="middle" x="742.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_risset_glissando.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~shepard_risset_glissando.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge13" class="edge">
+<title>sourcefile~shepard_risset_glissando.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M694.16,-66.07C652.38,-76.66 594.62,-91.1 571.5,-96"/>
+</g>
+<!-- sourcefile~shepard_risset_glissando.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge28" class="edge">
+<title>sourcefile~shepard_risset_glissando.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M674.23,-66.13C669.13,-68.57 664.31,-71.5 660,-75 631.93,-97.81 647.46,-120.46 624,-148 586.17,-192.4 562.67,-187.71 517,-224 467.71,-263.18 446.85,-266.24 411,-318 369.53,-377.87 346.09,-462.43 336.76,-501.99"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="333.32,-501.37 334.51,-511.9 340.14,-502.92 333.32,-501.37"/>
+</g>
+<!-- sourcefile~shepard_risset_glissando.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge58" class="edge">
+<title>sourcefile~shepard_risset_glissando.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M671.8,-66C667.48,-68.49 663.49,-71.46 660,-75 612.19,-123.54 654.37,-163.02 624,-224 615.78,-240.51 602.6,-256.56 591.5,-268.45"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="588.67,-266.35 584.24,-275.98 593.7,-271.21 588.67,-266.35"/>
+</g>
+<!-- sourcefile~shepard_scale.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_node15" class="node">
+<title>sourcefile~shepard_scale.f90</title>
+<g id="a_sourcefile~~forsynth.f90~~AfferentGraph_node15"><a xlink:href="../sourcefile/shepard_scale.f90.html" xlink:title="shepard_scale.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="797,-150 688,-150 688,-126 797,-126 797,-150"/>
+<text text-anchor="middle" x="742.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_scale.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~shepard_scale.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge14" class="edge">
+<title>sourcefile~shepard_scale.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M694.83,-125.95C645.58,-113.31 574.59,-95.34 571.5,-96"/>
+</g>
+<!-- sourcefile~shepard_scale.f90&#45;&gt;sourcefile~audio_effects.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge21" class="edge">
+<title>sourcefile~shepard_scale.f90&#45;&gt;sourcefile~audio_effects.f90</title>
+<path fill="none" stroke="#ffb300" stroke-dasharray="5,2" d="M733.59,-150.23C718.98,-172.85 686.81,-222.75 660,-265 632.99,-307.56 601.7,-357.59 584.5,-385.14"/>
+<polygon fill="#ffb300" stroke="#ffb300" points="581.36,-383.57 579.04,-393.9 587.3,-387.27 581.36,-383.57"/>
+</g>
+<!-- sourcefile~shepard_scale.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge59" class="edge">
+<title>sourcefile~shepard_scale.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff005a" stroke-dasharray="5,2" d="M732.31,-150.28C713.9,-174.23 670.28,-227.82 624,-262 619.5,-265.32 614.51,-268.42 609.45,-271.23"/>
+<polygon fill="#ff005a" stroke="#ff005a" points="607.6,-268.25 600.35,-275.97 610.84,-274.45 607.6,-268.25"/>
+</g>
+<!-- sourcefile~signals.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge15" class="edge">
+<title>sourcefile~signals.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M436.88,-574.11C419.84,-597.86 378.09,-647.65 332,-640"/>
+</g>
+<!-- sourcefile~signals.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge29" class="edge">
+<title>sourcefile~signals.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00d1ff" stroke-dasharray="5,2" d="M410.79,-550.5C400.34,-546.98 388.68,-543.06 377.6,-539.33"/>
+<polygon fill="#00d1ff" stroke="#00d1ff" points="378.65,-535.99 368.05,-536.12 376.42,-542.63 378.65,-535.99"/>
+</g>
+<!-- sourcefile~signals.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge47" class="edge">
+<title>sourcefile~signals.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M410.93,-565.75C377.26,-567.84 325.37,-566.54 287,-545 262.67,-531.35 217.97,-464.82 195.75,-430.13"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="198.44,-427.83 190.12,-421.26 192.53,-431.58 198.44,-427.83"/>
+</g>
+<!-- sourcefile~tape_recorder_class.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge16" class="edge">
+<title>sourcefile~tape_recorder_class.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M111.82,-409C103.21,-409 94.55,-409 86.37,-409"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="86.29,-405.5 76.29,-409 86.29,-412.5 86.29,-405.5"/>
+</g>
+<!-- sourcefile~wav_file_class.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge17" class="edge">
+<title>sourcefile~wav_file_class.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M552.52,-275.94C529.64,-260.26 487.12,-233.08 447,-218"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445,-218C397.99,-200.33 378.06,-197.97 332,-218"/>
+</g>
+<!-- sourcefile~wav_file_class.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~forsynth.f90~~AfferentGraph_edge48" class="edge">
+<title>sourcefile~wav_file_class.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M516.95,-296.76C468.7,-305.03 395.3,-318.2 332,-332"/>
+<path fill="none" stroke="#ff00b4" stroke-dasharray="5,2" d="M330,-332C282.67,-341.25 234.35,-371.18 206.45,-390.88"/>
+<polygon fill="#ff00b4" stroke="#ff00b4" points="204.2,-388.19 198.14,-396.88 208.3,-393.87 204.2,-388.19"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefileforsynthf90AfferentGraph = svgPanZoom('#sourcefileforsynthf90AfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">! Forsynth: a multitracks stereo sound synthesis project</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="c">! License GPL-3.0-or-later</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="c">! Vincent Magnin</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">! Last modifications: 2024-05-19</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="k">module </span><span class="n">forsynth</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">INT16</span><span class="p">,</span><span class="w"> </span><span class="n">INT32</span><span class="p">,</span><span class="w"> </span><span class="n">INT64</span><span class="p">,</span><span class="w"> </span><span class="n">REAL32</span><span class="p">,</span><span class="w"> </span><span class="n">REAL64</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">    </span><span class="k">implicit none</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">    </span><span class="c">! The default working precision wp is REAL64.</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="w">    </span><span class="c">! REAL32 can be set: it will accelerate computations and give good results</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">    </span><span class="c">! most of the time. But in certain situations, for example drone music, it</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">    </span><span class="c">! can introduce artefacts.</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REAL64</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_wp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">    </span><span class="c">! Sampling frequency and temporal step:</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">RATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">44100</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RATE</span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="p">,</span><span class="w"> </span><span class="n">test_the_machine</span><span class="p">,</span><span class="w"> </span><span class="n">PI</span><span class="p">,</span><span class="w"> </span><span class="n">RATE</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="k">contains</span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="k">    subroutine </span><span class="n">test_the_machine</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="w">        </span><span class="c">! A WAV file contains 32 bits and 16 bits data, so we need those kinds.</span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">INT16</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">INT32</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="k">            print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;INT16 and/or INT32 not supported!&quot;</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">            </span><span class="k">error stop </span><span class="mi">1</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">        </span><span class="k">end if</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="k">    end subroutine</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="k">end module </span><span class="n">forsynth</span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

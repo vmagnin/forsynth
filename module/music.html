@@ -1,0 +1,1191 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>music &ndash; ForMIDI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>music
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="12.8% of total for modules and submodules.">95 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/music.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/music.f90.html'>music.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">music</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/music.html#variable-pitch">PITCH</a>
+            <a class="list-group-item" href="../module/music.html#variable-semitone">SEMITONE</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/music.html#proc-fr">fr</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/music.html#proc-add_broken_chord">add_broken_chord</a>
+            <a class="list-group-item" href="../module/music.html#proc-add_chord">add_chord</a>
+            <a class="list-group-item" href="../module/music.html#proc-add_note">add_note</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='signals.html'>signals</a></li>
+                  <li class="list-inline-item"><a href='envelopes.html'>envelopes</a></li>
+                  <li class="list-inline-item"><a href='music_common.html'>music_common</a></li>
+                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
+                  <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~music~~UsesGraph Pages: 1 -->
+<svg id="modulemusicUsesGraph" width="641pt" height="141pt"
+ viewBox="0.00 0.00 641.00 141.21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~music~~UsesGraph" class="graph" transform="scale(1.05 1.05) rotate(0) translate(4 144.7)">
+<title>module~~music~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-144.7 671,-144.7 671,4 -4,4"/>
+<!-- module~music -->
+<g id="module~~music~~UsesGraph_node1" class="node">
+<title>module~music</title>
+<polygon fill="none" stroke="black" points="667,-66 613,-66 613,-42 667,-42 667,-66"/>
+<text text-anchor="middle" x="640" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">music</text>
+</g>
+<!-- module~envelopes -->
+<g id="module~~music~~UsesGraph_node2" class="node">
+<title>module~envelopes</title>
+<g id="a_module~~music~~UsesGraph_node2"><a xlink:href="../module/envelopes.html" xlink:title="envelopes">
+<polygon fill="#337ab7" stroke="#337ab7" points="444,-106 377,-106 377,-82 444,-82 444,-106"/>
+<text text-anchor="middle" x="410.5" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">envelopes</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~envelopes -->
+<g id="module~~music~~UsesGraph_edge1" class="edge">
+<title>module~music&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M527.5,-94C503.52,-98.17 476.33,-98.4 454.3,-97.49"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="454.42,-93.99 444.26,-96.98 454.07,-100.98 454.42,-93.99"/>
+</g>
+<!-- module~forsynth -->
+<g id="module~~music~~UsesGraph_node3" class="node">
+<title>module~forsynth</title>
+<g id="a_module~~music~~UsesGraph_node3"><a xlink:href="../module/forsynth.html" xlink:title="forsynth">
+<polygon fill="#337ab7" stroke="#337ab7" points="186,-68 130,-68 130,-44 186,-44 186,-68"/>
+<text text-anchor="middle" x="158" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~forsynth -->
+<g id="module~~music~~UsesGraph_edge2" class="edge">
+<title>module~music&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M527.5,-94C419.2,-115.05 390.53,-156.43 282.5,-134"/>
+</g>
+<!-- module~music_common -->
+<g id="module~~music~~UsesGraph_node4" class="node">
+<title>module~music_common</title>
+<g id="a_module~~music~~UsesGraph_node4"><a xlink:href="../module/music_common.html" xlink:title="music_common">
+<polygon fill="#337ab7" stroke="#337ab7" points="577,-24 480,-24 480,0 577,0 577,-24"/>
+<text text-anchor="middle" x="528.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music_common</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~music_common -->
+<g id="module~~music~~UsesGraph_edge3" class="edge">
+<title>module~music&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M612.77,-43.94C600.13,-39.09 584.66,-33.16 570.51,-27.73"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="571.56,-24.38 560.97,-24.07 569.05,-30.92 571.56,-24.38"/>
+</g>
+<!-- module~signals -->
+<g id="module~~music~~UsesGraph_node5" class="node">
+<title>module~signals</title>
+<g id="a_module~~music~~UsesGraph_node5"><a xlink:href="../module/signals.html" xlink:title="signals">
+<polygon fill="#337ab7" stroke="#337ab7" points="555.5,-66 501.5,-66 501.5,-42 555.5,-42 555.5,-66"/>
+<text text-anchor="middle" x="528.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">signals</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~signals -->
+<g id="module~~music~~UsesGraph_edge4" class="edge">
+<title>module~music&#45;&gt;module~signals</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M612.77,-54C598.69,-54 581.11,-54 565.73,-54"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="565.51,-50.5 555.51,-54 565.51,-57.5 565.51,-50.5"/>
+</g>
+<!-- module~tape_recorder_class -->
+<g id="module~~music~~UsesGraph_node6" class="node">
+<title>module~tape_recorder_class</title>
+<g id="a_module~~music~~UsesGraph_node6"><a xlink:href="../module/tape_recorder_class.html" xlink:title="tape_recorder_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="341,-68 222,-68 222,-44 341,-44 341,-68"/>
+<text text-anchor="middle" x="281.5" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~tape_recorder_class -->
+<g id="module~~music~~UsesGraph_edge5" class="edge">
+<title>module~music&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M614.04,-66.02C592.3,-75.79 559.61,-88.76 529.5,-94"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M527.5,-94C489.8,-100.56 481.68,-79.69 444,-73 413.71,-67.62 379.89,-63.74 351.06,-61.06"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="351.36,-57.57 341.09,-60.16 350.73,-64.54 351.36,-57.57"/>
+</g>
+<!-- module~envelopes&#45;&gt;module~forsynth -->
+<g id="module~~music~~UsesGraph_edge6" class="edge">
+<title>module~envelopes&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M390.88,-106.2C366.4,-120.76 321.88,-142.18 282.5,-134"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M280.5,-134C239.84,-125.56 200.93,-95.38 178.52,-75.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="180.75,-72.42 171.05,-68.18 175.99,-77.55 180.75,-72.42"/>
+</g>
+<!-- module~envelopes&#45;&gt;module~tape_recorder_class -->
+<g id="module~~music~~UsesGraph_edge7" class="edge">
+<title>module~envelopes&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M376.79,-84.21C363.29,-80.17 347.33,-75.4 332.42,-70.94"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="333.4,-67.58 322.81,-68.06 331.39,-74.28 333.4,-67.58"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~music~~UsesGraph_node7" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~music~~UsesGraph_node7"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-68 0,-68 0,-44 94,-44 94,-68"/>
+<text text-anchor="middle" x="47" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth&#45;&gt;iso_fortran_env -->
+<g id="module~~music~~UsesGraph_edge8" class="edge">
+<title>module~forsynth&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M129.78,-56C122.07,-56 113.39,-56 104.63,-56"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="104.37,-52.5 94.37,-56 104.37,-59.5 104.37,-52.5"/>
+</g>
+<!-- module~signals&#45;&gt;module~envelopes -->
+<g id="module~~music~~UsesGraph_edge9" class="edge">
+<title>module~signals&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M501.47,-62.98C487.42,-67.82 469.73,-73.92 453.76,-79.43"/>
+<polygon fill="#0066ff" stroke="#0066ff" points="452.4,-76.19 444.09,-82.76 454.68,-82.81 452.4,-76.19"/>
+</g>
+<!-- module~signals&#45;&gt;module~forsynth -->
+<g id="module~~music~~UsesGraph_edge10" class="edge">
+<title>module~signals&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M501.33,-43.82C472.87,-33.05 429.09,-17.39 411.5,-16"/>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M409.5,-16C326,-9.4 303.9,-17.43 222,-35 213.41,-36.84 204.36,-39.45 195.87,-42.2"/>
+<polygon fill="#0066ff" stroke="#0066ff" points="194.59,-38.94 186.23,-45.46 196.83,-45.57 194.59,-38.94"/>
+</g>
+<!-- module~signals&#45;&gt;module~tape_recorder_class -->
+<g id="module~~music~~UsesGraph_edge11" class="edge">
+<title>module~signals&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M409.5,-16C392.29,-14.64 351.94,-28.48 321.31,-40.25"/>
+<polygon fill="#0066ff" stroke="#0066ff" points="319.79,-37.08 311.74,-43.97 322.33,-43.6 319.79,-37.08"/>
+</g>
+<!-- module~tape_recorder_class&#45;&gt;module~forsynth -->
+<g id="module~~music~~UsesGraph_edge12" class="edge">
+<title>module~tape_recorder_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#cc00ff" stroke-dasharray="5,2" d="M221.89,-56C213.19,-56 204.44,-56 196.35,-56"/>
+<polygon fill="#cc00ff" stroke="#cc00ff" points="196.14,-52.5 186.14,-56 196.14,-59.5 196.14,-52.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmodulemusicUsesGraph = svgPanZoom('#modulemusicUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~music~~UsedByGraph Pages: 1 -->
+<svg id="modulemusicUsedByGraph" width="217pt" height="284pt"
+ viewBox="0.00 0.00 217.00 284.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~music~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 280)">
+<title>module~~music~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-280 213,-280 213,4 -4,4"/>
+<!-- module~music -->
+<g id="module~~music~~UsedByGraph_node1" class="node">
+<title>module~music</title>
+<polygon fill="none" stroke="black" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
+<text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">music</text>
+</g>
+<!-- program~all_signals -->
+<g id="module~~music~~UsedByGraph_node2" class="node">
+<title>program~all_signals</title>
+<g id="a_module~~music~~UsedByGraph_node2"><a xlink:href="../program/all_signals.html" xlink:title="all_signals">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="183,-276 116,-276 116,-252 183,-252 183,-276"/>
+<text text-anchor="middle" x="149.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">all_signals</text>
+</a>
+</g>
+</g>
+<!-- program~all_signals&#45;&gt;module~music -->
+<g id="module~~music~~UsedByGraph_edge1" class="edge">
+<title>program~all_signals&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M115.74,-256.66C106.73,-253.52 97.4,-249.12 90,-243 63,-220.67 45,-183.32 35.64,-159.71"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="38.87,-158.34 32.06,-150.23 32.32,-160.82 38.87,-158.34"/>
+</g>
+<!-- program~arpeggios -->
+<g id="module~~music~~UsedByGraph_node3" class="node">
+<title>program~arpeggios</title>
+<g id="a_module~~music~~UsedByGraph_node3"><a xlink:href="../program/arpeggios.html" xlink:title="arpeggios">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="182.5,-234 116.5,-234 116.5,-210 182.5,-210 182.5,-234"/>
+<text text-anchor="middle" x="149.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">arpeggios</text>
+</a>
+</g>
+</g>
+<!-- program~arpeggios&#45;&gt;module~music -->
+<g id="module~~music~~UsedByGraph_edge2" class="edge">
+<title>program~arpeggios&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M116.32,-213.35C107.41,-210.2 98,-206.12 90,-201 72.01,-189.5 55.27,-171.89 43.72,-158.21"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="46.28,-155.81 37.24,-150.29 40.87,-160.25 46.28,-155.81"/>
+</g>
+<!-- program~blues -->
+<g id="module~~music~~UsedByGraph_node4" class="node">
+<title>program~blues</title>
+<g id="a_module~~music~~UsedByGraph_node4"><a xlink:href="../program/blues.html" xlink:title="blues">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="176.5,-192 122.5,-192 122.5,-168 176.5,-168 176.5,-192"/>
+<text text-anchor="middle" x="149.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blues</text>
+</a>
+</g>
+</g>
+<!-- program~blues&#45;&gt;module~music -->
+<g id="module~~music~~UsedByGraph_edge3" class="edge">
+<title>program~blues&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M122.35,-170.89C105.14,-164.89 82.39,-156.96 63.55,-150.39"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="64.69,-147.08 54.1,-147.1 62.39,-153.69 64.69,-147.08"/>
+</g>
+<!-- program~chords_and_melody -->
+<g id="module~~music~~UsedByGraph_node5" class="node">
+<title>program~chords_and_melody</title>
+<g id="a_module~~music~~UsedByGraph_node5"><a xlink:href="../program/chords_and_melody.html" xlink:title="chords_and_melody">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="209,-150 90,-150 90,-126 209,-126 209,-150"/>
+<text text-anchor="middle" x="149.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody</text>
+</a>
+</g>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~music -->
+<g id="module~~music~~UsedByGraph_edge4" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M89.66,-138C81.02,-138 72.34,-138 64.34,-138"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="64.26,-134.5 54.26,-138 64.26,-141.5 64.26,-134.5"/>
+</g>
+<!-- program~demo_effects -->
+<g id="module~~music~~UsedByGraph_node6" class="node">
+<title>program~demo_effects</title>
+<g id="a_module~~music~~UsedByGraph_node6"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="192,-108 107,-108 107,-84 192,-84 192,-108"/>
+<text text-anchor="middle" x="149.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
+</a>
+</g>
+</g>
+<!-- program~demo_effects&#45;&gt;module~music -->
+<g id="module~~music~~UsedByGraph_edge5" class="edge">
+<title>program~demo_effects&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M113.97,-108.04C98.19,-113.54 79.51,-120.05 63.6,-125.59"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="62.4,-122.3 54.11,-128.9 64.7,-128.91 62.4,-122.3"/>
+</g>
+<!-- program~drone_music -->
+<g id="module~~music~~UsedByGraph_node7" class="node">
+<title>program~drone_music</title>
+<g id="a_module~~music~~UsedByGraph_node7"><a xlink:href="../program/drone_music.html" xlink:title="drone_music">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="189.5,-66 109.5,-66 109.5,-42 189.5,-42 189.5,-66"/>
+<text text-anchor="middle" x="149.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drone_music</text>
+</a>
+</g>
+</g>
+<!-- program~drone_music&#45;&gt;module~music -->
+<g id="module~~music~~UsedByGraph_edge6" class="edge">
+<title>program~drone_music&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M109.27,-65.31C102.59,-68.01 95.91,-71.22 90,-75 72.01,-86.5 55.27,-104.11 43.72,-117.79"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="40.87,-115.75 37.24,-125.71 46.28,-120.19 40.87,-115.75"/>
+</g>
+<!-- program~misc_sounds -->
+<g id="module~~music~~UsedByGraph_node8" class="node">
+<title>program~misc_sounds</title>
+<g id="a_module~~music~~UsedByGraph_node8"><a xlink:href="../program/misc_sounds.html" xlink:title="misc_sounds">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="189.5,-24 109.5,-24 109.5,0 189.5,0 189.5,-24"/>
+<text text-anchor="middle" x="149.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">misc_sounds</text>
+</a>
+</g>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~music -->
+<g id="module~~music~~UsedByGraph_edge7" class="edge">
+<title>program~misc_sounds&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M109.34,-21.78C102.43,-24.65 95.65,-28.32 90,-33 63,-55.33 45,-92.68 35.64,-116.29"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="32.32,-115.18 32.06,-125.77 38.87,-117.66 32.32,-115.18"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pitch"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PITCH</strong></td>
+<td> =</td>
+                <td>440.0_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-semitone"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>SEMITONE</strong></td>
+<td> =</td>
+                <td>2.0_wp**(1.0_wp/12.0_wp)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+        <section>
+          <h2>Functions</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-fr"></span> <h3>public  function <a href='../proc/fr.html'>fr</a>(note)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-note"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>note</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=wp)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-add_broken_chord"></span> <h3>public  subroutine <a href='../proc/add_broken_chord.html'>add_broken_chord</a>(tape, track, t1, t2, f, Amp, chord)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tape~16"></span>
+              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tape</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-track~16"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t1~19"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2~19"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~14"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-amp~19"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Amp</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-chord~2"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>chord</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-add_chord"></span> <h3>public  subroutine <a href='../proc/add_chord.html'>add_chord</a>(tape, track, t1, t2, f, Amp, chord, envelope)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tape~15"></span>
+              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tape</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-track~15"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t1~18"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2~18"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~13"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-amp~18"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Amp</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-chord"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>chord</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-envelope~8"></span>
+              type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>),
+            </td>
+<td>intent(inout),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>envelope</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-add_note"></span> <h3>public  subroutine <a href='../proc/add_note.html'>add_note</a>(tape, track, t1, t2, f, Amp, envelope)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tape~14"></span>
+              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tape</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-track~14"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t1~17"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2~17"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~12"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-amp~17"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Amp</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-envelope~7"></span>
+              type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>),
+            </td>
+<td>intent(inout),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>envelope</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

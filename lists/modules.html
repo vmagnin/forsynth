@@ -1,0 +1,821 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Modules &ndash; ForMIDI
+</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Modules</h1>
+			 <table class="table">
+			 <thead><tr><th>Module</th><th>Source File</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr class="active">
+                 <td><a href='../module/audio_effects.html'>audio_effects</a></td>
+                 <td><a href='../sourcefile/audio_effects.f90.html'>audio_effects.f90</a></td>
+                 <td></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/envelopes.html'>envelopes</a></td>
+                 <td><a href='../sourcefile/envelopes.f90.html'>envelopes.f90</a></td>
+                 <td></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/forsynth.html'>forsynth</a></td>
+                 <td><a href='../sourcefile/forsynth.f90.html'>forsynth.f90</a></td>
+                 <td></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/music.html'>music</a></td>
+                 <td><a href='../sourcefile/music.f90.html'>music.f90</a></td>
+                 <td></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/music_common.html'>music_common</a></td>
+                 <td><a href='../sourcefile/music_common.f90.html'>music_common.f90</a></td>
+                 <td></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td><a href='../sourcefile/signals.f90.html'>signals.f90</a></td>
+                 <td></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
+                 <td><a href='../sourcefile/tape_recorder_class.f90.html'>tape_recorder_class.f90</a></td>
+                 <td></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
+                 <td><a href='../sourcefile/wav_file_class.f90.html'>wav_file_class.f90</a></td>
+                 <td></td>
+               </tr>
+<!---->			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~graph~~ModuleGraph Pages: 1 -->
+<svg id="modulegraphModuleGraph" width="855pt" height="684pt"
+ viewBox="0.00 0.00 855.00 684.11" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~graph~~ModuleGraph" class="graph" transform="scale(1.04 1.04) rotate(0) translate(4 707.31)">
+<title>module~~graph~~ModuleGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-707.31 885,-707.31 885,4 -4,4"/>
+<!-- module~audio_effects -->
+<g id="module~~graph~~ModuleGraph_node1" class="node">
+<title>module~audio_effects</title>
+<g id="a_module~~graph~~ModuleGraph_node1"><a xlink:href="../module/audio_effects.html" xlink:title="audio_effects">
+<polygon fill="#337ab7" stroke="#337ab7" points="698.5,-621.31 614.5,-621.31 614.5,-597.31 698.5,-597.31 698.5,-621.31"/>
+<text text-anchor="middle" x="656.5" y="-606.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">audio_effects</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth -->
+<g id="module~~graph~~ModuleGraph_node3" class="node">
+<title>module~forsynth</title>
+<g id="a_module~~graph~~ModuleGraph_node3"><a xlink:href="../module/forsynth.html" xlink:title="forsynth">
+<polygon fill="#337ab7" stroke="#337ab7" points="186,-389.31 130,-389.31 130,-365.31 186,-365.31 186,-389.31"/>
+<text text-anchor="middle" x="158" y="-374.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth</text>
+</a>
+</g>
+</g>
+<!-- module~audio_effects&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge1" class="edge">
+<title>module~audio_effects&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M527.5,-611.31C476.26,-605.62 462.95,-608.05 411.5,-611.31"/>
+</g>
+<!-- module~tape_recorder_class -->
+<g id="module~~graph~~ModuleGraph_node7" class="node">
+<title>module~tape_recorder_class</title>
+<g id="a_module~~graph~~ModuleGraph_node7"><a xlink:href="../module/tape_recorder_class.html" xlink:title="tape_recorder_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="341,-389.31 222,-389.31 222,-365.31 341,-365.31 341,-389.31"/>
+<text text-anchor="middle" x="281.5" y="-374.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class</text>
+</a>
+</g>
+</g>
+<!-- module~audio_effects&#45;&gt;module~tape_recorder_class -->
+<g id="module~~graph~~ModuleGraph_edge2" class="edge">
+<title>module~audio_effects&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M614.31,-611.79C589.67,-612.81 557.76,-613.35 529.5,-611.31"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M527.5,-611.31C405.75,-602.53 320.38,-454.19 292.43,-398.35"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="295.56,-396.78 288.02,-389.34 289.27,-399.86 295.56,-396.78"/>
+</g>
+<!-- module~envelopes -->
+<g id="module~~graph~~ModuleGraph_node2" class="node">
+<title>module~envelopes</title>
+<g id="a_module~~graph~~ModuleGraph_node2"><a xlink:href="../module/envelopes.html" xlink:title="envelopes">
+<polygon fill="#337ab7" stroke="#337ab7" points="444,-447.31 377,-447.31 377,-423.31 444,-423.31 444,-447.31"/>
+<text text-anchor="middle" x="410.5" y="-432.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">envelopes</text>
+</a>
+</g>
+</g>
+<!-- module~envelopes&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge3" class="edge">
+<title>module~envelopes&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff5000" stroke-dasharray="5,2" d="M407.14,-447.4C398.1,-490.21 362.04,-631.05 282.5,-611.31"/>
+<path fill="none" stroke="#ff5000" stroke-dasharray="5,2" d="M280.5,-611.31C189.87,-588.82 166.53,-453.59 160.79,-399.58"/>
+<polygon fill="#ff5000" stroke="#ff5000" points="164.24,-398.97 159.81,-389.35 157.28,-399.64 164.24,-398.97"/>
+</g>
+<!-- module~envelopes&#45;&gt;module~tape_recorder_class -->
+<g id="module~~graph~~ModuleGraph_edge4" class="edge">
+<title>module~envelopes&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff5000" stroke-dasharray="5,2" d="M383.19,-423.29C364.28,-414.66 338.6,-402.93 317.9,-393.48"/>
+<polygon fill="#ff5000" stroke="#ff5000" points="319.33,-390.28 308.78,-389.31 316.42,-396.65 319.33,-390.28"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_node20" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~graph~~ModuleGraph_node20"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-389.31 0,-389.31 0,-365.31 94,-365.31 94,-389.31"/>
+<text text-anchor="middle" x="47" y="-374.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge5" class="edge">
+<title>module~forsynth&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ffa100" stroke-dasharray="5,2" d="M129.78,-377.31C122.07,-377.31 113.39,-377.31 104.63,-377.31"/>
+<polygon fill="#ffa100" stroke="#ffa100" points="104.37,-373.81 94.37,-377.31 104.37,-380.81 104.37,-373.81"/>
+</g>
+<!-- module~music -->
+<g id="module~~graph~~ModuleGraph_node4" class="node">
+<title>module~music</title>
+<g id="a_module~~graph~~ModuleGraph_node4"><a xlink:href="../module/music.html" xlink:title="music">
+<polygon fill="#337ab7" stroke="#337ab7" points="683.5,-465.31 629.5,-465.31 629.5,-441.31 683.5,-441.31 683.5,-465.31"/>
+<text text-anchor="middle" x="656.5" y="-450.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge6" class="edge">
+<title>module~music&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#fff100" stroke-dasharray="5,2" d="M527.5,-417.31C503.22,-413.75 476.11,-417.52 454.21,-422.52"/>
+<polygon fill="#fff100" stroke="#fff100" points="453.11,-419.18 444.23,-424.96 454.77,-425.98 453.11,-419.18"/>
+</g>
+<!-- module~music&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge7" class="edge">
+<title>module~music&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#fff100" stroke-dasharray="5,2" d="M629.29,-456.83C592.71,-462.83 525.73,-477.92 480,-512.31 437.24,-544.47 464.91,-608.15 411.5,-611.31"/>
+<path fill="none" stroke="#fff100" stroke-dasharray="5,2" d="M409.5,-611.31C353.17,-614.88 337.28,-624.91 282.5,-611.31"/>
+</g>
+<!-- module~music_common -->
+<g id="module~~graph~~ModuleGraph_node5" class="node">
+<title>module~music_common</title>
+<g id="a_module~~graph~~ModuleGraph_node5"><a xlink:href="../module/music_common.html" xlink:title="music_common">
+<polygon fill="#337ab7" stroke="#337ab7" points="577,-545.31 480,-545.31 480,-521.31 577,-521.31 577,-545.31"/>
+<text text-anchor="middle" x="528.5" y="-530.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music_common</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~music_common -->
+<g id="module~~graph~~ModuleGraph_edge8" class="edge">
+<title>module~music&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#fff100" stroke-dasharray="5,2" d="M634.45,-465.55C627.51,-469.75 619.83,-474.59 613,-479.31 596.33,-490.84 593.94,-496.19 577,-507.31 572.38,-510.34 567.38,-513.35 562.42,-516.19"/>
+<polygon fill="#fff100" stroke="#fff100" points="560.66,-513.16 553.62,-521.08 564.06,-519.28 560.66,-513.16"/>
+</g>
+<!-- module~signals -->
+<g id="module~~graph~~ModuleGraph_node6" class="node">
+<title>module~signals</title>
+<g id="a_module~~graph~~ModuleGraph_node6"><a xlink:href="../module/signals.html" xlink:title="signals">
+<polygon fill="#337ab7" stroke="#337ab7" points="555.5,-389.31 501.5,-389.31 501.5,-365.31 555.5,-365.31 555.5,-389.31"/>
+<text text-anchor="middle" x="528.5" y="-374.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">signals</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~signals -->
+<g id="module~~graph~~ModuleGraph_edge9" class="edge">
+<title>module~music&#45;&gt;module~signals</title>
+<path fill="none" stroke="#fff100" stroke-dasharray="5,2" d="M635.51,-441.3C628.37,-436.95 620.29,-431.97 613,-427.31 596.8,-416.96 593.45,-413.27 577,-403.31 572.07,-400.33 566.79,-397.29 561.59,-394.38"/>
+<polygon fill="#fff100" stroke="#fff100" points="562.89,-391.1 552.44,-389.34 559.51,-397.23 562.89,-391.1"/>
+</g>
+<!-- module~music&#45;&gt;module~tape_recorder_class -->
+<g id="module~~graph~~ModuleGraph_edge10" class="edge">
+<title>module~music&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#fff100" stroke-dasharray="5,2" d="M629.4,-443.65C604.22,-434.86 564.84,-422.49 529.5,-417.31"/>
+<path fill="none" stroke="#fff100" stroke-dasharray="5,2" d="M527.5,-417.31C467.86,-408.57 400.26,-397.44 351.19,-389.14"/>
+<polygon fill="#fff100" stroke="#fff100" points="351.77,-385.69 341.33,-387.47 350.6,-392.59 351.77,-385.69"/>
+</g>
+<!-- module~signals&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge11" class="edge">
+<title>module~signals&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#6bff00" stroke-dasharray="5,2" d="M503.46,-389.33C486.43,-397.84 463.37,-409.38 444.6,-418.76"/>
+<polygon fill="#6bff00" stroke="#6bff00" points="442.88,-415.71 435.5,-423.31 446.01,-421.97 442.88,-415.71"/>
+</g>
+<!-- module~signals&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge12" class="edge">
+<title>module~signals&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#6bff00" stroke-dasharray="5,2" d="M501.35,-372C477.92,-367.44 442.55,-361.02 411.5,-357.31"/>
+<path fill="none" stroke="#6bff00" stroke-dasharray="5,2" d="M409.5,-357.31C351,-350.33 339.31,-303.68 282.5,-319.31"/>
+</g>
+<!-- module~signals&#45;&gt;module~tape_recorder_class -->
+<g id="module~~graph~~ModuleGraph_edge13" class="edge">
+<title>module~signals&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#6bff00" stroke-dasharray="5,2" d="M409.5,-357.31C384.11,-354.28 356.02,-357.97 332.72,-362.97"/>
+<polygon fill="#6bff00" stroke="#6bff00" points="331.68,-359.61 322.72,-365.25 333.25,-366.44 331.68,-359.61"/>
+</g>
+<!-- module~tape_recorder_class&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge14" class="edge">
+<title>module~tape_recorder_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#1aff00" stroke-dasharray="5,2" d="M221.89,-377.31C213.19,-377.31 204.44,-377.31 196.35,-377.31"/>
+<polygon fill="#1aff00" stroke="#1aff00" points="196.14,-373.81 186.14,-377.31 196.14,-380.81 196.14,-373.81"/>
+</g>
+<!-- module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_node8" class="node">
+<title>module~wav_file_class</title>
+<g id="a_module~~graph~~ModuleGraph_node8"><a xlink:href="../module/wav_file_class.html" xlink:title="wav_file_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="700,-271.31 613,-271.31 613,-247.31 700,-247.31 700,-271.31"/>
+<text text-anchor="middle" x="656.5" y="-256.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class</text>
+</a>
+</g>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge15" class="edge">
+<title>module~wav_file_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ff35" stroke-dasharray="5,2" d="M631.67,-247.27C625.19,-243.34 618.46,-238.61 613,-233.31 564.28,-185.98 592.37,-79.6 529.5,-105.31"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~tape_recorder_class -->
+<g id="module~~graph~~ModuleGraph_edge16" class="edge">
+<title>module~wav_file_class&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#00ff35" stroke-dasharray="5,2" d="M612.86,-251.59C601.26,-249.82 588.69,-248.2 577,-247.31 502.12,-241.62 470.53,-234.89 411.5,-281.31"/>
+</g>
+<!-- program~all_signals -->
+<g id="module~~graph~~ModuleGraph_node9" class="node">
+<title>program~all_signals</title>
+<g id="a_module~~graph~~ModuleGraph_node9"><a xlink:href="../program/all_signals.html" xlink:title="all_signals">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="842,-369.31 775,-369.31 775,-345.31 842,-345.31 842,-369.31"/>
+<text text-anchor="middle" x="808.5" y="-354.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">all_signals</text>
+</a>
+</g>
+</g>
+<!-- program~all_signals&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge17" class="edge">
+<title>program~all_signals&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#00ff86" stroke-dasharray="5,2" d="M527.5,-299.31C497.61,-299.88 447,-376.63 423.8,-414.57"/>
+<polygon fill="#00ff86" stroke="#00ff86" points="420.69,-412.94 418.52,-423.3 426.68,-416.56 420.69,-412.94"/>
+</g>
+<!-- program~all_signals&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge18" class="edge">
+<title>program~all_signals&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ff86" stroke-dasharray="5,2" d="M774.58,-345.43C723.01,-327.97 619.71,-297.59 529.5,-299.31"/>
+<path fill="none" stroke="#00ff86" stroke-dasharray="5,2" d="M527.5,-299.31C470.59,-305.54 463.46,-219.27 411.5,-243.31"/>
+</g>
+<!-- program~all_signals&#45;&gt;module~music -->
+<g id="module~~graph~~ModuleGraph_edge19" class="edge">
+<title>program~all_signals&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ff86" stroke-dasharray="5,2" d="M777.45,-369.46C764.2,-375.45 748.77,-383.32 736,-392.31 717.75,-405.15 717.63,-413.63 700,-427.31 696.19,-430.27 692.02,-433.18 687.83,-435.91"/>
+<polygon fill="#00ff86" stroke="#00ff86" points="685.92,-432.97 679.3,-441.24 689.64,-438.91 685.92,-432.97"/>
+</g>
+<!-- program~all_signals&#45;&gt;module~signals -->
+<g id="module~~graph~~ModuleGraph_edge20" class="edge">
+<title>program~all_signals&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ff86" stroke-dasharray="5,2" d="M783.44,-369.41C747.83,-386.78 682.61,-416.38 657.5,-413.31"/>
+<path fill="none" stroke="#00ff86" stroke-dasharray="5,2" d="M655.5,-413.31C624.34,-409.5 590.16,-399.34 565.28,-390.78"/>
+<polygon fill="#00ff86" stroke="#00ff86" points="566.14,-387.37 555.55,-387.35 563.82,-393.98 566.14,-387.37"/>
+</g>
+<!-- program~all_signals&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge21" class="edge">
+<title>program~all_signals&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#00ff86" stroke-dasharray="5,2" d="M779.23,-345.23C765.76,-339.03 749.65,-330.98 736,-322.31 715.34,-309.19 693.79,-291.57 678.5,-278.3"/>
+<polygon fill="#00ff86" stroke="#00ff86" points="680.52,-275.41 670.71,-271.43 675.9,-280.67 680.52,-275.41"/>
+</g>
+<!-- program~arpeggios -->
+<g id="module~~graph~~ModuleGraph_node10" class="node">
+<title>program~arpeggios</title>
+<g id="a_module~~graph~~ModuleGraph_node10"><a xlink:href="../program/arpeggios.html" xlink:title="arpeggios">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="841.5,-425.31 775.5,-425.31 775.5,-401.31 841.5,-401.31 841.5,-425.31"/>
+<text text-anchor="middle" x="808.5" y="-410.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">arpeggios</text>
+</a>
+</g>
+</g>
+<!-- program~arpeggios&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge22" class="edge">
+<title>program~arpeggios&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#00ffd6" stroke-dasharray="5,2" d="M775.3,-418.79C762.4,-421.97 747.82,-426.87 736,-434.31 715.76,-447.05 719.34,-460.24 700,-474.31 683.27,-486.49 677.57,-488.27 657.5,-493.31"/>
+<path fill="none" stroke="#00ffd6" stroke-dasharray="5,2" d="M655.5,-493.31C578.82,-512.58 488.16,-475.33 441.93,-452.05"/>
+<polygon fill="#00ffd6" stroke="#00ffd6" points="443.25,-448.79 432.76,-447.32 440.04,-455.01 443.25,-448.79"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge23" class="edge">
+<title>program~arpeggios&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ffd6" stroke-dasharray="5,2" d="M775.39,-403.83C676.48,-375.21 377.36,-293.21 282.5,-319.31"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~music -->
+<g id="module~~graph~~ModuleGraph_edge24" class="edge">
+<title>program~arpeggios&#45;&gt;module~music</title>
+<path fill="none" stroke="#00ffd6" stroke-dasharray="5,2" d="M775.32,-421.89C751.26,-428.31 718.36,-437.08 693.44,-443.73"/>
+<polygon fill="#00ffd6" stroke="#00ffd6" points="692.4,-440.38 683.64,-446.34 694.2,-447.15 692.4,-440.38"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~music_common -->
+<g id="module~~graph~~ModuleGraph_edge25" class="edge">
+<title>program~arpeggios&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#00ffd6" stroke-dasharray="5,2" d="M655.5,-493.31C627.72,-500.29 597.08,-509.97 572.97,-518.06"/>
+<polygon fill="#00ffd6" stroke="#00ffd6" points="571.75,-514.78 563.4,-521.3 574,-521.41 571.75,-514.78"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~signals -->
+<g id="module~~graph~~ModuleGraph_edge26" class="edge">
+<title>program~arpeggios&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ffd6" stroke-dasharray="5,2" d="M775.47,-415.55C745,-417.16 697.95,-418.26 657.5,-413.31"/>
+</g>
+<!-- program~arpeggios&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge27" class="edge">
+<title>program~arpeggios&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#00ffd6" stroke-dasharray="5,2" d="M775.4,-401.94C762.22,-396.23 747.42,-388.35 736,-378.31 704.34,-350.46 680.05,-306.97 667.34,-280.99"/>
+<polygon fill="#00ffd6" stroke="#00ffd6" points="670.36,-279.18 662.91,-271.65 664.04,-282.19 670.36,-279.18"/>
+</g>
+<!-- program~blues -->
+<g id="module~~graph~~ModuleGraph_node11" class="node">
+<title>program~blues</title>
+<g id="a_module~~graph~~ModuleGraph_node11"><a xlink:href="../program/blues.html" xlink:title="blues">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="835.5,-467.31 781.5,-467.31 781.5,-443.31 835.5,-443.31 835.5,-467.31"/>
+<text text-anchor="middle" x="808.5" y="-452.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blues</text>
+</a>
+</g>
+</g>
+<!-- program~blues&#45;&gt;module~audio_effects -->
+<g id="module~~graph~~ModuleGraph_edge28" class="edge">
+<title>program~blues&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M799.4,-467.36C782.81,-491.45 742.89,-546.4 700,-583.31 696.59,-586.25 692.81,-589.06 688.95,-591.69"/>
+<polygon fill="#00d6ff" stroke="#00d6ff" points="687.03,-588.76 680.49,-597.1 690.8,-594.66 687.03,-588.76"/>
+</g>
+<!-- program~blues&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge29" class="edge">
+<title>program~blues&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M802.94,-467.64C790.83,-498.88 754.95,-582.1 700,-630.31 684.45,-643.96 676.32,-640.72 657.5,-649.31"/>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M655.5,-649.31C602.29,-673.6 586.68,-699.64 529.5,-687.31"/>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M527.5,-687.31C503.76,-682.19 500.46,-673.39 480,-660.31 448.46,-640.15 448.86,-608.95 411.5,-611.31"/>
+</g>
+<!-- program~blues&#45;&gt;module~music -->
+<g id="module~~graph~~ModuleGraph_edge30" class="edge">
+<title>program~blues&#45;&gt;module~music</title>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M781.37,-454.96C757.14,-454.64 720.86,-454.16 693.81,-453.8"/>
+<polygon fill="#00d6ff" stroke="#00d6ff" points="693.63,-450.29 683.58,-453.66 693.53,-457.29 693.63,-450.29"/>
+</g>
+<!-- program~blues&#45;&gt;module~music_common -->
+<g id="module~~graph~~ModuleGraph_edge31" class="edge">
+<title>program~blues&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M787.25,-467.39C766.18,-479.4 731.88,-497.42 700,-507.31 663.33,-518.69 620.61,-525.2 587.11,-528.85"/>
+<polygon fill="#00d6ff" stroke="#00d6ff" points="586.61,-525.38 577.03,-529.9 587.34,-532.35 586.61,-525.38"/>
+</g>
+<!-- program~blues&#45;&gt;module~signals -->
+<g id="module~~graph~~ModuleGraph_edge32" class="edge">
+<title>program~blues&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M781.39,-447.78C740.1,-435.9 663.74,-414.07 657.5,-413.31"/>
+</g>
+<!-- program~blues&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge33" class="edge">
+<title>program~blues&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#00d6ff" stroke-dasharray="5,2" d="M781.45,-453.04C766.63,-450.53 748.58,-445.28 736,-434.31 689.16,-393.44 668.89,-319.11 661.35,-281.86"/>
+<polygon fill="#00d6ff" stroke="#00d6ff" points="664.7,-280.74 659.4,-271.57 657.82,-282.05 664.7,-280.74"/>
+</g>
+<!-- program~chords_and_melody -->
+<g id="module~~graph~~ModuleGraph_node12" class="node">
+<title>program~chords_and_melody</title>
+<g id="a_module~~graph~~ModuleGraph_node12"><a xlink:href="../program/chords_and_melody.html" xlink:title="chords_and_melody">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="868,-703.31 749,-703.31 749,-679.31 868,-679.31 868,-703.31"/>
+<text text-anchor="middle" x="808.5" y="-688.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody</text>
+</a>
+</g>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~audio_effects -->
+<g id="module~~graph~~ModuleGraph_edge34" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M755.47,-679.3C748.7,-676.8 742.03,-673.83 736,-670.31 716.73,-659.06 717.63,-649 700,-635.31 696.19,-632.35 692.02,-629.45 687.83,-626.71"/>
+<polygon fill="#0086ff" stroke="#0086ff" points="689.64,-623.72 679.3,-621.38 685.92,-629.65 689.64,-623.72"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge35" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M655.5,-687.31C579.34,-655.03 538.68,-683.62 480,-625.31 432.81,-578.42 417.94,-496.68 413.41,-457.5"/>
+<polygon fill="#0086ff" stroke="#0086ff" points="416.88,-457.01 412.36,-447.42 409.91,-457.73 416.88,-457.01"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge36" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M655.5,-687.31C603.97,-665.38 584.24,-699.12 529.5,-687.31"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~music -->
+<g id="module~~graph~~ModuleGraph_edge37" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~music</title>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M748.79,-680.27C744.02,-677.61 739.65,-674.34 736,-670.31 678.03,-606.27 749.06,-550.41 700,-479.31 697.74,-476.04 694.93,-473.11 691.83,-470.49"/>
+<polygon fill="#0086ff" stroke="#0086ff" points="693.85,-467.64 683.69,-464.65 689.77,-473.33 693.85,-467.64"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~music_common -->
+<g id="module~~graph~~ModuleGraph_edge38" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M655.5,-687.31C639.91,-680.7 574.26,-593.84 544.4,-553.57"/>
+<polygon fill="#0086ff" stroke="#0086ff" points="547.2,-551.46 538.44,-545.5 541.57,-555.63 547.2,-551.46"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~signals -->
+<g id="module~~graph~~ModuleGraph_edge39" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~signals</title>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M748.76,-699.52C720.17,-701.11 685.92,-699.36 657.5,-687.31"/>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M655.5,-687.31C565.85,-649.31 614.81,-456.99 577,-403.31 573.75,-398.7 569.42,-394.82 564.68,-391.59"/>
+<polygon fill="#0086ff" stroke="#0086ff" points="566.28,-388.47 555.88,-386.44 562.75,-394.51 566.28,-388.47"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge40" class="edge">
+<title>program~chords_and_melody&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0086ff" stroke-dasharray="5,2" d="M748.89,-680.66C744.04,-677.93 739.62,-674.53 736,-670.31 696.47,-624.18 712.87,-458.68 700,-399.31 690.79,-356.79 674.88,-308.51 665.36,-281.2"/>
+<polygon fill="#0086ff" stroke="#0086ff" points="668.56,-279.76 661.93,-271.49 661.96,-282.09 668.56,-279.76"/>
+</g>
+<!-- program~demo_effects -->
+<g id="module~~graph~~ModuleGraph_node13" class="node">
+<title>program~demo_effects</title>
+<g id="a_module~~graph~~ModuleGraph_node13"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="851,-661.31 766,-661.31 766,-637.31 851,-637.31 851,-661.31"/>
+<text text-anchor="middle" x="808.5" y="-646.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
+</a>
+</g>
+</g>
+<!-- program~demo_effects&#45;&gt;module~audio_effects -->
+<g id="module~~graph~~ModuleGraph_edge41" class="edge">
+<title>program~demo_effects&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#0035ff" stroke-dasharray="5,2" d="M765.72,-638.17C747.93,-633.43 727.03,-627.85 708.36,-622.87"/>
+<polygon fill="#0035ff" stroke="#0035ff" points="709.11,-619.45 698.54,-620.26 707.3,-626.21 709.11,-619.45"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge42" class="edge">
+<title>program~demo_effects&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#0035ff" stroke-dasharray="5,2" d="M655.5,-569.31C580.81,-545.85 546.04,-596.35 480,-554.31 445.03,-532.05 425.96,-485.11 417.32,-457.3"/>
+<polygon fill="#0035ff" stroke="#0035ff" points="420.58,-455.97 414.43,-447.34 413.86,-457.92 420.58,-455.97"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge43" class="edge">
+<title>program~demo_effects&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#0035ff" stroke-dasharray="5,2" d="M765.75,-640.32C734.51,-635.67 691.49,-633.79 657.5,-649.31"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~music -->
+<g id="module~~graph~~ModuleGraph_edge44" class="edge">
+<title>program~demo_effects&#45;&gt;module~music</title>
+<path fill="none" stroke="#0035ff" stroke-dasharray="5,2" d="M802.28,-637.31C788.88,-607.57 750.74,-529.31 700,-479.31 697.1,-476.46 693.83,-473.77 690.43,-471.29"/>
+<polygon fill="#0035ff" stroke="#0035ff" points="692.09,-468.19 681.82,-465.57 688.21,-474.02 692.09,-468.19"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~music_common -->
+<g id="module~~graph~~ModuleGraph_edge45" class="edge">
+<title>program~demo_effects&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#0035ff" stroke-dasharray="5,2" d="M789.99,-637.16C762.94,-619.05 708.75,-585.41 657.5,-569.31"/>
+<path fill="none" stroke="#0035ff" stroke-dasharray="5,2" d="M655.5,-569.31C631.96,-561.92 605.75,-554.33 583.36,-548.03"/>
+<polygon fill="#0035ff" stroke="#0035ff" points="584.27,-544.65 573.69,-545.33 582.38,-551.39 584.27,-544.65"/>
+</g>
+<!-- program~demo_effects&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge46" class="edge">
+<title>program~demo_effects&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#0035ff" stroke-dasharray="5,2" d="M802.28,-637.22C790.21,-609.13 759.59,-537.22 736,-476.31 708.56,-405.47 678.7,-320.52 665.06,-281.23"/>
+<polygon fill="#0035ff" stroke="#0035ff" points="668.32,-279.92 661.74,-271.62 661.7,-282.21 668.32,-279.92"/>
+</g>
+<!-- program~doppler_effect -->
+<g id="module~~graph~~ModuleGraph_node14" class="node">
+<title>program~doppler_effect</title>
+<g id="a_module~~graph~~ModuleGraph_node14"><a xlink:href="../program/doppler_effect.html" xlink:title="doppler_effect">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="853.5,-28.31 763.5,-28.31 763.5,-4.31 853.5,-4.31 853.5,-28.31"/>
+<text text-anchor="middle" x="808.5" y="-13.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">doppler_effect</text>
+</a>
+</g>
+</g>
+<!-- program~doppler_effect&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge47" class="edge">
+<title>program~doppler_effect&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#1a00ff" stroke-dasharray="5,2" d="M763.36,-6.26C722.55,0.81 661.13,5.69 613,-15.31 562.99,-37.13 579.92,-84.46 529.5,-105.31"/>
+<path fill="none" stroke="#1a00ff" stroke-dasharray="5,2" d="M527.5,-105.31C453.17,-135.23 484.22,-209.66 411.5,-243.31"/>
+<path fill="none" stroke="#1a00ff" stroke-dasharray="5,2" d="M409.5,-243.31C349.8,-270.94 345.95,-301.94 282.5,-319.31"/>
+<path fill="none" stroke="#1a00ff" stroke-dasharray="5,2" d="M280.5,-319.31C247.06,-328.46 211.59,-346.48 187.66,-360.01"/>
+<polygon fill="#1a00ff" stroke="#1a00ff" points="185.69,-357.11 178.77,-365.14 189.19,-363.18 185.69,-357.11"/>
+</g>
+<!-- program~doppler_effect&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge48" class="edge">
+<title>program~doppler_effect&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#1a00ff" stroke-dasharray="5,2" d="M792.5,-28.35C776.83,-41.53 752.3,-63.92 736,-87.31 701.63,-136.64 676.25,-203.44 664.6,-237.45"/>
+<polygon fill="#1a00ff" stroke="#1a00ff" points="661.16,-236.68 661.3,-247.28 667.8,-238.91 661.16,-236.68"/>
+</g>
+<!-- program~drone_music -->
+<g id="module~~graph~~ModuleGraph_node15" class="node">
+<title>program~drone_music</title>
+<g id="a_module~~graph~~ModuleGraph_node15"><a xlink:href="../program/drone_music.html" xlink:title="drone_music">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="848.5,-313.31 768.5,-313.31 768.5,-289.31 848.5,-289.31 848.5,-313.31"/>
+<text text-anchor="middle" x="808.5" y="-298.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drone_music</text>
+</a>
+</g>
+</g>
+<!-- program~drone_music&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge49" class="edge">
+<title>program~drone_music&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#6b00ff" stroke-dasharray="5,2" d="M768.3,-296.82C686.54,-287.81 503.46,-269.7 480,-285.31 445.5,-308.27 461.39,-333.7 444,-371.31 437.31,-385.77 429.2,-401.75 422.75,-414.12"/>
+<polygon fill="#6b00ff" stroke="#6b00ff" points="419.55,-412.69 418,-423.17 425.75,-415.95 419.55,-412.69"/>
+</g>
+<!-- program~drone_music&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge50" class="edge">
+<title>program~drone_music&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#6b00ff" stroke-dasharray="5,2" d="M768.26,-294.14C757.26,-291.01 745.67,-286.56 736,-280.31 715.35,-266.96 717.78,-255.29 700,-238.31 682.62,-221.72 551.74,-96.21 529.5,-105.31"/>
+</g>
+<!-- program~drone_music&#45;&gt;module~music -->
+<g id="module~~graph~~ModuleGraph_edge51" class="edge">
+<title>program~drone_music&#45;&gt;module~music</title>
+<path fill="none" stroke="#6b00ff" stroke-dasharray="5,2" d="M770.29,-313.32C758.08,-318.75 745.29,-326.26 736,-336.31 706.48,-368.25 727.99,-394.02 700,-427.31 697.57,-430.19 694.74,-432.85 691.72,-435.27"/>
+<polygon fill="#6b00ff" stroke="#6b00ff" points="689.55,-432.51 683.38,-441.13 693.58,-438.24 689.55,-432.51"/>
+</g>
+<!-- program~drone_music&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge52" class="edge">
+<title>program~drone_music&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#6b00ff" stroke-dasharray="5,2" d="M768.48,-290.39C750.59,-285.38 729.12,-279.37 709.86,-273.97"/>
+<polygon fill="#6b00ff" stroke="#6b00ff" points="710.59,-270.54 700.01,-271.21 708.7,-277.28 710.59,-270.54"/>
+</g>
+<!-- program~drum_machine -->
+<g id="module~~graph~~ModuleGraph_node16" class="node">
+<title>program~drum_machine</title>
+<g id="a_module~~graph~~ModuleGraph_node16"><a xlink:href="../program/drum_machine.html" xlink:title="drum_machine">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="855,-120.31 762,-120.31 762,-96.31 855,-96.31 855,-120.31"/>
+<text text-anchor="middle" x="808.5" y="-105.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drum_machine</text>
+</a>
+</g>
+</g>
+<!-- program~drum_machine&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge53" class="edge">
+<title>program~drum_machine&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#bb00ff" stroke-dasharray="5,2" d="M796.89,-95.95C773.25,-69.99 713.88,-13.45 657.5,-29.31"/>
+<path fill="none" stroke="#bb00ff" stroke-dasharray="5,2" d="M655.5,-29.31C592.54,-47.02 589.93,-80.32 529.5,-105.31"/>
+</g>
+<!-- program~drum_machine&#45;&gt;module~signals -->
+<g id="module~~graph~~ModuleGraph_edge54" class="edge">
+<title>program~drum_machine&#45;&gt;module~signals</title>
+<path fill="none" stroke="#bb00ff" stroke-dasharray="5,2" d="M655.5,-29.31C573.73,-52.31 617.64,-217.08 577,-313.31 570.09,-329.67 558.16,-345.72 547.99,-357.65"/>
+<polygon fill="#bb00ff" stroke="#bb00ff" points="545.31,-355.4 541.31,-365.21 550.56,-360.03 545.31,-355.4"/>
+</g>
+<!-- program~drum_machine&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge55" class="edge">
+<title>program~drum_machine&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#bb00ff" stroke-dasharray="5,2" d="M784.45,-120.32C769.66,-128.68 750.58,-140.72 736,-154.31 708.61,-179.84 684.01,-215.91 669.92,-238.44"/>
+<polygon fill="#bb00ff" stroke="#bb00ff" points="666.79,-236.84 664.55,-247.2 672.76,-240.5 666.79,-236.84"/>
+</g>
+<!-- program~misc_sounds -->
+<g id="module~~graph~~ModuleGraph_node17" class="node">
+<title>program~misc_sounds</title>
+<g id="a_module~~graph~~ModuleGraph_node17"><a xlink:href="../program/misc_sounds.html" xlink:title="misc_sounds">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="848.5,-229.31 768.5,-229.31 768.5,-205.31 848.5,-205.31 848.5,-229.31"/>
+<text text-anchor="middle" x="808.5" y="-214.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">misc_sounds</text>
+</a>
+</g>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge56" class="edge">
+<title>program~misc_sounds&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff00f1" stroke-dasharray="5,2" d="M768.18,-212.05C756.8,-208.96 745.03,-204.07 736,-196.31 707.34,-171.7 728.26,-144.39 700,-119.31 685.13,-106.11 677.16,-108.29 657.5,-105.31"/>
+<path fill="none" stroke="#ff00f1" stroke-dasharray="5,2" d="M655.5,-105.31C600.13,-96.93 581.06,-83.45 529.5,-105.31"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~music -->
+<g id="module~~graph~~ModuleGraph_edge57" class="edge">
+<title>program~misc_sounds&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff00f1" stroke-dasharray="5,2" d="M768.4,-220.89C756.48,-223.86 744.34,-229.11 736,-238.31 678.55,-301.65 748.63,-356.98 700,-427.31 697.74,-430.58 694.92,-433.51 691.82,-436.12"/>
+<polygon fill="#ff00f1" stroke="#ff00f1" points="689.76,-433.29 683.68,-441.97 693.84,-438.98 689.76,-433.29"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~tape_recorder_class -->
+<g id="module~~graph~~ModuleGraph_edge58" class="edge">
+<title>program~misc_sounds&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff00f1" stroke-dasharray="5,2" d="M655.5,-105.31C651.45,-104.3 414.85,-278.82 411.5,-281.31"/>
+<path fill="none" stroke="#ff00f1" stroke-dasharray="5,2" d="M409.5,-281.31C377.15,-301.67 371.5,-310.27 341,-333.31 329.83,-341.75 317.44,-351.07 306.95,-358.96"/>
+<polygon fill="#ff00f1" stroke="#ff00f1" points="304.55,-356.39 298.65,-365.19 308.75,-361.98 304.55,-356.39"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge59" class="edge">
+<title>program~misc_sounds&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#ff00f1" stroke-dasharray="5,2" d="M768.48,-228.24C750.59,-233.25 729.12,-239.26 709.86,-244.65"/>
+<polygon fill="#ff00f1" stroke="#ff00f1" points="708.7,-241.34 700.01,-247.41 710.59,-248.08 708.7,-241.34"/>
+</g>
+<!-- program~shepard_risset_glissando -->
+<g id="module~~graph~~ModuleGraph_node18" class="node">
+<title>program~shepard_risset_glissando</title>
+<g id="a_module~~graph~~ModuleGraph_node18"><a xlink:href="../program/shepard_risset_glissando.html" xlink:title="shepard_risset_glissando">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="881,-187.31 736,-187.31 736,-163.31 881,-163.31 881,-187.31"/>
+<text text-anchor="middle" x="808.5" y="-172.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_risset_glissando</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;module~envelopes -->
+<g id="module~~graph~~ModuleGraph_edge60" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ff00a1" stroke-dasharray="5,2" d="M735.79,-178.86C662.58,-186.21 550.04,-208.33 480,-274.31 446.53,-305.84 462.44,-329.19 444,-371.31 437.61,-385.9 429.5,-401.88 422.98,-414.22"/>
+<polygon fill="#ff00a1" stroke="#ff00a1" points="419.78,-412.77 418.15,-423.24 425.96,-416.07 419.78,-412.77"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge61" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff00a1" stroke-dasharray="5,2" d="M785.93,-163.29C771.23,-154.66 751.68,-142.31 736,-129.31 718.09,-114.47 721.37,-100.5 700,-91.31 630.15,-61.27 599.5,-75.63 529.5,-105.31"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge62" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#ff00a1" stroke-dasharray="5,2" d="M757.29,-187.34C749.96,-189.86 742.65,-192.84 736,-196.31 713.91,-207.84 692.07,-226.07 677.06,-239.96"/>
+<polygon fill="#ff00a1" stroke="#ff00a1" points="674.31,-237.74 669.47,-247.16 679.13,-242.82 674.31,-237.74"/>
+</g>
+<!-- program~shepard_scale -->
+<g id="module~~graph~~ModuleGraph_node19" class="node">
+<title>program~shepard_scale</title>
+<g id="a_module~~graph~~ModuleGraph_node19"><a xlink:href="../program/shepard_scale.html" xlink:title="shepard_scale">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="853,-271.31 764,-271.31 764,-247.31 853,-247.31 853,-271.31"/>
+<text text-anchor="middle" x="808.5" y="-256.91" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_scale</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~audio_effects -->
+<g id="module~~graph~~ModuleGraph_edge63" class="edge">
+<title>program~shepard_scale&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#ff0050" stroke-dasharray="5,2" d="M763.91,-263.66C753.37,-266.78 743.1,-271.91 736,-280.31 648.46,-383.89 773.18,-469.14 700,-583.31 698.23,-586.08 696.04,-588.6 693.61,-590.88"/>
+<polygon fill="#ff0050" stroke="#ff0050" points="691.46,-588.12 685.73,-597.03 695.76,-593.64 691.46,-588.12"/>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~forsynth -->
+<g id="module~~graph~~ModuleGraph_edge64" class="edge">
+<title>program~shepard_scale&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0050" stroke-dasharray="5,2" d="M764,-252.97C753.94,-249.85 743.88,-245.21 736,-238.31 706.36,-212.36 729.51,-183.41 700,-157.31 685.17,-144.19 547.75,-97.61 529.5,-105.31"/>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~wav_file_class -->
+<g id="module~~graph~~ModuleGraph_edge65" class="edge">
+<title>program~shepard_scale&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#ff0050" stroke-dasharray="5,2" d="M763.71,-259.31C746.94,-259.31 727.64,-259.31 710.12,-259.31"/>
+<polygon fill="#ff0050" stroke="#ff0050" points="710.05,-255.81 700.05,-259.31 710.05,-262.81 710.05,-255.81"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmodulegraphModuleGraph = svgPanZoom('#modulegraphModuleGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#ModuleGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="ModuleGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

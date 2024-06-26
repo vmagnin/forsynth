@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="./favicon.png">
+
+    <title> ForMIDI </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./css/pygments.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/local.css" rel="stylesheet">
+      <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="./search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <!-- Main component for a primary marketing message or call to action -->
+    <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+      <p>A small Fortran MIDI sequencer for composing music,
+exploring algorithmic music and music theory.</p>
+        <p> Find us on&hellip;</p>
+      <p>
+        <a class="btn btn-lg btn-primary" href="https://github.com/vmagnin/forMIDI" role="button">GitHub</a>
+        
+        
+        
+        
+      </p>
+    </div>
+
+      <div class="row" id='text'>
+        <div class=col-md-8>
+          <h1>ForMIDI</h1>
+          <p><img alt="" src="logo/logo_forsynth.svg"></p>
+<p>A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. But ForSynth could also be used for scientific data <em>sonification</em>, for acoustic simulations or for teaching programming in a fun way.</p>
+<p>Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk (see the <a href="./ELECTRONIC_MUSIC_HISTORY.md">ELECTRONIC_MUSIC_HISTORY.md</a> file).</p>
+<h2>Features</h2>
+<ul>
+<li>ForSynth is a semi-analog semi-digital studio: time is discretized (44100 samples/s) but the amplitude is coded as a Fortran real and digitized as a 16 bits signed integer only after the final mixing, when generating the output WAV file.</li>
+<li>You can use as many stereo tracks as you need. The track 0 is used for the final mix and some algorithms also use it as an auxilliary track. Do you know The Beatles used a 8 tracks tape recorder the first time in August 1968 to record <em>Hey Jude</em>? The second song was <em>Dear Prudence</em>.</li>
+<li>Basic music theory elements (scales, circle of fifths, chords...).</li>
+<li>Various signals and Karplus-Strong algorithms (guitar and drums).</li>
+<li>Envelopes generators: ADSR, fade in, fade out.</li>
+<li>Some audio effects: delay, fuzz, tremolo, reverse and autopan.</li>
+<li>Final mixing with the level and panoramic of each track.</li>
+<li>The API is documented with FORD: https://vmagnin.github.io/forsynth/</li>
+<li>Various examples.</li>
+<li>You just need a modern Fortran compiler and a media player, whatever your OS.</li>
+<li>GPL-3.0-or-later license.</li>
+</ul>
+<p>If you are more interested by composing than sound synthesis, you may also be interested by its twin project <a href="https://github.com/vmagnin/formidi">ForMIDI</a>.</p>
+<h2>Compilation and execution</h2>
+<p>You can easily build the project using the Fortran Package Manager fpm (https://github.com/fortran-lang/fpm) at the root of the project directory:</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>fpm<span class="w"> </span>build
+</code></pre></div>
+
+<p>Or if you don't have fpm, you can use the <code>build.sh</code> script (the examples will be built inside the <code>build/</code> directory).</p>
+<h3>Running the examples</h3>
+<p>The examples can be found in the <code>example/</code> directory. For example, the <code>chords_and_melody.f90</code> example can be run with the command:</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>chords_and_melody
+</code></pre></div>
+
+<p>But you can also use the optimization flags of your compiler, for example with GFortran:</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>chords_and_melody<span class="w"> </span>--flag<span class="w"> </span><span class="s2">&quot;-Ofast -static-libgfortran&quot;</span>
+</code></pre></div>
+
+<p>A WAV file was generated in the root directory of the project:</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>file<span class="w"> </span>chords_and_melody.wav
+chords_and_melody.wav:<span class="w"> </span>RIFF<span class="w"> </span><span class="o">(</span>little-endian<span class="o">)</span><span class="w"> </span>data,<span class="w"> </span>WAVE<span class="w"> </span>audio,<span class="w"> </span>Microsoft<span class="w"> </span>PCM,<span class="w"> </span><span class="m">16</span><span class="w"> </span>bit,<span class="w"> </span>stereo<span class="w"> </span><span class="m">44100</span><span class="w"> </span>Hz
+$<span class="w"> </span>hexdump<span class="w"> </span>-C<span class="w"> </span>chords_and_melody.wav
+<span class="m">00000000</span><span class="w">  </span><span class="m">52</span><span class="w"> </span><span class="m">49</span><span class="w"> </span><span class="m">46</span><span class="w"> </span><span class="m">46</span><span class="w"> </span>a4<span class="w"> </span>ff<span class="w"> </span><span class="m">42</span><span class="w"> </span><span class="m">01</span><span class="w">  </span><span class="m">57</span><span class="w"> </span><span class="m">41</span><span class="w"> </span><span class="m">56</span><span class="w"> </span><span class="m">45</span><span class="w"> </span><span class="m">66</span><span class="w"> </span>6d<span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="p">|</span>RIFF..B.WAVEfmt<span class="w"> </span><span class="p">|</span>
+<span class="m">00000010</span><span class="w">  </span><span class="m">10</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">01</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">02</span><span class="w"> </span><span class="m">00</span><span class="w">  </span><span class="m">44</span><span class="w"> </span>ac<span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>b1<span class="w"> </span><span class="m">02</span><span class="w"> </span><span class="m">00</span><span class="w">  </span><span class="p">|</span>........D.......<span class="p">|</span>
+<span class="m">00000020</span><span class="w">  </span><span class="m">04</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">61</span><span class="w">  </span><span class="m">80</span><span class="w"> </span>ff<span class="w"> </span><span class="m">42</span><span class="w"> </span><span class="m">01</span><span class="w"> </span>3d<span class="w"> </span>0e<span class="w"> </span>3d<span class="w"> </span>0e<span class="w">  </span><span class="p">|</span>....data..B.<span class="o">=</span>.<span class="o">=</span>.<span class="p">|</span>
+<span class="m">00000030</span><span class="w">  </span><span class="m">56</span><span class="w"> </span><span class="m">03</span><span class="w"> </span><span class="m">56</span><span class="w"> </span><span class="m">03</span><span class="w"> </span>d4<span class="w"> </span>f5<span class="w"> </span>d4<span class="w"> </span>f5<span class="w">  </span>9d<span class="w"> </span>0e<span class="w"> </span>9d<span class="w"> </span>0e<span class="w"> </span><span class="m">91</span><span class="w"> </span>f6<span class="w"> </span><span class="m">91</span><span class="w"> </span>f6<span class="w">  </span><span class="p">|</span>V.V.............<span class="p">|</span>
+...
+</code></pre></div>
+
+<p>You can listen to your WAV using any media player, for example the SoX play command (or the ALSA command <code>aplay</code>):</p>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>play<span class="w"> </span>chords_and_melody.wav
+
+chords_and_melody.wav:
+
+<span class="w"> </span>File<span class="w"> </span>Size:<span class="w"> </span><span class="m">21</span>.2M<span class="w">     </span>Bit<span class="w"> </span>Rate:<span class="w"> </span><span class="m">1</span>.41M
+<span class="w">  </span>Encoding:<span class="w"> </span>Signed<span class="w"> </span>PCM
+<span class="w">  </span>Channels:<span class="w"> </span><span class="m">2</span><span class="w"> </span>@<span class="w"> </span><span class="m">16</span>-bit
+Samplerate:<span class="w"> </span>44100Hz
+Replaygain:<span class="w"> </span>off
+<span class="w">  </span>Duration:<span class="w"> </span><span class="m">00</span>:02:00.00
+
+In:2.32%<span class="w"> </span><span class="m">00</span>:00:02.79<span class="w"> </span><span class="o">[</span><span class="m">00</span>:01:57.21<span class="o">]</span><span class="w"> </span>Out:123k<span class="w">  </span><span class="o">[</span>!<span class="o">=====</span><span class="p">|</span><span class="o">=====</span>!<span class="o">]</span><span class="w"> </span>Hd:0.0<span class="w"> </span>Clip:0
+</code></pre></div>
+
+<p>You can also use <a href="https://www.audacityteam.org/">Audacity</a> or <a href="https://sonicvisualiser.org/">Sonic Visualiser</a> to visualise your music, either as a waveform or a spectrogram.</p>
+<h2>Contributing</h2>
+<ul>
+<li>Post a message in the GitHub <em>Issues</em> tab to discuss the function you want to work on.</li>
+<li>Concerning coding conventions, follow the stdlib conventions:
+https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md</li>
+<li>When ready, make a <em>Pull Request</em>.</li>
+</ul>
+<h2>Technical information</h2>
+<h3>Endianness</h3>
+<p>A WAV comprises a header with metadata then the soundtracks in PCM (https://en.wikipedia.org/wiki/Pulse-code_modulation), written in little endian. This program asserts your machine is little endian. If you are big endian, please use the <code>-fconvert=big-endian</code> flag with gfortran, or <code>-convert big_endian</code> with ifort. Or contribute to the code to allow an automatic detection of endianness.</p>
+<ul>
+<li>https://fortran-lang.discourse.group/t/writing-a-binary-file-in-little-endian/719/4</li>
+<li>https://en.wikipedia.org/wiki/Endianness</li>
+</ul>
+<h3>WAV / RIFF format</h3>
+<ul>
+<li>https://en.wikipedia.org/wiki/Resource_Interchange_File_Format</li>
+<li>https://en.wikipedia.org/wiki/WAV</li>
+<li>http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/WAVE.html</li>
+</ul>
+<h3>Sound synthesis</h3>
+<ul>
+<li>https://sites.google.com/site/learning4synthesizer/home</li>
+<li>https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</li>
+</ul>
+<h2>Bibliography</h2>
+<h3>English</h3>
+<ul>
+<li>Jean-Claude Risset, <a href="https://www.posgrado.unam.mx/musica/lecturas/tecnologia/optativasRecomendadas/Risset_ComputerMusic%20why.pdf">"Computer music: why ?"</a>, 2003.</li>
+<li>Dave Benson, <em><a href="https://homepages.abdn.ac.uk/d.j.benson/pages/html/music.pdf">Music - A Mathematical Offering</a></em>, 531 pages, 2008.</li>
+<li>David A. Jaffe and Julius O. Smith, “Extensions of the Karplus-Strong Plucked-String Algorithm.” <em>Computer Music Journal</em> 7, no. 2 (1983): 56. https://doi.org/10.2307/3680063.</li>
+<li>Kevin Karplus and Alex Strong, “Digital Synthesis of Plucked-String and Drum Timbres.” <em>Computer Music Journal</em> 7, no. 2 (1983): 43–55. https://doi.org/10.2307/3680062.</li>
+<li>Jarmo Lähdevaara, <em>Science of Electric Guitars and Guitar Electronics.</em> Helsinki, Finland: Books On Demand, 2012.</li>
+<li>Diana Deutsch, "The Paradox of Pitch Circularity"’. <em>Acoustics Today</em> 6, no. 3 (July 2010): 8–14. https://doi.org/10.1121/1.3488670.</li>
+<li>M.V. Mathews, <a href="http://www.jstor.org/stable/1712380">"The Digital Computer as a Musical Instrument"</a>, <em>Science</em> 142, no. 3592 (1963): 553–57.<ul>
+<li><a href="https://archive.nytimes.com/opinionator.blogs.nytimes.com/2011/06/08/the-first-computer-musician/">"The First Computer Musician"</a>, by R. Luke DuBois, NYT, June 8, 2011.</li>
+</ul>
+</li>
+<li>M.V. Mathews, F.R. Moore and J.-C. Risset, <a href="https://www.jstor.org/stable/1737597">"Computers and Future Music"</a>, <em>Science,</em> New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.  </li>
+</ul>
+<h3>French</h3>
+<ul>
+<li>Vincent Magnin, <a href="https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-creez-des-ondes-sonores-en-C">"Format WAV : créez des ondes sonores en C"</a>, <em>GNU/Linux Magazine</em> n°190, février 2016.</li>
+<li>Vincent Magnin, <a href="https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-des-sons-de-plus-en-plus-complexes">"Format WAV : des sons de plus en plus complexes"</a>, <em>GNU/Linux Magazine</em> n°190, février 2016.</li>
+<li>Some sounds created with the C version of the program: http://magnin.plil.net/spip.php?article131</li>
+<li>Laurent de Wilde, <a href="https://www.grasset.fr/livres/les-fous-du-son-9782246859277"><em>Les fous du son - D'Edison à nos jours</em></a>, Editions Grasset et Fasquelle, 560 pages, 2016, ISBN 9782246859277.</li>
+<li>Laurent Fichet, <a href="https://www.vrin.fr/livre/9782711642847/les-theories-scientifiques-de-la-musique"><em>Les théories scientifiques de la musique aux XIXe et XXe siècles</em></a>, Vrin, 1996, ISBN 978-2-7116-4284-7.</li>
+<li>Guillaume Kosmicki , <a href="https://lemotetlereste.com/musiques/musiqueselectroniquesnouvelleedition/"><em>Musiques électroniques - Des avant-gardes aux dance floors</em></a>, Editions Le mot et le reste, 2nd edition, 2016, 416 p., ISBN 9782360541928.</li>
+<li>Bibliothèque Tangente n°11, <a href="https://www.lalibrairie.com/livres/mathematiques-et-musique--des-destinees-paralleles--2022_0-9115242_9782848842462.html"><em>Mathématiques et musique - des destinées parallèles</em></a>, Paris : Éditions POLE, septembre 2022, ISBN 9782848842462.</li>
+<li>Blog <a href="https://deveniringeson.com/public/">Devenir Ingeson</a>.</li>
+</ul>
+        </div>
+          <div class="col-md-4">
+            <div class="card card-body bg-light">
+              <h2 class="card-title">Developer Info</h2>
+              <h4 class="card-text">Vincent Magnin</h4>
+              <p class="card-text"></p>
+                <div class="text-center"><div class="btn-group" role="group">
+                    
+                    <a class="btn btn-lg btn-primary" href="https://github.com/vmagnin"><i class="fa fa-github fa-lg"></i></a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div></div>
+            </div>
+          </div>
+      </div>
+        <div class="row">
+          <hr>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Source Files</h3>
+              <ul><li><a href='sourcefile/all_signals.f90.html'>all_signals.f90</a></li><li><a href='sourcefile/arpeggios.f90.html'>arpeggios.f90</a></li><li><a href='sourcefile/audio_effects.f90.html'>audio_effects.f90</a></li><li><a href='sourcefile/blues.f90.html'>blues.f90</a></li><li><a href='sourcefile/chords_and_melody.f90.html'>chords_and_melody.f90</a></li><li><a href='sourcefile/demo_effects.f90.html'>demo_effects.f90</a></li><li><a href='sourcefile/doppler_effect.f90.html'>doppler_effect.f90</a></li><li><a href='sourcefile/drone_music.f90.html'>drone_music.f90</a></li><li><a href='sourcefile/drum_machine.f90.html'>drum_machine.f90</a></li><li><a href='sourcefile/envelopes.f90.html'>envelopes.f90</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Modules</h3>
+              <ul><li><a href='module/audio_effects.html'>audio_effects</a></li><li><a href='module/envelopes.html'>envelopes</a></li><li><a href='module/forsynth.html'>forsynth</a></li><li><a href='module/music.html'>music</a></li><li><a href='module/music_common.html'>music_common</a></li><li><a href='module/signals.html'>signals</a></li><li><a href='module/tape_recorder_class.html'>tape_recorder_class</a></li><li><a href='module/wav_file_class.html'>wav_file_class</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/modules.html"><em>All modules&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Procedures</h3>
+              <ul><li><a href='proc/add_broken_chord.html'>add_broken_chord</a></li><li><a href='proc/add_chord.html'>add_chord</a></li><li><a href='proc/add_karplus_strong.html'>add_karplus_strong</a></li><li><a href='proc/add_karplus_strong_drum.html'>add_karplus_strong_drum</a></li><li><a href='proc/add_karplus_strong_drum_stretched.html'>add_karplus_strong_drum_stretched</a></li><li><a href='proc/add_karplus_strong_stretched.html'>add_karplus_strong_stretched</a></li><li><a href='proc/add_misc_signal.html'>add_misc_signal</a></li><li><a href='proc/add_noise.html'>add_noise</a></li><li><a href='proc/add_note.html'>add_note</a></li><li><a href='proc/add_sawtooth_wave.html'>add_sawtooth_wave</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Derived Types</h3>
+              <ul><li><a href='type/adsr_envelope.html'>ADSR_envelope</a></li><li><a href='type/tape_recorder.html'>tape_recorder</a></li><li><a href='type/wav_file.html'>WAV_file</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/types.html"><em>All derived types&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="./tipuesearch/tipuesearch_content.js"></script>
+          <script src="./tipuesearch/tipuesearch_set.js"></script>
+          <script src="./tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

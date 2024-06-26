@@ -1,0 +1,452 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>drum_machine.f90 &ndash; ForMIDI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>drum_machine.f90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 2.5% of total for source files.">34 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/drum_machine.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">drum_machine.f90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#progs-0"
+         aria-expanded="false" aria-controls="progs-0">
+         <h4 class="card-header bg-primary text-white">Programs</h4>
+      </a>
+      <div id="progs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/drum_machine.html">drum_machine</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/drum_machine.f90.html#src">drum_machine.f90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">This file depends on</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~drum_machine.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefiledrum_machinef90EfferentGraph" width="641pt" height="144pt"
+ viewBox="0.00 0.00 641.00 143.96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph" class="graph" transform="scale(1.02 1.02) rotate(0) translate(4 143.55)">
+<title>sourcefile~~drum_machine.f90~~EfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-143.55 653,-143.55 653,4 -4,4"/>
+<!-- sourcefile~drum_machine.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~drum_machine.f90</title>
+<polygon fill="none" stroke="black" points="649,-104 536,-104 536,-80 649,-80 649,-104"/>
+<text text-anchor="middle" x="592.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50">drum_machine.f90</text>
+</g>
+<!-- sourcefile~forsynth.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~forsynth.f90</title>
+<g id="a_sourcefile~~drum_machine.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/forsynth.f90.html" xlink:title="forsynth.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="76,-64 0,-64 0,-40 76,-40 76,-64"/>
+<text text-anchor="middle" x="38" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~drum_machine.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~drum_machine.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M543.26,-104.08C529.36,-107.29 514.13,-110.54 500,-113 430.1,-125.17 412.22,-126.36 341.5,-132"/>
+</g>
+<!-- sourcefile~signals.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~signals.f90</title>
+<g id="a_sourcefile~~drum_machine.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/signals.f90.html" xlink:title="signals.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="500,-104 430,-104 430,-80 500,-80 500,-104"/>
+<text text-anchor="middle" x="465" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">signals.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~drum_machine.f90&#45;&gt;sourcefile~signals.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~drum_machine.f90&#45;&gt;sourcefile~signals.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M535.72,-92C527.25,-92 518.61,-92 510.43,-92"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="510.35,-88.5 500.35,-92 510.35,-95.5 510.35,-88.5"/>
+</g>
+<!-- sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~wav_file_class.f90</title>
+<g id="a_sourcefile~~drum_machine.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/wav_file_class.f90.html" xlink:title="wav_file_class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-24 287,-24 287,0 394,0 394,-24"/>
+<text text-anchor="middle" x="340.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~drum_machine.f90&#45;&gt;sourcefile~wav_file_class.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~drum_machine.f90&#45;&gt;sourcefile~wav_file_class.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M553.8,-79.94C509.74,-65.84 436.77,-42.49 388.91,-27.17"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="389.69,-23.74 379.1,-24.03 387.55,-30.41 389.69,-23.74"/>
+</g>
+<!-- sourcefile~signals.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~signals.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M438.92,-104.07C414.65,-114.79 376.51,-129.21 341.5,-132"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M339.5,-132C269.94,-137.55 251,-145.3 182.5,-132"/>
+</g>
+<!-- sourcefile~envelopes.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~envelopes.f90</title>
+<g id="a_sourcefile~~drum_machine.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/envelopes.f90.html" xlink:title="envelopes.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="384.5,-104 296.5,-104 296.5,-80 384.5,-80 384.5,-104"/>
+<text text-anchor="middle" x="340.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">envelopes.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~signals.f90&#45;&gt;sourcefile~envelopes.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~signals.f90&#45;&gt;sourcefile~envelopes.f90</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M429.88,-92C419.04,-92 406.77,-92 394.91,-92"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="394.63,-88.5 384.63,-92 394.63,-95.5 394.63,-88.5"/>
+</g>
+<!-- sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~tape_recorder_class.f90</title>
+<g id="a_sourcefile~~drum_machine.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/tape_recorder_class.f90.html" xlink:title="tape_recorder_class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="251,-64 112,-64 112,-40 251,-40 251,-64"/>
+<text text-anchor="middle" x="181.5" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~signals.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~signals.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M429.81,-80.24C418.53,-76.76 405.84,-73.28 394,-71 350.54,-62.62 301.33,-57.92 261.32,-55.29"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="261.29,-51.78 251.09,-54.65 260.85,-58.77 261.29,-51.78"/>
+</g>
+<!-- sourcefile~wav_file_class.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~wav_file_class.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M286.7,-13.47C240.34,-15.46 171.25,-20.11 112,-31 103.24,-32.61 94.01,-34.83 85.18,-37.23"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="84.1,-33.9 75.43,-40 86,-40.64 84.1,-33.9"/>
+</g>
+<!-- sourcefile~wav_file_class.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~wav_file_class.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M292.39,-24C275.86,-28.21 257.1,-32.99 239.82,-37.4"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="238.67,-34.08 229.84,-39.94 240.4,-40.86 238.67,-34.08"/>
+</g>
+<!-- sourcefile~envelopes.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~envelopes.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M317.32,-104.04C287.08,-118.99 231.1,-141.43 182.5,-132"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M180.5,-132C133.75,-122.93 87.16,-91.06 60.82,-70.39"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="63,-67.64 53.01,-64.11 58.61,-73.1 63,-67.64"/>
+</g>
+<!-- sourcefile~envelopes.f90&#45;&gt;sourcefile~tape_recorder_class.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~envelopes.f90&#45;&gt;sourcefile~tape_recorder_class.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M296.18,-80.96C278.72,-76.51 258.32,-71.32 239.67,-66.57"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="240.36,-63.13 229.81,-64.05 238.63,-69.91 240.36,-63.13"/>
+</g>
+<!-- sourcefile~tape_recorder_class.f90&#45;&gt;sourcefile~forsynth.f90 -->
+<g id="sourcefile~~drum_machine.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~tape_recorder_class.f90&#45;&gt;sourcefile~forsynth.f90</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M111.82,-52C103.21,-52 94.55,-52 86.37,-52"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="86.29,-48.5 76.29,-52 86.29,-55.5 86.29,-48.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefiledrum_machinef90EfferentGraph = svgPanZoom('#sourcefiledrum_machinef90EfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#EfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="EfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">! Forsynth: a multitracks stereo sound synthesis project</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="c">! License GPL-3.0-or-later</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="c">! Vincent Magnin, 2024-04-25</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">! Last modifications: 2024-06-02</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="c">! A rhythm following a pattern stored in an array.</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="k">program </span><span class="n">drum_machine</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">    </span><span class="k">use </span><span class="n">forsynth</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">    </span><span class="k">use </span><span class="n">wav_file_class</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">WAV_file</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">    </span><span class="k">use </span><span class="n">signals</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">add_karplus_strong_drum</span><span class="p">,</span><span class="w"> </span><span class="n">add_karplus_strong_drum_stretched</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">    </span><span class="k">implicit none</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="k">    type</span><span class="p">(</span><span class="n">WAV_file</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">demo</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.25_wp</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">    </span><span class="c">! Each line is a different drum:</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">&amp;</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">        </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">        </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="p">&amp;</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">        </span><span class="nb">shape</span><span class="p">(</span><span class="n">pattern</span><span class="p">),</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Demo Drum Machine****&quot;</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;drum_machine.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="mi">3</span><span class="mf">3._wp</span><span class="p">)</span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">tape</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">)</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">    </span><span class="c">! A rhythm following the above pattern:</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0._wp</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="w">        </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">            </span><span class="c">! We use one track for each kind of drum:</span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pattern</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-36" name="ln-36" href="#ln-36"></a><span class="k">                call </span><span class="n">add_karplus_strong_drum</span><span class="p">(</span><span class="w">          </span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">=</span><span class="n">t</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">1._wp</span><span class="p">)</span>
+<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="w">            </span><span class="k">end if</span>
+<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">pattern</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-39" name="ln-39" href="#ln-39"></a><span class="k">                call </span><span class="n">add_karplus_strong_drum</span><span class="p">(</span><span class="w">          </span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">=</span><span class="n">t</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">1._wp</span><span class="p">)</span>
+<a id="ln-40" name="ln-40" href="#ln-40"></a><span class="w">            </span><span class="k">end if</span>
+<a id="ln-41" name="ln-41" href="#ln-41"></a><span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">pattern</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-42" name="ln-42" href="#ln-42"></a><span class="k">                call </span><span class="n">add_karplus_strong_drum_stretched</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">=</span><span class="n">t</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">0.5_wp</span><span class="p">)</span>
+<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="w">            </span><span class="k">end if</span>
+<a id="ln-44" name="ln-44" href="#ln-44"></a><span class="k">            </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">step</span>
+<a id="ln-45" name="ln-45" href="#ln-45"></a><span class="w">        </span><span class="k">end do</span>
+<a id="ln-46" name="ln-46" href="#ln-46"></a><span class="k">    end do</span>
+<a id="ln-47" name="ln-47" href="#ln-47"></a>
+<a id="ln-48" name="ln-48" href="#ln-48"></a><span class="k">    end associate</span>
+<a id="ln-49" name="ln-49" href="#ln-49"></a>
+<a id="ln-50" name="ln-50" href="#ln-50"></a><span class="k">    print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Final mix...&quot;</span>
+<a id="ln-51" name="ln-51" href="#ln-51"></a><span class="w">    </span><span class="c">! The three drums are positionned on the left, the center and the right:</span>
+<a id="ln-52" name="ln-52" href="#ln-52"></a><span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">mix_tracks</span><span class="p">(</span><span class="n">pan</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5_wp</span><span class="p">,</span><span class="w"> </span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="mf">0.5_wp</span><span class="p">])</span>
+<a id="ln-53" name="ln-53" href="#ln-53"></a><span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">close_WAV_file</span><span class="p">()</span>
+<a id="ln-54" name="ln-54" href="#ln-54"></a>
+<a id="ln-55" name="ln-55" href="#ln-55"></a><span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s2">&quot;You can now play the file &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span>
+<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="k">end program </span><span class="n">drum_machine</span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

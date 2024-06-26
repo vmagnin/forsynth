@@ -1,0 +1,1122 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>shepard_scale &ndash; ForMIDI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>shepard_scale      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 7.6% of total for programs.">49 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/shepard_scale.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/shepard_scale.f90.html'>shepard_scale.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">shepard_scale</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-amp~14">Amp</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-l">L</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-lmax">Lmax</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-lmin">Lmin</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-c~3">c</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-cmax">cmax</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-d">d</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-demo~7">demo</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-ds">ds</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-f~10">f</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-fmin">fmin</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-i~17">i</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-k~2">k</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-kmax">kmax</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-omega~5">omega</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-t~13">t</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-teta">teta</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-ti">ti</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-ti0">ti0</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-tmax">tmax</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/shepard_scale.html#src">shepard_scale</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
+                  <li class="list-inline-item"><a href='../module/audio_effects.html'>audio_effects</a></li>
+                  <li class="list-inline-item"><a href='../module/forsynth.html'>forsynth</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~shepard_scale~~UsesGraph Pages: 1 -->
+<svg id="programshepard_scaleUsesGraph" width="597pt" height="104pt"
+ viewBox="0.00 0.00 597.00 103.78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~shepard_scale~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 99.78)">
+<title>program~~shepard_scale~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-99.78 593,-99.78 593,4 -4,4"/>
+<!-- program~shepard_scale -->
+<g id="program~~shepard_scale~~UsesGraph_node1" class="node">
+<title>program~shepard_scale</title>
+<polygon fill="none" stroke="black" points="589,-53.78 500,-53.78 500,-29.78 589,-29.78 589,-53.78"/>
+<text text-anchor="middle" x="544.5" y="-39.38" font-family="Helvetica,sans-Serif" font-size="10.50">shepard_scale</text>
+</g>
+<!-- module~audio_effects -->
+<g id="program~~shepard_scale~~UsesGraph_node2" class="node">
+<title>module~audio_effects</title>
+<g id="a_program~~shepard_scale~~UsesGraph_node2"><a xlink:href="../module/audio_effects.html" xlink:title="audio_effects">
+<polygon fill="#337ab7" stroke="#337ab7" points="462.5,-95.78 378.5,-95.78 378.5,-71.78 462.5,-71.78 462.5,-95.78"/>
+<text text-anchor="middle" x="420.5" y="-81.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">audio_effects</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~audio_effects -->
+<g id="program~~shepard_scale~~UsesGraph_edge1" class="edge">
+<title>program~shepard_scale&#45;&gt;module~audio_effects</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M508.54,-53.82C495.27,-58.39 479.97,-63.65 465.94,-68.48"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="464.78,-65.18 456.47,-71.74 467.06,-71.8 464.78,-65.18"/>
+</g>
+<!-- module~forsynth -->
+<g id="program~~shepard_scale~~UsesGraph_node3" class="node">
+<title>module~forsynth</title>
+<g id="a_program~~shepard_scale~~UsesGraph_node3"><a xlink:href="../module/forsynth.html" xlink:title="forsynth">
+<polygon fill="#337ab7" stroke="#337ab7" points="186,-54.78 130,-54.78 130,-30.78 186,-30.78 186,-54.78"/>
+<text text-anchor="middle" x="158" y="-40.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~forsynth -->
+<g id="program~~shepard_scale~~UsesGraph_edge2" class="edge">
+<title>program~shepard_scale&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M503.89,-29.68C452.92,-15.49 361.49,5.25 282.5,-1.78"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M280.5,-1.78C249.46,-3.94 216.11,-15.96 192.21,-26.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="190.57,-23.33 182.9,-30.64 193.46,-29.71 190.57,-23.33"/>
+</g>
+<!-- module~wav_file_class -->
+<g id="program~~shepard_scale~~UsesGraph_node4" class="node">
+<title>module~wav_file_class</title>
+<g id="a_program~~shepard_scale~~UsesGraph_node4"><a xlink:href="../module/wav_file_class.html" xlink:title="wav_file_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="464,-53.78 377,-53.78 377,-29.78 464,-29.78 464,-53.78"/>
+<text text-anchor="middle" x="420.5" y="-39.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;module~wav_file_class -->
+<g id="program~~shepard_scale~~UsesGraph_edge3" class="edge">
+<title>program~shepard_scale&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M499.8,-41.78C491.54,-41.78 482.81,-41.78 474.3,-41.78"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="474.08,-38.28 464.08,-41.78 474.08,-45.28 474.08,-38.28"/>
+</g>
+<!-- module~audio_effects&#45;&gt;module~forsynth -->
+<g id="program~~shepard_scale~~UsesGraph_edge4" class="edge">
+<title>module~audio_effects&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M378.24,-82.25C337.99,-80.14 275.24,-75.2 222,-63.78 213.41,-61.94 204.36,-59.33 195.87,-56.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="196.83,-53.21 186.23,-53.32 194.58,-59.84 196.83,-53.21"/>
+</g>
+<!-- module~tape_recorder_class -->
+<g id="program~~shepard_scale~~UsesGraph_node6" class="node">
+<title>module~tape_recorder_class</title>
+<g id="a_program~~shepard_scale~~UsesGraph_node6"><a xlink:href="../module/tape_recorder_class.html" xlink:title="tape_recorder_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="341,-54.78 222,-54.78 222,-30.78 341,-30.78 341,-54.78"/>
+<text text-anchor="middle" x="281.5" y="-40.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class</text>
+</a>
+</g>
+</g>
+<!-- module~audio_effects&#45;&gt;module~tape_recorder_class -->
+<g id="program~~shepard_scale~~UsesGraph_edge5" class="edge">
+<title>module~audio_effects&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M379.14,-71.7C364.63,-67.36 348.09,-62.41 332.85,-57.85"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="333.63,-54.43 323.05,-54.92 331.63,-61.14 333.63,-54.43"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~shepard_scale~~UsesGraph_node5" class="node">
+<title>iso_fortran_env</title>
+<g id="a_program~~shepard_scale~~UsesGraph_node5"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-54.78 0,-54.78 0,-30.78 94,-30.78 94,-54.78"/>
+<text text-anchor="middle" x="47" y="-40.38" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth&#45;&gt;iso_fortran_env -->
+<g id="program~~shepard_scale~~UsesGraph_edge6" class="edge">
+<title>module~forsynth&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M129.78,-42.78C122.07,-42.78 113.39,-42.78 104.63,-42.78"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="104.37,-39.28 94.37,-42.78 104.37,-46.28 104.37,-39.28"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~forsynth -->
+<g id="program~~shepard_scale~~UsesGraph_edge7" class="edge">
+<title>module~wav_file_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M397.24,-29.78C370.55,-16.69 324.21,1.93 282.5,-1.78"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~tape_recorder_class -->
+<g id="program~~shepard_scale~~UsesGraph_edge8" class="edge">
+<title>module~wav_file_class&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M376.9,-42.09C368.77,-42.15 360.07,-42.22 351.36,-42.28"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="351.15,-38.78 341.17,-42.35 351.2,-45.78 351.15,-38.78"/>
+</g>
+<!-- module~tape_recorder_class&#45;&gt;module~forsynth -->
+<g id="program~~shepard_scale~~UsesGraph_edge9" class="edge">
+<title>module~tape_recorder_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M221.89,-42.78C213.19,-42.78 204.44,-42.78 196.35,-42.78"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="196.14,-39.28 186.14,-42.78 196.14,-46.28 196.14,-39.28"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~shepard_scale~~CallsGraph Pages: 1 -->
+<svg id="programshepard_scaleCallsGraph" width="641pt" height="181pt"
+ viewBox="0.00 0.00 641.00 180.56" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~shepard_scale~~CallsGraph" class="graph" transform="scale(1.11 1.11) rotate(0) translate(4 196)">
+<title>program~~shepard_scale~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-196 706,-196 706,4 -4,4"/>
+<!-- program~shepard_scale -->
+<g id="program~~shepard_scale~~CallsGraph_node1" class="node">
+<title>program~shepard_scale</title>
+<polygon fill="none" stroke="black" points="89,-108 0,-108 0,-84 89,-84 89,-108"/>
+<text text-anchor="middle" x="44.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">shepard_scale</text>
+</g>
+<!-- proc~apply_reverse_effect -->
+<g id="program~~shepard_scale~~CallsGraph_node2" class="node">
+<title>proc~apply_reverse_effect</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node2"><a xlink:href="../proc/apply_reverse_effect.html" xlink:title="apply_reverse_effect">
+<polygon fill="#d9534f" stroke="#d9534f" points="263.5,-192 140.5,-192 140.5,-168 263.5,-168 263.5,-192"/>
+<text text-anchor="middle" x="202" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_reverse_effect</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~apply_reverse_effect -->
+<g id="program~~shepard_scale~~CallsGraph_edge1" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~apply_reverse_effect</title>
+<path fill="none" stroke="#ff0000" d="M57.61,-108.21C72.32,-122.39 98.46,-145.53 125,-159 128.95,-161.01 133.12,-162.84 137.38,-164.52"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="136.24,-167.82 146.83,-167.93 138.62,-161.24 136.24,-167.82"/>
+</g>
+<!-- proc~close_wav_file -->
+<g id="program~~shepard_scale~~CallsGraph_node3" class="node">
+<title>proc~close_wav_file</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node3"><a xlink:href="../proc/close_wav_file.html" xlink:title="WAV_file%close_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="275.5,-150 128.5,-150 128.5,-126 275.5,-126 275.5,-150"/>
+<text text-anchor="middle" x="202" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%close_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~close_wav_file -->
+<g id="program~~shepard_scale~~CallsGraph_edge2" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M89.23,-107.81C107.05,-112.62 127.83,-118.24 146.62,-123.31"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="145.95,-126.76 156.52,-125.99 147.78,-120 145.95,-126.76"/>
+</g>
+<!-- proc~create_wav_file -->
+<g id="program~~shepard_scale~~CallsGraph_node4" class="node">
+<title>proc~create_wav_file</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node4"><a xlink:href="../proc/create_wav_file.html" xlink:title="WAV_file%create_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="278.5,-108 125.5,-108 125.5,-84 278.5,-84 278.5,-108"/>
+<text text-anchor="middle" x="202" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%create_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~create_wav_file -->
+<g id="program~~shepard_scale~~CallsGraph_edge3" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M89.23,-96C97.39,-96 106.17,-96 115.09,-96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="115.21,-99.5 125.21,-96 115.21,-92.5 115.21,-99.5"/>
+</g>
+<!-- proc~get_name -->
+<g id="program~~shepard_scale~~CallsGraph_node5" class="node">
+<title>proc~get_name</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node5"><a xlink:href="../proc/get_name.html" xlink:title="WAV_file%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="262.5,-66 141.5,-66 141.5,-42 262.5,-42 262.5,-66"/>
+<text text-anchor="middle" x="202" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%get_name</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~get_name -->
+<g id="program~~shepard_scale~~CallsGraph_edge4" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0000" d="M89.23,-84.19C107.05,-79.38 127.83,-73.76 146.62,-68.69"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="147.78,-72 156.52,-66.01 145.95,-65.24 147.78,-72"/>
+</g>
+<!-- proc~mix_tracks -->
+<g id="program~~shepard_scale~~CallsGraph_node6" class="node">
+<title>proc~mix_tracks</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node6"><a xlink:href="../proc/mix_tracks.html" xlink:title="tape_recorder%mix_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="279,-24 125,-24 125,0 279,0 279,-24"/>
+<text text-anchor="middle" x="202" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%mix_tracks</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~mix_tracks -->
+<g id="program~~shepard_scale~~CallsGraph_edge5" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff0000" d="M57.61,-83.79C72.32,-69.61 98.46,-46.47 125,-33 128.95,-30.99 133.12,-29.16 137.38,-27.48"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="138.62,-30.76 146.83,-24.07 136.24,-24.18 138.62,-30.76"/>
+</g>
+<!-- proc~finalize -->
+<g id="program~~shepard_scale~~CallsGraph_node7" class="node">
+<title>proc~finalize</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node7"><a xlink:href="../proc/finalize.html" xlink:title="tape_recorder%finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="477.5,-192 341.5,-192 341.5,-168 477.5,-168 477.5,-192"/>
+<text text-anchor="middle" x="409.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%finalize</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~finalize -->
+<g id="program~~shepard_scale~~CallsGraph_edge6" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~finalize</title>
+<path fill="none" stroke="#cbff00" d="M261.89,-150.04C286.18,-155 314.5,-160.79 339.73,-165.95"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="339.11,-169.39 349.6,-167.96 340.51,-162.53 339.11,-169.39"/>
+</g>
+<!-- proc~write_normalized_data -->
+<g id="program~~shepard_scale~~CallsGraph_node10" class="node">
+<title>proc~write_normalized_data</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node10"><a xlink:href="../proc/write_normalized_data.html" xlink:title="WAV_file%write_normalized_data">
+<polygon fill="#d9534f" stroke="#d9534f" points="504,-150 315,-150 315,-126 504,-126 504,-150"/>
+<text text-anchor="middle" x="409.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_normalized_data</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~write_normalized_data -->
+<g id="program~~shepard_scale~~CallsGraph_edge7" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~write_normalized_data</title>
+<path fill="none" stroke="#cbff00" d="M275.74,-138C285.17,-138 294.96,-138 304.77,-138"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="304.98,-141.5 314.98,-138 304.98,-134.5 304.98,-141.5"/>
+</g>
+<!-- proc~new -->
+<g id="program~~shepard_scale~~CallsGraph_node8" class="node">
+<title>proc~new</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node8"><a xlink:href="../proc/new.html" xlink:title="tape_recorder%new">
+<polygon fill="#d9534f" stroke="#d9534f" points="469,-108 350,-108 350,-84 469,-84 469,-108"/>
+<text text-anchor="middle" x="409.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%new</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~new -->
+<g id="program~~shepard_scale~~CallsGraph_edge8" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~new</title>
+<path fill="none" stroke="#00ff66" d="M278.65,-96C298.62,-96 320.07,-96 339.67,-96"/>
+<polygon fill="#00ff66" stroke="#00ff66" points="339.73,-99.5 349.73,-96 339.73,-92.5 339.73,-99.5"/>
+</g>
+<!-- proc~write_header -->
+<g id="program~~shepard_scale~~CallsGraph_node9" class="node">
+<title>proc~write_header</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node9"><a xlink:href="../proc/write_header.html" xlink:title="WAV_file%write_header">
+<polygon fill="#d9534f" stroke="#d9534f" points="478.5,-66 340.5,-66 340.5,-42 478.5,-42 478.5,-66"/>
+<text text-anchor="middle" x="409.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_header</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~write_header -->
+<g id="program~~shepard_scale~~CallsGraph_edge9" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~write_header</title>
+<path fill="none" stroke="#00ff66" d="M261.89,-83.96C286.18,-79 314.5,-73.21 339.73,-68.05"/>
+<polygon fill="#00ff66" stroke="#00ff66" points="340.51,-71.47 349.6,-66.04 339.11,-64.61 340.51,-71.47"/>
+</g>
+<!-- proc~clear_tracks -->
+<g id="program~~shepard_scale~~CallsGraph_node11" class="node">
+<title>proc~clear_tracks</title>
+<g id="a_program~~shepard_scale~~CallsGraph_node11"><a xlink:href="../proc/clear_tracks.html" xlink:title="tape_recorder%clear_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="702,-108 540,-108 540,-84 702,-84 702,-108"/>
+<text text-anchor="middle" x="621" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%clear_tracks</text>
+</a>
+</g>
+</g>
+<!-- proc~new&#45;&gt;proc~clear_tracks -->
+<g id="program~~shepard_scale~~CallsGraph_edge10" class="edge">
+<title>proc~new&#45;&gt;proc~clear_tracks</title>
+<path fill="none" stroke="#7fff00" d="M469.14,-96C487.96,-96 509.28,-96 529.83,-96"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="529.84,-99.5 539.84,-96 529.84,-92.5 529.84,-99.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramshepard_scaleCallsGraph = svgPanZoom('#programshepard_scaleCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-amp~14"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Amp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>L</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lmax"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>Lmax</strong></td>
+<td> =</td>
+                <td>56._wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lmin"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>Lmin</strong></td>
+<td> =</td>
+                <td>22._wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cmax"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>cmax</strong></td>
+<td> =</td>
+                <td>12</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>d</strong></td>
+<td> =</td>
+                <td>0.125_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-demo~7"></span>
+              type(<a href='../type/wav_file.html'>WAV_file</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>demo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ds"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ds</strong></td>
+<td> =</td>
+                <td>0.840_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~10"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fmin"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>fmin</strong></td>
+<td> =</td>
+                <td>4.863_wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~17"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kmax"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>kmax</strong></td>
+<td> =</td>
+                <td>9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-omega~5"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>omega</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~13"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-teta"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>teta</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ti"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ti</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ti0"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ti0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmax"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>tmax</strong></td>
+<td> =</td>
+                <td>12</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">shepard_scale</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forsynth</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">RATE</span><span class="p">,</span><span class="w"> </span><span class="n">PI</span>
+<span class="w">    </span><span class="k">use </span><span class="n">wav_file_class</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">WAV_file</span>
+<span class="w">    </span><span class="k">use </span><span class="n">audio_effects</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">apply_reverse_effect</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">WAV_file</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">demo</span>
+<span class="w">    </span><span class="c">! Time in seconds:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ti</span><span class="p">,</span><span class="w"> </span><span class="n">ti0</span>
+<span class="w">    </span><span class="c">! Pulsation (radians/second):</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">omega</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Amp</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span>
+<span class="w">    </span><span class="c">!--------------------------</span>
+<span class="w">    </span><span class="c">! Shepard scale parameters:</span>
+<span class="w">    </span><span class="c">!--------------------------</span>
+<span class="w">    </span><span class="c">! t th tone:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span>
+<span class="w">    </span><span class="c">! Components of each tone:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">c</span>
+<span class="w">    </span><span class="c">! The number of components was 10 in the paper, but the bandwidth was</span>
+<span class="w">    </span><span class="c">! 5 kHz instead of 20 kHz. We have therefore added two octaves:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">cmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span>
+<span class="w">    </span><span class="c">! Sound pressure levels in dB for the components:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">L</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Lmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="mf">2._wp</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Lmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="mf">6._wp</span>
+<span class="w">    </span><span class="c">! Frequency of the lowest component of the first tone:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.863_wp</span><span class="w">      </span><span class="c">! D#</span>
+<span class="w">    </span><span class="c">! Duration of a tone and of the following silence:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.125_wp</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.840_wp</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">teta</span><span class="p">,</span><span class="w"> </span><span class="n">f</span>
+<span class="w">    </span><span class="c">! Number of repetitions:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w">  </span><span class="n">kmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating shepard_scale.wav ****&quot;</span>
+<span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;shepard_scale.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="mi">12</span><span class="mf">0._wp</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">tape</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Repeat the Shepard scale:</span>
+<span class="w">    </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">kmax</span>
+<span class="w">        </span><span class="c">! Tones loop:</span>
+<span class="w">        </span><span class="k">do </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">tmax</span>
+<span class="w">            </span><span class="c">! Components loop:</span>
+<span class="w">            </span><span class="k">do </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">cmax</span>
+<span class="w">                </span><span class="c">! Equations from the Shepard paper:</span>
+<span class="w">                </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2._wp</span><span class="o">**</span><span class="p">(((</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">tmax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">tmax</span><span class="p">,</span><span class="w"> </span><span class="nb">kind</span><span class="o">=</span><span class="n">wp</span><span class="p">))</span>
+<span class="w">                </span><span class="n">omega</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">f</span>
+<span class="w">                </span><span class="n">teta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">tmax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">tmax</span><span class="o">*</span><span class="n">cmax</span><span class="p">)</span>
+<span class="w">                </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lmin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Lmax</span><span class="o">-</span><span class="n">Lmin</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1._wp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">teta</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2._wp</span>
+<span class="w">                </span><span class="c">! Converting dB to linear amplitude:</span>
+<span class="w">                </span><span class="n">Amp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">0._wp</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="mf">0._wp</span><span class="p">)</span>
+
+<span class="w">                </span><span class="c">! Writing a sinusoidal signal at ti0, for a duration d.</span>
+<span class="w">                </span><span class="c">! We do not write silences (the tape is initially silent).</span>
+<span class="w">                </span><span class="n">ti0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="o">*</span><span class="n">tmax</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ds</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ds</span><span class="p">)</span>
+<span class="w">                </span><span class="n">ti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ti0</span>
+<span class="w">                </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">ti0</span><span class="o">*</span><span class="n">RATE</span><span class="p">),</span><span class="w"> </span><span class="nb">nint</span><span class="p">((</span><span class="n">ti0</span><span class="o">+</span><span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="n">RATE</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">                    </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Amp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">ti</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">ti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ti</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span>
+<span class="w">                </span><span class="k">end do</span>
+<span class="k">            end do</span>
+<span class="k">        end do</span>
+<span class="k">    end do</span>
+<span class="k">    </span><span class="n">tape</span><span class="p">%</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span>
+<span class="w">    </span><span class="c">! The 2nd half of the track is reversed to obtain an ever decreasing pitch:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">apply_reverse_effect</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">kmax</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">tmax</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="n">ds</span><span class="p">),</span><span class="w"> </span><span class="n">t2</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">kmax</span><span class="p">)</span><span class="o">*</span><span class="n">tmax</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="n">ds</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end associate</span>
+
+<span class="w">    </span><span class="c">! All tracks will be mixed on track 0.</span>
+<span class="w">    </span><span class="c">! Needed even if there is only one track!</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">mix_tracks</span><span class="p">()</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">close_WAV_file</span><span class="p">()</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s2">&quot;You can now play the file &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span>
+<span class="k">end program </span><span class="n">shepard_scale</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

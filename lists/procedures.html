@@ -1,0 +1,1591 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran MIDI sequencer for composing music, exploring algorithmic music and music theory.">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Procedures &ndash; ForMIDI
+</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMIDI <small>0.3.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Procedures</h1>
+			 <table class="table table-striped">
+			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr>
+                 <td><a href='../proc/add_broken_chord.html'>add_broken_chord</a></td>
+                 <td><a href='../module/music.html'>music</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_chord.html'>add_chord</a></td>
+                 <td><a href='../module/music.html'>music</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_karplus_strong.html'>add_karplus_strong</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_karplus_strong_drum.html'>add_karplus_strong_drum</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_karplus_strong_drum_stretched.html'>add_karplus_strong_drum_stretched</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_karplus_strong_stretched.html'>add_karplus_strong_stretched</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_misc_signal.html'>add_misc_signal</a></td>
+                 <td><a href='../program/misc_sounds.html'>misc_sounds</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_noise.html'>add_noise</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_note.html'>add_note</a></td>
+                 <td><a href='../module/music.html'>music</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_sawtooth_wave.html'>add_sawtooth_wave</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_sine_wave.html'>add_sine_wave</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_square_wave.html'>add_square_wave</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_triangle_wave.html'>add_triangle_wave</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/add_weierstrass.html'>add_weierstrass</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/adsr_level.html'>ADSR_level</a></td>
+                 <td><a href='../module/envelopes.html'>envelopes</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/adsr_new.html'>ADSR_new</a></td>
+                 <td><a href='../module/envelopes.html'>envelopes</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/amplitude.html'>amplitude</a></td>
+                 <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/apply_autopan_effect.html'>apply_autopan_effect</a></td>
+                 <td><a href='../module/audio_effects.html'>audio_effects</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/apply_delay_effect.html'>apply_delay_effect</a></td>
+                 <td><a href='../module/audio_effects.html'>audio_effects</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/apply_fade_in.html'>apply_fade_in</a></td>
+                 <td><a href='../module/envelopes.html'>envelopes</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/apply_fade_out.html'>apply_fade_out</a></td>
+                 <td><a href='../module/envelopes.html'>envelopes</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/apply_fuzz_effect.html'>apply_fuzz_effect</a></td>
+                 <td><a href='../module/audio_effects.html'>audio_effects</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/apply_reverse_effect.html'>apply_reverse_effect</a></td>
+                 <td><a href='../module/audio_effects.html'>audio_effects</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/apply_tremolo_effect.html'>apply_tremolo_effect</a></td>
+                 <td><a href='../module/audio_effects.html'>audio_effects</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/auto_finalize.html'>auto_finalize</a></td>
+                 <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/clear_tracks.html'>clear_tracks</a></td>
+                 <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/close_wav_file.html'>close_WAV_file</a></td>
+                 <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/copy_section.html'>copy_section</a></td>
+                 <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/create_wav_file.html'>create_WAV_file</a></td>
+                 <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/finalize.html'>finalize</a></td>
+                 <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fr.html'>fr</a></td>
+                 <td><a href='../module/music.html'>music</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/get_name.html'>get_name</a></td>
+                 <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/initialize_frequencies.html'>initialize_frequencies</a></td>
+                 <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/linear1.html'>linear1</a></td>
+                 <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/linear2.html'>linear2</a></td>
+                 <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mix_tracks.html'>mix_tracks</a></td>
+                 <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/new.html'>new</a></td>
+                 <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/test_the_machine.html'>test_the_machine</a></td>
+                 <td><a href='../module/forsynth.html'>forsynth</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/the_solution.html'>the_solution</a></td>
+                 <td><a href='../program/doppler_effect.html'>doppler_effect</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/weierstrass.html'>weierstrass</a></td>
+                 <td><a href='../module/signals.html'>signals</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/write_amplitude_envelope.html'>write_amplitude_envelope</a></td>
+                 <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/write_header.html'>write_header</a></td>
+                 <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/write_normalized_data.html'>write_normalized_data</a></td>
+                 <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: call~~graph~~CallGraph Pages: 1 -->
+<svg id="callgraphCallGraph" width="855pt" height="1185pt"
+ viewBox="0.00 0.00 855.00 1184.98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="call~~graph~~CallGraph" class="graph" transform="scale(1.2 1.2) rotate(0) translate(4 1420.74)">
+<title>call~~graph~~CallGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1420.74 1024,-1420.74 1024,4 -4,4"/>
+<!-- proc~add_broken_chord -->
+<g id="call~~graph~~CallGraph_node1" class="node">
+<title>proc~add_broken_chord</title>
+<g id="a_call~~graph~~CallGraph_node1"><a xlink:href="../proc/add_broken_chord.html" xlink:title="add_broken_chord">
+<polygon fill="#d9534f" stroke="#d9534f" points="346.5,-545 235.5,-545 235.5,-521 346.5,-521 346.5,-545"/>
+<text text-anchor="middle" x="291" y="-530.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_broken_chord</text>
+</a>
+</g>
+</g>
+<!-- proc~add_karplus_strong -->
+<g id="call~~graph~~CallGraph_node3" class="node">
+<title>proc~add_karplus_strong</title>
+<g id="a_call~~graph~~CallGraph_node3"><a xlink:href="../proc/add_karplus_strong.html" xlink:title="add_karplus_strong">
+<polygon fill="#d9534f" stroke="#d9534f" points="581,-669 466,-669 466,-645 581,-645 581,-669"/>
+<text text-anchor="middle" x="523.5" y="-654.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_karplus_strong</text>
+</a>
+</g>
+</g>
+<!-- proc~add_broken_chord&#45;&gt;proc~add_karplus_strong -->
+<g id="call~~graph~~CallGraph_edge1" class="edge">
+<title>proc~add_broken_chord&#45;&gt;proc~add_karplus_strong</title>
+<path fill="none" stroke="#ff0000" d="M346.7,-539.56C362.15,-542.68 378.65,-547.27 393,-554 437.63,-574.93 480.62,-614.08 504.11,-637.62"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="501.8,-640.27 511.3,-644.96 506.8,-635.37 501.8,-640.27"/>
+</g>
+<!-- proc~add_chord -->
+<g id="call~~graph~~CallGraph_node2" class="node">
+<title>proc~add_chord</title>
+<g id="a_call~~graph~~CallGraph_node2"><a xlink:href="../proc/add_chord.html" xlink:title="add_chord">
+<polygon fill="#d9534f" stroke="#d9534f" points="325.5,-873 256.5,-873 256.5,-849 325.5,-849 325.5,-873"/>
+<text text-anchor="middle" x="291" y="-858.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_chord</text>
+</a>
+</g>
+</g>
+<!-- proc~add_note -->
+<g id="call~~graph~~CallGraph_node9" class="node">
+<title>proc~add_note</title>
+<g id="a_call~~graph~~CallGraph_node9"><a xlink:href="../proc/add_note.html" xlink:title="add_note">
+<polygon fill="#d9534f" stroke="#d9534f" points="554.5,-976 492.5,-976 492.5,-952 554.5,-952 554.5,-976"/>
+<text text-anchor="middle" x="523.5" y="-961.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_note</text>
+</a>
+</g>
+</g>
+<!-- proc~add_chord&#45;&gt;proc~add_note -->
+<g id="call~~graph~~CallGraph_edge2" class="edge">
+<title>proc~add_chord&#45;&gt;proc~add_note</title>
+<path fill="none" stroke="#ff1c00" d="M325.63,-864.9C345.71,-867.98 371.42,-873.26 393,-882 433.16,-898.26 474.61,-927 499.47,-945.78"/>
+<polygon fill="#ff1c00" stroke="#ff1c00" points="497.48,-948.66 507.55,-951.96 501.74,-943.1 497.48,-948.66"/>
+</g>
+<!-- proc~add_karplus_strong_drum -->
+<g id="call~~graph~~CallGraph_node4" class="node">
+<title>proc~add_karplus_strong_drum</title>
+<g id="a_call~~graph~~CallGraph_node4"><a xlink:href="../proc/add_karplus_strong_drum.html" xlink:title="add_karplus_strong_drum">
+<polygon fill="#d9534f" stroke="#d9534f" points="365.5,-255 216.5,-255 216.5,-231 365.5,-231 365.5,-255"/>
+<text text-anchor="middle" x="291" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_karplus_strong_drum</text>
+</a>
+</g>
+</g>
+<!-- proc~add_karplus_strong_drum_stretched -->
+<g id="call~~graph~~CallGraph_node5" class="node">
+<title>proc~add_karplus_strong_drum_stretched</title>
+<g id="a_call~~graph~~CallGraph_node5"><a xlink:href="../proc/add_karplus_strong_drum_stretched.html" xlink:title="add_karplus_strong_drum_stretched">
+<polygon fill="#d9534f" stroke="#d9534f" points="393,-213 189,-213 189,-189 393,-189 393,-213"/>
+<text text-anchor="middle" x="291" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_karplus_strong_drum_stretched</text>
+</a>
+</g>
+</g>
+<!-- proc~add_karplus_strong_stretched -->
+<g id="call~~graph~~CallGraph_node6" class="node">
+<title>proc~add_karplus_strong_stretched</title>
+<g id="a_call~~graph~~CallGraph_node6"><a xlink:href="../proc/add_karplus_strong_stretched.html" xlink:title="add_karplus_strong_stretched">
+<polygon fill="#d9534f" stroke="#d9534f" points="376,-1235 206,-1235 206,-1211 376,-1211 376,-1235"/>
+<text text-anchor="middle" x="291" y="-1220.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_karplus_strong_stretched</text>
+</a>
+</g>
+</g>
+<!-- proc~add_misc_signal -->
+<g id="call~~graph~~CallGraph_node7" class="node">
+<title>proc~add_misc_signal</title>
+<g id="a_call~~graph~~CallGraph_node7"><a xlink:href="../proc/add_misc_signal.html" xlink:title="add_misc_signal">
+<polygon fill="#d9534f" stroke="#d9534f" points="341,-629 241,-629 241,-605 341,-605 341,-629"/>
+<text text-anchor="middle" x="291" y="-614.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_misc_signal</text>
+</a>
+</g>
+</g>
+<!-- proc~add_noise -->
+<g id="call~~graph~~CallGraph_node8" class="node">
+<title>proc~add_noise</title>
+<g id="a_call~~graph~~CallGraph_node8"><a xlink:href="../proc/add_noise.html" xlink:title="add_noise">
+<polygon fill="#d9534f" stroke="#d9534f" points="768.5,-1214 701.5,-1214 701.5,-1190 768.5,-1190 768.5,-1214"/>
+<text text-anchor="middle" x="735" y="-1199.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_noise</text>
+</a>
+</g>
+</g>
+<!-- proc~adsr_level -->
+<g id="call~~graph~~CallGraph_node15" class="node">
+<title>proc~adsr_level</title>
+<g id="a_call~~graph~~CallGraph_node15"><a xlink:href="../proc/adsr_level.html" xlink:title="ADSR_envelope%ADSR_level">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1020,-1242 852,-1242 852,-1218 1020,-1218 1020,-1242"/>
+<text text-anchor="middle" x="936" y="-1227.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ADSR_envelope%ADSR_level</text>
+</a>
+</g>
+</g>
+<!-- proc~add_noise&#45;&gt;proc~adsr_level -->
+<g id="call~~graph~~CallGraph_edge3" class="edge">
+<title>proc~add_noise&#45;&gt;proc~adsr_level</title>
+<path fill="none" stroke="#ffc600" d="M768.86,-1206.62C788.93,-1209.45 815.69,-1213.21 841.86,-1216.89"/>
+<polygon fill="#ffc600" stroke="#ffc600" points="841.45,-1220.37 851.84,-1218.3 842.43,-1213.44 841.45,-1220.37"/>
+</g>
+<!-- proc~add_sine_wave -->
+<g id="call~~graph~~CallGraph_node11" class="node">
+<title>proc~add_sine_wave</title>
+<g id="a_call~~graph~~CallGraph_node11"><a xlink:href="../proc/add_sine_wave.html" xlink:title="add_sine_wave">
+<polygon fill="#d9534f" stroke="#d9534f" points="781.5,-1119 688.5,-1119 688.5,-1095 781.5,-1095 781.5,-1119"/>
+<text text-anchor="middle" x="735" y="-1104.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_sine_wave</text>
+</a>
+</g>
+</g>
+<!-- proc~add_note&#45;&gt;proc~add_sine_wave -->
+<g id="call~~graph~~CallGraph_edge4" class="edge">
+<title>proc~add_note&#45;&gt;proc~add_sine_wave</title>
+<path fill="none" stroke="#ffe200" d="M542.36,-976.19C579.39,-1001.47 664.67,-1059.67 707.88,-1089.17"/>
+<polygon fill="#ffe200" stroke="#ffe200" points="705.95,-1092.09 716.18,-1094.84 709.9,-1086.31 705.95,-1092.09"/>
+</g>
+<!-- proc~add_sawtooth_wave -->
+<g id="call~~graph~~CallGraph_node10" class="node">
+<title>proc~add_sawtooth_wave</title>
+<g id="a_call~~graph~~CallGraph_node10"><a xlink:href="../proc/add_sawtooth_wave.html" xlink:title="add_sawtooth_wave">
+<polygon fill="#d9534f" stroke="#d9534f" points="794.5,-1165 675.5,-1165 675.5,-1141 794.5,-1141 794.5,-1165"/>
+<text text-anchor="middle" x="735" y="-1150.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_sawtooth_wave</text>
+</a>
+</g>
+</g>
+<!-- proc~add_sawtooth_wave&#45;&gt;proc~adsr_level -->
+<g id="call~~graph~~CallGraph_edge5" class="edge">
+<title>proc~add_sawtooth_wave&#45;&gt;proc~adsr_level</title>
+<path fill="none" stroke="#ffff00" d="M771.99,-1165.13C785.81,-1169.92 801.7,-1175.56 816,-1181 843.41,-1191.43 873.99,-1204.05 897.29,-1213.86"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="896.23,-1217.21 906.8,-1217.89 898.95,-1210.77 896.23,-1217.21"/>
+</g>
+<!-- proc~add_sine_wave&#45;&gt;proc~adsr_level -->
+<g id="call~~graph~~CallGraph_edge6" class="edge">
+<title>proc~add_sine_wave&#45;&gt;proc~adsr_level</title>
+<path fill="none" stroke="#e2ff00" d="M781.67,-1117.95C793.23,-1121.6 805.38,-1126.25 816,-1132 855.59,-1153.42 894.52,-1188.99 916.57,-1210.87"/>
+<polygon fill="#e2ff00" stroke="#e2ff00" points="914.11,-1213.36 923.64,-1218 919.08,-1208.43 914.11,-1213.36"/>
+</g>
+<!-- proc~add_square_wave -->
+<g id="call~~graph~~CallGraph_node12" class="node">
+<title>proc~add_square_wave</title>
+<g id="a_call~~graph~~CallGraph_node12"><a xlink:href="../proc/add_square_wave.html" xlink:title="add_square_wave">
+<polygon fill="#d9534f" stroke="#d9534f" points="788.5,-1393 681.5,-1393 681.5,-1369 788.5,-1369 788.5,-1393"/>
+<text text-anchor="middle" x="735" y="-1378.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_square_wave</text>
+</a>
+</g>
+</g>
+<!-- proc~add_square_wave&#45;&gt;proc~adsr_level -->
+<g id="call~~graph~~CallGraph_edge7" class="edge">
+<title>proc~add_square_wave&#45;&gt;proc~adsr_level</title>
+<path fill="none" stroke="#c6ff00" d="M785.95,-1369C796.31,-1365.36 806.86,-1360.76 816,-1355 860.84,-1326.76 900.52,-1277.88 920.77,-1250.35"/>
+<polygon fill="#c6ff00" stroke="#c6ff00" points="923.62,-1252.38 926.64,-1242.22 917.95,-1248.28 923.62,-1252.38"/>
+</g>
+<!-- proc~add_triangle_wave -->
+<g id="call~~graph~~CallGraph_node13" class="node">
+<title>proc~add_triangle_wave</title>
+<g id="a_call~~graph~~CallGraph_node13"><a xlink:href="../proc/add_triangle_wave.html" xlink:title="add_triangle_wave">
+<polygon fill="#d9534f" stroke="#d9534f" points="791,-1271 679,-1271 679,-1247 791,-1247 791,-1271"/>
+<text text-anchor="middle" x="735" y="-1256.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_triangle_wave</text>
+</a>
+</g>
+</g>
+<!-- proc~add_triangle_wave&#45;&gt;proc~adsr_level -->
+<g id="call~~graph~~CallGraph_edge8" class="edge">
+<title>proc~add_triangle_wave&#45;&gt;proc~adsr_level</title>
+<path fill="none" stroke="#aaff00" d="M791.17,-1250.96C807.03,-1248.65 824.79,-1246.06 842.27,-1243.51"/>
+<polygon fill="#aaff00" stroke="#aaff00" points="843.12,-1246.93 852.51,-1242.02 842.11,-1240 843.12,-1246.93"/>
+</g>
+<!-- proc~add_weierstrass -->
+<g id="call~~graph~~CallGraph_node14" class="node">
+<title>proc~add_weierstrass</title>
+<g id="a_call~~graph~~CallGraph_node14"><a xlink:href="../proc/add_weierstrass.html" xlink:title="add_weierstrass">
+<polygon fill="#d9534f" stroke="#d9534f" points="340,-1315 242,-1315 242,-1291 340,-1291 340,-1315"/>
+<text text-anchor="middle" x="291" y="-1300.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_weierstrass</text>
+</a>
+</g>
+</g>
+<!-- proc~add_weierstrass&#45;&gt;proc~adsr_level -->
+<g id="call~~graph~~CallGraph_edge9" class="edge">
+<title>proc~add_weierstrass&#45;&gt;proc~adsr_level</title>
+<path fill="none" stroke="#8dff00" d="M340.02,-1311.31C366.22,-1315.43 399.3,-1319.95 429,-1322 601.6,-1333.91 650.89,-1331.69 816,-1280 845.32,-1270.82 877.37,-1257.13 900.81,-1246.4"/>
+<polygon fill="#8dff00" stroke="#8dff00" points="902.38,-1249.53 909.98,-1242.15 899.44,-1243.18 902.38,-1249.53"/>
+</g>
+<!-- proc~weierstrass -->
+<g id="call~~graph~~CallGraph_node40" class="node">
+<title>proc~weierstrass</title>
+<g id="a_call~~graph~~CallGraph_node40"><a xlink:href="../proc/weierstrass.html" xlink:title="weierstrass">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="560,-1313 487,-1313 487,-1289 560,-1289 560,-1313"/>
+<text text-anchor="middle" x="523.5" y="-1298.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">weierstrass</text>
+</a>
+</g>
+</g>
+<!-- proc~add_weierstrass&#45;&gt;proc~weierstrass -->
+<g id="call~~graph~~CallGraph_edge10" class="edge">
+<title>proc~add_weierstrass&#45;&gt;proc~weierstrass</title>
+<path fill="none" stroke="#8dff00" d="M340.04,-1302.58C380.25,-1302.23 437.24,-1301.74 476.78,-1301.4"/>
+<polygon fill="#8dff00" stroke="#8dff00" points="476.98,-1304.9 486.94,-1301.31 476.91,-1297.9 476.98,-1304.9"/>
+</g>
+<!-- proc~adsr_new -->
+<g id="call~~graph~~CallGraph_node16" class="node">
+<title>proc~adsr_new</title>
+<g id="a_call~~graph~~CallGraph_node16"><a xlink:href="../proc/adsr_new.html" xlink:title="ADSR_envelope%ADSR_new">
+<polygon fill="#d9534f" stroke="#d9534f" points="373,-957 209,-957 209,-933 373,-933 373,-957"/>
+<text text-anchor="middle" x="291" y="-942.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ADSR_envelope%ADSR_new</text>
+</a>
+</g>
+</g>
+<!-- proc~amplitude -->
+<g id="call~~graph~~CallGraph_node17" class="node">
+<title>proc~amplitude</title>
+<g id="a_call~~graph~~CallGraph_node17"><a xlink:href="../proc/amplitude.html" xlink:title="amplitude">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="324.5,-45 257.5,-45 257.5,-21 324.5,-21 324.5,-45"/>
+<text text-anchor="middle" x="291" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">amplitude</text>
+</a>
+</g>
+</g>
+<!-- proc~linear1 -->
+<g id="call~~graph~~CallGraph_node34" class="node">
+<title>proc~linear1</title>
+<g id="a_call~~graph~~CallGraph_node34"><a xlink:href="../proc/linear1.html" xlink:title="linear1">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="550.5,-24 496.5,-24 496.5,0 550.5,0 550.5,-24"/>
+<text text-anchor="middle" x="523.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">linear1</text>
+</a>
+</g>
+</g>
+<!-- proc~amplitude&#45;&gt;proc~linear1 -->
+<g id="call~~graph~~CallGraph_edge11" class="edge">
+<title>proc~amplitude&#45;&gt;proc~linear1</title>
+<path fill="none" stroke="#38ff00" d="M324.54,-30.04C367.16,-26.15 441.68,-19.36 486.13,-15.31"/>
+<polygon fill="#38ff00" stroke="#38ff00" points="486.56,-18.79 496.2,-14.4 485.93,-11.82 486.56,-18.79"/>
+</g>
+<!-- proc~linear2 -->
+<g id="call~~graph~~CallGraph_node35" class="node">
+<title>proc~linear2</title>
+<g id="a_call~~graph~~CallGraph_node35"><a xlink:href="../proc/linear2.html" xlink:title="linear2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="550.5,-66 496.5,-66 496.5,-42 550.5,-42 550.5,-66"/>
+<text text-anchor="middle" x="523.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">linear2</text>
+</a>
+</g>
+</g>
+<!-- proc~amplitude&#45;&gt;proc~linear2 -->
+<g id="call~~graph~~CallGraph_edge12" class="edge">
+<title>proc~amplitude&#45;&gt;proc~linear2</title>
+<path fill="none" stroke="#38ff00" d="M324.54,-35.96C367.16,-39.85 441.68,-46.64 486.13,-50.69"/>
+<polygon fill="#38ff00" stroke="#38ff00" points="485.93,-54.18 496.2,-51.6 486.56,-47.21 485.93,-54.18"/>
+</g>
+<!-- proc~apply_autopan_effect -->
+<g id="call~~graph~~CallGraph_node18" class="node">
+<title>proc~apply_autopan_effect</title>
+<g id="a_call~~graph~~CallGraph_node18"><a xlink:href="../proc/apply_autopan_effect.html" xlink:title="apply_autopan_effect">
+<polygon fill="#d9534f" stroke="#d9534f" points="354.5,-999 227.5,-999 227.5,-975 354.5,-975 354.5,-999"/>
+<text text-anchor="middle" x="291" y="-984.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_autopan_effect</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_delay_effect -->
+<g id="call~~graph~~CallGraph_node19" class="node">
+<title>proc~apply_delay_effect</title>
+<g id="a_call~~graph~~CallGraph_node19"><a xlink:href="../proc/apply_delay_effect.html" xlink:title="apply_delay_effect">
+<polygon fill="#d9534f" stroke="#d9534f" points="347,-831 235,-831 235,-807 347,-807 347,-831"/>
+<text text-anchor="middle" x="291" y="-816.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_delay_effect</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_fade_in -->
+<g id="call~~graph~~CallGraph_node20" class="node">
+<title>proc~apply_fade_in</title>
+<g id="a_call~~graph~~CallGraph_node20"><a xlink:href="../proc/apply_fade_in.html" xlink:title="apply_fade_in">
+<polygon fill="#d9534f" stroke="#d9534f" points="334,-129 248,-129 248,-105 334,-105 334,-129"/>
+<text text-anchor="middle" x="291" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_fade_in</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_fade_out -->
+<g id="call~~graph~~CallGraph_node21" class="node">
+<title>proc~apply_fade_out</title>
+<g id="a_call~~graph~~CallGraph_node21"><a xlink:href="../proc/apply_fade_out.html" xlink:title="apply_fade_out">
+<polygon fill="#d9534f" stroke="#d9534f" points="338,-171 244,-171 244,-147 338,-147 338,-171"/>
+<text text-anchor="middle" x="291" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_fade_out</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_fuzz_effect -->
+<g id="call~~graph~~CallGraph_node22" class="node">
+<title>proc~apply_fuzz_effect</title>
+<g id="a_call~~graph~~CallGraph_node22"><a xlink:href="../proc/apply_fuzz_effect.html" xlink:title="apply_fuzz_effect">
+<polygon fill="#d9534f" stroke="#d9534f" points="343,-1041 239,-1041 239,-1017 343,-1017 343,-1041"/>
+<text text-anchor="middle" x="291" y="-1026.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_fuzz_effect</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_reverse_effect -->
+<g id="call~~graph~~CallGraph_node23" class="node">
+<title>proc~apply_reverse_effect</title>
+<g id="a_call~~graph~~CallGraph_node23"><a xlink:href="../proc/apply_reverse_effect.html" xlink:title="apply_reverse_effect">
+<polygon fill="#d9534f" stroke="#d9534f" points="352.5,-297 229.5,-297 229.5,-273 352.5,-273 352.5,-297"/>
+<text text-anchor="middle" x="291" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_reverse_effect</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_tremolo_effect -->
+<g id="call~~graph~~CallGraph_node24" class="node">
+<title>proc~apply_tremolo_effect</title>
+<g id="a_call~~graph~~CallGraph_node24"><a xlink:href="../proc/apply_tremolo_effect.html" xlink:title="apply_tremolo_effect">
+<polygon fill="#d9534f" stroke="#d9534f" points="353,-789 229,-789 229,-765 353,-765 353,-789"/>
+<text text-anchor="middle" x="291" y="-774.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_tremolo_effect</text>
+</a>
+</g>
+</g>
+<!-- proc~auto_finalize -->
+<g id="call~~graph~~CallGraph_node25" class="node">
+<title>proc~auto_finalize</title>
+<g id="a_call~~graph~~CallGraph_node25"><a xlink:href="../proc/auto_finalize.html" xlink:title="auto_finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="116.5,-1142 36.5,-1142 36.5,-1118 116.5,-1118 116.5,-1142"/>
+<text text-anchor="middle" x="76.5" y="-1127.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">auto_finalize</text>
+</a>
+</g>
+</g>
+<!-- proc~clear_tracks -->
+<g id="call~~graph~~CallGraph_node26" class="node">
+<title>proc~clear_tracks</title>
+<g id="a_call~~graph~~CallGraph_node26"><a xlink:href="../proc/clear_tracks.html" xlink:title="tape_recorder%clear_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="816,-339 654,-339 654,-315 816,-315 816,-339"/>
+<text text-anchor="middle" x="735" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%clear_tracks</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_node27" class="node">
+<title>proc~close_wav_file</title>
+<g id="a_call~~graph~~CallGraph_node27"><a xlink:href="../proc/close_wav_file.html" xlink:title="WAV_file%close_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.5,-423 217.5,-423 217.5,-399 364.5,-399 364.5,-423"/>
+<text text-anchor="middle" x="291" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%close_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- proc~finalize -->
+<g id="call~~graph~~CallGraph_node30" class="node">
+<title>proc~finalize</title>
+<g id="a_call~~graph~~CallGraph_node30"><a xlink:href="../proc/finalize.html" xlink:title="tape_recorder%finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="591.5,-423 455.5,-423 455.5,-399 591.5,-399 591.5,-423"/>
+<text text-anchor="middle" x="523.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%finalize</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~finalize -->
+<g id="call~~graph~~CallGraph_edge13" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~finalize</title>
+<path fill="none" stroke="#00ffe2" d="M364.62,-411C390.24,-411 419.15,-411 445.15,-411"/>
+<polygon fill="#00ffe2" stroke="#00ffe2" points="445.34,-414.5 455.34,-411 445.34,-407.5 445.34,-414.5"/>
+</g>
+<!-- proc~write_normalized_data -->
+<g id="call~~graph~~CallGraph_node43" class="node">
+<title>proc~write_normalized_data</title>
+<g id="a_call~~graph~~CallGraph_node43"><a xlink:href="../proc/write_normalized_data.html" xlink:title="WAV_file%write_normalized_data">
+<polygon fill="#d9534f" stroke="#d9534f" points="618,-465 429,-465 429,-441 618,-441 618,-465"/>
+<text text-anchor="middle" x="523.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_normalized_data</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~write_normalized_data -->
+<g id="call~~graph~~CallGraph_edge14" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~write_normalized_data</title>
+<path fill="none" stroke="#00ffe2" d="M358.05,-423.04C385.66,-428.07 417.91,-433.94 446.49,-439.15"/>
+<polygon fill="#00ffe2" stroke="#00ffe2" points="445.97,-442.61 456.44,-440.96 447.23,-435.73 445.97,-442.61"/>
+</g>
+<!-- proc~copy_section -->
+<g id="call~~graph~~CallGraph_node28" class="node">
+<title>proc~copy_section</title>
+<g id="a_call~~graph~~CallGraph_node28"><a xlink:href="../proc/copy_section.html" xlink:title="tape_recorder%copy_section">
+<polygon fill="#d9534f" stroke="#d9534f" points="374,-915 208,-915 208,-891 374,-891 374,-915"/>
+<text text-anchor="middle" x="291" y="-900.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%copy_section</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_node29" class="node">
+<title>proc~create_wav_file</title>
+<g id="a_call~~graph~~CallGraph_node29"><a xlink:href="../proc/create_wav_file.html" xlink:title="WAV_file%create_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.5,-381 214.5,-381 214.5,-357 367.5,-357 367.5,-381"/>
+<text text-anchor="middle" x="291" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%create_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- proc~new -->
+<g id="call~~graph~~CallGraph_node37" class="node">
+<title>proc~new</title>
+<g id="a_call~~graph~~CallGraph_node37"><a xlink:href="../proc/new.html" xlink:title="tape_recorder%new">
+<polygon fill="#d9534f" stroke="#d9534f" points="583,-339 464,-339 464,-315 583,-315 583,-339"/>
+<text text-anchor="middle" x="523.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%new</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~new -->
+<g id="call~~graph~~CallGraph_edge15" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~new</title>
+<path fill="none" stroke="#00e2ff" d="M358.05,-356.96C388.05,-351.5 423.53,-345.03 453.83,-339.51"/>
+<polygon fill="#00e2ff" stroke="#00e2ff" points="454.69,-342.91 463.9,-337.68 453.43,-336.03 454.69,-342.91"/>
+</g>
+<!-- proc~write_header -->
+<g id="call~~graph~~CallGraph_node42" class="node">
+<title>proc~write_header</title>
+<g id="a_call~~graph~~CallGraph_node42"><a xlink:href="../proc/write_header.html" xlink:title="WAV_file%write_header">
+<polygon fill="#d9534f" stroke="#d9534f" points="592.5,-381 454.5,-381 454.5,-357 592.5,-357 592.5,-381"/>
+<text text-anchor="middle" x="523.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_header</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~write_header -->
+<g id="call~~graph~~CallGraph_edge16" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~write_header</title>
+<path fill="none" stroke="#00e2ff" d="M367.79,-369C392.36,-369 419.64,-369 444.37,-369"/>
+<polygon fill="#00e2ff" stroke="#00e2ff" points="444.44,-372.5 454.44,-369 444.44,-365.5 444.44,-372.5"/>
+</g>
+<!-- proc~fr -->
+<g id="call~~graph~~CallGraph_node31" class="node">
+<title>proc~fr</title>
+<g id="a_call~~graph~~CallGraph_node31"><a xlink:href="../proc/fr.html" xlink:title="fr">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="318,-709 264,-709 264,-685 318,-685 318,-709"/>
+<text text-anchor="middle" x="291" y="-694.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fr</text>
+</a>
+</g>
+</g>
+<!-- proc~get_name -->
+<g id="call~~graph~~CallGraph_node32" class="node">
+<title>proc~get_name</title>
+<g id="a_call~~graph~~CallGraph_node32"><a xlink:href="../proc/get_name.html" xlink:title="WAV_file%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="351.5,-587 230.5,-587 230.5,-563 351.5,-563 351.5,-587"/>
+<text text-anchor="middle" x="291" y="-572.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%get_name</text>
+</a>
+</g>
+</g>
+<!-- proc~initialize_frequencies -->
+<g id="call~~graph~~CallGraph_node33" class="node">
+<title>proc~initialize_frequencies</title>
+<g id="a_call~~graph~~CallGraph_node33"><a xlink:href="../proc/initialize_frequencies.html" xlink:title="initialize_frequencies">
+<polygon fill="#d9534f" stroke="#d9534f" points="353,-87 229,-87 229,-63 353,-63 353,-87"/>
+<text text-anchor="middle" x="291" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">initialize_frequencies</text>
+</a>
+</g>
+</g>
+<!-- proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_node36" class="node">
+<title>proc~mix_tracks</title>
+<g id="a_call~~graph~~CallGraph_node36"><a xlink:href="../proc/mix_tracks.html" xlink:title="tape_recorder%mix_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="368,-465 214,-465 214,-441 368,-441 368,-465"/>
+<text text-anchor="middle" x="291" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%mix_tracks</text>
+</a>
+</g>
+</g>
+<!-- proc~new&#45;&gt;proc~clear_tracks -->
+<g id="call~~graph~~CallGraph_edge17" class="edge">
+<title>proc~new&#45;&gt;proc~clear_tracks</title>
+<path fill="none" stroke="#0000ff" d="M583.14,-327C601.96,-327 623.28,-327 643.83,-327"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="643.84,-330.5 653.84,-327 643.84,-323.5 643.84,-330.5"/>
+</g>
+<!-- proc~test_the_machine -->
+<g id="call~~graph~~CallGraph_node38" class="node">
+<title>proc~test_the_machine</title>
+<g id="a_call~~graph~~CallGraph_node38"><a xlink:href="../proc/test_the_machine.html" xlink:title="test_the_machine">
+<polygon fill="#d9534f" stroke="#d9534f" points="129.5,-1184 23.5,-1184 23.5,-1160 129.5,-1160 129.5,-1184"/>
+<text text-anchor="middle" x="76.5" y="-1169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_the_machine</text>
+</a>
+</g>
+</g>
+<!-- proc~the_solution -->
+<g id="call~~graph~~CallGraph_node39" class="node">
+<title>proc~the_solution</title>
+<g id="a_call~~graph~~CallGraph_node39"><a xlink:href="../proc/the_solution.html" xlink:title="the_solution">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="329.5,-339 252.5,-339 252.5,-315 329.5,-315 329.5,-339"/>
+<text text-anchor="middle" x="291" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">the_solution</text>
+</a>
+</g>
+</g>
+<!-- proc~write_amplitude_envelope -->
+<g id="call~~graph~~CallGraph_node41" class="node">
+<title>proc~write_amplitude_envelope</title>
+<g id="a_call~~graph~~CallGraph_node41"><a xlink:href="../proc/write_amplitude_envelope.html" xlink:title="write_amplitude_envelope">
+<polygon fill="#d9534f" stroke="#d9534f" points="153,-45 0,-45 0,-21 153,-21 153,-45"/>
+<text text-anchor="middle" x="76.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_amplitude_envelope</text>
+</a>
+</g>
+</g>
+<!-- proc~write_amplitude_envelope&#45;&gt;proc~amplitude -->
+<g id="call~~graph~~CallGraph_edge18" class="edge">
+<title>proc~write_amplitude_envelope&#45;&gt;proc~amplitude</title>
+<path fill="none" stroke="#7100ff" d="M153.02,-33C184.61,-33 220.17,-33 247.14,-33"/>
+<polygon fill="#7100ff" stroke="#7100ff" points="247.4,-36.5 257.4,-33 247.4,-29.5 247.4,-36.5"/>
+</g>
+<!-- program~all_signals -->
+<g id="call~~graph~~CallGraph_node44" class="node">
+<title>program~all_signals</title>
+<g id="a_call~~graph~~CallGraph_node44"><a xlink:href="../program/all_signals.html" xlink:title="all_signals">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="110,-1100 43,-1100 43,-1076 110,-1076 110,-1100"/>
+<text text-anchor="middle" x="76.5" y="-1085.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">all_signals</text>
+</a>
+</g>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_karplus_strong -->
+<g id="call~~graph~~CallGraph_edge19" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_karplus_strong</title>
+<path fill="none" stroke="#c600ff" d="M110.06,-1088.36C181.76,-1088.49 350.32,-1084.95 393,-1050 394.91,-1048.44 488.65,-760.94 515.43,-678.72"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="518.78,-679.73 518.55,-669.14 512.12,-677.56 518.78,-679.73"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_karplus_strong_stretched -->
+<g id="call~~graph~~CallGraph_edge20" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_karplus_strong_stretched</title>
+<path fill="none" stroke="#c600ff" d="M110.34,-1090.63C124.89,-1093.31 141.31,-1098.6 153,-1109 184.58,-1137.08 157.15,-1169.22 189,-1197 193.18,-1200.64 197.8,-1203.79 202.71,-1206.5"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="201.28,-1209.7 211.8,-1210.93 204.34,-1203.41 201.28,-1209.7"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_noise -->
+<g id="call~~graph~~CallGraph_edge21" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_noise</title>
+<path fill="none" stroke="#c600ff" d="M110.2,-1094.84C123.76,-1098.25 139.46,-1102.95 153,-1109 170.34,-1116.74 171.15,-1125.52 189,-1132 367.09,-1196.63 596.85,-1203.11 690.94,-1202.77"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="691.23,-1206.27 701.21,-1202.7 691.18,-1199.27 691.23,-1206.27"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_sawtooth_wave -->
+<g id="call~~graph~~CallGraph_edge22" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_sawtooth_wave</title>
+<path fill="none" stroke="#c600ff" d="M110.06,-1094.68C132.23,-1099.03 162.28,-1104.51 189,-1108 359.6,-1130.29 561.76,-1143.57 665.32,-1149.43"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="665.15,-1152.93 675.33,-1149.99 665.54,-1145.94 665.15,-1152.93"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_sine_wave -->
+<g id="call~~graph~~CallGraph_edge23" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_sine_wave</title>
+<path fill="none" stroke="#c600ff" d="M110.06,-1088.94C214.97,-1091.98 545.1,-1101.53 677.88,-1105.38"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="678.13,-1108.88 688.22,-1105.68 678.33,-1101.89 678.13,-1108.88"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_square_wave -->
+<g id="call~~graph~~CallGraph_edge24" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_square_wave</title>
+<path fill="none" stroke="#c600ff" d="M110.3,-1089.32C125.38,-1091.67 142.26,-1097.07 153,-1109 217.81,-1181.02 118.41,-1257.64 189,-1324 322.76,-1449.75 564.54,-1418.31 675.49,-1395.2"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="676.44,-1398.58 685.49,-1393.07 674.98,-1391.73 676.44,-1398.58"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_triangle_wave -->
+<g id="call~~graph~~CallGraph_edge25" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_triangle_wave</title>
+<path fill="none" stroke="#c600ff" d="M110.2,-1089.84C125.07,-1092.33 141.8,-1097.68 153,-1109 196.67,-1153.14 140.28,-1205.49 189,-1244 225.77,-1273.07 531.95,-1266.13 668.6,-1261.51"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="669.05,-1264.99 678.92,-1261.15 668.81,-1258 669.05,-1264.99"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~add_weierstrass -->
+<g id="call~~graph~~CallGraph_edge26" class="edge">
+<title>program~all_signals&#45;&gt;proc~add_weierstrass</title>
+<path fill="none" stroke="#c600ff" d="M110.07,-1089.54C125.09,-1091.94 141.99,-1097.31 153,-1109 205.35,-1164.6 136.12,-1221.91 189,-1277 200.32,-1288.79 216.21,-1295.5 232.05,-1299.24"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="231.37,-1302.68 241.86,-1301.21 232.74,-1295.81 231.37,-1302.68"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~adsr_new -->
+<g id="call~~graph~~CallGraph_edge27" class="edge">
+<title>program~all_signals&#45;&gt;proc~adsr_new</title>
+<path fill="none" stroke="#c600ff" d="M84.95,-1075.62C100.73,-1050.56 140.13,-993.83 189,-966 192.31,-964.12 195.76,-962.4 199.31,-960.84"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="200.9,-963.98 208.92,-957.05 198.34,-957.46 200.9,-963.98"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge28" class="edge">
+<title>program~all_signals&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#c600ff" d="M81.77,-1075.9C94.79,-1038.43 134.29,-920.76 153,-820 168.81,-734.86 131.31,-496.58 189,-432 194.33,-426.04 200.87,-421.51 208.04,-418.11"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="209.42,-421.33 217.41,-414.38 206.83,-414.83 209.42,-421.33"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge29" class="edge">
+<title>program~all_signals&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#c600ff" d="M81.81,-1075.91C94.95,-1038.46 134.75,-920.84 153,-820 170.08,-725.64 125.44,-461.8 189,-390 193.59,-384.82 199.09,-380.72 205.13,-377.5"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="206.62,-380.67 214.31,-373.39 203.75,-374.29 206.62,-380.67"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~fr -->
+<g id="call~~graph~~CallGraph_edge30" class="edge">
+<title>program~all_signals&#45;&gt;proc~fr</title>
+<path fill="none" stroke="#c600ff" d="M80.36,-1075.85C93.12,-1022.44 146.11,-808.7 189,-756 206.08,-735.01 232.75,-719.88 254.4,-710.2"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="255.81,-713.41 263.63,-706.26 253.06,-706.97 255.81,-713.41"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge31" class="edge">
+<title>program~all_signals&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#c600ff" d="M81.47,-1075.84C93.64,-1038.19 130.94,-920.08 153,-820 163.85,-770.77 154.17,-632.45 189,-596 197.46,-587.15 208.6,-581.53 220.39,-578.04"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="221.52,-581.37 230.4,-575.59 219.86,-574.57 221.52,-581.37"/>
+</g>
+<!-- program~all_signals&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge32" class="edge">
+<title>program~all_signals&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#c600ff" d="M81.66,-1075.88C94.38,-1038.35 133.1,-920.53 153,-820 166.38,-752.4 151.28,-569.67 189,-512 201.81,-492.41 223.56,-478.51 243.6,-469.13"/>
+<polygon fill="#c600ff" stroke="#c600ff" points="245.2,-472.25 252.95,-465.01 242.38,-465.84 245.2,-472.25"/>
+</g>
+<!-- program~arpeggios -->
+<g id="call~~graph~~CallGraph_node45" class="node">
+<title>program~arpeggios</title>
+<g id="a_call~~graph~~CallGraph_node45"><a xlink:href="../program/arpeggios.html" xlink:title="arpeggios">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="109.5,-507 43.5,-507 43.5,-483 109.5,-483 109.5,-507"/>
+<text text-anchor="middle" x="76.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">arpeggios</text>
+</a>
+</g>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~add_broken_chord -->
+<g id="call~~graph~~CallGraph_edge33" class="edge">
+<title>program~arpeggios&#45;&gt;proc~add_broken_chord</title>
+<path fill="none" stroke="#e200ff" d="M109.77,-500.77C140.36,-506.24 187.19,-514.62 225.45,-521.46"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="225.02,-524.94 235.48,-523.25 226.25,-518.04 225.02,-524.94"/>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~add_karplus_strong -->
+<g id="call~~graph~~CallGraph_edge34" class="edge">
+<title>program~arpeggios&#45;&gt;proc~add_karplus_strong</title>
+<path fill="none" stroke="#e200ff" d="M109.93,-488.96C169.42,-479.5 298.56,-466.63 393,-512 449.21,-539 491.74,-602.56 511.06,-635.84"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="508.12,-637.76 516.09,-644.74 514.22,-634.32 508.12,-637.76"/>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~apply_fade_out -->
+<g id="call~~graph~~CallGraph_edge35" class="edge">
+<title>program~arpeggios&#45;&gt;proc~apply_fade_out</title>
+<path fill="none" stroke="#e200ff" d="M109.77,-493.99C125.09,-491.76 142.35,-486.37 153,-474 238.88,-374.23 99.86,-276.87 189,-180 200.4,-167.61 217.04,-161.49 233.54,-158.7"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="234.29,-162.14 243.75,-157.37 233.38,-155.19 234.29,-162.14"/>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge36" class="edge">
+<title>program~arpeggios&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#e200ff" d="M109.71,-490.39C123.8,-487.31 140.03,-482.25 153,-474 173.74,-460.8 167.83,-444.5 189,-432 194.85,-428.54 201.19,-425.65 207.74,-423.23"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="209.07,-426.47 217.46,-420.01 206.87,-419.83 209.07,-426.47"/>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge37" class="edge">
+<title>program~arpeggios&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#e200ff" d="M109.51,-492.42C124.22,-489.77 141.02,-484.48 153,-474 183.57,-447.26 157.56,-415.71 189,-390 193.87,-386.02 199.3,-382.74 205.05,-380.03"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="206.38,-383.27 214.31,-376.25 203.73,-376.79 206.38,-383.27"/>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~fr -->
+<g id="call~~graph~~CallGraph_edge38" class="edge">
+<title>program~arpeggios&#45;&gt;proc~fr</title>
+<path fill="none" stroke="#e200ff" d="M109.69,-496.91C124.62,-499.4 141.56,-504.74 153,-516 193.29,-555.66 154.14,-593.5 189,-638 205.8,-659.45 232.73,-674.62 254.55,-684.2"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="253.28,-687.46 263.86,-688.09 255.98,-681 253.28,-687.46"/>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge39" class="edge">
+<title>program~arpeggios&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#e200ff" d="M109.53,-499.92C123.57,-503.05 139.83,-508.07 153,-516 172.93,-528 168.68,-542.67 189,-554 198.64,-559.38 209.49,-563.38 220.42,-566.36"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="219.89,-569.84 230.43,-568.82 221.56,-563.04 219.89,-569.84"/>
+</g>
+<!-- program~arpeggios&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge40" class="edge">
+<title>program~arpeggios&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#e200ff" d="M109.77,-488.62C138.64,-482.92 181.97,-474.35 218.91,-467.05"/>
+<polygon fill="#e200ff" stroke="#e200ff" points="220.01,-470.4 229.14,-465.03 218.65,-463.53 220.01,-470.4"/>
+</g>
+<!-- program~blues -->
+<g id="call~~graph~~CallGraph_node46" class="node">
+<title>program~blues</title>
+<g id="a_call~~graph~~CallGraph_node46"><a xlink:href="../program/blues.html" xlink:title="blues">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="103.5,-591 49.5,-591 49.5,-567 103.5,-567 103.5,-591"/>
+<text text-anchor="middle" x="76.5" y="-576.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blues</text>
+</a>
+</g>
+</g>
+<!-- program~blues&#45;&gt;proc~add_karplus_strong -->
+<g id="call~~graph~~CallGraph_edge41" class="edge">
+<title>program~blues&#45;&gt;proc~add_karplus_strong</title>
+<path fill="none" stroke="#ff00ff" d="M94.65,-591.12C115.73,-605.27 153.14,-628 189,-638 278.8,-663.03 387.32,-664.12 455.64,-661.46"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="456,-664.95 465.84,-661.02 455.7,-657.96 456,-664.95"/>
+</g>
+<!-- program~blues&#45;&gt;proc~apply_tremolo_effect -->
+<g id="call~~graph~~CallGraph_edge42" class="edge">
+<title>program~blues&#45;&gt;proc~apply_tremolo_effect</title>
+<path fill="none" stroke="#ff00ff" d="M84.93,-591.01C101.28,-616.72 142.62,-677.99 189,-718 208.74,-735.02 234.07,-749.81 254.43,-760.32"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="252.89,-763.46 263.39,-764.84 256.04,-757.21 252.89,-763.46"/>
+</g>
+<!-- program~blues&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge43" class="edge">
+<title>program~blues&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff00ff" d="M103.78,-577.99C119.98,-576 140.06,-570.85 153,-558 194.33,-516.96 146.34,-471.65 189,-432 194.5,-426.89 200.91,-422.89 207.78,-419.77"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="209.34,-422.92 217.4,-416.05 206.81,-416.39 209.34,-422.92"/>
+</g>
+<!-- program~blues&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge44" class="edge">
+<title>program~blues&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff00ff" d="M103.72,-578.32C120.1,-576.48 140.41,-571.37 153,-558 205.35,-502.4 134.84,-443.83 189,-390 193.67,-385.36 199.08,-381.62 204.92,-378.62"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="206.64,-381.68 214.41,-374.48 203.84,-375.27 206.64,-381.68"/>
+</g>
+<!-- program~blues&#45;&gt;proc~fr -->
+<g id="call~~graph~~CallGraph_edge45" class="edge">
+<title>program~blues&#45;&gt;proc~fr</title>
+<path fill="none" stroke="#ff00ff" d="M88.62,-591.12C107.39,-610.85 147.4,-649.82 189,-671 209.34,-681.35 234.13,-687.81 254.06,-691.71"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="253.53,-695.17 263.99,-693.51 254.78,-688.28 253.53,-695.17"/>
+</g>
+<!-- program~blues&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge46" class="edge">
+<title>program~blues&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff00ff" d="M103.56,-578.51C132.41,-577.97 180.12,-577.07 220.06,-576.32"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="220.36,-579.81 230.29,-576.12 220.23,-572.81 220.36,-579.81"/>
+</g>
+<!-- program~blues&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge47" class="edge">
+<title>program~blues&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff00ff" d="M103.68,-575.89C119.05,-573.09 138.29,-567.83 153,-558 174.59,-543.58 169.44,-529.07 189,-512 208.63,-494.86 233.97,-480.08 254.35,-469.59"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="255.96,-472.7 263.33,-465.09 252.82,-466.45 255.96,-472.7"/>
+</g>
+<!-- program~chords_and_melody -->
+<g id="call~~graph~~CallGraph_node47" class="node">
+<title>program~chords_and_melody</title>
+<g id="a_call~~graph~~CallGraph_node47"><a xlink:href="../program/chords_and_melody.html" xlink:title="chords_and_melody">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="136,-729 17,-729 17,-705 136,-705 136,-729"/>
+<text text-anchor="middle" x="76.5" y="-714.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody</text>
+</a>
+</g>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~add_chord -->
+<g id="call~~graph~~CallGraph_edge48" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~add_chord</title>
+<path fill="none" stroke="#ff00e2" d="M96.18,-729.17C112.53,-740.46 136.22,-758.42 153,-778 173.74,-802.19 163.16,-821.36 189,-840 205.5,-851.9 227.24,-857.37 246.32,-859.78"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="246.01,-863.27 256.31,-860.8 246.72,-856.3 246.01,-863.27"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~add_karplus_strong -->
+<g id="call~~graph~~CallGraph_edge49" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~add_karplus_strong</title>
+<path fill="none" stroke="#ff00e2" d="M136.2,-724.86C200.19,-731.67 305.2,-737.64 393,-718 430.37,-709.64 469.67,-689.25 495.03,-674.33"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="496.95,-677.27 503.72,-669.12 493.34,-671.26 496.95,-677.27"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~adsr_new -->
+<g id="call~~graph~~CallGraph_edge50" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~adsr_new</title>
+<path fill="none" stroke="#ff00e2" d="M99.33,-729.17C116.47,-739.86 139.62,-756.96 153,-778 188.87,-834.39 140.88,-877.62 189,-924 192.19,-927.08 195.71,-929.75 199.46,-932.08"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="198.12,-935.33 208.6,-936.9 201.39,-929.14 198.12,-935.33"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~apply_delay_effect -->
+<g id="call~~graph~~CallGraph_edge51" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~apply_delay_effect</title>
+<path fill="none" stroke="#ff00e2" d="M92.57,-729.18C117.94,-749.48 168.43,-788.9 189,-798 200.31,-803 212.86,-806.84 225.17,-809.77"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="224.44,-813.19 234.96,-811.93 225.95,-806.35 224.44,-813.19"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge52" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff00e2" d="M87.49,-704.86C103.75,-684.49 135.82,-641.55 153,-600 182.18,-529.43 134.84,-485.83 189,-432 194.41,-426.62 200.83,-422.45 207.75,-419.23"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="209.44,-422.33 217.47,-415.42 206.88,-415.81 209.44,-422.33"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~copy_section -->
+<g id="call~~graph~~CallGraph_edge53" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~copy_section</title>
+<path fill="none" stroke="#ff00e2" d="M98.14,-729.07C115.05,-739.93 138.47,-757.31 153,-778 181.11,-818.03 152.27,-849.7 189,-882 192.02,-884.65 195.28,-887 198.72,-889.08"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="197.12,-892.19 207.61,-893.7 200.36,-885.98 197.12,-892.19"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge54" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff00e2" d="M87.69,-704.94C104.22,-684.68 136.68,-641.9 153,-600 187.37,-511.76 123.23,-458.13 189,-390 193.61,-385.22 199.01,-381.39 204.86,-378.32"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="206.66,-381.36 214.39,-374.12 203.83,-374.95 206.66,-381.36"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~fr -->
+<g id="call~~graph~~CallGraph_edge55" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~fr</title>
+<path fill="none" stroke="#ff00e2" d="M136.13,-711.48C173.77,-707.94 221.45,-703.45 253.69,-700.42"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="254.36,-703.87 263.99,-699.45 253.71,-696.9 254.36,-703.87"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge56" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff00e2" d="M84.98,-704.72C100.81,-679.87 140.29,-623.61 189,-596 198.6,-590.56 209.44,-586.52 220.35,-583.52"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="221.49,-586.85 230.36,-581.05 219.82,-580.05 221.49,-586.85"/>
+</g>
+<!-- program~chords_and_melody&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge57" class="edge">
+<title>program~chords_and_melody&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff00e2" d="M86.44,-704.82C101.45,-684.04 132.1,-640.08 153,-600 172.54,-562.53 161.29,-543.9 189,-512 205.09,-493.47 228.5,-479.29 248.73,-469.48"/>
+<polygon fill="#ff00e2" stroke="#ff00e2" points="250.47,-472.53 258.06,-465.14 247.52,-466.18 250.47,-472.53"/>
+</g>
+<!-- program~demo_effects -->
+<g id="call~~graph~~CallGraph_node48" class="node">
+<title>program~demo_effects</title>
+<g id="a_call~~graph~~CallGraph_node48"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="119,-811 34,-811 34,-787 119,-787 119,-811"/>
+<text text-anchor="middle" x="76.5" y="-796.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
+</a>
+</g>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~add_chord -->
+<g id="call~~graph~~CallGraph_edge58" class="edge">
+<title>program~demo_effects&#45;&gt;proc~add_chord</title>
+<path fill="none" stroke="#ff00c6" d="M106.92,-811.17C129.18,-820.04 160.64,-831.89 189,-840 207.65,-845.34 228.61,-849.92 246.58,-853.43"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="246.01,-856.88 256.49,-855.32 247.32,-850.01 246.01,-856.88"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~adsr_new -->
+<g id="call~~graph~~CallGraph_edge59" class="edge">
+<title>program~demo_effects&#45;&gt;proc~adsr_new</title>
+<path fill="none" stroke="#ff00c6" d="M84.63,-811.29C100.11,-836.77 139.39,-895.35 189,-924 192.3,-925.9 195.74,-927.64 199.29,-929.21"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="198.29,-932.58 208.88,-933.03 200.88,-926.08 198.29,-932.58"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~apply_autopan_effect -->
+<g id="call~~graph~~CallGraph_edge60" class="edge">
+<title>program~demo_effects&#45;&gt;proc~apply_autopan_effect</title>
+<path fill="none" stroke="#ff00c6" d="M81.79,-811.03C93.55,-842.17 129.47,-925.83 189,-966 197.61,-971.81 207.5,-976.06 217.64,-979.17"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="216.85,-982.58 227.42,-981.81 218.68,-975.82 216.85,-982.58"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~apply_delay_effect -->
+<g id="call~~graph~~CallGraph_edge61" class="edge">
+<title>program~demo_effects&#45;&gt;proc~apply_delay_effect</title>
+<path fill="none" stroke="#ff00c6" d="M119.23,-802.93C149.26,-805.75 190.36,-809.62 224.72,-812.86"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="224.39,-816.34 234.68,-813.79 225.05,-809.37 224.39,-816.34"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~apply_fuzz_effect -->
+<g id="call~~graph~~CallGraph_edge62" class="edge">
+<title>program~demo_effects&#45;&gt;proc~apply_fuzz_effect</title>
+<path fill="none" stroke="#ff00c6" d="M80.13,-811.02C88.69,-847.22 119.38,-955.86 189,-1008 200.48,-1016.6 214.65,-1021.87 228.72,-1025.06"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="228.42,-1028.56 238.9,-1027.03 229.75,-1021.69 228.42,-1028.56"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~apply_tremolo_effect -->
+<g id="call~~graph~~CallGraph_edge63" class="edge">
+<title>program~demo_effects&#45;&gt;proc~apply_tremolo_effect</title>
+<path fill="none" stroke="#ff00c6" d="M119.23,-794.68C147.49,-791.75 185.55,-787.81 218.57,-784.39"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="219.05,-787.86 228.64,-783.35 218.33,-780.9 219.05,-787.86"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge64" class="edge">
+<title>program~demo_effects&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff00c6" d="M100.76,-786.82C118.23,-776.35 141.11,-759.54 153,-738 186.08,-678.05 142.76,-482.5 189,-432 194.36,-426.15 200.89,-421.69 208.02,-418.33"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="209.34,-421.57 217.33,-414.62 206.75,-415.07 209.34,-421.57"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~copy_section -->
+<g id="call~~graph~~CallGraph_edge65" class="edge">
+<title>program~demo_effects&#45;&gt;proc~copy_section</title>
+<path fill="none" stroke="#ff00c6" d="M90.02,-811.28C109.49,-829.64 148.94,-863.99 189,-882 193.95,-884.23 199.15,-886.22 204.46,-888"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="203.53,-891.38 214.12,-890.99 205.6,-884.69 203.53,-891.38"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge66" class="edge">
+<title>program~demo_effects&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff00c6" d="M100.84,-786.87C118.36,-776.42 141.27,-759.62 153,-738 190.08,-669.67 136.9,-447.7 189,-390 193.64,-384.86 199.17,-380.8 205.24,-377.6"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="206.73,-380.77 214.45,-373.51 203.89,-374.37 206.73,-380.77"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~fr -->
+<g id="call~~graph~~CallGraph_edge67" class="edge">
+<title>program~demo_effects&#45;&gt;proc~fr</title>
+<path fill="none" stroke="#ff00c6" d="M102.71,-786.9C140.73,-768.65 212.84,-734.04 255.64,-713.49"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="257.32,-716.57 264.82,-709.09 254.29,-710.26 257.32,-716.57"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge68" class="edge">
+<title>program~demo_effects&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff00c6" d="M99.29,-786.8C116.41,-776.11 139.55,-759 153,-738 188.12,-683.18 141.98,-641.03 189,-596 197.69,-587.68 208.78,-582.28 220.4,-578.84"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="221.39,-582.2 230.25,-576.39 219.7,-575.4 221.39,-582.2"/>
+</g>
+<!-- program~demo_effects&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge69" class="edge">
+<title>program~demo_effects&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff00c6" d="M100.16,-786.9C117.54,-776.37 140.59,-759.44 153,-738 203.94,-649.97 131.57,-595.94 189,-512 202.26,-492.61 224.16,-478.7 244.19,-469.27"/>
+<polygon fill="#ff00c6" stroke="#ff00c6" points="245.8,-472.38 253.52,-465.13 242.96,-465.99 245.8,-472.38"/>
+</g>
+<!-- program~doppler_effect -->
+<g id="call~~graph~~CallGraph_node49" class="node">
+<title>program~doppler_effect</title>
+<g id="a_call~~graph~~CallGraph_node49"><a xlink:href="../program/doppler_effect.html" xlink:title="doppler_effect">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="121.5,-465 31.5,-465 31.5,-441 121.5,-441 121.5,-465"/>
+<text text-anchor="middle" x="76.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">doppler_effect</text>
+</a>
+</g>
+</g>
+<!-- program~doppler_effect&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge70" class="edge">
+<title>program~doppler_effect&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff00aa" d="M121.53,-444.3C149.73,-438.72 186.97,-431.36 219.26,-424.98"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="219.97,-428.41 229.11,-423.04 218.62,-421.54 219.97,-428.41"/>
+</g>
+<!-- program~doppler_effect&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge71" class="edge">
+<title>program~doppler_effect&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff00aa" d="M121.68,-445.38C132.46,-442.3 143.59,-437.99 153,-432 173.74,-418.8 167.83,-402.5 189,-390 193.99,-387.05 199.33,-384.52 204.85,-382.33"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="206.04,-385.62 214.29,-378.98 203.7,-379.03 206.04,-385.62"/>
+</g>
+<!-- program~doppler_effect&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge72" class="edge">
+<title>program~doppler_effect&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff00aa" d="M121.81,-458.51C132.96,-461.62 144.23,-466.47 153,-474 182.58,-499.4 158.6,-529.59 189,-554 198.07,-561.28 209.05,-566.22 220.37,-569.54"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="219.82,-573.01 230.37,-572.05 221.53,-566.22 219.82,-573.01"/>
+</g>
+<!-- program~doppler_effect&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge73" class="edge">
+<title>program~doppler_effect&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff00aa" d="M121.53,-453C145.24,-453 175.34,-453 203.51,-453"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="203.79,-456.5 213.79,-453 203.79,-449.5 203.79,-456.5"/>
+</g>
+<!-- program~doppler_effect&#45;&gt;proc~the_solution -->
+<g id="call~~graph~~CallGraph_edge74" class="edge">
+<title>program~doppler_effect&#45;&gt;proc~the_solution</title>
+<path fill="none" stroke="#ff00aa" d="M121.51,-447.71C132.78,-444.6 144.19,-439.7 153,-432 183.57,-405.26 157.56,-373.71 189,-348 203.86,-335.85 223.97,-330.19 242.34,-327.72"/>
+<polygon fill="#ff00aa" stroke="#ff00aa" points="242.75,-331.2 252.32,-326.65 242.01,-324.24 242.75,-331.2"/>
+</g>
+<!-- program~drone_music -->
+<g id="call~~graph~~CallGraph_node50" class="node">
+<title>program~drone_music</title>
+<g id="a_call~~graph~~CallGraph_node50"><a xlink:href="../program/drone_music.html" xlink:title="drone_music">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="116.5,-339 36.5,-339 36.5,-315 116.5,-315 116.5,-339"/>
+<text text-anchor="middle" x="76.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drone_music</text>
+</a>
+</g>
+</g>
+<!-- program~drone_music&#45;&gt;proc~apply_fade_in -->
+<g id="call~~graph~~CallGraph_edge75" class="edge">
+<title>program~drone_music&#45;&gt;proc~apply_fade_in</title>
+<path fill="none" stroke="#ff008d" d="M91.33,-314.93C108.03,-299.68 136.01,-271.91 153,-243 177.99,-200.47 152,-170.63 189,-138 202.36,-126.22 220.59,-120.42 237.88,-117.74"/>
+<polygon fill="#ff008d" stroke="#ff008d" points="238.42,-121.2 247.92,-116.49 237.56,-114.25 238.42,-121.2"/>
+</g>
+<!-- program~drone_music&#45;&gt;proc~apply_fade_out -->
+<g id="call~~graph~~CallGraph_edge76" class="edge">
+<title>program~drone_music&#45;&gt;proc~apply_fade_out</title>
+<path fill="none" stroke="#ff008d" d="M89.9,-314.91C105.64,-299.19 133.13,-270.5 153,-243 171.89,-216.86 162.91,-198.96 189,-180 201.96,-170.59 218.18,-165.19 233.81,-162.15"/>
+<polygon fill="#ff008d" stroke="#ff008d" points="234.67,-165.55 243.96,-160.47 233.52,-158.65 234.67,-165.55"/>
+</g>
+<!-- program~drone_music&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge77" class="edge">
+<title>program~drone_music&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff008d" d="M116.59,-333.24C128.89,-336.38 142.1,-341.06 153,-348 173.74,-361.2 167.83,-377.5 189,-390 194.85,-393.46 201.19,-396.35 207.74,-398.77"/>
+<polygon fill="#ff008d" stroke="#ff008d" points="206.87,-402.17 217.46,-401.99 209.07,-395.53 206.87,-402.17"/>
+</g>
+<!-- program~drone_music&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge78" class="edge">
+<title>program~drone_music&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff008d" d="M116.97,-334.8C145.59,-340.46 185.09,-348.26 219.12,-354.99"/>
+<polygon fill="#ff008d" stroke="#ff008d" points="218.53,-358.44 229.02,-356.95 219.89,-351.57 218.53,-358.44"/>
+</g>
+<!-- program~drone_music&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge79" class="edge">
+<title>program~drone_music&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff008d" d="M116.87,-329.57C130.07,-332.4 143.77,-337.82 153,-348 215.41,-416.87 124.34,-487.24 189,-554 197.47,-562.74 208.56,-568.33 220.28,-571.81"/>
+<polygon fill="#ff008d" stroke="#ff008d" points="219.69,-575.27 230.24,-574.26 221.37,-568.47 219.69,-575.27"/>
+</g>
+<!-- program~drone_music&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge80" class="edge">
+<title>program~drone_music&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff008d" d="M116.81,-331.09C129.55,-334.09 142.96,-339.22 153,-348 183.57,-374.74 157.56,-406.29 189,-432 193.66,-435.81 198.84,-438.99 204.33,-441.62"/>
+<polygon fill="#ff008d" stroke="#ff008d" points="203.22,-444.95 213.8,-445.57 205.92,-438.49 203.22,-444.95"/>
+</g>
+<!-- program~drum_machine -->
+<g id="call~~graph~~CallGraph_node51" class="node">
+<title>program~drum_machine</title>
+<g id="a_call~~graph~~CallGraph_node51"><a xlink:href="../program/drum_machine.html" xlink:title="drum_machine">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="123,-381 30,-381 30,-357 123,-357 123,-381"/>
+<text text-anchor="middle" x="76.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drum_machine</text>
+</a>
+</g>
+</g>
+<!-- program~drum_machine&#45;&gt;proc~add_karplus_strong_drum -->
+<g id="call~~graph~~CallGraph_edge81" class="edge">
+<title>program~drum_machine&#45;&gt;proc~add_karplus_strong_drum</title>
+<path fill="none" stroke="#ff0071" d="M123.09,-363.26C133.84,-360.14 144.6,-355.34 153,-348 183.57,-321.26 157.56,-289.71 189,-264 194.36,-259.62 200.4,-256.08 206.79,-253.24"/>
+<polygon fill="#ff0071" stroke="#ff0071" points="208.31,-256.4 216.38,-249.54 205.79,-249.87 208.31,-256.4"/>
+</g>
+<!-- program~drum_machine&#45;&gt;proc~add_karplus_strong_drum_stretched -->
+<g id="call~~graph~~CallGraph_edge82" class="edge">
+<title>program~drum_machine&#45;&gt;proc~add_karplus_strong_drum_stretched</title>
+<path fill="none" stroke="#ff0071" d="M123.36,-364.09C134.23,-360.96 144.99,-355.96 153,-348 194.33,-306.96 146.34,-261.65 189,-222 190.15,-220.93 191.34,-219.91 192.56,-218.94"/>
+<polygon fill="#ff0071" stroke="#ff0071" points="194.77,-221.67 201.1,-213.18 190.85,-215.87 194.77,-221.67"/>
+</g>
+<!-- program~drum_machine&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge83" class="edge">
+<title>program~drum_machine&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff0071" d="M123.09,-378.01C151.04,-383.53 187.41,-390.72 219.07,-396.98"/>
+<polygon fill="#ff0071" stroke="#ff0071" points="218.67,-400.47 229.16,-398.98 220.03,-393.6 218.67,-400.47"/>
+</g>
+<!-- program~drum_machine&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge84" class="edge">
+<title>program~drum_machine&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff0071" d="M123.09,-369C146.76,-369 176.49,-369 204.26,-369"/>
+<polygon fill="#ff0071" stroke="#ff0071" points="204.4,-372.5 214.4,-369 204.4,-365.5 204.4,-372.5"/>
+</g>
+<!-- program~drum_machine&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge85" class="edge">
+<title>program~drum_machine&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0071" d="M123.31,-373.46C134.32,-376.58 145.15,-381.7 153,-390 204.29,-444.2 135.94,-501.53 189,-554 197.61,-562.51 208.71,-567.99 220.38,-571.45"/>
+<polygon fill="#ff0071" stroke="#ff0071" points="219.74,-574.89 230.29,-573.9 221.42,-568.1 219.74,-574.89"/>
+</g>
+<!-- program~drum_machine&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge86" class="edge">
+<title>program~drum_machine&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff0071" d="M123.26,-377.08C133.54,-380.13 144.05,-384.3 153,-390 173.74,-403.2 167.83,-419.5 189,-432 193.77,-434.82 198.86,-437.26 204.13,-439.38"/>
+<polygon fill="#ff0071" stroke="#ff0071" points="203.17,-442.76 213.77,-442.85 205.55,-436.17 203.17,-442.76"/>
+</g>
+<!-- program~misc_sounds -->
+<g id="call~~graph~~CallGraph_node52" class="node">
+<title>program~misc_sounds</title>
+<g id="a_call~~graph~~CallGraph_node52"><a xlink:href="../program/misc_sounds.html" xlink:title="misc_sounds">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="116.5,-549 36.5,-549 36.5,-525 116.5,-525 116.5,-549"/>
+<text text-anchor="middle" x="76.5" y="-534.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">misc_sounds</text>
+</a>
+</g>
+</g>
+<!-- program~misc_sounds&#45;&gt;proc~add_misc_signal -->
+<g id="call~~graph~~CallGraph_edge87" class="edge">
+<title>program~misc_sounds&#45;&gt;proc~add_misc_signal</title>
+<path fill="none" stroke="#ff0055" d="M116.77,-543.66C128.95,-546.82 142.04,-551.4 153,-558 172.93,-570 168.68,-584.67 189,-596 201.77,-603.12 216.67,-607.84 231.04,-610.96"/>
+<polygon fill="#ff0055" stroke="#ff0055" points="230.39,-614.4 240.88,-612.87 231.73,-607.53 230.39,-614.4"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge88" class="edge">
+<title>program~misc_sounds&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff0055" d="M116.81,-532.91C129.55,-529.91 142.96,-524.78 153,-516 183.57,-489.26 157.56,-457.71 189,-432 194.67,-427.36 201.11,-423.67 207.92,-420.74"/>
+<polygon fill="#ff0055" stroke="#ff0055" points="209.27,-423.98 217.41,-417.2 206.82,-417.42 209.27,-423.98"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge89" class="edge">
+<title>program~misc_sounds&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff0055" d="M116.68,-533.79C129.71,-530.89 143.35,-525.59 153,-516 194.33,-474.96 146.34,-429.65 189,-390 193.74,-385.6 199.14,-382.02 204.94,-379.12"/>
+<polygon fill="#ff0055" stroke="#ff0055" points="206.51,-382.26 214.33,-375.11 203.76,-375.82 206.51,-382.26"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;proc~fr -->
+<g id="call~~graph~~CallGraph_edge90" class="edge">
+<title>program~misc_sounds&#45;&gt;proc~fr</title>
+<path fill="none" stroke="#ff0055" d="M116.72,-541.2C129.45,-544.2 142.89,-549.31 153,-558 182.58,-583.4 162.93,-609.01 189,-638 206.9,-657.9 233.14,-672.95 254.39,-682.87"/>
+<polygon fill="#ff0055" stroke="#ff0055" points="253.2,-686.17 263.76,-687.06 256.06,-679.78 253.2,-686.17"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge91" class="edge">
+<title>program~misc_sounds&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0055" d="M116.97,-544.06C145.92,-549.24 185.99,-556.4 220.28,-562.53"/>
+<polygon fill="#ff0055" stroke="#ff0055" points="219.79,-566 230.25,-564.32 221.03,-559.11 219.79,-566"/>
+</g>
+<!-- program~misc_sounds&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge92" class="edge">
+<title>program~misc_sounds&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff0055" d="M116.67,-527.38C128.47,-524.14 141.37,-520.26 153,-516 189.72,-502.55 230.24,-483.34 257.61,-469.68"/>
+<polygon fill="#ff0055" stroke="#ff0055" points="259.36,-472.72 266.72,-465.1 256.22,-466.46 259.36,-472.72"/>
+</g>
+<!-- program~shepard_risset_glissando -->
+<g id="call~~graph~~CallGraph_node53" class="node">
+<title>program~shepard_risset_glissando</title>
+<g id="a_call~~graph~~CallGraph_node53"><a xlink:href="../program/shepard_risset_glissando.html" xlink:title="shepard_risset_glissando">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="149,-234 4,-234 4,-210 149,-210 149,-234"/>
+<text text-anchor="middle" x="76.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_risset_glissando</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~amplitude -->
+<g id="call~~graph~~CallGraph_edge93" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~amplitude</title>
+<path fill="none" stroke="#ff0038" d="M81.76,-209.9C93.47,-178.57 129.28,-94.42 189,-54 205.97,-42.51 227.95,-37.1 247.07,-34.63"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="247.49,-38.1 257.06,-33.56 246.74,-31.14 247.49,-38.1"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~apply_fade_in -->
+<g id="call~~graph~~CallGraph_edge94" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~apply_fade_in</title>
+<path fill="none" stroke="#ff0038" d="M89.67,-209.87C108.98,-191.36 148.6,-156.3 189,-138 204.27,-131.08 221.87,-126.42 238.06,-123.28"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="238.69,-126.72 247.92,-121.52 237.46,-119.83 238.69,-126.72"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~apply_fade_out -->
+<g id="call~~graph~~CallGraph_edge95" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~apply_fade_out</title>
+<path fill="none" stroke="#ff0038" d="M105.96,-209.88C128.25,-200.73 160.2,-188.36 189,-180 203.39,-175.82 219.17,-172.13 233.89,-169.05"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="234.77,-172.45 243.88,-167.02 233.38,-165.59 234.77,-172.45"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge96" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff0038" d="M90.69,-234.02C107,-249.43 134.84,-277.58 153,-306 174.87,-340.23 157.56,-364.29 189,-390 194.67,-394.64 201.11,-398.33 207.92,-401.26"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="206.82,-404.58 217.41,-404.8 209.27,-398.02 206.82,-404.58"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge97" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff0038" d="M88.59,-234.16C103.39,-250.43 130.36,-280.21 153,-306 169.22,-324.48 167.83,-335.5 189,-348 193.99,-350.95 199.33,-353.48 204.85,-355.67"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="203.7,-358.97 214.29,-359.02 206.04,-352.38 203.7,-358.97"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge98" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0038" d="M92.86,-234.11C110.54,-249 138.94,-275.99 153,-306 200.25,-406.86 112.68,-472.89 189,-554 197.39,-562.92 208.5,-568.57 220.28,-572.06"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="219.74,-575.54 230.29,-574.52 221.41,-568.74 219.74,-575.54"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~initialize_frequencies -->
+<g id="call~~graph~~CallGraph_edge99" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~initialize_frequencies</title>
+<path fill="none" stroke="#ff0038" d="M84.37,-210C99.63,-184.52 138.97,-125.02 189,-96 198.25,-90.63 208.68,-86.63 219.24,-83.64"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="220.11,-87.03 228.94,-81.17 218.39,-80.25 220.11,-87.03"/>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge100" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff0038" d="M91.87,-234.19C108.87,-249.36 136.87,-276.83 153,-306 181.19,-356.96 146.34,-392.35 189,-432 193.65,-436.32 198.95,-439.85 204.62,-442.72"/>
+<polygon fill="#ff0038" stroke="#ff0038" points="203.25,-445.94 213.82,-446.71 206.04,-439.52 203.25,-445.94"/>
+</g>
+<!-- program~shepard_scale -->
+<g id="call~~graph~~CallGraph_node54" class="node">
+<title>program~shepard_scale</title>
+<g id="a_call~~graph~~CallGraph_node54"><a xlink:href="../program/shepard_scale.html" xlink:title="shepard_scale">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="121,-423 32,-423 32,-399 121,-399 121,-423"/>
+<text text-anchor="middle" x="76.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shepard_scale</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~apply_reverse_effect -->
+<g id="call~~graph~~CallGraph_edge101" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~apply_reverse_effect</title>
+<path fill="none" stroke="#ff001c" d="M121.12,-405.82C132.52,-402.71 144.09,-397.79 153,-390 183.57,-363.26 157.56,-331.71 189,-306 197.85,-298.77 208.56,-293.83 219.66,-290.5"/>
+<polygon fill="#ff001c" stroke="#ff001c" points="220.66,-293.86 229.47,-287.97 218.91,-287.08 220.66,-293.86"/>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~close_wav_file -->
+<g id="call~~graph~~CallGraph_edge102" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff001c" d="M121.02,-411C145.78,-411 177.63,-411 206.99,-411"/>
+<polygon fill="#ff001c" stroke="#ff001c" points="207.26,-414.5 217.26,-411 207.26,-407.5 207.26,-414.5"/>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~create_wav_file -->
+<g id="call~~graph~~CallGraph_edge103" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff001c" d="M121.02,-402.4C149.3,-396.81 186.82,-389.39 219.32,-382.97"/>
+<polygon fill="#ff001c" stroke="#ff001c" points="220.09,-386.38 229.22,-381.01 218.74,-379.52 220.09,-386.38"/>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~get_name -->
+<g id="call~~graph~~CallGraph_edge104" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff001c" d="M121.35,-415.41C132.88,-418.49 144.47,-423.6 153,-432 193.29,-471.66 147.42,-515.7 189,-554 197.8,-562.11 208.88,-567.41 220.46,-570.83"/>
+<polygon fill="#ff001c" stroke="#ff001c" points="219.71,-574.25 230.26,-573.27 221.4,-567.45 219.71,-574.25"/>
+</g>
+<!-- program~shepard_scale&#45;&gt;proc~mix_tracks -->
+<g id="call~~graph~~CallGraph_edge105" class="edge">
+<title>program~shepard_scale&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff001c" d="M121.02,-419.6C149.3,-425.19 186.82,-432.61 219.32,-439.03"/>
+<polygon fill="#ff001c" stroke="#ff001c" points="218.74,-442.48 229.22,-440.99 220.09,-435.62 218.74,-442.48"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pancallgraphCallGraph = svgPanZoom('#callgraphCallGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForMIDI
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-06-26 19:35              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
