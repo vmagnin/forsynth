@@ -1,0 +1,28 @@
+project:             ForMIDI
+summary:             A small Fortran MIDI sequencer for composing music,
+                     exploring algorithmic music and music theory.
+version:             0.3.0
+license:             GPL
+year:                2021-2024
+project_github:      https://github.com/vmagnin/forMIDI
+author:              Vincent Magnin
+github:              https://github.com/vmagnin
+src_dir:             ./src
+                     ./example
+exclude_dir:         ./test
+                     ./logo
+md_base_dir:         ./
+output_dir:          ./doc
+source:              true
+incl_src:            true
+graph:               true
+coloured_edges:      true
+search:              true
+print_creation_date: true
+creation_date:       %Y-%m-%d %H:%M %z
+sort:                permission-alpha
+display:             public
+                     private
+                     protected
+
+{!README.md!}

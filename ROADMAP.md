@@ -14,7 +14,8 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] Simulating a radioactive decay, heard with a Geiger counter (a tribute to Kraftwerk). (**)
 
 ### Documentation
-* [ ] A first version of a FORD documentation. (**)
+* [x] A first version of a FORD documentation. (**)
+    * [ ] Transforming comments into FORD comments !>
 
 ### Fix
 * [ ] The problem of the Shepard–Risset glissando. (***)

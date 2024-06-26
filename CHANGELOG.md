@@ -2,6 +2,12 @@
 All notable changes to the Forsynth project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [ForSynth dev "?"]
+
+### Added
+- A FORD documentation: a project file `ford.yml` and a workflow `.github/workflows/ford.yml` to generate GitHub Pages.
+
+
 ## [ForSynth 0.4 "Jean-Claude Risset"] 2024-06-03
 
 ### Added
