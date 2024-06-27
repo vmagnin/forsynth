@@ -81,7 +81,7 @@ First film whose soundtrack (Louis & Bebe Barron) is entirely electronic:
 
 The first great success of electronic music: https://en.wikipedia.org/wiki/Popcorn_(instrumental)
 
--   Popcorn, original by Kingsley (1969): https://www.youtube.com/watch?v=7Z1zLiqoB1Q
+-   Popcorn, original by Kingsley (1969): https://www.youtube.com/watch?v=Sp9ki2jPWdg
 -   HotButter cover (1972): https://www.youtube.com/watch?v=iDHrXeEItu4
 -   M&H Band cover (1987): https://www.youtube.com/watch?v=614hHSGJ9z8
 -   Kingsley (2000): https://www.youtube.com/watch?v=KJavX92uRqY
