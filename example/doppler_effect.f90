@@ -3,8 +3,8 @@
 ! Vincent Magnin, 2024-05-28
 ! Last modifications: 2024-05-31
 
-! A simulation of Doppler effect, with a car passing in front of you.
-! https://fr.wikipedia.org/wiki/Effet_Doppler
+!> A simulation of Doppler effect, with a car passing in front of you.
+!> https://fr.wikipedia.org/wiki/Effet_Doppler
 program doppler_effect
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
@@ -31,14 +31,14 @@ program doppler_effect
 
     associate(tape => demo%tape_recorder)
 
-! The Observer is static at the origin,
-! the car is Moving along x at a constant velocity v
-!                        ^ y
-!                        |
-!      ****M*************y0**************>
-!                        |
-! ----x0-----------------O-------------------> x
-!                        |
+!> The Observer is static at the origin,
+!> the car is Moving along x at a constant velocity v
+!>                        ^ y
+!>                        |
+!>      ****M*************y0**************>
+!>                        |
+!> ----x0-----------------O-------------------> x
+!>                        |
 
     omega = 2*PI*f
     x0 = -v * duration/2
@@ -49,18 +49,18 @@ program doppler_effect
 
     tobs = 0
     do i = 0, nint(duration*RATE) - 1
-        ! The frequency perceived by the observer (Doppler effect)
-        ! is fobs = f / (1 - vr/c) but we don't need to compute it.
-        ! The signal heard by the observer at tobs was emitted earlier by the
-        ! car at t, from a distance r(t):
-        ! tobs = t + r(t) / c
-        ! By developing r(t) we can finally obtain a quadratic equation:
-        ! (c**2-v**2) * t**2 - (2*tobs*c**2 + 2*x0*v) *t + (tobs**2 * c**2 - x0**2 - y**2) = 0
-        ! The time t is the unique physical solution of that equation:
+        !> The frequency perceived by the observer (Doppler effect)
+        !> is fobs = f / (1 - vr/c) but we don't need to compute it.
+        !> The signal heard by the observer at tobs was emitted earlier by the
+        !> car at t, from a distance r(t):
+        !> tobs = t + r(t) / c
+        !> By developing r(t) we can finally obtain a quadratic equation:
+        !> (c**2-v**2) * t**2 - (2*tobs*c**2 + 2*x0*v) *t + (tobs**2 * c**2 - x0**2 - y**2) = 0
+        !> The time t is the unique physical solution of that equation:
         t = the_solution(a=c**2-v**2, b=-(2*tobs*c**2 + 2*x0*v), c=(tobs**2 * c**2 - x0**2 - y**2), tobs=tobs)
         ! The position of the car at t was:
         x = x0 + v * t
-        ! The amplitude of the observed signal is decreasing in r**2:
+        !> The amplitude of the observed signal is decreasing in r**2:
         Amp = 1 / (x**2 + y**2)
 
         ! We simulate a stereo effect by using this arbitrary law:
@@ -92,9 +92,9 @@ program doppler_effect
 
 contains
 
-    ! We solve the Quadratic equation,
-    ! but physically one and only one solution can exist:
-    ! we know the sound was emitted before we hear it!
+    !> We solve the Quadratic equation,
+    !> but physically one and only one solution can exist:
+    !> we know the sound was emitted before we hear it!>
     real(wp) function the_solution(a, b, c, tobs)
         real(wp), intent(in) :: a, b, c, tobs
         real(wp) :: delta, t1, t2

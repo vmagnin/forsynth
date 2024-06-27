@@ -3,19 +3,20 @@
 ! Vincent Magnin
 ! Last modifications: 2024-05-31
 
+!> This is the basic class, representing a numeric tape recorder with audio tracks.
 module tape_recorder_class
     use forsynth, only: wp, RATE
 
     implicit none
 
     type tape_recorder
-        ! Number of audio tracks (excluding track 0 reserved for the final mix):
+        !> Number of audio tracks (excluding track 0 reserved for the final mix):
         integer  :: tracks
-        ! Duration in seconds:
+        !> Duration in seconds:
         real(wp) :: duration
-        ! Number of samples:
+        !> Number of samples:
         integer  :: samples
-        ! Two arrays stocking the stereo tracks:
+        !> Two arrays stocking the stereo tracks:
         real(wp), dimension(:, :), allocatable :: left, right
     contains
         procedure :: new
@@ -47,7 +48,7 @@ contains
         call self%clear_tracks()
     end subroutine
 
-    ! Erase all tracks on all the channels of the tape.
+    !> Erase all tracks on all the channels of the tape.
     subroutine clear_tracks(self)
         class(tape_recorder), intent(inout)  :: self
 
@@ -56,7 +57,7 @@ contains
     end subroutine
 
 
-    ! Tracks 1 to tracks-1 are mixed on track 0.
+    !> Tracks 1 to tracks-1 are mixed on track 0.
     subroutine mix_tracks(self, levels, pan)
         class(tape_recorder), intent(inout)  :: self
         real(wp), dimension(1:self%tracks), intent(in), optional :: levels
@@ -103,9 +104,9 @@ contains
     end subroutine
 
 
-    ! Copy section t1...t2 at t3, either on the same track or another one.
-    ! The content already present at t3 is overwritten.
-    ! The code suppose that t1 < t2 < t3.
+    !> Copy section t1...t2 at t3, either on the same track or another one.
+    !> The content already present at t3 is overwritten.
+    !> The code suppose that t1 < t2 < t3.
     subroutine copy_section(self, from_track, to_track, t1, t2, t3)
         class(tape_recorder), intent(inout)  :: self
         integer, intent(in)  :: from_track, to_track
@@ -126,7 +127,7 @@ contains
         end do
     end subroutine
 
-    ! Called by the close_WAV_file() method.
+    !> Called by the close_WAV_file() method.
     subroutine finalize(self)
         class(tape_recorder), intent(inout)  :: self
 
@@ -134,7 +135,7 @@ contains
         deallocate(self%right)
     end subroutine
 
-    ! An automatic finalizer, by security.
+    !> An automatic finalizer, by security.
     subroutine auto_finalize(self)
         type(tape_recorder), intent(inout)  :: self
 

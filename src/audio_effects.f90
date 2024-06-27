@@ -3,9 +3,8 @@
 ! Vincent Magnin
 ! Last modifications: 2023-05-26
 
+!> Various audio effects
 module audio_effects
-    ! Various audio effects
-
     use forsynth, only: wp, RATE, PI, dt
     use tape_recorder_class
 
@@ -18,9 +17,9 @@ module audio_effects
 
 contains
 
+    !> Add the sound from "delay" seconds before,
+    !> and multiply by Amp<1 for dampening.
     subroutine apply_delay_effect(tape, track, t1, t2, delay, Amp)
-        ! Add the sound from "delay" seconds before,
-        ! and multiply by Amp<1 for dampening.
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, delay, Amp
@@ -40,10 +39,9 @@ contains
         end do
     end subroutine
 
-
+    !> Apply distorsion with hard clipping
+    !> https://en.wikipedia.org/wiki/Distortion_(music)
     subroutine apply_fuzz_effect(tape, track, t1, t2, level)
-        ! Apply distorsion with hard clipping
-        ! https://en.wikipedia.org/wiki/Distortion_(music)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, level
@@ -59,12 +57,11 @@ contains
         end do
     end subroutine
 
-
+    !> A sinusoidal modulation of the amplitude of a signal (tremolo) :
+    !> f : tremolo frequency (typically a few Hz)
+    !> AmpLFO : tremolo amplitude in [0 ; 1]
+    !> https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/
     subroutine apply_tremolo_effect(tape, track, t1, t2, f, AmpLFO)
-        ! A sinusoidal modulation of the amplitude of a signal (tremolo) :
-        ! f : tremolo frequency (typically a few Hz)
-        ! AmpLFO : tremolo amplitude in [0 ; 1]
-        ! https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, AmpLFO
@@ -81,10 +78,9 @@ contains
         end do
     end subroutine
 
-
+    !> Make the sound move from one channel to the other one at a frequency f
+    !> and with an amplitude AmpLFO in [0 ; 1].
     subroutine apply_autopan_effect(tape, track, t1, t2, f, AmpLFO)
-        ! Make the sound move from one channel to the other one at a frequency f
-        ! and with an amplitude AmpLFO in [0 ; 1].
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, AmpLFO
@@ -102,7 +98,7 @@ contains
         end do
     end subroutine
 
-    ! Copy the samples at the same t1 but in reverse order:
+    !> Copy the samples at the same t1 but in reverse order:
     subroutine apply_reverse_effect(tape, track, t1, t2)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track

@@ -3,7 +3,7 @@
 ! Vincent Magnin
 ! Last modifications: 2023-05-31
 
-! Functions and subroutines generating envelopes
+!> Functions and subroutines generating envelopes
 module envelopes
     use forsynth, only: wp, RATE
     use tape_recorder_class
@@ -11,13 +11,13 @@ module envelopes
     implicit none
 
     type ADSR_envelope
-        ! A   D S   R
-        !    /\
-        !   /  \____
-        !  /        \
-        ! /          \
-        ! https://en.wikipedia.org/wiki/Envelope_(music)
-        ! Default parameters of the ADSR envelope:
+        !> A   D S   R
+        !>    /\
+        !>   /  \____
+        !>  /        \
+        !> /          \
+        !> https://en.wikipedia.org/wiki/Envelope_(music)
+        !> Default parameters of the ADSR envelope:
         real(wp) :: attack  = 30.0_wp      ! duration %
         real(wp) :: decay   = 20.0_wp      ! duration %
         real(wp) :: sustain = 80.0_wp      ! max level %
@@ -43,7 +43,7 @@ contains
         self%release = R
     end subroutine ADSR_new
 
-    ! Returns the level in [0, 1] of the ADSR envelope at time t1 < t < t2
+    !> Returns the level in [0, 1] of the ADSR envelope at time t1 < t < t2
     pure real(wp) function ADSR_level(self, t, t1, t2)
         class(ADSR_envelope), intent(in)  :: self
         real(wp), intent(in) :: t, t1, t2
@@ -80,7 +80,7 @@ contains
         end if
     end function ADSR_level
 
-    ! A linear fade in, from relative level 0 to 1:
+    !> A linear fade in, from relative level 0 to 1:
     subroutine apply_fade_in(tape, track, t1, t2)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
@@ -96,7 +96,7 @@ contains
         end do
     end subroutine apply_fade_in
 
-    ! A linear fade out, from relative level 1 to 0:
+    !> A linear fade out, from relative level 1 to 0:
     subroutine apply_fade_out(tape, track, t1, t2)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track

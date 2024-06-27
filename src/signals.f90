@@ -3,9 +3,8 @@
 ! Vincent Magnin
 ! Last modifications: 2024-05-28
 
+!> Subroutines generating different kind of signals
 module signals
-    ! Subroutines generating different kind of signals
-
     use forsynth, only: wp, RATE, dt, PI
     use envelopes, only: ADSR_envelope
     use tape_recorder_class
@@ -21,7 +20,7 @@ module signals
 
 contains
 
-    ! Adds on the track a sine wave with an ADSR envelope:
+    !> Adds on the track a sine wave with an ADSR envelope:
     subroutine add_sine_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
@@ -53,7 +52,7 @@ contains
         end do
     end subroutine add_sine_wave
 
-    ! Adds on the track a square wave with an ADSR envelope:
+    !> Adds on the track a square wave with an ADSR envelope:
     subroutine add_square_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
@@ -91,7 +90,7 @@ contains
         end do
     end subroutine add_square_wave
 
-    ! Adds on the track a sawtooth wave with an ADSR envelope:
+    !> Adds on the track a sawtooth wave with an ADSR envelope:
     subroutine add_sawtooth_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in) :: track
@@ -122,7 +121,7 @@ contains
         end do
     end subroutine add_sawtooth_wave
 
-    ! Adds on the track a triangle wave with an ADSR envelope:
+    !> Adds on the track a triangle wave with an ADSR envelope:
     subroutine add_triangle_wave(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
@@ -164,9 +163,9 @@ contains
         end do
     end subroutine add_triangle_wave
 
-    ! Karplus and Strong algorithm (1983), for plucked-string
-    ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
-    ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
+    !> Karplus and Strong algorithm (1983), for plucked-string
+    !> http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
+    !> https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
     subroutine add_karplus_strong(tape, track, t1, t2, f, Amp)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
@@ -244,14 +243,14 @@ contains
     end subroutine add_karplus_strong_stretched
 
 
-    ! Karplus and Strong (1983) algorithm for obtaining a percussion sound.
-    ! Typically, P is taken to be between 150 and 1000.
-    ! Caution: this algorithm overwrites what may have existed on the
-    ! track at the chosen location.
-    ! You may also want to modify the b parameter to make some weird sounds,
-    ! somewhere between percussion and guitar...
-    ! http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
-    ! https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
+    !> Karplus and Strong (1983) algorithm for obtaining a percussion sound.
+    !> Typically, P is taken to be between 150 and 1000.
+    !> Caution: this algorithm overwrites what may have existed on the
+    !> track at the chosen location.
+    !> You may also want to modify the b parameter to make some weird sounds,
+    !> somewhere between percussion and guitar...
+    !> http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
+    !> https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
     subroutine add_karplus_strong_drum(tape, track, t1, t2, P, Amp)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track, P
@@ -345,7 +344,7 @@ contains
     end subroutine add_karplus_strong_drum_stretched
 
 
-    ! Add white noise on the track:
+    !> Add white noise on the track:
     subroutine add_noise(tape, track, t1, t2, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
@@ -373,7 +372,7 @@ contains
         end do
     end subroutine
 
-    ! https://en.wikipedia.org/wiki/Weierstrass_function
+    !> https://en.wikipedia.org/wiki/Weierstrass_function
     pure real(wp) function weierstrass(a, b, x)
         real(wp), intent(in) :: a, b, x
         real(wp) :: w, ww
@@ -392,7 +391,7 @@ contains
         weierstrass = w
     end function
 
-    ! Add a fractal signal on the track with an envelope:
+    !> Add a fractal signal on the track with an envelope:
     subroutine add_weierstrass(tape, track, t1, t2, f, Amp, envelope)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track

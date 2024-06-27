@@ -3,8 +3,8 @@
 ! Vincent Magnin
 ! Last modifications: 2024-06-02
 
-! A sequence of synth chords is repeated, and the corresponding notes are played
-! randomly by plucked strings.
+!> A sequence of synth chords is repeated, and the corresponding notes are played
+!> randomly by plucked strings.
 program chords_and_melody
     use forsynth, only: wp
     use wav_file_class, only: WAV_file

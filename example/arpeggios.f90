@@ -3,8 +3,8 @@
 ! Vincent Magnin, 2024-05-30
 ! Last modifications: 2024-06-02
 
-! Arpeggios played in various ways using the circles of fifths
-! https://en.wikipedia.org/wiki/Arpeggio
+!> Arpeggios played in various ways using the circles of fifths
+!> https://en.wikipedia.org/wiki/Arpeggio
 program arpeggios
     use forsynth, only: wp
     use wav_file_class, only: WAV_file

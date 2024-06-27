@@ -3,7 +3,7 @@
 ! Vincent Magnin
 ! Last modifications: 2024-06-02
 
-! All available audio effects are applied sequentially on a chord sequence.
+!> All available audio effects are applied sequentially on a chord sequence.
 program demo_effects
     use forsynth, only: wp
     use wav_file_class, only: WAV_file

@@ -3,8 +3,8 @@
 ! Vincent Magnin, 2024-04-29
 ! Last modifications: 2024-05-31
 
-! Miscellaneous signals, especially obtained by frequency or phase modulation.
-! A WAV file is created for each sound.
+!> Miscellaneous signals, especially obtained by frequency or phase modulation.
+!> A WAV file is created for each sound.
 program misc_sounds
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
@@ -34,7 +34,7 @@ program misc_sounds
 
 contains
 
-    ! Add on the track a signal choosen by its number:
+    !> Add on the track a signal choosen by its number:
     subroutine add_misc_signal(tape, track, t1, t2, f, Amp, choice)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track, choice

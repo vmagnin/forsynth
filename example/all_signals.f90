@@ -3,7 +3,7 @@
 ! Vincent Magnin
 ! Last modifications: 2024-06-02
 
-! Plays sequentially each type of available signal.
+!> Plays sequentially each type of available signal.
 program all_signals
     use forsynth, only: wp
     use wav_file_class, only: WAV_file

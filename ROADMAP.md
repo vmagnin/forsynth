@@ -15,7 +15,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 
 ### Documentation
 * [x] A first version of a FORD documentation. (**)
-    * [ ] Transforming comments into FORD comments !>
+    * [x] Transforming comments into FORD comments !>
 
 ### Fix
 * [ ] The problem of the Shepard–Risset glissando. (***)

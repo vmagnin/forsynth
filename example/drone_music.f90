@@ -3,7 +3,7 @@
 ! Vincent Magnin, 2024-05-19
 ! Last modifications: 2024-05-31
 
-! Experimental drone music.
+!> Experimental drone music.
 program drone_music
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
