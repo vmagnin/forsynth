@@ -4,7 +4,7 @@ summary:             A small Fortran synthesizer to explore sound synthesis,
                      Humbly follow the steps of Stockhausen, Kraftwerk and the
                      Daft Punk!
 version:             0.4.0
-license:             GPL
+license:             gfdl
 year:                2021-2024
 project_github:      https://github.com/vmagnin/forsynth
 author:              Vincent Magnin
