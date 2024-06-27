@@ -171,6 +171,8 @@ Later famous works:
 -    David Bowie and Brian Eno, *Sense of Doubt* (1977,  *Heroes*): https://www.youtube.com/watch?v=ENqheXKftbo
 -   Tubeway Army, *Are Friends Electric* (1979): https://www.youtube.com/watch?v=21ixpapHjkM
     - A "recent" version (AllSaints Basement Sessions): https://www.youtube.com/watch?v=22Z4Tv1zn-s
+-   Edward Artemiev, *Listening to Bach* (From the movie "Solaris" 1972): https://www.youtube.com/watch?v=E8YCQ0zjCZA&t=953s
+    - J.S. Bach - BWV 639 - *Ich ruf' zu dir, Herr Jesu Christ*: https://www.youtube.com/watch?v=X9Dh43kVL1Q
 
 ## 70's: Synth-Punk
 
