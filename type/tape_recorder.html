@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -117,11 +117,11 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/tape_recorder.html#variable-duration">duration</a>
+            <a class="list-group-item" href="../type/tape_recorder.html#variable-duration~3">duration</a>
             <a class="list-group-item" href="../type/tape_recorder.html#variable-left">left</a>
             <a class="list-group-item" href="../type/tape_recorder.html#variable-right">right</a>
             <a class="list-group-item" href="../type/tape_recorder.html#variable-samples">samples</a>
-            <a class="list-group-item" href="../type/tape_recorder.html#variable-tracks">tracks</a>
+            <a class="list-group-item" href="../type/tape_recorder.html#variable-tracks~2">tracks</a>
         </div>
       </div>
     </div>
@@ -292,7 +292,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-duration"></span>
+              <span class="anchor" id="variable-duration~3"></span>
               real(kind=wp),
             </td>
               <td>public</td>
@@ -304,7 +304,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Duration in seconds:</p>
             </td>
         </tr>
         <tr>
@@ -321,7 +321,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -338,7 +338,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -355,12 +355,12 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Number of samples:</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tracks"></span>
+              <span class="anchor" id="variable-tracks~2"></span>
               integer,
             </td>
               <td>public</td>
@@ -372,7 +372,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Number of audio tracks (excluding track 0 reserved for the final mix):</p>
             </td>
         </tr>
     </tbody>
@@ -400,7 +400,7 @@ large graphs.</div>
 
     </h3>
     
-  
+  <p>An automatic finalizer, by security.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -415,7 +415,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~6"></span>
+              <span class="anchor" id="variable-self~11"></span>
               type(<a href='tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -458,7 +458,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Erase all tracks on all the channels of the tape.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -512,7 +512,9 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Copy section t1...t2 at t3, either on the same track or another one.
+The content already present at t3 is overwritten.
+The code suppose that t1 &lt; t2 &lt; t3.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -641,7 +643,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Called by the close_WAV_file() method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -695,7 +697,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Tracks 1 to tracks-1 are mixed on track 0.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -851,13 +853,13 @@ large graphs.</div>
     <section>
     <h3><span class="anchor" id="src"></span>Source Code</h3>
     <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">type </span><span class="n">tape_recorder</span>
-<span class="w">        </span><span class="c">! Number of audio tracks (excluding track 0 reserved for the final mix):</span>
+<span class="w">        </span><span class="c">!&gt; Number of audio tracks (excluding track 0 reserved for the final mix):</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">tracks</span>
-<span class="w">        </span><span class="c">! Duration in seconds:</span>
+<span class="w">        </span><span class="c">!&gt; Duration in seconds:</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">duration</span>
-<span class="w">        </span><span class="c">! Number of samples:</span>
+<span class="w">        </span><span class="c">!&gt; Number of samples:</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">samples</span>
-<span class="w">        </span><span class="c">! Two arrays stocking the stereo tracks:</span>
+<span class="w">        </span><span class="c">!&gt; Two arrays stocking the stereo tracks:</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span>
 <span class="w">    </span><span class="k">contains</span>
 <span class="k">        procedure</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">new</span>
@@ -882,14 +884,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

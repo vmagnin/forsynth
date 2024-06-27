@@ -3,12 +3,12 @@
 ! Vincent Magnin, 2024-05-20
 ! Last modifications: 2024-05-31
 
-! A Shepard scale, giving the illusion of an ever increasing pitch in the first
-! half of the tape and an ever decreasing pitch in the 2nd half.
-! Shepard, Roger N. "Circularity in Judgments of Relative Pitch",
-! The Journal of the Acoustical Society of America 36, no. 12,
-! (December 1, 1964): 2346–53. https://doi.org/10.1121/1.1919362.
-! https://en.wikipedia.org/wiki/Shepard_tone
+!> A Shepard scale, giving the illusion of an ever increasing pitch in the first
+!> half of the tape and an ever decreasing pitch in the 2nd half.
+!> Shepard, Roger N. "Circularity in Judgments of Relative Pitch",
+!> The Journal of the Acoustical Society of America 36, no. 12,
+!> (December 1, 1964): 2346–53. https://doi.org/10.1121/1.1919362.
+!> https://en.wikipedia.org/wiki/Shepard_tone
 program shepard_scale
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file

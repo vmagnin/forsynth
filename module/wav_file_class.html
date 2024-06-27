@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -183,15 +183,15 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>The main class that you will use to create your WAV files.</p>
 <br>          <div class="card mb-4">
       <h3 class="card-header card-title bg-light">Uses</h3>
       <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
                   <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
+                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -637,7 +637,7 @@ parameter
 <td> =</td>
                 <td>32767</td>
             <td>
-                
+                <p>Maximum amplitude in a WAV [-32768 ; +32767]:</p>
             </td>
         </tr>
         <tr>
@@ -693,7 +693,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-duration"></span>
+              <span class="anchor" id="variable-duration~3"></span>
               real(kind=wp),
             </td>
               <td>public</td>
@@ -705,7 +705,7 @@ parameter
                 <td></td>
                 <td></td>
             <td>
-
+<p>Duration in seconds:</p>
             </td>
         </tr>
         <tr>
@@ -756,7 +756,7 @@ parameter
                 <td></td>
                 <td></td>
             <td>
-
+<p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -773,7 +773,7 @@ parameter
                 <td></td>
                 <td></td>
             <td>
-
+<p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -790,12 +790,12 @@ parameter
                 <td></td>
                 <td></td>
             <td>
-
+<p>Number of samples:</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tracks"></span>
+              <span class="anchor" id="variable-tracks~2"></span>
               integer,
             </td>
               <td>public</td>
@@ -807,7 +807,7 @@ parameter
                 <td></td>
                 <td></td>
             <td>
-
+<p>Number of audio tracks (excluding track 0 reserved for the final mix):</p>
             </td>
         </tr>
     </tbody>
@@ -884,7 +884,7 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Returns the name of the WAV file:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -899,7 +899,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~8"></span>
+              <span class="anchor" id="variable-self~2"></span>
               class(<a href='../type/wav_file.html'>WAV_file</a>),
             </td>
 <td>intent(inout)</td>
@@ -934,7 +934,8 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Must be called at the end. It normalizes the channels, writes them in the
+WAV file and closes it. It also deallocate the tape arrays.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -949,7 +950,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~11"></span>
+              <span class="anchor" id="variable-self~5"></span>
               class(<a href='../type/wav_file.html'>WAV_file</a>),
             </td>
 <td>intent(inout)</td>
@@ -974,7 +975,7 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Create a WAV file with a header:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -989,7 +990,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~7"></span>
+              <span class="anchor" id="variable-self"></span>
               class(<a href='../type/wav_file.html'>WAV_file</a>),
             </td>
 <td>intent(inout)</td>
@@ -1019,7 +1020,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tracks~3"></span>
+              <span class="anchor" id="variable-tracks"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1034,7 +1035,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-duration~3"></span>
+              <span class="anchor" id="variable-duration~2"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1059,7 +1060,7 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Creates the 44 bytes WAV header and prints some information:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1074,7 +1075,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~9"></span>
+              <span class="anchor" id="variable-self~3"></span>
               class(<a href='../type/wav_file.html'>WAV_file</a>),
             </td>
 <td>intent(inout)</td>
@@ -1084,7 +1085,7 @@ parameter
             <td>::</td>
             <td><strong>self</strong></td>
             <td>
-<p>WAV parameters:</p><a href="../proc/write_header.html#variable-self~9" class="pull-right"><emph>Read more&hellip;</emph></a>
+<p>WAV parameters:</p><a href="../proc/write_header.html#variable-self~3" class="pull-right"><emph>Read more&hellip;</emph></a>
             </td>
         </tr>
     </tbody>
@@ -1099,7 +1100,8 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>This method normalizes the sound amplitude on track 0, before saving
+the left and right channels in the WAV file.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1114,7 +1116,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~10"></span>
+              <span class="anchor" id="variable-self~4"></span>
               class(<a href='../type/wav_file.html'>WAV_file</a>),
             </td>
 <td>intent(inout)</td>
@@ -1150,14 +1152,14 @@ parameter
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

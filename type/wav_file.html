@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -117,13 +117,13 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/wav_file.html#variable-duration">duration</a>
+            <a class="list-group-item" href="../type/wav_file.html#variable-duration~3">duration</a>
             <a class="list-group-item" href="../type/wav_file.html#variable-filename">filename</a>
             <a class="list-group-item" href="../type/wav_file.html#variable-fileunit">fileunit</a>
             <a class="list-group-item" href="../type/wav_file.html#variable-left">left</a>
             <a class="list-group-item" href="../type/wav_file.html#variable-right">right</a>
             <a class="list-group-item" href="../type/wav_file.html#variable-samples">samples</a>
-            <a class="list-group-item" href="../type/wav_file.html#variable-tracks">tracks</a>
+            <a class="list-group-item" href="../type/wav_file.html#variable-tracks~2">tracks</a>
         </div>
       </div>
     </div>
@@ -288,7 +288,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-duration"></span>
+              <span class="anchor" id="variable-duration~3"></span>
               real(kind=wp),
             </td>
               <td>public</td>
@@ -300,7 +300,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Duration in seconds:</p>
             </td>
         </tr>
         <tr>
@@ -351,7 +351,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -368,7 +368,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -385,12 +385,12 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Number of samples:</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tracks"></span>
+              <span class="anchor" id="variable-tracks~2"></span>
               integer,
             </td>
               <td>public</td>
@@ -402,7 +402,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-                
+                <p>Number of audio tracks (excluding track 0 reserved for the final mix):</p>
             </td>
         </tr>
     </tbody>
@@ -432,7 +432,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Erase all tracks on all the channels of the tape.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -486,7 +486,8 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Must be called at the end. It normalizes the channels, writes them in the
+WAV file and closes it. It also deallocate the tape arrays.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -540,7 +541,9 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Copy section t1...t2 at t3, either on the same track or another one.
+The content already present at t3 is overwritten.
+The code suppose that t1 &lt; t2 &lt; t3.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -669,7 +672,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Create a WAV file with a header:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -768,7 +771,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Called by the close_WAV_file() method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -822,7 +825,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Returns the name of the WAV file:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -881,7 +884,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Tracks 1 to tracks-1 are mixed on track 0.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1049,7 +1052,7 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>Creates the 44 bytes WAV header and prints some information:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1074,7 +1077,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>self</strong></td>
             <td>
-<p>WAV parameters:</p><a href="../proc/write_header.html#variable-self~9" class="pull-right"><emph>Read more&hellip;</emph></a>
+<p>WAV parameters:</p><a href="../proc/write_header.html#variable-self~3" class="pull-right"><emph>Read more&hellip;</emph></a>
             </td>
         </tr>
     </tbody>
@@ -1103,7 +1106,8 @@ large graphs.</div>
 </h3>
     
 
-  
+  <p>This method normalizes the sound amplitude on track 0, before saving
+the left and right channels in the WAV file.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1169,14 +1173,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

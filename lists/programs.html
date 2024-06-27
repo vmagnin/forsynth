@@ -74,57 +74,89 @@
 			   <tr>
                  <td><a href='../program/all_signals.html'>all_signals</a></td>
                  <td><a href='../sourcefile/all_signals.f90.html'>all_signals.f90</a></td>
-                 <td></td>
+                 <td><p>Plays sequentially each type of available signal.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/arpeggios.html'>arpeggios</a></td>
                  <td><a href='../sourcefile/arpeggios.f90.html'>arpeggios.f90</a></td>
-                 <td></td>
+                 <td><p>Arpeggios played in various ways using the circles of fifths
+https://en.wikipedia.org/wiki/Arpeggio</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/blues.html'>blues</a></td>
                  <td><a href='../sourcefile/blues.f90.html'>blues.f90</a></td>
-                 <td></td>
+                 <td><p>A random walk on a blues scale.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/chords_and_melody.html'>chords_and_melody</a></td>
                  <td><a href='../sourcefile/chords_and_melody.f90.html'>chords_and_melody.f90</a></td>
-                 <td></td>
+                 <td><p>A sequence of synth chords is repeated, and the corresponding notes are played
+randomly by plucked strings.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/demo_effects.html'>demo_effects</a></td>
                  <td><a href='../sourcefile/demo_effects.f90.html'>demo_effects.f90</a></td>
-                 <td></td>
+                 <td><p>All available audio effects are applied sequentially on a chord sequence.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/doppler_effect.html'>doppler_effect</a></td>
                  <td><a href='../sourcefile/doppler_effect.f90.html'>doppler_effect.f90</a></td>
-                 <td></td>
+                 <td><p>A simulation of Doppler effect, with a car passing in front of you.
+https://fr.wikipedia.org/wiki/Effet_Doppler
+The Observer is static at the origin,
+the car is Moving along x at a constant velocity v
+                       ^ y
+                       |
+     <strong><em>*M</em></strong><strong><em>*</em></strong><strong><em>y0</em></strong><strong><em>*</em></strong><strong><em>*&gt;
+                       |
+----x0-----------------O-------------------&gt; x
+                       |
+The frequency perceived by the observer (Doppler effect)
+is fobs = f / (1 - vr/c) but we don't need to compute it.
+The signal heard by the observer at tobs was emitted earlier by the
+car at t, from a distance r(t):
+tobs = t + r(t) / c
+By developing r(t) we can finally obtain a quadratic equation:
+(c</em>*2-v</strong>2) * t<strong>2 - (2<em>tobs</em>c</strong>2 + 2<em>x0</em>v) <em>t + (tobs</em><em>2 * c</em><em>2 - x0</em><em>2 - y</em>*2) = 0
+The time t is the unique physical solution of that equation:</p><a href="../program/doppler_effect.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
                </tr>
 			   <tr>
                  <td><a href='../program/drone_music.html'>drone_music</a></td>
                  <td><a href='../sourcefile/drone_music.f90.html'>drone_music.f90</a></td>
-                 <td></td>
+                 <td><p>Experimental drone music.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/drum_machine.html'>drum_machine</a></td>
                  <td><a href='../sourcefile/drum_machine.f90.html'>drum_machine.f90</a></td>
-                 <td></td>
+                 <td><p>A rhythm following a pattern stored in an array.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/misc_sounds.html'>misc_sounds</a></td>
                  <td><a href='../sourcefile/misc_sounds.f90.html'>misc_sounds.f90</a></td>
-                 <td></td>
+                 <td><p>Miscellaneous signals, especially obtained by frequency or phase modulation.
+A WAV file is created for each sound.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
                  <td><a href='../sourcefile/shepard_risset_glissando.f90.html'>shepard_risset_glissando.f90</a></td>
-                 <td></td>
+                 <td><p>A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
+It is the continuous version of the Shepard scale.
+It is not perfect, as we can hear that globally the whole is getting slowly
+higher. It is also visible when zooming in the waveform woth audacity.
+Some kind of beating might occur due to the fact that in the sin(),
+both omega and t are varying at each step. But as the f() are now redefined
+regularly, things are unclear for the moment...
+https://en.wikipedia.org/wiki/Shepard_tone</p></td>
                </tr>
 			   <tr>
                  <td><a href='../program/shepard_scale.html'>shepard_scale</a></td>
                  <td><a href='../sourcefile/shepard_scale.f90.html'>shepard_scale.f90</a></td>
-                 <td></td>
+                 <td><p>A Shepard scale, giving the illusion of an ever increasing pitch in the first
+half of the tape and an ever decreasing pitch in the 2nd half.
+Shepard, Roger N. "Circularity in Judgments of Relative Pitch",
+The Journal of the Acoustical Society of America 36, no. 12,
+(December 1, 1964): 2346–53. https://doi.org/10.1121/1.1919362.
+https://en.wikipedia.org/wiki/Shepard_tone</p></td>
                </tr>
 			 </tbody></table>
         </div>
@@ -137,14 +169,14 @@
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

@@ -3,7 +3,7 @@
 ! Vincent Magnin
 ! Last modifications: 2024-06-02
 
-! A random walk on a blues scale.
+!> A random walk on a blues scale.
 program blues
     use forsynth, only: wp
     use wav_file_class, only: WAV_file

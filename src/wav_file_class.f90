@@ -3,13 +3,13 @@
 ! Vincent Magnin
 ! Last modifications: 2024-05-31
 
-! The main class that you will use to create your WAV files.
+!> The main class that you will use to create your WAV files.
 module wav_file_class
     use forsynth, only: wp, RATE, INT16, INT32, INT64
     use tape_recorder_class
 
     implicit none
-    ! Maximum amplitude in a WAV [-32768 ; +32767]:
+    !> Maximum amplitude in a WAV [-32768 ; +32767]:
     integer, parameter :: MAX_AMPLITUDE = 32767
     integer :: status
 
@@ -30,7 +30,7 @@ module wav_file_class
 
 contains
 
-    ! Create a WAV file with a header:
+    !> Create a WAV file with a header:
     subroutine create_WAV_file(self, filename, tracks, duration)
         class(WAV_file), intent(inout) :: self
         character(*), intent(in)       :: filename
@@ -44,7 +44,7 @@ contains
         call self%write_header()
     end subroutine create_WAV_file
 
-    ! Returns the name of the WAV file:
+    !> Returns the name of the WAV file:
     function get_name(self)
         class(WAV_file), intent(inout) :: self
         character(len(self%filename)) :: get_name
@@ -52,7 +52,7 @@ contains
         get_name = self%filename
     end function
 
-    ! Creates the 44 bytes WAV header and prints some information:
+    !> Creates the 44 bytes WAV header and prints some information:
     subroutine write_header(self)
         class(WAV_file), intent(inout)  :: self
         !****************
@@ -108,8 +108,8 @@ contains
         end associate
     end subroutine write_header
 
-    ! This method normalizes the sound amplitude on track 0, before saving
-    ! the left and right channels in the WAV file.
+    !> This method normalizes the sound amplitude on track 0, before saving
+    !> the left and right channels in the WAV file.
     subroutine write_normalized_data(self)
         class(WAV_file), intent(inout)  :: self
         integer  :: i
@@ -125,8 +125,8 @@ contains
         end do
     end subroutine
 
-    ! Must be called at the end. It normalizes the channels, writes them in the
-    ! WAV file and closes it. It also deallocate the tape arrays.
+    !> Must be called at the end. It normalizes the channels, writes them in the
+    !> WAV file and closes it. It also deallocate the tape arrays.
     subroutine close_WAV_file(self)
         class(WAV_file), intent(inout)  :: self
 

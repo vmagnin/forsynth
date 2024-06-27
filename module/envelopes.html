@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -170,15 +170,15 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>Functions and subroutines generating envelopes</p>
 <br>          <div class="card mb-4">
       <h3 class="card-header card-title bg-light">Uses</h3>
       <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
                   <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
+                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -703,7 +703,13 @@ large graphs.</div>
 <td> =</td>
                 <td>30.0_wp</td>
             <td>
-
+<p>A   D S   R
+   /\
+  /  ____
+ /        \
+/          \
+https://en.wikipedia.org/wiki/Envelope_(music)
+Default parameters of the ADSR envelope:</p>
             </td>
         </tr>
         <tr>
@@ -791,7 +797,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Returns the level in [0, 1] of the ADSR envelope at time t1 &lt; t &lt; t2</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -821,7 +827,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~9"></span>
+              <span class="anchor" id="variable-t~21"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -836,7 +842,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~6"></span>
+              <span class="anchor" id="variable-t1~23"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -851,7 +857,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~6"></span>
+              <span class="anchor" id="variable-t2~23"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -886,7 +892,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>A linear fade in, from relative level 0 to 1:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -901,7 +907,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~5"></span>
+              <span class="anchor" id="variable-tape~20"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -916,7 +922,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~6"></span>
+              <span class="anchor" id="variable-track~21"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -931,7 +937,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~7"></span>
+              <span class="anchor" id="variable-t1~24"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -946,7 +952,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~7"></span>
+              <span class="anchor" id="variable-t2~24"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -971,7 +977,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>A linear fade out, from relative level 1 to 0:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -986,7 +992,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~6"></span>
+              <span class="anchor" id="variable-tape~21"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1001,7 +1007,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~7"></span>
+              <span class="anchor" id="variable-track~22"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1016,7 +1022,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~8"></span>
+              <span class="anchor" id="variable-t1~25"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1031,7 +1037,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~8"></span>
+              <span class="anchor" id="variable-t2~25"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1116,7 +1122,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-s"></span>
+              <span class="anchor" id="variable-s~3"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1167,14 +1173,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

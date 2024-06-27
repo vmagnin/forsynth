@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -171,18 +171,18 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>Contains music theory elements: scales, circle of fifths, chords, etc.</p>
 <br>          <div class="card mb-4">
       <h3 class="card-header card-title bg-light">Uses</h3>
       <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='signals.html'>signals</a></li>
                   <li class="list-inline-item"><a href='envelopes.html'>envelopes</a></li>
-                  <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
                   <li class="list-inline-item"><a href='music_common.html'>music_common</a></li>
                   <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
+                  <li class="list-inline-item"><a href='signals.html'>signals</a></li>
+                  <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -649,7 +649,7 @@ parameter
 <td> =</td>
                 <td>440.0_wp</td>
             <td>
-                
+                <p>Concert pitch (A note):</p>
             </td>
         </tr>
         <tr>
@@ -666,7 +666,7 @@ parameter
 <td> =</td>
                 <td>2.0_wp**(1.0_wp/12.0_wp)</td>
             <td>
-                
+                <p>Equal temperament: https://en.wikipedia.org/wiki/Equal_temperament</p>
             </td>
         </tr>
     </tbody>
@@ -686,7 +686,10 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Returns the frequency of the note.
+The note name is composed of two or three characters,
+for example "A4", "A#4", "Ab4", where the final character is
+the octave.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -736,7 +739,141 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Writes a broken chord using an array containing the intervals
+(see the music_common module). It uses plucked strings (Karplus-Strong).
+For the moment, each note has the same duration.
+https://en.wikipedia.org/wiki/Arpeggio</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tape~4"></span>
+              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tape</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-track~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t1~4"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2~4"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~4"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-amp~4"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Amp</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-chord~2"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>chord</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-add_chord"></span> <h3>public  subroutine <a href='../proc/add_chord.html'>add_chord</a>(tape, track, t1, t2, f, Amp, chord, envelope)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Writes a chord using an array containing the intervals
+(see the music_common module)</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -841,7 +978,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-chord~2"></span>
+              <span class="anchor" id="variable-chord"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -854,6 +991,21 @@ parameter
 
             </td>
         </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-envelope~2"></span>
+              type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>),
+            </td>
+<td>intent(inout),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>envelope</strong></td>
+            <td>
+
+            </td>
+        </tr>
     </tbody>
   </table>
 
@@ -862,11 +1014,12 @@ parameter
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-add_chord"></span> <h3>public  subroutine <a href='../proc/add_chord.html'>add_chord</a>(tape, track, t1, t2, f, Amp, chord, envelope)  
+    <div class="card-header codesum"><span class="anchor" id="proc-add_note"></span> <h3>public  subroutine <a href='../proc/add_note.html'>add_note</a>(tape, track, t1, t2, f, Amp, envelope)  
 </h3></div>
     <div class="card-body">
           
-  
+  <p>A note of fundamental frequency f with harmonics, based on sine waves.
+https://en.wikipedia.org/wiki/Harmonic</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -971,151 +1124,6 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-chord"></span>
-              integer,
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              dimension(:)
-            </td>
-            <td>::</td>
-            <td><strong>chord</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-envelope~2"></span>
-              type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>),
-            </td>
-<td>intent(inout),</td>
-              <td>optional</td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>envelope</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
-              <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-add_note"></span> <h3>public  subroutine <a href='../proc/add_note.html'>add_note</a>(tape, track, t1, t2, f, Amp, envelope)  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-tape"></span>
-              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tape</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-track"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>track</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t1"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>t1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t2"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>t2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-f"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>f</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-amp"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>Amp</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
               <span class="anchor" id="variable-envelope"></span>
               type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>),
             </td>
@@ -1152,14 +1160,14 @@ parameter
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

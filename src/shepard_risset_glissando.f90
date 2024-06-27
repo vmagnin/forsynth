@@ -3,14 +3,14 @@
 ! Vincent Magnin, 2024-05-24
 ! Last modifications: 2024-06-03
 
-! A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
-! It is the continuous version of the Shepard scale.
-! It is not perfect, as we can hear that globally the whole is getting slowly
-! higher. It is also visible when zooming in the waveform woth audacity.
-! Some kind of beating might occur due to the fact that in the sin(),
-! both omega and t are varying at each step. But as the f() are now redefined
-! regularly, things are unclear for the moment...
-! https://en.wikipedia.org/wiki/Shepard_tone
+!> A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
+!> It is the continuous version of the Shepard scale.
+!> It is not perfect, as we can hear that globally the whole is getting slowly
+!> higher. It is also visible when zooming in the waveform woth audacity.
+!> Some kind of beating might occur due to the fact that in the sin(),
+!> both omega and t are varying at each step. But as the f() are now redefined
+!> regularly, things are unclear for the moment...
+!> https://en.wikipedia.org/wiki/Shepard_tone
 program shepard_risset_glissando
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
@@ -112,7 +112,7 @@ contains
         end do
     end subroutine
 
-    ! Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.
+    !> Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.
     real(wp) function linear1(freq, f1, f2)
         real(wp), intent(in) :: freq, f1, f2
 
@@ -123,7 +123,7 @@ contains
         end if
     end function
 
-    ! Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.
+    !> Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.
     real(wp) function linear2(freq, f1, f2)
         real(wp), intent(in) :: freq, f1, f2
 
@@ -134,8 +134,8 @@ contains
         end if
     end function
 
-    ! Envelope of the glissando. A gaussian, plus linear sections at
-    ! the extremities, to reach the 0 level.
+    !> Envelope of the glissando. A gaussian, plus linear sections at
+    !> the extremities, to reach the 0 level.
     real(wp) function amplitude(freq)
         real(wp), intent(in) :: freq
         real(wp) :: Amp
@@ -151,7 +151,7 @@ contains
         amplitude = Amp * (1/(sqrt(2*PI)*sigma)) * exp(-(log10(freq) - muf)**2 / (2 * sigma**2))
     end function
 
-    ! Useful for debugging and setting the envelope parameters:
+    !> Useful for debugging and setting the envelope parameters:
     subroutine write_amplitude_envelope()
         real(wp) ::freq
         integer  :: u

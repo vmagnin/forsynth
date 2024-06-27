@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -317,14 +317,14 @@ large graphs.</div>
 <a id="ln-3" name="ln-3" href="#ln-3"></a><span class="c">! Vincent Magnin, 2024-05-24</span>
 <a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">! Last modifications: 2024-06-03</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a>
-<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="c">! A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.</span>
-<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="c">! It is the continuous version of the Shepard scale.</span>
-<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="c">! It is not perfect, as we can hear that globally the whole is getting slowly</span>
-<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="c">! higher. It is also visible when zooming in the waveform woth audacity.</span>
-<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="c">! Some kind of beating might occur due to the fact that in the sin(),</span>
-<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="c">! both omega and t are varying at each step. But as the f() are now redefined</span>
-<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="c">! regularly, things are unclear for the moment...</span>
-<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="c">! https://en.wikipedia.org/wiki/Shepard_tone</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="c">!&gt; A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="c">!&gt; It is the continuous version of the Shepard scale.</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="c">!&gt; It is not perfect, as we can hear that globally the whole is getting slowly</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="c">!&gt; higher. It is also visible when zooming in the waveform woth audacity.</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="c">!&gt; Some kind of beating might occur due to the fact that in the sin(),</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="c">!&gt; both omega and t are varying at each step. But as the f() are now redefined</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="c">!&gt; regularly, things are unclear for the moment...</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="c">!&gt; https://en.wikipedia.org/wiki/Shepard_tone</span>
 <a id="ln-14" name="ln-14" href="#ln-14"></a><span class="k">program </span><span class="n">shepard_risset_glissando</span>
 <a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">    </span><span class="k">use </span><span class="n">forsynth</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">RATE</span><span class="p">,</span><span class="w"> </span><span class="n">PI</span>
 <a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">    </span><span class="k">use </span><span class="n">wav_file_class</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">WAV_file</span>
@@ -426,7 +426,7 @@ large graphs.</div>
 <a id="ln-112" name="ln-112" href="#ln-112"></a><span class="w">        </span><span class="k">end do</span>
 <a id="ln-113" name="ln-113" href="#ln-113"></a><span class="k">    end subroutine</span>
 <a id="ln-114" name="ln-114" href="#ln-114"></a>
-<a id="ln-115" name="ln-115" href="#ln-115"></a><span class="w">    </span><span class="c">! Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.</span>
+<a id="ln-115" name="ln-115" href="#ln-115"></a><span class="w">    </span><span class="c">!&gt; Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.</span>
 <a id="ln-116" name="ln-116" href="#ln-116"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">linear1</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">)</span>
 <a id="ln-117" name="ln-117" href="#ln-117"></a><span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span>
 <a id="ln-118" name="ln-118" href="#ln-118"></a>
@@ -437,7 +437,7 @@ large graphs.</div>
 <a id="ln-123" name="ln-123" href="#ln-123"></a><span class="w">        </span><span class="k">end if</span>
 <a id="ln-124" name="ln-124" href="#ln-124"></a><span class="k">    end function</span>
 <a id="ln-125" name="ln-125" href="#ln-125"></a>
-<a id="ln-126" name="ln-126" href="#ln-126"></a><span class="w">    </span><span class="c">! Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.</span>
+<a id="ln-126" name="ln-126" href="#ln-126"></a><span class="w">    </span><span class="c">!&gt; Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.</span>
 <a id="ln-127" name="ln-127" href="#ln-127"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">linear2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">)</span>
 <a id="ln-128" name="ln-128" href="#ln-128"></a><span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span>
 <a id="ln-129" name="ln-129" href="#ln-129"></a>
@@ -448,8 +448,8 @@ large graphs.</div>
 <a id="ln-134" name="ln-134" href="#ln-134"></a><span class="w">        </span><span class="k">end if</span>
 <a id="ln-135" name="ln-135" href="#ln-135"></a><span class="k">    end function</span>
 <a id="ln-136" name="ln-136" href="#ln-136"></a>
-<a id="ln-137" name="ln-137" href="#ln-137"></a><span class="w">    </span><span class="c">! Envelope of the glissando. A gaussian, plus linear sections at</span>
-<a id="ln-138" name="ln-138" href="#ln-138"></a><span class="w">    </span><span class="c">! the extremities, to reach the 0 level.</span>
+<a id="ln-137" name="ln-137" href="#ln-137"></a><span class="w">    </span><span class="c">!&gt; Envelope of the glissando. A gaussian, plus linear sections at</span>
+<a id="ln-138" name="ln-138" href="#ln-138"></a><span class="w">    </span><span class="c">!&gt; the extremities, to reach the 0 level.</span>
 <a id="ln-139" name="ln-139" href="#ln-139"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">amplitude</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
 <a id="ln-140" name="ln-140" href="#ln-140"></a><span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">freq</span>
 <a id="ln-141" name="ln-141" href="#ln-141"></a><span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Amp</span>
@@ -465,7 +465,7 @@ large graphs.</div>
 <a id="ln-151" name="ln-151" href="#ln-151"></a><span class="k">        </span><span class="n">amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Amp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">muf</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 <a id="ln-152" name="ln-152" href="#ln-152"></a><span class="w">    </span><span class="k">end function</span>
 <a id="ln-153" name="ln-153" href="#ln-153"></a>
-<a id="ln-154" name="ln-154" href="#ln-154"></a><span class="w">    </span><span class="c">! Useful for debugging and setting the envelope parameters:</span>
+<a id="ln-154" name="ln-154" href="#ln-154"></a><span class="w">    </span><span class="c">!&gt; Useful for debugging and setting the envelope parameters:</span>
 <a id="ln-155" name="ln-155" href="#ln-155"></a><span class="w">    </span><span class="k">subroutine </span><span class="n">write_amplitude_envelope</span><span class="p">()</span>
 <a id="ln-156" name="ln-156" href="#ln-156"></a><span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="n">freq</span>
 <a id="ln-157" name="ln-157" href="#ln-157"></a><span class="w">        </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">u</span>
@@ -496,14 +496,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

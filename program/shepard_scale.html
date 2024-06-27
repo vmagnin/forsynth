@@ -72,7 +72,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -115,22 +115,22 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/shepard_scale.html#variable-amp~6">Amp</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-amp~8">Amp</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-l">L</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-lmax">Lmax</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-lmin">Lmin</a>
-            <a class="list-group-item" href="../program/shepard_scale.html#variable-c">c</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-c~3">c</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-cmax~2">cmax</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-d~2">d</a>
-            <a class="list-group-item" href="../program/shepard_scale.html#variable-demo~5">demo</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-demo~8">demo</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-ds">ds</a>
-            <a class="list-group-item" href="../program/shepard_scale.html#variable-f~5">f</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-f~7">f</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-fmin~2">fmin</a>
-            <a class="list-group-item" href="../program/shepard_scale.html#variable-i~8">i</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-i~11">i</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-k~2">k</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-kmax">kmax</a>
-            <a class="list-group-item" href="../program/shepard_scale.html#variable-omega~2">omega</a>
-            <a class="list-group-item" href="../program/shepard_scale.html#variable-t~6">t</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-omega~4">omega</a>
+            <a class="list-group-item" href="../program/shepard_scale.html#variable-t~9">t</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-teta">teta</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-ti">ti</a>
             <a class="list-group-item" href="../program/shepard_scale.html#variable-ti0">ti0</a>
@@ -377,7 +377,12 @@ large graphs.</div>
       </div>
     </div>
 
-    
+    <p>A Shepard scale, giving the illusion of an ever increasing pitch in the first
+half of the tape and an ever decreasing pitch in the 2nd half.
+Shepard, Roger N. "Circularity in Judgments of Relative Pitch",
+The Journal of the Acoustical Society of America 36, no. 12,
+(December 1, 1964): 2346–53. https://doi.org/10.1121/1.1919362.
+https://en.wikipedia.org/wiki/Shepard_tone</p>
     <br>
     <div class="card">
       <div class="card-header">
@@ -654,7 +659,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~6"></span>
+              <span class="anchor" id="variable-amp~8"></span>
               real(kind=wp)
             </td>
             <td>
@@ -718,7 +723,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c"></span>
+              <span class="anchor" id="variable-c~3"></span>
               integer
             </td>
             <td>
@@ -766,7 +771,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-demo~5"></span>
+              <span class="anchor" id="variable-demo~8"></span>
               type(<a href='../type/wav_file.html'>WAV_file</a>)
             </td>
             <td>
@@ -798,7 +803,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~5"></span>
+              <span class="anchor" id="variable-f~7"></span>
               real(kind=wp)
             </td>
             <td>
@@ -830,7 +835,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~8"></span>
+              <span class="anchor" id="variable-i~11"></span>
               integer
             </td>
             <td>
@@ -878,7 +883,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-omega~2"></span>
+              <span class="anchor" id="variable-omega~4"></span>
               real(kind=wp)
             </td>
             <td>
@@ -894,7 +899,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~6"></span>
+              <span class="anchor" id="variable-t~9"></span>
               integer
             </td>
             <td>
@@ -1083,14 +1088,14 @@ parameter
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

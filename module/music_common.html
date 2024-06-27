@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -131,7 +131,7 @@
             <a class="list-group-item" href="../module/music_common.html#variable-sus2_chord">SUS2_CHORD</a>
             <a class="list-group-item" href="../module/music_common.html#variable-sus4_chord">SUS4_CHORD</a>
             <a class="list-group-item" href="../module/music_common.html#variable-whole_tone_scale">WHOLE_TONE_SCALE</a>
-            <a class="list-group-item" href="../module/music_common.html#variable-j">j</a>
+            <a class="list-group-item" href="../module/music_common.html#variable-j~6">j</a>
         </div>
       </div>
     </div>
@@ -161,7 +161,11 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>Contains music theory elements: scales, circle of fifths, chords, etc.</p>
+<p>This file will be kept identical in the ForMIDI and ForSynth projects.
+ It could be put in a separate fpm repository and used as a dependency,
+ but for the time being, synchronizing it by hand is sufficient.</p>
+<hr>
 <br>      
           <div class="card">
       <h3 class="card-header card-title bg-light">Used by</h3>
@@ -437,7 +441,9 @@ parameter,               dimension(1:12)
 <td> =</td>
                 <td>[&#39;C &#39;, &#39;C#&#39;, &#39;D &#39;, &#39;D#&#39;, &#39;E &#39;, &#39;F &#39;, &#39;F#&#39;, &#39;G &#39;, &#39;G#&#39;, &#39;A &#39;, &#39;A#&#39;, &#39;B &#39;]</td>
             <td>
-                
+                <p>We define some scales, excluding the octave of the first note.
+Always use the trim() function to remove trailing spaces.
+https://en.wikipedia.org/wiki/Scale_(music)</p>
             </td>
         </tr>
         <tr>
@@ -454,7 +460,7 @@ parameter,               dimension(1:12)
 <td> =</td>
                 <td>[&#39;C &#39;, &#39;G &#39;, &#39;D &#39;, &#39;A &#39;, &#39;E &#39;, &#39;B &#39;, &#39;Gb&#39;, &#39;Db&#39;, &#39;Ab&#39;, &#39;Eb&#39;, &#39;Bb&#39;, &#39;F &#39;]</td>
             <td>
-                
+                <p>Always use the trim() function to remove trailing spaces.</p>
             </td>
         </tr>
         <tr>
@@ -522,7 +528,7 @@ parameter,               dimension(1:7)
 <td> =</td>
                 <td>[&#39;A &#39;, &#39;B &#39;, &#39;C &#39;, &#39;D &#39;, &#39;E &#39;, &#39;F &#39;, &#39;G#&#39;]</td>
             <td>
-                
+                <p>https://en.wikipedia.org/wiki/Minor_scale#Harmonic_minor_scale</p>
             </td>
         </tr>
         <tr>
@@ -539,7 +545,7 @@ parameter,               dimension(1:6)
 <td> =</td>
                 <td>[&#39;C &#39;, &#39;Eb&#39;, &#39;F &#39;, &#39;Gb&#39;, &#39;G &#39;, &#39;Bb&#39;]</td>
             <td>
-                
+                <p>https://en.wikipedia.org/wiki/Hexatonic_scale#Blues_scale</p>
             </td>
         </tr>
         <tr>
@@ -556,7 +562,9 @@ parameter
 <td> =</td>
                 <td>[0, 4, 7]</td>
             <td>
-                
+                <p>Some frequent chords.
+These arrays can be passed to the write_chord() subroutine.
+https://en.wikipedia.org/wiki/Chord_(music)</p>
             </td>
         </tr>
         <tr>
@@ -573,7 +581,7 @@ parameter,               dimension(1:5)
 <td> =</td>
                 <td>[&#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;G&#39;, &#39;A&#39;]</td>
             <td>
-                
+                <p>https://en.wikipedia.org/wiki/Pentatonic_scale#Major_pentatonic_scale</p>
             </td>
         </tr>
         <tr>
@@ -590,7 +598,7 @@ parameter,               dimension(1:7)
 <td> =</td>
                 <td>[&#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;A&#39;, &#39;B&#39;]</td>
             <td>
-                
+                <p>https://en.wikipedia.org/wiki/Major_scale</p>
             </td>
         </tr>
         <tr>
@@ -680,7 +688,7 @@ parameter,               dimension(1:6)
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j"></span>
+              <span class="anchor" id="variable-j~6"></span>
               integer,
             </td>
               <td>private</td>
@@ -720,14 +728,14 @@ parameter,               dimension(1:6)
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

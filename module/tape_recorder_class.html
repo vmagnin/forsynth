@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -162,7 +162,7 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>This is the basic class, representing a numeric tape recorder with audio tracks.</p>
 <br>          <div class="card mb-4">
       <h3 class="card-header card-title bg-light">Uses</h3>
       <div class="card-body">
@@ -832,7 +832,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-duration"></span>
+              <span class="anchor" id="variable-duration~3"></span>
               real(kind=wp),
             </td>
               <td>public</td>
@@ -844,7 +844,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-
+<p>Duration in seconds:</p>
             </td>
         </tr>
         <tr>
@@ -861,7 +861,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-
+<p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -878,7 +878,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-
+<p>Two arrays stocking the stereo tracks:</p>
             </td>
         </tr>
         <tr>
@@ -895,12 +895,12 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-
+<p>Number of samples:</p>
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tracks"></span>
+              <span class="anchor" id="variable-tracks~2"></span>
               integer,
             </td>
               <td>public</td>
@@ -912,7 +912,7 @@ large graphs.</div>
                 <td></td>
                 <td></td>
             <td>
-
+<p>Number of audio tracks (excluding track 0 reserved for the final mix):</p>
             </td>
         </tr>
     </tbody>
@@ -974,7 +974,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>An automatic finalizer, by security.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -989,7 +989,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~6"></span>
+              <span class="anchor" id="variable-self~11"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1014,7 +1014,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Erase all tracks on all the channels of the tape.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1029,7 +1029,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~2"></span>
+              <span class="anchor" id="variable-self~7"></span>
               class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1054,7 +1054,9 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Copy section t1...t2 at t3, either on the same track or another one.
+The content already present at t3 is overwritten.
+The code suppose that t1 &lt; t2 &lt; t3.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1069,7 +1071,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~4"></span>
+              <span class="anchor" id="variable-self~9"></span>
               class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1114,7 +1116,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~4"></span>
+              <span class="anchor" id="variable-t1~21"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1129,7 +1131,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~4"></span>
+              <span class="anchor" id="variable-t2~21"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1169,7 +1171,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Called by the close_WAV_file() method.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1184,7 +1186,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~5"></span>
+              <span class="anchor" id="variable-self~10"></span>
               class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1209,7 +1211,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Tracks 1 to tracks-1 are mixed on track 0.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1224,7 +1226,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~3"></span>
+              <span class="anchor" id="variable-self~8"></span>
               class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1294,7 +1296,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self"></span>
+              <span class="anchor" id="variable-self~6"></span>
               class(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1309,7 +1311,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tracks~2"></span>
+              <span class="anchor" id="variable-tracks~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1324,7 +1326,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-duration~2"></span>
+              <span class="anchor" id="variable-duration~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1360,14 +1362,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

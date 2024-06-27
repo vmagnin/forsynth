@@ -73,7 +73,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -150,15 +150,15 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>Various audio effects</p>
 <br>          <div class="card mb-4">
       <h3 class="card-header card-title bg-light">Uses</h3>
       <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
                   <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
+                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -486,7 +486,8 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Make the sound move from one channel to the other one at a frequency f
+and with an amplitude AmpLFO in [0 ; 1].</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -501,7 +502,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~10"></span>
+              <span class="anchor" id="variable-tape~18"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -516,7 +517,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~11"></span>
+              <span class="anchor" id="variable-track~18"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -531,7 +532,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~12"></span>
+              <span class="anchor" id="variable-t1~19"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -546,7 +547,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~12"></span>
+              <span class="anchor" id="variable-t2~19"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -561,7 +562,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~8"></span>
+              <span class="anchor" id="variable-f~16"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -601,7 +602,8 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Add the sound from "delay" seconds before,
+and multiply by Amp&lt;1 for dampening.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -616,7 +618,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~7"></span>
+              <span class="anchor" id="variable-tape~15"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -631,7 +633,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~8"></span>
+              <span class="anchor" id="variable-track~15"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -646,7 +648,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~9"></span>
+              <span class="anchor" id="variable-t1~16"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -661,7 +663,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~9"></span>
+              <span class="anchor" id="variable-t2~16"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -691,7 +693,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~8"></span>
+              <span class="anchor" id="variable-amp~19"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -716,7 +718,8 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Apply distorsion with hard clipping
+https://en.wikipedia.org/wiki/Distortion_(music)</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -731,7 +734,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~8"></span>
+              <span class="anchor" id="variable-tape~16"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -746,7 +749,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~9"></span>
+              <span class="anchor" id="variable-track~16"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -761,7 +764,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~10"></span>
+              <span class="anchor" id="variable-t1~17"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -776,7 +779,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~10"></span>
+              <span class="anchor" id="variable-t2~17"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -816,7 +819,7 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Copy the samples at the same t1 but in reverse order:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -831,7 +834,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~11"></span>
+              <span class="anchor" id="variable-tape~19"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -846,7 +849,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~12"></span>
+              <span class="anchor" id="variable-track~19"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -861,7 +864,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~13"></span>
+              <span class="anchor" id="variable-t1~20"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -876,7 +879,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~13"></span>
+              <span class="anchor" id="variable-t2~20"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -901,7 +904,10 @@ large graphs.</div>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>A sinusoidal modulation of the amplitude of a signal (tremolo) :
+f : tremolo frequency (typically a few Hz)
+AmpLFO : tremolo amplitude in [0 ; 1]
+https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -916,7 +922,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~9"></span>
+              <span class="anchor" id="variable-tape~17"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -931,7 +937,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~10"></span>
+              <span class="anchor" id="variable-track~17"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -946,7 +952,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~11"></span>
+              <span class="anchor" id="variable-t1~18"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -961,7 +967,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~11"></span>
+              <span class="anchor" id="variable-t2~18"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -976,7 +982,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~7"></span>
+              <span class="anchor" id="variable-f~15"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1027,14 +1033,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

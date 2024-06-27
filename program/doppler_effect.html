@@ -72,7 +72,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> GPL</li>
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -115,20 +115,20 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-amp~20">Amp</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-c~2">c</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-demo~11">demo</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-duration~4">duration</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-f~16">f</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-i~33">i</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-j~7">j</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-omega~6">omega</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-panl~2">panL</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-panr~2">panR</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-t~21">t</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-amp~5">Amp</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-c">c</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-demo~5">demo</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-duration">duration</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-f~5">f</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-i~8">i</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-j~3">j</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-omega~2">omega</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-panl">panL</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-panr">panR</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-t~6">t</a>
             <a class="list-group-item" href="../program/doppler_effect.html#variable-tobs">tobs</a>
             <a class="list-group-item" href="../program/doppler_effect.html#variable-v">v</a>
-            <a class="list-group-item" href="../program/doppler_effect.html#variable-x~3">x</a>
+            <a class="list-group-item" href="../program/doppler_effect.html#variable-x">x</a>
             <a class="list-group-item" href="../program/doppler_effect.html#variable-x0">x0</a>
             <a class="list-group-item" href="../program/doppler_effect.html#variable-y">y</a>
             <a class="list-group-item" href="../program/doppler_effect.html#variable-y0">y0</a>
@@ -357,7 +357,25 @@ large graphs.</div>
       </div>
     </div>
 
-    
+    <p>A simulation of Doppler effect, with a car passing in front of you.
+https://fr.wikipedia.org/wiki/Effet_Doppler
+The Observer is static at the origin,
+the car is Moving along x at a constant velocity v
+                       ^ y
+                       |
+     <strong><em>*M</em></strong><strong><em>*</em></strong><strong><em>y0</em></strong><strong><em>*</em></strong><strong><em>*&gt;
+                       |
+----x0-----------------O-------------------&gt; x
+                       |
+The frequency perceived by the observer (Doppler effect)
+is fobs = f / (1 - vr/c) but we don't need to compute it.
+The signal heard by the observer at tobs was emitted earlier by the
+car at t, from a distance r(t):
+tobs = t + r(t) / c
+By developing r(t) we can finally obtain a quadratic equation:
+(c</em>*2-v</strong>2) * t<strong>2 - (2<em>tobs</em>c</strong>2 + 2<em>x0</em>v) <em>t + (tobs</em><em>2 * c</em><em>2 - x0</em><em>2 - y</em>*2) = 0
+The time t is the unique physical solution of that equation:</p>
+<p>The amplitude of the observed signal is decreasing in r**2:</p>
     <br>
     <div class="card">
       <div class="card-header">
@@ -634,7 +652,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~20"></span>
+              <span class="anchor" id="variable-amp~5"></span>
               real(kind=wp)
             </td>
             <td>
@@ -650,7 +668,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~2"></span>
+              <span class="anchor" id="variable-c"></span>
               real(kind=wp),
             </td>
             <td>
@@ -666,7 +684,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-demo~11"></span>
+              <span class="anchor" id="variable-demo~5"></span>
               type(<a href='../type/wav_file.html'>WAV_file</a>)
             </td>
             <td>
@@ -682,7 +700,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-duration~4"></span>
+              <span class="anchor" id="variable-duration"></span>
               real(kind=wp),
             </td>
             <td>
@@ -698,7 +716,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~16"></span>
+              <span class="anchor" id="variable-f~5"></span>
               real(kind=wp),
             </td>
             <td>
@@ -714,7 +732,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~33"></span>
+              <span class="anchor" id="variable-i~8"></span>
               integer
             </td>
             <td>
@@ -730,7 +748,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~7"></span>
+              <span class="anchor" id="variable-j~3"></span>
               integer
             </td>
             <td>
@@ -746,7 +764,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-omega~6"></span>
+              <span class="anchor" id="variable-omega~2"></span>
               real(kind=wp)
             </td>
             <td>
@@ -762,7 +780,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-panl~2"></span>
+              <span class="anchor" id="variable-panl"></span>
               real(kind=wp)
             </td>
             <td>
@@ -778,7 +796,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-panr~2"></span>
+              <span class="anchor" id="variable-panr"></span>
               real(kind=wp)
             </td>
             <td>
@@ -794,7 +812,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~21"></span>
+              <span class="anchor" id="variable-t~6"></span>
               real(kind=wp)
             </td>
             <td>
@@ -842,7 +860,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~3"></span>
+              <span class="anchor" id="variable-x"></span>
               real(kind=wp)
             </td>
             <td>
@@ -922,7 +940,9 @@ parameter
 </h3></div>
     <div class="card-body">
           
-  
+  <p>We solve the Quadratic equation,
+but physically one and only one solution can exist:
+we know the sound was emitted before we hear it!&gt;</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -937,7 +957,7 @@ parameter
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~4"></span>
+              <span class="anchor" id="variable-a"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -952,7 +972,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~5"></span>
+              <span class="anchor" id="variable-b"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -967,7 +987,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~3"></span>
+              <span class="anchor" id="variable-c~2"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1041,14 +1061,14 @@ parameter
 
 <span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">tape</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">)</span>
 
-<span class="c">! The Observer is static at the origin,</span>
-<span class="c">! the car is Moving along x at a constant velocity v</span>
-<span class="c">!                        ^ y</span>
-<span class="c">!                        |</span>
-<span class="c">!      ****M*************y0**************&gt;</span>
-<span class="c">!                        |</span>
-<span class="c">! ----x0-----------------O-------------------&gt; x</span>
-<span class="c">!                        |</span>
+<span class="c">!&gt; The Observer is static at the origin,</span>
+<span class="c">!&gt; the car is Moving along x at a constant velocity v</span>
+<span class="c">!&gt;                        ^ y</span>
+<span class="c">!&gt;                        |</span>
+<span class="c">!&gt;      ****M*************y0**************&gt;</span>
+<span class="c">!&gt;                        |</span>
+<span class="c">!&gt; ----x0-----------------O-------------------&gt; x</span>
+<span class="c">!&gt;                        |</span>
 
 <span class="w">    </span><span class="n">omega</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">f</span>
 <span class="w">    </span><span class="n">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">duration</span><span class="o">/</span><span class="mi">2</span>
@@ -1059,18 +1079,18 @@ parameter
 
 <span class="w">    </span><span class="n">tobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">duration</span><span class="o">*</span><span class="n">RATE</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">        </span><span class="c">! The frequency perceived by the observer (Doppler effect)</span>
-<span class="w">        </span><span class="c">! is fobs = f / (1 - vr/c) but we don&#39;t need to compute it.</span>
-<span class="w">        </span><span class="c">! The signal heard by the observer at tobs was emitted earlier by the</span>
-<span class="w">        </span><span class="c">! car at t, from a distance r(t):</span>
-<span class="w">        </span><span class="c">! tobs = t + r(t) / c</span>
-<span class="w">        </span><span class="c">! By developing r(t) we can finally obtain a quadratic equation:</span>
-<span class="w">        </span><span class="c">! (c**2-v**2) * t**2 - (2*tobs*c**2 + 2*x0*v) *t + (tobs**2 * c**2 - x0**2 - y**2) = 0</span>
-<span class="w">        </span><span class="c">! The time t is the unique physical solution of that equation:</span>
+<span class="w">        </span><span class="c">!&gt; The frequency perceived by the observer (Doppler effect)</span>
+<span class="w">        </span><span class="c">!&gt; is fobs = f / (1 - vr/c) but we don&#39;t need to compute it.</span>
+<span class="w">        </span><span class="c">!&gt; The signal heard by the observer at tobs was emitted earlier by the</span>
+<span class="w">        </span><span class="c">!&gt; car at t, from a distance r(t):</span>
+<span class="w">        </span><span class="c">!&gt; tobs = t + r(t) / c</span>
+<span class="w">        </span><span class="c">!&gt; By developing r(t) we can finally obtain a quadratic equation:</span>
+<span class="w">        </span><span class="c">!&gt; (c**2-v**2) * t**2 - (2*tobs*c**2 + 2*x0*v) *t + (tobs**2 * c**2 - x0**2 - y**2) = 0</span>
+<span class="w">        </span><span class="c">!&gt; The time t is the unique physical solution of that equation:</span>
 <span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">the_solution</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">tobs</span><span class="o">*</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">x0</span><span class="o">*</span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="p">(</span><span class="n">tobs</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x0</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">tobs</span><span class="o">=</span><span class="n">tobs</span><span class="p">)</span>
 <span class="w">        </span><span class="c">! The position of the car at t was:</span>
 <span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span>
-<span class="w">        </span><span class="c">! The amplitude of the observed signal is decreasing in r**2:</span>
+<span class="w">        </span><span class="c">!&gt; The amplitude of the observed signal is decreasing in r**2:</span>
 <span class="w">        </span><span class="n">Amp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! We simulate a stereo effect by using this arbitrary law:</span>
@@ -1102,9 +1122,9 @@ parameter
 
 <span class="k">contains</span>
 
-<span class="w">    </span><span class="c">! We solve the Quadratic equation,</span>
-<span class="w">    </span><span class="c">! but physically one and only one solution can exist:</span>
-<span class="w">    </span><span class="c">! we know the sound was emitted before we hear it!</span>
+<span class="w">    </span><span class="c">!&gt; We solve the Quadratic equation,</span>
+<span class="w">    </span><span class="c">!&gt; but physically one and only one solution can exist:</span>
+<span class="w">    </span><span class="c">!&gt; we know the sound was emitted before we hear it!&gt;</span>
 <span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">the_solution</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">tobs</span><span class="p">)</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">tobs</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span>
@@ -1147,14 +1167,14 @@ parameter
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>

@@ -75,25 +75,38 @@
                  <td><a href='../proc/add_broken_chord.html'>add_broken_chord</a></td>
                  <td><a href='../module/music.html'>music</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Writes a broken chord using an array containing the intervals
+(see the music_common module). It uses plucked strings (Karplus-Strong).
+For the moment, each note has the same duration.
+https://en.wikipedia.org/wiki/Arpeggio</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_chord.html'>add_chord</a></td>
                  <td><a href='../module/music.html'>music</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Writes a chord using an array containing the intervals
+(see the music_common module)</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_karplus_strong.html'>add_karplus_strong</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Karplus and Strong algorithm (1983), for plucked-string
+http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
+https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_karplus_strong_drum.html'>add_karplus_strong_drum</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Karplus and Strong (1983) algorithm for obtaining a percussion sound.
+Typically, P is taken to be between 150 and 1000.
+Caution: this algorithm overwrites what may have existed on the
+track at the chosen location.
+You may also want to modify the b parameter to make some weird sounds,
+somewhere between percussion and guitar...
+http://crypto.stanford.edu/~blynn/sound/karplusstrong.html
+https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_karplus_strong_drum_stretched.html'>add_karplus_strong_drum_stretched</a></td>
@@ -111,55 +124,56 @@
                  <td><a href='../proc/add_misc_signal.html'>add_misc_signal</a></td>
                  <td><a href='../program/misc_sounds.html'>misc_sounds</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Add on the track a signal choosen by its number:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_noise.html'>add_noise</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Add white noise on the track:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_note.html'>add_note</a></td>
                  <td><a href='../module/music.html'>music</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>A note of fundamental frequency f with harmonics, based on sine waves.
+https://en.wikipedia.org/wiki/Harmonic</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_sawtooth_wave.html'>add_sawtooth_wave</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Adds on the track a sawtooth wave with an ADSR envelope:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_sine_wave.html'>add_sine_wave</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Adds on the track a sine wave with an ADSR envelope:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_square_wave.html'>add_square_wave</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Adds on the track a square wave with an ADSR envelope:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_triangle_wave.html'>add_triangle_wave</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Adds on the track a triangle wave with an ADSR envelope:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/add_weierstrass.html'>add_weierstrass</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Add a fractal signal on the track with an envelope:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/adsr_level.html'>ADSR_level</a></td>
                  <td><a href='../module/envelopes.html'>envelopes</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>Returns the level in [0, 1] of the ADSR envelope at time t1 &lt; t &lt; t2</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/adsr_new.html'>ADSR_new</a></td>
@@ -171,97 +185,110 @@
                  <td><a href='../proc/amplitude.html'>amplitude</a></td>
                  <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>Envelope of the glissando. A gaussian, plus linear sections at
+the extremities, to reach the 0 level.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/apply_autopan_effect.html'>apply_autopan_effect</a></td>
                  <td><a href='../module/audio_effects.html'>audio_effects</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Make the sound move from one channel to the other one at a frequency f
+and with an amplitude AmpLFO in [0 ; 1].</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/apply_delay_effect.html'>apply_delay_effect</a></td>
                  <td><a href='../module/audio_effects.html'>audio_effects</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Add the sound from "delay" seconds before,
+and multiply by Amp&lt;1 for dampening.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/apply_fade_in.html'>apply_fade_in</a></td>
                  <td><a href='../module/envelopes.html'>envelopes</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>A linear fade in, from relative level 0 to 1:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/apply_fade_out.html'>apply_fade_out</a></td>
                  <td><a href='../module/envelopes.html'>envelopes</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>A linear fade out, from relative level 1 to 0:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/apply_fuzz_effect.html'>apply_fuzz_effect</a></td>
                  <td><a href='../module/audio_effects.html'>audio_effects</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Apply distorsion with hard clipping
+https://en.wikipedia.org/wiki/Distortion_(music)</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/apply_reverse_effect.html'>apply_reverse_effect</a></td>
                  <td><a href='../module/audio_effects.html'>audio_effects</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Copy the samples at the same t1 but in reverse order:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/apply_tremolo_effect.html'>apply_tremolo_effect</a></td>
                  <td><a href='../module/audio_effects.html'>audio_effects</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>A sinusoidal modulation of the amplitude of a signal (tremolo) :
+f : tremolo frequency (typically a few Hz)
+AmpLFO : tremolo amplitude in [0 ; 1]
+https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/auto_finalize.html'>auto_finalize</a></td>
                  <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>An automatic finalizer, by security.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/clear_tracks.html'>clear_tracks</a></td>
                  <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Erase all tracks on all the channels of the tape.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/close_wav_file.html'>close_WAV_file</a></td>
                  <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Must be called at the end. It normalizes the channels, writes them in the
+WAV file and closes it. It also deallocate the tape arrays.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/copy_section.html'>copy_section</a></td>
                  <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Copy section t1...t2 at t3, either on the same track or another one.
+The content already present at t3 is overwritten.
+The code suppose that t1 &lt; t2 &lt; t3.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/create_wav_file.html'>create_WAV_file</a></td>
                  <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Create a WAV file with a header:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/finalize.html'>finalize</a></td>
                  <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Called by the close_WAV_file() method.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/fr.html'>fr</a></td>
                  <td><a href='../module/music.html'>music</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>Returns the frequency of the note.
+The note name is composed of two or three characters,
+for example "A4", "A#4", "Ab4", where the final character is
+the octave.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/get_name.html'>get_name</a></td>
                  <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>Returns the name of the WAV file:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/initialize_frequencies.html'>initialize_frequencies</a></td>
@@ -273,19 +300,19 @@
                  <td><a href='../proc/linear1.html'>linear1</a></td>
                  <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/linear2.html'>linear2</a></td>
                  <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/mix_tracks.html'>mix_tracks</a></td>
                  <td><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Tracks 1 to tracks-1 are mixed on track 0.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/new.html'>new</a></td>
@@ -297,37 +324,40 @@
                  <td><a href='../proc/test_the_machine.html'>test_the_machine</a></td>
                  <td><a href='../module/forsynth.html'>forsynth</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>A WAV file contains 32 bits and 16 bits data, so we need those kinds.</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/the_solution.html'>the_solution</a></td>
                  <td><a href='../program/doppler_effect.html'>doppler_effect</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>We solve the Quadratic equation,
+but physically one and only one solution can exist:
+we know the sound was emitted before we hear it!&gt;</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/weierstrass.html'>weierstrass</a></td>
                  <td><a href='../module/signals.html'>signals</a></td>
                  <td>Function</td>
-                 <td></td>
+                 <td><p>https://en.wikipedia.org/wiki/Weierstrass_function</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/write_amplitude_envelope.html'>write_amplitude_envelope</a></td>
                  <td><a href='../program/shepard_risset_glissando.html'>shepard_risset_glissando</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Useful for debugging and setting the envelope parameters:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/write_header.html'>write_header</a></td>
                  <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>Creates the 44 bytes WAV header and prints some information:</p></td>
                </tr>
 			   <tr>
                  <td><a href='../proc/write_normalized_data.html'>write_normalized_data</a></td>
                  <td><a href='../module/wav_file_class.html'>wav_file_class</a></td>
                  <td>Subroutine</td>
-                 <td></td>
+                 <td><p>This method normalizes the sound amplitude on track 0, before saving
+the left and right channels in the WAV file.</p></td>
                </tr>
 			 </tbody></table>
              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -1552,14 +1582,14 @@ large graphs.</div>
           <div class="col">
             <p>
               ForSynth
- was developed by Vincent Magnin<br>              &copy; 2021-2024 GPL
+ was developed by Vincent Magnin<br>              &copy; 2021-2024 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-06-26 19:40              </p>
+ on 2024-06-27 19:44              </p>
           </div>
         </div>
         <br>
