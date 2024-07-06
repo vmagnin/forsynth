@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - A FORD documentation: a project file `ford.yml` and a workflow `.github/workflows/ford.yml` to generate GitHub Pages.
+- In `example/README.md`: links to listen the OGG files.
+
+### Changed
+- `ELECTRONIC_MUSIC_HISTORY.md`: improved layout (hidden URLs).
 
 
 ## [ForSynth 0.4 "Jean-Claude Risset"] 2024-06-03
