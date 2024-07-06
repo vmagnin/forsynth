@@ -5,7 +5,7 @@ full of personal and geographical biases...
 
 ### Some ancestors of electronic instruments
 
--   The **telharmonium** (1897): https://en.wikipedia.org/wiki/Telharmonium
+-   The [telharmonium](https://en.wikipedia.org/wiki/Telharmonium) (1897). Patent [US580035A](https://patents.google.com/patent/US580035A/).
 -   The **intonarumori** is an instrument created in 1913 by the futuristic composer Luigi Russolo: https://www.youtube.com/watch?v=2x581XLd76U. Russolo is the author of a manifesto on *The Art of Noises (L'arte dei rumori),* a manifesto for futuristic music: 
     - https://www.italianfuturism.org/manifestos/the-art-of-noise/
     - French translation: http://luigi.russolo.free.fr/mani1.html ; http://luigi.russolo.free.fr/mani2.html ; http://luigi.russolo.free.fr/mani3.html ; http://luigi.russolo.free.fr/mani4.html
