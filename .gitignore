@@ -2,4 +2,5 @@ build/*
 *.backup
 *.mod
 *.wav
+*.ogg
 *.*~
