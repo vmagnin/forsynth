@@ -122,5 +122,6 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 * Laurent de Wilde, [*Les fous du son - D'Edison à nos jours*](https://www.grasset.fr/livres/les-fous-du-son-9782246859277), Editions Grasset et Fasquelle, 560 pages, 2016, ISBN 9782246859277.
 * Laurent Fichet, [*Les théories scientifiques de la musique aux XIXe et XXe siècles*](https://www.vrin.fr/livre/9782711642847/les-theories-scientifiques-de-la-musique), Vrin, 1996, ISBN 978-2-7116-4284-7.
 * Guillaume Kosmicki , [*Musiques électroniques - Des avant-gardes aux dance floors*](https://lemotetlereste.com/musiques/musiqueselectroniquesnouvelleedition/), Editions Le mot et le reste, 2nd edition, 2016, 416 p., ISBN 9782360541928.
+* Olivier Pernot, [*ELECTRO 100 - Les albums essentiels des musiques électroniques*](https://lemotetlereste.com/musiques/electro100nouvelleedition/), Editions Le mot et le reste, 2016, 240 p., ISBN 978-2-36054-202-4.
 * Bibliothèque Tangente n°11, [*Mathématiques et musique - des destinées parallèles*](https://www.lalibrairie.com/livres/mathematiques-et-musique--des-destinees-paralleles--2022_0-9115242_9782848842462.html), Paris : Éditions POLE, septembre 2022, ISBN 9782848842462.
 * Blog [Devenir Ingeson](https://deveniringeson.com/public/).

@@ -8,6 +8,7 @@ full of personal and geographical biases...
 -   The [telharmonium](https://en.wikipedia.org/wiki/Telharmonium) (1897). Patent [US580035A](https://patents.google.com/patent/US580035A/).
 -   The [intonarumori](https://www.youtube.com/watch?v=2x581XLd76U) is an instrument created in 1913 by the futuristic composer Luigi Russolo. Russolo is the author of a manifesto on [*The Art of Noises (L'arte dei rumori)*](https://www.italianfuturism.org/manifestos/the-art-of-noise/), a manifesto for futuristic music.
     - French translation: http://luigi.russolo.free.fr/mani1.html ; http://luigi.russolo.free.fr/mani2.html ; http://luigi.russolo.free.fr/mani3.html ; http://luigi.russolo.free.fr/mani4.html
+- George Antheil, [Ballet Mécanique](https://www.youtube.com/watch?v=oMnZgykH1Bk) (1924). Piano, percussions and noises.
 
 -   The [Theremin](https://www.youtube.com/watch?v=w5qf9O6c20o), a non-contact instrument invented in 1919. It is used from time to time by certain bands:
     -   Jimmy Page, Led Zeppelin guitarist: 
@@ -49,6 +50,7 @@ Before music produced by electronic circuits, experiments were made in the 1940s
 -   Tom Dissevelt & Kid Baltan:
     -   [*Song of the Second Moon* (1957)](https://www.youtube.com/watch?v=bVl2_MSwmSA).
     -   [*Syncopation* (1958? released in 1962)](http://www.youtube.com/watch?v=HW-n6GWFAvI).
+- Edgard Varèse, [*Poème électronique*](https://www.youtube.com/watch?v=JLDbBqHCslw) (1958).
 -   Else Marie Pade:
     -   [*Syv Cirkler* (1958)](https://www.youtube.com/watch?v=pmvmyCn4gqA).
     -   [*Faust* (1962)](https://www.youtube.com/watch?v=28TqFKy4lG0).
@@ -130,6 +132,7 @@ Before becoming digital, the first synthesizers were analogue and modular: each 
 ### Tangerine Dream:
 
 -   [Zeit (1972)](https://youtu.be/rjvF36gzLF8?t=57m28s).
+- Tangerine Dream, [*Rubycon*](https://www.youtube.com/watch?v=jd6XL_IOS3I) (1975).
 -   [Live at Conventry Cathedral (1975)](https://www.youtube.com/watch?v=bGByDwiiECw).
 
 ### Klaus Schulze:
@@ -159,19 +162,6 @@ Later famous works:
 -   [*Equinoxe* (1978)](https://youtu.be/qHSyLuYx2zU?t=759).
 -   [*Les champs magnétiques,* 1981](https://www.youtube.com/watch?v=JX5oI5YYIZM).
 -   [Interview, Oct. 2015](http://www.liberation.fr/apps/2015/10/jmjarre/).
-
-## 70's: misc
-
--   Isao Tomita:
-    -   [*Snowflakes Are Dancing (Debussy)* (1974)](https://www.youtube.com/watch?v=wD-b6mU3SYQ).
-    -   [*Switched on rock - Electric Samurai* (1972)](https://www.youtube.com/watch?v=fbOKN8cm4Nk).
--   Pink Floyd, [*On the Run* (1973, *The Dark Side of the Moon*)](https://www.youtube.com/watch?v=2sUyk5zSbhM).
--   [*Close Encounters of the Third Kind*(Steven Spielberg, 1977)](https://www.youtube.com/watch?v=S4PYI6TzqYk).
--    David Bowie and Brian Eno, [*Sense of Doubt* (1977,  *Heroes*)](https://www.youtube.com/watch?v=ENqheXKftbo).
--   Tubeway Army, [*Are Friends Electric* (1979)](https://www.youtube.com/watch?v=21ixpapHjkM).
-    - A ["recent" version (AllSaints Basement Sessions)](https://www.youtube.com/watch?v=22Z4Tv1zn-s).
--   Edward Artemiev, [*Listening to Bach* (From the movie "Solaris" 1972)](https://www.youtube.com/watch?v=E8YCQ0zjCZA&t=953s).
-    - J.S. Bach - BWV 639 - [*Ich ruf' zu dir, Herr Jesu Christ*](https://www.youtube.com/watch?v=X9Dh43kVL1Q).
 
 ## 70's: Synth-Punk
 
@@ -205,6 +195,24 @@ Later famous works:
 -   [*Chase,* soundtrack of *Midnight Express* (Alan Parker, 1978)](https://www.youtube.com/watch?v=IrPWkIRWY9U).
 -   Daft Punk tribute ["Giorgio by Moroder", *RAM* (2014)](https://www.youtube.com/watch?v=zhl-Cs1-sG4).
 
+## 70's: misc
+
+- Pierre Henry, [Machine Danse](https://www.youtube.com/watch?v=fS1oj0Qr6y8) (1973).
+- François de Roubaix, [*Le Monde électronique de François de Roubaix*](https://www.youtube.com/watch?v=dksEeiM7Dn8) (1971-75).
+-   Isao Tomita:
+    -   [*Snowflakes Are Dancing (Debussy)* (1974)](https://www.youtube.com/watch?v=wD-b6mU3SYQ).
+    -   [*Switched on rock - Electric Samurai* (1972)](https://www.youtube.com/watch?v=fbOKN8cm4Nk).
+-   Pink Floyd, [*On the Run* (1973, *The Dark Side of the Moon*)](https://www.youtube.com/watch?v=2sUyk5zSbhM).
+-   [*Close Encounters of the Third Kind*(Steven Spielberg, 1977)](https://www.youtube.com/watch?v=S4PYI6TzqYk).
+-    David Bowie and Brian Eno, [*Sense of Doubt* (1977,  *Heroes*)](https://www.youtube.com/watch?v=ENqheXKftbo).
+- Brian Eno, [*Ambient 1: Music for Airports*](https://www.youtube.com/watch?v=vNwYtllyt3Q) (1978).
+-   Tubeway Army, [*Are Friends Electric* (1979)](https://www.youtube.com/watch?v=21ixpapHjkM).
+    - A ["recent" version (AllSaints Basement Sessions)](https://www.youtube.com/watch?v=22Z4Tv1zn-s).
+-   Edward Artemiev, [*Listening to Bach* (From the movie "Solaris" 1972)](https://www.youtube.com/watch?v=E8YCQ0zjCZA&t=953s).
+    - J.S. Bach - BWV 639 - [*Ich ruf' zu dir, Herr Jesu Christ*](https://www.youtube.com/watch?v=X9Dh43kVL1Q).
+- Bernard Parmegiani, [*De Natura Sonorum*](https://www.youtube.com/watch?v=c_JHjUFfOs8) (1975).
+- Throbbing Gristle, [20 Jazz Funk Greats](https://www.youtube.com/playlist?list=PLfhR1VDg5Avzh-UTVlE8uw6PkbHppMjeq) (1979).
+
 ## 80's: the synth invasion (pop, techno, electro, new wave...)
 
 The synthesiser market skyrockets, prices fall. The year 1980 marks a turning point.
@@ -215,6 +223,7 @@ The synthesiser market skyrockets, prices fall. The year 1980 marks a turning po
 -   Visage, [*Fade to Grey* (1980)](https://www.youtube.com/watch?v=DZiJQL9OLqI).
 -   Taxi Girl,[*Cherchez le garçon* (1980)](https://www.youtube.com/watch?v=Av83iD8zn_w).
 -   Grauzone, [*Eisbaer* (1980)](https://www.youtube.com/watch?v=bIIGKV27FaY).
+-   DAF, [*Alles Ist Gut*](https://www.youtube.com/watch?v=6bB_3Pd3q1w).
 -   Depeche Mode, [*Just Can't Get Enough* (1981)](https://www.youtube.com/watch?v=_6FBfAQ-NDE).
 -   Soft Cell, [*Tainted Love* (1981)](https://www.youtube.com/watch?v=XZVpR3Pk-r8).
     -   In fact a cover of [Gloria Jones (1964)](https://www.youtube.com/watch?v=OJKe2j9Wjh4).
