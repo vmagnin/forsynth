@@ -1,11 +1,12 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-31
+! Last modifications: 2024-07-14
 
 !> The main class that you will use to create your WAV files.
 module wav_file_class
-    use forsynth, only: wp, RATE, INT16, INT32, INT64
+    use, intrinsic :: iso_fortran_env, only: INT16, INT32, INT64
+    use forsynth, only: wp, RATE
     use tape_recorder_class
 
     implicit none
