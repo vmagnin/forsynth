@@ -77,7 +77,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 1.2% of total for source files.">16 statements</a>
+                 title=" 1.4% of total for source files.">20 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -741,7 +741,7 @@ large graphs.</div>
         <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">! Forsynth: a multitracks stereo sound synthesis project</span>
 <a id="ln-2" name="ln-2" href="#ln-2"></a><span class="c">! License GPL-3.0-or-later</span>
 <a id="ln-3" name="ln-3" href="#ln-3"></a><span class="c">! Vincent Magnin</span>
-<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">! Last modifications: 2024-05-19</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">! Last modifications: 2024-07-14</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a>
 <a id="ln-6" name="ln-6" href="#ln-6"></a><span class="c">!&gt; This module contains a few parameters, especially the sampling frequency and</span>
 <a id="ln-7" name="ln-7" href="#ln-7"></a><span class="c">!&gt; the temporal step.</span>
@@ -749,30 +749,35 @@ large graphs.</div>
 <a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">INT16</span><span class="p">,</span><span class="w"> </span><span class="n">INT32</span><span class="p">,</span><span class="w"> </span><span class="n">INT64</span><span class="p">,</span><span class="w"> </span><span class="n">REAL32</span><span class="p">,</span><span class="w"> </span><span class="n">REAL64</span>
 <a id="ln-10" name="ln-10" href="#ln-10"></a>
 <a id="ln-11" name="ln-11" href="#ln-11"></a><span class="w">    </span><span class="k">implicit none</span>
-<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">    </span><span class="c">!&gt; The default working precision wp is REAL64.</span>
-<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">    </span><span class="c">!&gt; REAL32 can be set: it will accelerate computations and give good results</span>
-<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">    </span><span class="c">!&gt; most of the time. But in certain situations, for example drone music, it</span>
-<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">    </span><span class="c">!&gt; can introduce artefacts.</span>
-<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REAL64</span>
-<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_wp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span>
-<a id="ln-18" name="ln-18" href="#ln-18"></a>
-<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">    </span><span class="c">! Sampling frequency and temporal step:</span>
-<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">RATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">44100</span>
-<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RATE</span>
-<a id="ln-22" name="ln-22" href="#ln-22"></a>
-<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="p">,</span><span class="w"> </span><span class="n">test_the_machine</span><span class="p">,</span><span class="w"> </span><span class="n">PI</span><span class="p">,</span><span class="w"> </span><span class="n">RATE</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span>
-<a id="ln-24" name="ln-24" href="#ln-24"></a>
-<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="k">contains</span>
-<a id="ln-26" name="ln-26" href="#ln-26"></a>
-<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">    </span><span class="c">!&gt; A WAV file contains 32 bits and 16 bits data, so we need those kinds.</span>
-<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">    </span><span class="k">subroutine </span><span class="n">test_the_machine</span>
-<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">INT16</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">INT32</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="k">            print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;INT16 and/or INT32 not supported!&quot;</span>
-<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">            </span><span class="k">error stop </span><span class="mi">1</span>
-<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">        </span><span class="k">end if</span>
-<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="k">    end subroutine</span>
-<a id="ln-34" name="ln-34" href="#ln-34"></a>
-<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="k">end module </span><span class="n">forsynth</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="k">    private</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">    </span><span class="c">!&gt; The default working precision wp is REAL64.</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">    </span><span class="c">!&gt; REAL32 can be set: it will accelerate computations and give good results</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">    </span><span class="c">!&gt; most of the time. But in certain situations, for example drone music, it</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">    </span><span class="c">!&gt; can introduce artefacts.</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REAL64</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.0_wp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">atan</span><span class="p">(</span><span class="mf">1.0_wp</span><span class="p">)</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">    </span><span class="c">! Sampling frequency and temporal step:</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">RATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">44100</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RATE</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">wp</span><span class="p">,</span><span class="w"> </span><span class="n">test_the_machine</span><span class="p">,</span><span class="w"> </span><span class="n">PI</span><span class="p">,</span><span class="w"> </span><span class="n">RATE</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="k">contains</span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">    </span><span class="c">!&gt; A WAV file contains 64, 32 and 16 bits data or metadata,</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">    </span><span class="c">!&gt; so we need those kinds.</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">    </span><span class="k">subroutine </span><span class="n">test_the_machine</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">INT16</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">INT32</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">INT64</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="k">            print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Some INT types are not supported!&quot;</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="w">            </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;INT16: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">INT16</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">            </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;INT32: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">INT32</span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="w">            </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;INT64: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">INT64</span>
+<a id="ln-36" name="ln-36" href="#ln-36"></a><span class="w">            </span><span class="k">error stop </span><span class="mi">1</span>
+<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="w">        </span><span class="k">end if</span>
+<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="k">    end subroutine</span>
+<a id="ln-39" name="ln-39" href="#ln-39"></a>
+<a id="ln-40" name="ln-40" href="#ln-40"></a><span class="k">end module </span><span class="n">forsynth</span>
 </pre></div>
 
       </section>
@@ -794,7 +799,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-07-07 19:33              </p>
+ on 2024-07-14 09:20              </p>
           </div>
         </div>
         <br>
