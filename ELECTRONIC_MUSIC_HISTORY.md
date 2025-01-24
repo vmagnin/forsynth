@@ -66,6 +66,7 @@ First film whose soundtrack (Louis & Bebe Barron) is entirely electronic:
 ## 60's: misc
 
 - Daphne Oram, [*Pulse Persephone*](https://www.youtube.com/watch?v=SI0ECydVvT0), 1965.
+- [The Oramics Machine - Oram’s ‘drawn sound’ synthesis and sequencing system](https://www.daphneoram.org/oramicsmachine/).
 
 
 ## 60's: computers
