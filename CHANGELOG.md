@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 - A FORD documentation: a project file `ford.yml` and a workflow `.github/workflows/ford.yml` to generate GitHub Pages.
 - In `example/README.md`: links to listen the OGG files.
+- `example/radioactivity.f90` is a tribute to Kraftwerk. You can hear the simulation of the radioactive decay of a population of atoms heard with a Geiger counter, with chords in a whole tone scale and a Morse code message.
+- `src/morse_code.f90` is offering basic Morse code support.
 
 ### Changed
 - `ELECTRONIC_MUSIC_HISTORY.md`: improved layout (hidden URLs).

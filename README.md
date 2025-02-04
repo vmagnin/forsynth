@@ -12,6 +12,7 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk (see the [EL
 * Various signals and Karplus-Strong algorithms (guitar and drums).
 * Envelopes generators: ADSR, fade in, fade out.
 * Some audio effects: delay, fuzz, tremolo, reverse and autopan.
+* Morse code support.
 * Final mixing with the level and panoramic of each track.
 * The API is documented with FORD: https://vmagnin.github.io/forsynth/
 * Various examples.
@@ -101,6 +102,11 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 
 * https://sites.google.com/site/learning4synthesizer/home
 * https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis
+
+### Miscellaneous
+
+* https://en.wikipedia.org/wiki/Morse_code
+
 
 ## Bibliography
 ### English

@@ -5,7 +5,7 @@ summary:             A small Fortran synthesizer to explore sound synthesis,
                      Daft Punk!
 version:             0.4.0
 license:             gfdl
-year:                2021-2024
+year:                2021-2025
 project_github:      https://github.com/vmagnin/forsynth
 author:              Vincent Magnin
 github:              https://github.com/vmagnin

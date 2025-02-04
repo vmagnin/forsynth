@@ -11,7 +11,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] A function converting dB to linear scale would be useful to set the sound level. (*)
 
 ### Examples
-* [ ] Simulating a radioactive decay, heard with a Geiger counter (a tribute to Kraftwerk). (**)
+* [x] Simulating a radioactive decay, heard with a Geiger counter (a tribute to Kraftwerk). (**)
 
 ### Documentation
 * [x] A first version of a FORD documentation. (**)

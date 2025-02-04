@@ -3,7 +3,7 @@ version = "0.4.0"
 license = "GPL-3.0-or-later"
 author = "Vincent Magnin"
 maintainer = "Vincent Magnin"
-copyright = "2021-2024 Vincent Magnin"
+copyright = "2021-2025 Vincent Magnin"
 
 [build]
 auto-executables = true
@@ -81,3 +81,8 @@ main = "doppler_effect.f90"
 name = "arpeggios"
 source-dir = "example"
 main = "arpeggios.f90"
+
+[[example]]
+name = "radioactivity"
+source-dir = "example"
+main = "radioactivity.f90"
