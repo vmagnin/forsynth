@@ -10,7 +10,7 @@
     <meta name="author" content="Vincent Magnin" >
     <link rel="icon" href="../favicon.png">
 
-    <title>add_chord &ndash; ForSynth</title>
+    <title>add_morse_code &ndash; ForSynth</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -65,7 +65,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>add_chord
+    <h1>add_morse_code
       <small>Subroutine</small>
       
     </h1>
@@ -77,21 +77,21 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 1.4% of total for procedures.">12 statements</a>
+                 title=" 3.3% of total for procedures.">28 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/music.f90"> Source File</a>
+              <a href="../src/morse_code.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/music.f90.html'>music.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/music.html'>music</a></li>
-            <li class="breadcrumb-item active" aria-current="page">add_chord</li>
+                <li class="breadcrumb-item"><a href='../sourcefile/morse_code.f90.html'>morse_code.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/morse_code.html'>morse_code</a></li>
+            <li class="breadcrumb-item active" aria-current="page">add_morse_code</li>
           </ol>
         </nav>
       </div>
@@ -132,7 +132,7 @@
     <div class="card card-primary">
       <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
       <div class="list-group">
-        <a class="list-group-item" href="../proc/add_chord.html#src">add_chord</a>
+        <a class="list-group-item" href="../proc/add_morse_code.html#src">add_morse_code</a>
       </div>
     </div>
 
@@ -142,12 +142,12 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine add_chord(tape, track, t1, t2, f, Amp, chord, envelope)  
+    <h2>public  subroutine add_morse_code(tape, track, t1, f, Amp, string)  
 </h2>
     
 
-    <p>Writes a chord using an array containing the intervals
-(see the music_common module)</p>
+    <p>Adds on the specified track a Morse code translation of the string, starting at
+time t1. The frequency f must correspond to a high tone, for example 880 Hz.</p>
 
 
     <h3>Arguments</h3>
@@ -163,7 +163,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~3"></span>
+              <span class="anchor" id="variable-tape~23"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -178,7 +178,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~3"></span>
+              <span class="anchor" id="variable-track~24"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -193,7 +193,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~3"></span>
+              <span class="anchor" id="variable-t1~27"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -208,22 +208,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~3"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>t2</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-f~3"></span>
+              <span class="anchor" id="variable-f~18"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -238,7 +223,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~3"></span>
+              <span class="anchor" id="variable-amp~22"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -253,30 +238,15 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-chord"></span>
-              integer,
+              <span class="anchor" id="variable-string~2"></span>
+              character(len=*),
             </td>
-<td>intent(in),</td>
+<td>intent(in)</td>
               <td></td>            <td>
-              dimension(:)
-            </td>
-            <td>::</td>
-            <td><strong>chord</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-envelope~2"></span>
-              type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>),
-            </td>
-<td>intent(inout),</td>
-              <td>optional</td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>envelope</strong></td>
+            <td><strong>string</strong></td>
             <td>
                 
             </td>
@@ -295,62 +265,47 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~add_chord~~CallsGraph Pages: 1 -->
-<svg id="procadd_chordCallsGraph" width="508pt" height="32pt"
- viewBox="0.00 0.00 508.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~add_chord~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
-<title>proc~~add_chord~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 504,-28 504,4 -4,4"/>
-<!-- proc~add_chord -->
-<g id="proc~~add_chord~~CallsGraph_node1" class="node">
-<title>proc~add_chord</title>
-<polygon fill="none" stroke="black" points="69,-24 0,-24 0,0 69,0 69,-24"/>
-<text text-anchor="middle" x="34.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">add_chord</text>
-</g>
-<!-- proc~add_note -->
-<g id="proc~~add_chord~~CallsGraph_node2" class="node">
-<title>proc~add_note</title>
-<g id="a_proc~~add_chord~~CallsGraph_node2"><a xlink:href="../proc/add_note.html" xlink:title="add_note">
-<polygon fill="#d9534f" stroke="#d9534f" points="167,-24 105,-24 105,0 167,0 167,-24"/>
-<text text-anchor="middle" x="136" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_note</text>
-</a>
-</g>
-</g>
-<!-- proc~add_chord&#45;&gt;proc~add_note -->
-<g id="proc~~add_chord~~CallsGraph_edge1" class="edge">
-<title>proc~add_chord&#45;&gt;proc~add_note</title>
-<path fill="none" stroke="#ff0000" d="M69.19,-12C77.36,-12 86.19,-12 94.64,-12"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="94.69,-15.5 104.69,-12 94.69,-8.5 94.69,-15.5"/>
+<!-- Title: proc~~add_morse_code~~CallsGraph Pages: 1 -->
+<svg id="procadd_morse_codeCallsGraph" width="444pt" height="32pt"
+ viewBox="0.00 0.00 444.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~add_morse_code~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~add_morse_code~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 440,-28 440,4 -4,4"/>
+<!-- proc~add_morse_code -->
+<g id="proc~~add_morse_code~~CallsGraph_node1" class="node">
+<title>proc~add_morse_code</title>
+<polygon fill="none" stroke="black" points="103,-24 0,-24 0,0 103,0 103,-24"/>
+<text text-anchor="middle" x="51.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">add_morse_code</text>
 </g>
 <!-- proc~add_sine_wave -->
-<g id="proc~~add_chord~~CallsGraph_node3" class="node">
+<g id="proc~~add_morse_code~~CallsGraph_node2" class="node">
 <title>proc~add_sine_wave</title>
-<g id="a_proc~~add_chord~~CallsGraph_node3"><a xlink:href="../proc/add_sine_wave.html" xlink:title="add_sine_wave">
-<polygon fill="#d9534f" stroke="#d9534f" points="296,-24 203,-24 203,0 296,0 296,-24"/>
-<text text-anchor="middle" x="249.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_sine_wave</text>
+<g id="a_proc~~add_morse_code~~CallsGraph_node2"><a xlink:href="../proc/add_sine_wave.html" xlink:title="add_sine_wave">
+<polygon fill="#d9534f" stroke="#d9534f" points="232,-24 139,-24 139,0 232,0 232,-24"/>
+<text text-anchor="middle" x="185.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_sine_wave</text>
 </a>
 </g>
 </g>
-<!-- proc~add_note&#45;&gt;proc~add_sine_wave -->
-<g id="proc~~add_chord~~CallsGraph_edge2" class="edge">
-<title>proc~add_note&#45;&gt;proc~add_sine_wave</title>
-<path fill="none" stroke="#ff0000" d="M167.17,-12C175.05,-12 183.8,-12 192.56,-12"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="192.79,-15.5 202.79,-12 192.79,-8.5 192.79,-15.5"/>
+<!-- proc~add_morse_code&#45;&gt;proc~add_sine_wave -->
+<g id="proc~~add_morse_code~~CallsGraph_edge1" class="edge">
+<title>proc~add_morse_code&#45;&gt;proc~add_sine_wave</title>
+<path fill="none" stroke="#ff0000" d="M103.16,-12C111.53,-12 120.25,-12 128.74,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="128.95,-15.5 138.95,-12 128.95,-8.5 128.95,-15.5"/>
 </g>
 <!-- proc~adsr_level -->
-<g id="proc~~add_chord~~CallsGraph_node4" class="node">
+<g id="proc~~add_morse_code~~CallsGraph_node3" class="node">
 <title>proc~adsr_level</title>
-<g id="a_proc~~add_chord~~CallsGraph_node4"><a xlink:href="../proc/adsr_level.html" xlink:title="ADSR_envelope%ADSR_level">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="500,-24 332,-24 332,0 500,0 500,-24"/>
-<text text-anchor="middle" x="416" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ADSR_envelope%ADSR_level</text>
+<g id="a_proc~~add_morse_code~~CallsGraph_node3"><a xlink:href="../proc/adsr_level.html" xlink:title="ADSR_envelope%ADSR_level">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="436,-24 268,-24 268,0 436,0 436,-24"/>
+<text text-anchor="middle" x="352" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ADSR_envelope%ADSR_level</text>
 </a>
 </g>
 </g>
 <!-- proc~add_sine_wave&#45;&gt;proc~adsr_level -->
-<g id="proc~~add_chord~~CallsGraph_edge3" class="edge">
+<g id="proc~~add_morse_code~~CallsGraph_edge2" class="edge">
 <title>proc~add_sine_wave&#45;&gt;proc~adsr_level</title>
-<path fill="none" stroke="#ff0000" d="M296.32,-12C304.4,-12 313.07,-12 321.91,-12"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="321.94,-15.5 331.94,-12 321.94,-8.5 321.94,-15.5"/>
+<path fill="none" stroke="#ff0000" d="M232.32,-12C240.4,-12 249.07,-12 257.91,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="257.94,-15.5 267.94,-12 257.94,-8.5 257.94,-15.5"/>
 </g>
 </g>
 </svg>
@@ -445,62 +400,32 @@ large graphs.</div>
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~add_chord~~CalledByGraph Pages: 1 -->
-<svg id="procadd_chordCalledByGraph" width="232pt" height="116pt"
- viewBox="0.00 0.00 232.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~add_chord~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
-<title>proc~~add_chord~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 228,-112 228,4 -4,4"/>
-<!-- proc~add_chord -->
-<g id="proc~~add_chord~~CalledByGraph_node1" class="node">
-<title>proc~add_chord</title>
-<polygon fill="none" stroke="black" points="224,-66 155,-66 155,-42 224,-42 224,-66"/>
-<text text-anchor="middle" x="189.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">add_chord</text>
-</g>
-<!-- program~chords_and_melody -->
-<g id="proc~~add_chord~~CalledByGraph_node2" class="node">
-<title>program~chords_and_melody</title>
-<g id="a_proc~~add_chord~~CalledByGraph_node2"><a xlink:href="../program/chords_and_melody.html" xlink:title="chords_and_melody">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="119,-108 0,-108 0,-84 119,-84 119,-108"/>
-<text text-anchor="middle" x="59.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody</text>
-</a>
-</g>
-</g>
-<!-- program~chords_and_melody&#45;&gt;proc~add_chord -->
-<g id="proc~~add_chord~~CalledByGraph_edge1" class="edge">
-<title>program~chords_and_melody&#45;&gt;proc~add_chord</title>
-<path fill="none" stroke="#ff0000" d="M97.18,-83.96C112.09,-79.07 129.43,-73.38 144.97,-68.28"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="146.47,-71.47 154.88,-65.03 144.29,-64.82 146.47,-71.47"/>
-</g>
-<!-- program~demo_effects -->
-<g id="proc~~add_chord~~CalledByGraph_node3" class="node">
-<title>program~demo_effects</title>
-<g id="a_proc~~add_chord~~CalledByGraph_node3"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="102,-66 17,-66 17,-42 102,-42 102,-66"/>
-<text text-anchor="middle" x="59.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
-</a>
-</g>
-</g>
-<!-- program~demo_effects&#45;&gt;proc~add_chord -->
-<g id="proc~~add_chord~~CalledByGraph_edge2" class="edge">
-<title>program~demo_effects&#45;&gt;proc~add_chord</title>
-<path fill="none" stroke="#ff0000" d="M102.06,-54C115.67,-54 130.83,-54 144.61,-54"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="144.83,-57.5 154.83,-54 144.83,-50.5 144.83,-57.5"/>
+<!-- Title: proc~~add_morse_code~~CalledByGraph Pages: 1 -->
+<svg id="procadd_morse_codeCalledByGraph" width="226pt" height="32pt"
+ viewBox="0.00 0.00 226.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~add_morse_code~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~add_morse_code~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 222,-28 222,4 -4,4"/>
+<!-- proc~add_morse_code -->
+<g id="proc~~add_morse_code~~CalledByGraph_node1" class="node">
+<title>proc~add_morse_code</title>
+<polygon fill="none" stroke="black" points="218,-24 115,-24 115,0 218,0 218,-24"/>
+<text text-anchor="middle" x="166.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">add_morse_code</text>
 </g>
 <!-- program~radioactivity -->
-<g id="proc~~add_chord~~CalledByGraph_node4" class="node">
+<g id="proc~~add_morse_code~~CalledByGraph_node2" class="node">
 <title>program~radioactivity</title>
-<g id="a_proc~~add_chord~~CalledByGraph_node4"><a xlink:href="../program/radioactivity.html" xlink:title="radioactivity">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="99,-24 20,-24 20,0 99,0 99,-24"/>
-<text text-anchor="middle" x="59.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">radioactivity</text>
+<g id="a_proc~~add_morse_code~~CalledByGraph_node2"><a xlink:href="../program/radioactivity.html" xlink:title="radioactivity">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="79,-24 0,-24 0,0 79,0 79,-24"/>
+<text text-anchor="middle" x="39.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">radioactivity</text>
 </a>
 </g>
 </g>
-<!-- program~radioactivity&#45;&gt;proc~add_chord -->
-<g id="proc~~add_chord~~CalledByGraph_edge3" class="edge">
-<title>program~radioactivity&#45;&gt;proc~add_chord</title>
-<path fill="none" stroke="#ff0000" d="M97.18,-24.04C112.09,-28.93 129.43,-34.62 144.97,-39.72"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="144.29,-43.18 154.88,-42.97 146.47,-36.53 144.29,-43.18"/>
+<!-- program~radioactivity&#45;&gt;proc~add_morse_code -->
+<g id="proc~~add_morse_code~~CalledByGraph_edge1" class="edge">
+<title>program~radioactivity&#45;&gt;proc~add_morse_code</title>
+<path fill="none" stroke="#ff0000" d="M79.02,-12C87.17,-12 95.96,-12 104.7,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.9,-15.5 114.9,-12 104.9,-8.5 104.9,-15.5"/>
 </g>
 </g>
 </svg>
@@ -599,19 +524,40 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">add_chord</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="p">,</span><span class="w"> </span><span class="n">chord</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">add_morse_code</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="p">)</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">tape_recorder</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tape</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">track</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span>
-<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">chord</span>
-<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">ADSR_envelope</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">envelope</span>
-<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">interval</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">string</span>
 
-<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">chord</span><span class="p">)</span>
-<span class="w">            </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chord</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="w">            </span><span class="k">call </span><span class="n">add_note</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">SEMITONE</span><span class="o">**</span><span class="n">interval</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">c</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span><span class="w">               </span><span class="c">! Time in seconds</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.050_wp</span><span class="w">  </span><span class="c">! The fundamental duration in seconds</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+
+<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">len_trim</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="w">            </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">call </span><span class="n">add_sine_wave</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="o">*</span><span class="n">dot</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">*</span><span class="n">dot</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="w">  </span><span class="c">! A dash last three times longer than a dot</span>
+<span class="w">                    </span><span class="k">call </span><span class="n">add_sine_wave</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">dot</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">dot</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dot</span><span class="w">   </span><span class="c">! Silence between letters of a word,</span>
+<span class="w">                                        </span><span class="c">! taking into account the silence added after END SELECT</span>
+<span class="w">                    </span><span class="c">! A double space means we are between two words, and the</span>
+<span class="w">                    </span><span class="c">! total silence must last 7 dots:</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="n">dot</span>
+<span class="w">                    </span><span class="k">end if</span>
+<span class="k">            end select</span>
+
+<span class="k">            </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dot</span><span class="w">     </span><span class="c">! A silence between dots and dashes in a character</span>
 <span class="w">        </span><span class="k">end do</span>
-<span class="k">    end subroutine </span><span class="n">add_chord</span>
+<span class="k">    end subroutine </span><span class="n">add_morse_code</span>
 </pre></div>
 
     </section>

@@ -1,0 +1,1524 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>radioactivity &ndash; ForSynth</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForSynth <small>0.4.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>radioactivity      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="10.9% of total for programs.">79 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/radioactivity.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/radioactivity.f90.html'>radioactivity.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">radioactivity</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/radioactivity.html#variable-n">N</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-n0">N0</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-atom">atom</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-d_note">d_note</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-delta_t">delta_t</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-demo">demo</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-duration">duration</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-env">env</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-i">i</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-j">j</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-nb_notes">nb_notes</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-note">note</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-notes">notes</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-p">p</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-r">r</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-t">t</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-t_end">t_end</a>
+            <a class="list-group-item" href="../program/radioactivity.html#variable-tau">tau</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/radioactivity.html#proc-add_geiger_ping">add_geiger_ping</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/radioactivity.html#src">radioactivity</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/tape_recorder_class.html'>tape_recorder_class</a></li>
+                  <li class="list-inline-item"><a href='../module/envelopes.html'>envelopes</a></li>
+                  <li class="list-inline-item"><a href='../module/music.html'>music</a></li>
+                  <li class="list-inline-item"><a href='../module/music_common.html'>music_common</a></li>
+                  <li class="list-inline-item"><a href='../module/morse_code.html'>morse_code</a></li>
+                  <li class="list-inline-item"><a href='../module/forsynth.html'>forsynth</a></li>
+                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~radioactivity~~UsesGraph Pages: 1 -->
+<svg id="programradioactivityUsesGraph" width="641pt" height="236pt"
+ viewBox="0.00 0.00 641.00 235.81" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~radioactivity~~UsesGraph" class="graph" transform="scale(0.77 0.77) rotate(0) translate(4 302.81)">
+<title>program~~radioactivity~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-302.81 830,-302.81 830,4 -4,4"/>
+<!-- program~radioactivity -->
+<g id="program~~radioactivity~~UsesGraph_node1" class="node">
+<title>program~radioactivity</title>
+<polygon fill="none" stroke="black" points="826,-182 747,-182 747,-158 826,-158 826,-182"/>
+<text text-anchor="middle" x="786.5" y="-167.6" font-family="Helvetica,sans-Serif" font-size="10.50">radioactivity</text>
+</g>
+<!-- module~envelopes -->
+<g id="program~~radioactivity~~UsesGraph_node2" class="node">
+<title>module~envelopes</title>
+<g id="a_program~~radioactivity~~UsesGraph_node2"><a xlink:href="../module/envelopes.html" xlink:title="envelopes">
+<polygon fill="#337ab7" stroke="#337ab7" points="454,-184 387,-184 387,-160 454,-160 454,-184"/>
+<text text-anchor="middle" x="420.5" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">envelopes</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;module~envelopes -->
+<g id="program~~radioactivity~~UsesGraph_edge1" class="edge">
+<title>program~radioactivity&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M746.89,-170.21C678.27,-170.59 535.58,-171.37 464.16,-171.77"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="464.13,-168.27 454.15,-171.82 464.17,-175.27 464.13,-168.27"/>
+</g>
+<!-- module~forsynth -->
+<g id="program~~radioactivity~~UsesGraph_node3" class="node">
+<title>module~forsynth</title>
+<g id="a_program~~radioactivity~~UsesGraph_node3"><a xlink:href="../module/forsynth.html" xlink:title="forsynth">
+<polygon fill="#337ab7" stroke="#337ab7" points="186,-105 130,-105 130,-81 186,-81 186,-105"/>
+<text text-anchor="middle" x="158" y="-90.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;module~forsynth -->
+<g id="program~~radioactivity~~UsesGraph_edge2" class="edge">
+<title>program~radioactivity&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M773.99,-182.11C760.25,-195.89 735.96,-218.14 711,-231 594.43,-291.07 551.21,-268.68 421.5,-288"/>
+</g>
+<!-- module~morse_code -->
+<g id="program~~radioactivity~~UsesGraph_node4" class="node">
+<title>module~morse_code</title>
+<g id="a_program~~radioactivity~~UsesGraph_node4"><a xlink:href="../module/morse_code.html" xlink:title="morse_code">
+<polygon fill="#337ab7" stroke="#337ab7" points="711,-222 633,-222 633,-198 711,-198 711,-222"/>
+<text text-anchor="middle" x="672" y="-207.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">morse_code</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;module~morse_code -->
+<g id="program~~radioactivity~~UsesGraph_edge3" class="edge">
+<title>program~radioactivity&#45;&gt;module~morse_code</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M751.75,-182C740.72,-185.92 728.32,-190.33 716.68,-194.47"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="715.37,-191.22 707.12,-197.87 717.71,-197.82 715.37,-191.22"/>
+</g>
+<!-- module~music -->
+<g id="program~~radioactivity~~UsesGraph_node5" class="node">
+<title>module~music</title>
+<g id="a_program~~radioactivity~~UsesGraph_node5"><a xlink:href="../module/music.html" xlink:title="music">
+<polygon fill="#337ab7" stroke="#337ab7" points="699,-142 645,-142 645,-118 699,-118 699,-142"/>
+<text text-anchor="middle" x="672" y="-127.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;module~music -->
+<g id="program~~radioactivity~~UsesGraph_edge4" class="edge">
+<title>program~radioactivity&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M751.75,-158C738.21,-153.18 722.58,-147.63 708.84,-142.74"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="709.82,-139.38 699.22,-139.32 707.47,-145.97 709.82,-139.38"/>
+</g>
+<!-- module~music_common -->
+<g id="program~~radioactivity~~UsesGraph_node6" class="node">
+<title>module~music_common</title>
+<g id="a_program~~radioactivity~~UsesGraph_node6"><a xlink:href="../module/music_common.html" xlink:title="music_common">
+<polygon fill="#337ab7" stroke="#337ab7" points="597,-104 500,-104 500,-80 597,-80 597,-104"/>
+<text text-anchor="middle" x="548.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music_common</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;module~music_common -->
+<g id="program~~radioactivity~~UsesGraph_edge5" class="edge">
+<title>program~radioactivity&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M671,-52C654.64,-46.58 613.46,-62.43 583.57,-75.76"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="581.96,-72.64 574.3,-79.97 584.86,-79.02 581.96,-72.64"/>
+</g>
+<!-- module~tape_recorder_class -->
+<g id="program~~radioactivity~~UsesGraph_node7" class="node">
+<title>module~tape_recorder_class</title>
+<g id="a_program~~radioactivity~~UsesGraph_node7"><a xlink:href="../module/tape_recorder_class.html" xlink:title="tape_recorder_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="341,-144 222,-144 222,-120 341,-120 341,-144"/>
+<text text-anchor="middle" x="281.5" y="-129.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;module~tape_recorder_class -->
+<g id="program~~radioactivity~~UsesGraph_edge6" class="edge">
+<title>program~radioactivity&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M547.5,-52C459.23,-45.15 360.78,-89.58 312.5,-115.04"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="310.69,-112.04 303.53,-119.86 314,-118.21 310.69,-112.04"/>
+</g>
+<!-- module~wav_file_class -->
+<g id="program~~radioactivity~~UsesGraph_node8" class="node">
+<title>module~wav_file_class</title>
+<g id="a_program~~radioactivity~~UsesGraph_node8"><a xlink:href="../module/wav_file_class.html" xlink:title="wav_file_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="464,-24 377,-24 377,0 464,0 464,-24"/>
+<text text-anchor="middle" x="420.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;module~wav_file_class -->
+<g id="program~~radioactivity~~UsesGraph_edge7" class="edge">
+<title>program~radioactivity&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M779.2,-157.69C764.79,-131.19 726.47,-69.72 673,-52"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M671,-52C619.74,-35.02 603.34,-56.18 549.5,-52"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M547.5,-52C515.79,-49.54 481.48,-38.02 456.68,-27.97"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="457.92,-24.69 447.34,-24.07 455.22,-31.15 457.92,-24.69"/>
+</g>
+<!-- module~envelopes&#45;&gt;module~forsynth -->
+<g id="program~~radioactivity~~UsesGraph_edge8" class="edge">
+<title>module~envelopes&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M413.62,-184.28C396.62,-217.88 344.62,-307.59 282.5,-288"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M280.5,-288C205.31,-264.29 173.8,-160.95 163.34,-115.08"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="166.74,-114.26 161.22,-105.22 159.9,-115.73 166.74,-114.26"/>
+</g>
+<!-- module~envelopes&#45;&gt;module~tape_recorder_class -->
+<g id="program~~radioactivity~~UsesGraph_edge9" class="edge">
+<title>module~envelopes&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M386.69,-162.42C370.72,-157.76 351.17,-152.05 333.34,-146.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="334.22,-143.45 323.64,-144.01 332.26,-150.17 334.22,-143.45"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~radioactivity~~UsesGraph_node9" class="node">
+<title>iso_fortran_env</title>
+<g id="a_program~~radioactivity~~UsesGraph_node9"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-85 0,-85 0,-61 94,-61 94,-85"/>
+<text text-anchor="middle" x="47" y="-70.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth&#45;&gt;iso_fortran_env -->
+<g id="program~~radioactivity~~UsesGraph_edge10" class="edge">
+<title>module~forsynth&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ffda00" stroke-dasharray="5,2" d="M129.78,-88C121.99,-86.58 113.2,-84.96 104.34,-83.34"/>
+<polygon fill="#ffda00" stroke="#ffda00" points="104.84,-79.87 94.37,-81.51 103.57,-86.76 104.84,-79.87"/>
+</g>
+<!-- module~morse_code&#45;&gt;module~tape_recorder_class -->
+<g id="program~~radioactivity~~UsesGraph_edge12" class="edge">
+<title>module~morse_code&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M643.23,-222.15C596.68,-240.81 500.25,-272.17 421.5,-250"/>
+</g>
+<!-- module~signals -->
+<g id="program~~radioactivity~~UsesGraph_node10" class="node">
+<title>module~signals</title>
+<g id="a_program~~radioactivity~~UsesGraph_node10"><a xlink:href="../module/signals.html" xlink:title="signals">
+<polygon fill="#337ab7" stroke="#337ab7" points="575.5,-222 521.5,-222 521.5,-198 575.5,-198 575.5,-222"/>
+<text text-anchor="middle" x="548.5" y="-207.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">signals</text>
+</a>
+</g>
+</g>
+<!-- module~morse_code&#45;&gt;module~signals -->
+<g id="program~~radioactivity~~UsesGraph_edge11" class="edge">
+<title>module~morse_code&#45;&gt;module~signals</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M632.89,-210C617.88,-210 600.72,-210 585.89,-210"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="585.56,-206.5 575.56,-210 585.56,-213.5 585.56,-206.5"/>
+</g>
+<!-- module~music&#45;&gt;module~envelopes -->
+<g id="program~~radioactivity~~UsesGraph_edge13" class="edge">
+<title>module~music&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M547.5,-132C516.01,-134.7 481.93,-146.07 457.17,-156"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="455.74,-152.81 447.83,-159.86 458.41,-159.28 455.74,-152.81"/>
+</g>
+<!-- module~music&#45;&gt;module~forsynth -->
+<g id="program~~radioactivity~~UsesGraph_edge14" class="edge">
+<title>module~music&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M644.88,-129.39C620.23,-129.06 582.29,-129.19 549.5,-132"/>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M547.5,-132C491.71,-136.79 477.36,-136 421.5,-132"/>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M419.5,-132C383.48,-129.42 376.53,-117.47 341,-111 291.39,-101.97 233.28,-97.22 196.32,-94.91"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="196.21,-91.4 186.02,-94.3 195.79,-98.38 196.21,-91.4"/>
+</g>
+<!-- module~music&#45;&gt;module~music_common -->
+<g id="program~~radioactivity~~UsesGraph_edge15" class="edge">
+<title>module~music&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M644.94,-121.85C631.19,-117.55 613.89,-112.14 597.8,-107.11"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="598.57,-103.68 587.98,-104.04 596.48,-110.36 598.57,-103.68"/>
+</g>
+<!-- module~music&#45;&gt;module~tape_recorder_class -->
+<g id="program~~radioactivity~~UsesGraph_edge17" class="edge">
+<title>module~music&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M419.5,-132C397.38,-130.42 373.2,-129.99 351.4,-130.08"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="351.2,-126.58 341.23,-130.16 351.26,-133.58 351.2,-126.58"/>
+</g>
+<!-- module~music&#45;&gt;module~signals -->
+<g id="program~~radioactivity~~UsesGraph_edge16" class="edge">
+<title>module~music&#45;&gt;module~signals</title>
+<path fill="none" stroke="#00ff91" stroke-dasharray="5,2" d="M652.55,-142.15C632.27,-155.5 599.51,-177.07 576.38,-192.3"/>
+<polygon fill="#00ff91" stroke="#00ff91" points="574.16,-189.57 567.73,-198 578.01,-195.42 574.16,-189.57"/>
+</g>
+<!-- module~tape_recorder_class&#45;&gt;module~forsynth -->
+<g id="program~~radioactivity~~UsesGraph_edge18" class="edge">
+<title>module~tape_recorder_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M243.05,-119.98C228.1,-115.18 210.92,-109.67 196.01,-104.88"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="196.69,-101.42 186.1,-101.7 194.55,-108.09 196.69,-101.42"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~forsynth -->
+<g id="program~~radioactivity~~UsesGraph_edge20" class="edge">
+<title>module~wav_file_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M280.5,-53C251.51,-59.6 219.61,-70.23 195.78,-78.88"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="194.26,-75.71 186.09,-82.45 196.68,-82.28 194.26,-75.71"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~tape_recorder_class -->
+<g id="program~~radioactivity~~UsesGraph_edge21" class="edge">
+<title>module~wav_file_class&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M397.66,-24.02C390.82,-28.14 383.39,-32.98 377,-38 347.73,-60.99 317.94,-92.2 299.83,-112.22"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="297.1,-110.02 293.05,-119.81 302.32,-114.69 297.1,-110.02"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;iso_fortran_env -->
+<g id="program~~radioactivity~~UsesGraph_edge19" class="edge">
+<title>module~wav_file_class&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M384.08,-24.03C356.62,-33 317.48,-45.04 282.5,-53"/>
+<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M280.5,-53C221.25,-66.48 151.61,-71.03 104.1,-72.49"/>
+<polygon fill="#ff00da" stroke="#ff00da" points="103.92,-68.99 94.01,-72.76 104.11,-75.99 103.92,-68.99"/>
+</g>
+<!-- module~signals&#45;&gt;module~envelopes -->
+<g id="program~~radioactivity~~UsesGraph_edge22" class="edge">
+<title>module~signals&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M521.39,-202.13C504.82,-197.13 482.99,-190.54 463.96,-184.81"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="464.89,-181.43 454.31,-181.89 462.87,-188.13 464.89,-181.43"/>
+</g>
+<!-- module~signals&#45;&gt;module~forsynth -->
+<g id="program~~radioactivity~~UsesGraph_edge23" class="edge">
+<title>module~signals&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M535.68,-222.08C514.87,-242.15 469.34,-280.87 421.5,-288"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M419.5,-288C359.28,-296.97 340.57,-306.31 282.5,-288"/>
+</g>
+<!-- module~signals&#45;&gt;module~tape_recorder_class -->
+<g id="program~~radioactivity~~UsesGraph_edge24" class="edge">
+<title>module~signals&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M521.3,-222.06C490.26,-235.68 440.39,-255.32 421.5,-250"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M419.5,-250C364.73,-234.58 318.84,-181.85 296.71,-152.36"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="299.35,-150.04 290.62,-144.03 293.7,-154.17 299.35,-150.04"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramradioactivityUsesGraph = svgPanZoom('#programradioactivityUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Radioactive decay of a population of atoms. A tribute to Kraftwerk.
+Chords are played on a 2nd track and Morse code on a third track.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~radioactivity~~CallsGraph Pages: 1 -->
+<svg id="programradioactivityCallsGraph" width="641pt" height="285pt"
+ viewBox="0.00 0.00 641.00 284.73" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~radioactivity~~CallsGraph" class="graph" transform="scale(0.7 0.7) rotate(0) translate(4 402)">
+<title>program~~radioactivity~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-402 910,-402 910,4 -4,4"/>
+<!-- program~radioactivity -->
+<g id="program~~radioactivity~~CallsGraph_node1" class="node">
+<title>program~radioactivity</title>
+<polygon fill="none" stroke="black" points="79,-213 0,-213 0,-189 79,-189 79,-213"/>
+<text text-anchor="middle" x="39.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50">radioactivity</text>
+</g>
+<!-- proc~add_chord -->
+<g id="program~~radioactivity~~CallsGraph_node2" class="node">
+<title>proc~add_chord</title>
+<g id="a_program~~radioactivity~~CallsGraph_node2"><a xlink:href="../proc/add_chord.html" xlink:title="add_chord">
+<polygon fill="#d9534f" stroke="#d9534f" points="231.5,-398 162.5,-398 162.5,-374 231.5,-374 231.5,-398"/>
+<text text-anchor="middle" x="197" y="-383.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_chord</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~add_chord -->
+<g id="program~~radioactivity~~CallsGraph_edge1" class="edge">
+<title>program~radioactivity&#45;&gt;proc~add_chord</title>
+<path fill="none" stroke="#ff0000" d="M42.35,-213.02C47.67,-243.4 65.93,-323.75 115,-365 125.46,-373.79 139.16,-378.96 152.31,-381.97"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="151.72,-385.42 162.2,-383.89 153.05,-378.55 151.72,-385.42"/>
+</g>
+<!-- proc~add_geiger_ping -->
+<g id="program~~radioactivity~~CallsGraph_node3" class="node">
+<title>proc~add_geiger_ping</title>
+<g id="a_program~~radioactivity~~CallsGraph_node3"><a xlink:href="../proc/add_geiger_ping.html" xlink:title="add_geiger_ping">
+<polygon fill="#d9534f" stroke="#d9534f" points="247.5,-356 146.5,-356 146.5,-332 247.5,-332 247.5,-356"/>
+<text text-anchor="middle" x="197" y="-341.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_geiger_ping</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~add_geiger_ping -->
+<g id="program~~radioactivity~~CallsGraph_edge2" class="edge">
+<title>program~radioactivity&#45;&gt;proc~add_geiger_ping</title>
+<path fill="none" stroke="#ff0000" d="M44.98,-213.24C54.3,-236.99 78.01,-289.46 115,-318 121.48,-323 128.96,-327.06 136.69,-330.34"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="135.61,-333.68 146.2,-333.98 138.11,-327.14 135.61,-333.68"/>
+</g>
+<!-- proc~add_morse_code -->
+<g id="program~~radioactivity~~CallsGraph_node4" class="node">
+<title>proc~add_morse_code</title>
+<g id="a_program~~radioactivity~~CallsGraph_node4"><a xlink:href="../proc/add_morse_code.html" xlink:title="add_morse_code">
+<polygon fill="#d9534f" stroke="#d9534f" points="461,-337 358,-337 358,-313 461,-313 461,-337"/>
+<text text-anchor="middle" x="409.5" y="-322.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_morse_code</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~add_morse_code -->
+<g id="program~~radioactivity~~CallsGraph_edge3" class="edge">
+<title>program~radioactivity&#45;&gt;proc~add_morse_code</title>
+<path fill="none" stroke="#ff0000" d="M47.36,-213.19C58.72,-232.1 83.36,-268.11 115,-285 154.16,-305.9 273.97,-316.8 347.85,-321.69"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="347.75,-325.19 357.96,-322.34 348.2,-318.2 347.75,-325.19"/>
+</g>
+<!-- proc~adsr_new -->
+<g id="program~~radioactivity~~CallsGraph_node5" class="node">
+<title>proc~adsr_new</title>
+<g id="a_program~~radioactivity~~CallsGraph_node5"><a xlink:href="../proc/adsr_new.html" xlink:title="ADSR_envelope%ADSR_new">
+<polygon fill="#d9534f" stroke="#d9534f" points="279,-276 115,-276 115,-252 279,-252 279,-276"/>
+<text text-anchor="middle" x="197" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ADSR_envelope%ADSR_new</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~adsr_new -->
+<g id="program~~radioactivity~~CallsGraph_edge4" class="edge">
+<title>program~radioactivity&#45;&gt;proc~adsr_new</title>
+<path fill="none" stroke="#ff0000" d="M58.81,-213.11C73.49,-222.37 94.9,-234.89 115,-243 120.35,-245.16 125.99,-247.15 131.7,-248.98"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="130.76,-252.35 141.34,-251.9 132.79,-245.65 130.76,-252.35"/>
+</g>
+<!-- proc~close_wav_file -->
+<g id="program~~radioactivity~~CallsGraph_node6" class="node">
+<title>proc~close_wav_file</title>
+<g id="a_program~~radioactivity~~CallsGraph_node6"><a xlink:href="../proc/close_wav_file.html" xlink:title="WAV_file%close_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="270.5,-234 123.5,-234 123.5,-210 270.5,-210 270.5,-234"/>
+<text text-anchor="middle" x="197" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%close_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~close_wav_file -->
+<g id="program~~radioactivity~~CallsGraph_edge5" class="edge">
+<title>program~radioactivity&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M79.34,-206.25C89.81,-207.66 101.55,-209.24 113.44,-210.85"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="113.06,-214.33 123.44,-212.2 114,-207.39 113.06,-214.33"/>
+</g>
+<!-- proc~create_wav_file -->
+<g id="program~~radioactivity~~CallsGraph_node7" class="node">
+<title>proc~create_wav_file</title>
+<g id="a_program~~radioactivity~~CallsGraph_node7"><a xlink:href="../proc/create_wav_file.html" xlink:title="WAV_file%create_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="273.5,-192 120.5,-192 120.5,-168 273.5,-168 273.5,-192"/>
+<text text-anchor="middle" x="197" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%create_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~create_wav_file -->
+<g id="program~~radioactivity~~CallsGraph_edge6" class="edge">
+<title>program~radioactivity&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M79.34,-195.75C88.91,-194.46 99.55,-193.03 110.39,-191.56"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="110.93,-195.02 120.37,-190.21 110,-188.08 110.93,-195.02"/>
+</g>
+<!-- proc~fr -->
+<g id="program~~radioactivity~~CallsGraph_node8" class="node">
+<title>proc~fr</title>
+<g id="a_program~~radioactivity~~CallsGraph_node8"><a xlink:href="../proc/fr.html" xlink:title="fr">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="224,-150 170,-150 170,-126 224,-126 224,-150"/>
+<text text-anchor="middle" x="197" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fr</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~fr -->
+<g id="program~~radioactivity~~CallsGraph_edge7" class="edge">
+<title>program~radioactivity&#45;&gt;proc~fr</title>
+<path fill="none" stroke="#ff0000" d="M58.81,-188.89C73.49,-179.63 94.9,-167.11 115,-159 129.31,-153.23 145.69,-148.63 159.96,-145.22"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="160.94,-148.59 169.91,-142.96 159.39,-141.77 160.94,-148.59"/>
+</g>
+<!-- proc~get_name -->
+<g id="program~~radioactivity~~CallsGraph_node9" class="node">
+<title>proc~get_name</title>
+<g id="a_program~~radioactivity~~CallsGraph_node9"><a xlink:href="../proc/get_name.html" xlink:title="WAV_file%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="257.5,-108 136.5,-108 136.5,-84 257.5,-84 257.5,-108"/>
+<text text-anchor="middle" x="197" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%get_name</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~get_name -->
+<g id="program~~radioactivity~~CallsGraph_edge8" class="edge">
+<title>program~radioactivity&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0000" d="M47.8,-188.95C59.58,-170.55 84.58,-135.63 115,-117 118.8,-114.68 122.84,-112.61 127.03,-110.77"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="128.34,-114.01 136.36,-107.09 125.78,-107.5 128.34,-114.01"/>
+</g>
+<!-- proc~mix_tracks -->
+<g id="program~~radioactivity~~CallsGraph_node10" class="node">
+<title>proc~mix_tracks</title>
+<g id="a_program~~radioactivity~~CallsGraph_node10"><a xlink:href="../proc/mix_tracks.html" xlink:title="tape_recorder%mix_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="274,-66 120,-66 120,-42 274,-42 274,-66"/>
+<text text-anchor="middle" x="197" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%mix_tracks</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~mix_tracks -->
+<g id="program~~radioactivity~~CallsGraph_edge9" class="edge">
+<title>program~radioactivity&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff0000" d="M44.17,-188.8C52.45,-163.49 75,-105.11 115,-75 116.89,-73.58 118.86,-72.26 120.9,-71.02"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="122.98,-73.88 130.23,-66.16 119.74,-67.68 122.98,-73.88"/>
+</g>
+<!-- proc~string_to_morse -->
+<g id="program~~radioactivity~~CallsGraph_node11" class="node">
+<title>proc~string_to_morse</title>
+<g id="a_program~~radioactivity~~CallsGraph_node11"><a xlink:href="../proc/string_to_morse.html" xlink:title="string_to_morse">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="245.5,-24 148.5,-24 148.5,0 245.5,0 245.5,-24"/>
+<text text-anchor="middle" x="197" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string_to_morse</text>
+</a>
+</g>
+</g>
+<!-- program~radioactivity&#45;&gt;proc~string_to_morse -->
+<g id="program~~radioactivity~~CallsGraph_edge10" class="edge">
+<title>program~radioactivity&#45;&gt;proc~string_to_morse</title>
+<path fill="none" stroke="#ff0000" d="M42.25,-188.69C47.35,-157.59 65.12,-75.31 115,-33 121.84,-27.2 130.1,-22.97 138.68,-19.9"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="139.93,-23.18 148.46,-16.9 137.88,-16.49 139.93,-23.18"/>
+</g>
+<!-- proc~add_note -->
+<g id="program~~radioactivity~~CallsGraph_node12" class="node">
+<title>proc~add_note</title>
+<g id="a_program~~radioactivity~~CallsGraph_node12"><a xlink:href="../proc/add_note.html" xlink:title="add_note">
+<polygon fill="#d9534f" stroke="#d9534f" points="440.5,-388 378.5,-388 378.5,-364 440.5,-364 440.5,-388"/>
+<text text-anchor="middle" x="409.5" y="-373.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_note</text>
+</a>
+</g>
+</g>
+<!-- proc~add_chord&#45;&gt;proc~add_note -->
+<g id="program~~radioactivity~~CallsGraph_edge11" class="edge">
+<title>proc~add_chord&#45;&gt;proc~add_note</title>
+<path fill="none" stroke="#ff0000" d="M231.82,-384.39C268.95,-382.63 328.52,-379.8 368.08,-377.92"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="368.36,-381.41 378.18,-377.44 368.02,-374.42 368.36,-381.41"/>
+</g>
+<!-- proc~add_sine_wave -->
+<g id="program~~radioactivity~~CallsGraph_node13" class="node">
+<title>proc~add_sine_wave</title>
+<g id="a_program~~radioactivity~~CallsGraph_node13"><a xlink:href="../proc/add_sine_wave.html" xlink:title="add_sine_wave">
+<polygon fill="#d9534f" stroke="#d9534f" points="667.5,-358 574.5,-358 574.5,-334 667.5,-334 667.5,-358"/>
+<text text-anchor="middle" x="621" y="-343.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_sine_wave</text>
+</a>
+</g>
+</g>
+<!-- proc~add_morse_code&#45;&gt;proc~add_sine_wave -->
+<g id="program~~radioactivity~~CallsGraph_edge12" class="edge">
+<title>proc~add_morse_code&#45;&gt;proc~add_sine_wave</title>
+<path fill="none" stroke="#cbff00" d="M461.21,-330.08C492.36,-333.21 532.27,-337.21 564.29,-340.42"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="564.09,-343.91 574.39,-341.43 564.79,-336.95 564.09,-343.91"/>
+</g>
+<!-- proc~finalize -->
+<g id="program~~radioactivity~~CallsGraph_node14" class="node">
+<title>proc~finalize</title>
+<g id="a_program~~radioactivity~~CallsGraph_node14"><a xlink:href="../proc/finalize.html" xlink:title="tape_recorder%finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="477.5,-276 341.5,-276 341.5,-252 477.5,-252 477.5,-276"/>
+<text text-anchor="middle" x="409.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%finalize</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~finalize -->
+<g id="program~~radioactivity~~CallsGraph_edge13" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~finalize</title>
+<path fill="none" stroke="#00ff66" d="M258.32,-234.04C283.2,-239 312.21,-244.79 338.06,-249.95"/>
+<polygon fill="#00ff66" stroke="#00ff66" points="337.68,-253.44 348.17,-251.96 339.05,-246.57 337.68,-253.44"/>
+</g>
+<!-- proc~write_normalized_data -->
+<g id="program~~radioactivity~~CallsGraph_node17" class="node">
+<title>proc~write_normalized_data</title>
+<g id="a_program~~radioactivity~~CallsGraph_node17"><a xlink:href="../proc/write_normalized_data.html" xlink:title="WAV_file%write_normalized_data">
+<polygon fill="#d9534f" stroke="#d9534f" points="504,-234 315,-234 315,-210 504,-210 504,-234"/>
+<text text-anchor="middle" x="409.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_normalized_data</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~write_normalized_data -->
+<g id="program~~radioactivity~~CallsGraph_edge14" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~write_normalized_data</title>
+<path fill="none" stroke="#00ff66" d="M270.74,-222C281.77,-222 293.32,-222 304.86,-222"/>
+<polygon fill="#00ff66" stroke="#00ff66" points="304.97,-225.5 314.97,-222 304.97,-218.5 304.97,-225.5"/>
+</g>
+<!-- proc~new -->
+<g id="program~~radioactivity~~CallsGraph_node15" class="node">
+<title>proc~new</title>
+<g id="a_program~~radioactivity~~CallsGraph_node15"><a xlink:href="../proc/new.html" xlink:title="tape_recorder%new">
+<polygon fill="#d9534f" stroke="#d9534f" points="469,-192 350,-192 350,-168 469,-168 469,-192"/>
+<text text-anchor="middle" x="409.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%new</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~new -->
+<g id="program~~radioactivity~~CallsGraph_edge15" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~new</title>
+<path fill="none" stroke="#00ffff" d="M273.7,-180C295.27,-180 318.65,-180 339.79,-180"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="339.96,-183.5 349.96,-180 339.96,-176.5 339.96,-183.5"/>
+</g>
+<!-- proc~write_header -->
+<g id="program~~radioactivity~~CallsGraph_node16" class="node">
+<title>proc~write_header</title>
+<g id="a_program~~radioactivity~~CallsGraph_node16"><a xlink:href="../proc/write_header.html" xlink:title="WAV_file%write_header">
+<polygon fill="#d9534f" stroke="#d9534f" points="478.5,-150 340.5,-150 340.5,-126 478.5,-126 478.5,-150"/>
+<text text-anchor="middle" x="409.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_header</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~write_header -->
+<g id="program~~radioactivity~~CallsGraph_edge16" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~write_header</title>
+<path fill="none" stroke="#00ffff" d="M258.32,-167.96C283.2,-163 312.21,-157.21 338.06,-152.05"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="339.05,-155.43 348.17,-150.04 337.68,-148.56 339.05,-155.43"/>
+</g>
+<!-- proc~add_note&#45;&gt;proc~add_sine_wave -->
+<g id="program~~radioactivity~~CallsGraph_edge17" class="edge">
+<title>proc~add_note&#45;&gt;proc~add_sine_wave</title>
+<path fill="none" stroke="#ff0000" d="M440.52,-371.7C472.68,-367.1 524.45,-359.68 564.15,-354"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="564.81,-357.44 574.22,-352.56 563.82,-350.51 564.81,-357.44"/>
+</g>
+<!-- proc~adsr_level -->
+<g id="program~~radioactivity~~CallsGraph_node18" class="node">
+<title>proc~adsr_level</title>
+<g id="a_program~~radioactivity~~CallsGraph_node18"><a xlink:href="../proc/adsr_level.html" xlink:title="ADSR_envelope%ADSR_level">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="906,-358 738,-358 738,-334 906,-334 906,-358"/>
+<text text-anchor="middle" x="822" y="-343.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ADSR_envelope%ADSR_level</text>
+</a>
+</g>
+</g>
+<!-- proc~add_sine_wave&#45;&gt;proc~adsr_level -->
+<g id="program~~radioactivity~~CallsGraph_edge18" class="edge">
+<title>proc~add_sine_wave&#45;&gt;proc~adsr_level</title>
+<path fill="none" stroke="#ffff00" d="M667.65,-346C685.5,-346 706.66,-346 727.47,-346"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="727.64,-349.5 737.64,-346 727.64,-342.5 727.64,-349.5"/>
+</g>
+<!-- proc~clear_tracks -->
+<g id="program~~radioactivity~~CallsGraph_node19" class="node">
+<title>proc~clear_tracks</title>
+<g id="a_program~~radioactivity~~CallsGraph_node19"><a xlink:href="../proc/clear_tracks.html" xlink:title="tape_recorder%clear_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="702,-192 540,-192 540,-168 702,-168 702,-192"/>
+<text text-anchor="middle" x="621" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%clear_tracks</text>
+</a>
+</g>
+</g>
+<!-- proc~new&#45;&gt;proc~clear_tracks -->
+<g id="program~~radioactivity~~CallsGraph_edge19" class="edge">
+<title>proc~new&#45;&gt;proc~clear_tracks</title>
+<path fill="none" stroke="#00ffff" d="M469.14,-180C487.96,-180 509.28,-180 529.83,-180"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="529.84,-183.5 539.84,-180 529.84,-176.5 529.84,-183.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramradioactivityCallsGraph = svgPanZoom('#programradioactivityCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+<td> =</td>
+                <td>N0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n0"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>N0</strong></td>
+<td> =</td>
+                <td>5000</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-atom"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>atom</strong>(N0)</td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d_note"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d_note</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delta_t"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>delta_t</strong></td>
+<td> =</td>
+                <td>tau/10000</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-demo"></span>
+              type(<a href='../type/wav_file.html'>WAV_file</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>demo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-duration"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>duration</strong></td>
+<td> =</td>
+                <td>120._wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-env"></span>
+              type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>env</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb_notes"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nb_notes</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-note"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>note</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-notes"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>notes</strong>(1:40)</td>
+<td> =</td>
+                <td>[6, 5, 6, 5, 6, 4, 5, 4, 5, 3, 4, 3, 4, 2, 3, 2, 3, 1, 2, 1, 2, 1, 3, 2, 3, 2, 4, 3, 4, 3, 5, 4, 5, 4, 6, 5, 6, 5, 6, 6]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+<td> =</td>
+                <td>1-exp(-log(2._wp)*delta_t/tau)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t_end"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t_end</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tau"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>tau</strong></td>
+<td> =</td>
+                <td>8._wp</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-add_geiger_ping"></span> <h3> subroutine <a href='../proc/add_geiger_ping.html'>add_geiger_ping</a>(tape, track, t1, t2, f, Amp)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Adds the signal of a radioactive decay heard with a Geiger counter.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tape"></span>
+              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tape</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-track"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t1"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-amp"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Amp</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">radioactivity</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forsynth</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">RATE</span><span class="p">,</span><span class="w"> </span><span class="n">PI</span>
+<span class="w">    </span><span class="k">use </span><span class="n">wav_file_class</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">WAV_file</span>
+<span class="w">    </span><span class="k">use </span><span class="n">tape_recorder_class</span>
+<span class="w">    </span><span class="k">use </span><span class="n">music</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">fr</span><span class="p">,</span><span class="w"> </span><span class="n">add_chord</span>
+<span class="w">    </span><span class="k">use </span><span class="n">music_common</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">WHOLE_TONE_SCALE</span><span class="p">,</span><span class="w"> </span><span class="n">MAJOR_CHORD</span>
+<span class="w">    </span><span class="k">use </span><span class="n">envelopes</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">ADSR_envelope</span>
+<span class="w">    </span><span class="k">use </span><span class="n">morse_code</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">string_to_morse</span><span class="p">,</span><span class="w"> </span><span class="n">add_morse_code</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">WAV_file</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">demo</span>
+<span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">ADSR_envelope</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">env</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">N0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span><span class="w">     </span><span class="c">! Number of atoms</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N0</span><span class="w">                  </span><span class="c">! Number of remaining radioactive atoms</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">atom</span><span class="p">(</span><span class="n">N0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">            </span><span class="c">! The population of atoms, in state 1</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">                   </span><span class="c">! Time in seconds</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t_end</span><span class="w">                   </span><span class="c">! Position of the end of the first track</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">d_note</span><span class="w">                  </span><span class="c">! Duration of each chord</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="mf">0._wp</span><span class="w">    </span><span class="c">! Duration of the WAV file</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8._wp</span><span class="w">           </span><span class="c">! Half-life in seconds</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">delta_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tau</span><span class="o">/</span><span class="mi">10000</span><span class="w">   </span><span class="c">! Time step of the simulation</span>
+<span class="w">    </span><span class="c">! Decay probability during delta_t:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="nb">log</span><span class="p">(</span><span class="mf">2._wp</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">delta_t</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r</span><span class="w">           </span><span class="c">! Pseudo-random number</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">note</span><span class="p">,</span><span class="w"> </span><span class="n">nb_notes</span>
+<span class="w">    </span><span class="c">! Melody of the chords on track 2:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">notes</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                        </span><span class="p">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="w"> </span><span class="p">]</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;It may take a few minutes to compute...&quot;</span>
+
+<span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;radioactivity.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! We create an ADSR envelope that will be passed to signals (add_chord):</span>
+<span class="w">    </span><span class="k">call </span><span class="n">env</span><span class="p">%</span><span class="n">new</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="mf">5._wp</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="mf">5._wp</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">=</span><span class="mi">7</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">=</span><span class="mi">4</span><span class="mf">5._wp</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span><span class="c">! Scanning the whole population:</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">N0</span>
+<span class="w">            </span><span class="c">! Is this atom still in its original state?</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">atom</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="c">! Monte Carlo event:</span>
+<span class="w">                </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">   </span><span class="c">! Radioactive decay</span>
+<span class="w">                    </span><span class="n">atom</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                    </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mf">5._wp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        call </span><span class="n">add_geiger_ping</span><span class="p">(</span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">=</span><span class="n">t</span><span class="o">+</span><span class="mf">5._wp</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                           </span><span class="p">&amp;</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="mi">44</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">1._wp</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">end if</span>
+<span class="k">                end if</span>
+<span class="k">            end if</span>
+<span class="k">        end do</span>
+
+<span class="k">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">delta_t</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span><span class="w">      </span><span class="c">! No more radioactive atoms</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">! Track 2: synth chords</span>
+<span class="w">    </span><span class="n">t_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span>
+<span class="w">    </span><span class="n">nb_notes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="mi">40</span>
+<span class="w">    </span><span class="n">d_note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t_end</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nb_notes</span>
+
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nb_notes</span>
+<span class="w">        </span><span class="c">! The same sequence is played twice:</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">notes</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="k">            </span><span class="n">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">notes</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        call </span><span class="n">add_chord</span><span class="p">(</span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">d_note</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">=</span><span class="n">j</span><span class="o">*</span><span class="n">d_note</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="p">&amp;</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="n">fr</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">WHOLE_TONE_SCALE</span><span class="p">(</span><span class="n">note</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                     </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">0.1_wp</span><span class="p">,</span><span class="w"> </span><span class="n">chord</span><span class="o">=</span><span class="n">MAJOR_CHORD</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">! Track 3: Morse code</span>
+<span class="w">    </span><span class="k">call </span><span class="n">add_morse_code</span><span class="p">(</span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="mf">2._wp</span><span class="p">,</span><span class="w">  </span><span class="n">f</span><span class="o">=</span><span class="mi">88</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                      </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">0.3_wp</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">=</span><span class="n">string_to_morse</span><span class="p">(</span><span class="s2">&quot;RADIOACTIVITY&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="k">call </span><span class="n">add_morse_code</span><span class="p">(</span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="mi">3</span><span class="mf">5._wp</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="mi">88</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                      </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">0.3_wp</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">=</span><span class="n">string_to_morse</span><span class="p">(</span><span class="s2">&quot;DISCOVERED BY MADAME CURIE&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="k">call </span><span class="n">add_morse_code</span><span class="p">(</span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="mi">7</span><span class="mf">5._wp</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="mi">88</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                      </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">0.3_wp</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="o">=</span><span class="n">string_to_morse</span><span class="p">(</span><span class="s2">&quot;IS IN THE AIR FOR YOU AND ME&quot;</span><span class="p">))</span>
+
+<span class="w">    </span><span class="c">! All tracks will be mixed on track 0.</span>
+<span class="w">    </span><span class="c">! Needed even if there is only one track!</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">mix_tracks</span><span class="p">()</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">close_WAV_file</span><span class="p">()</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s2">&quot;You can now play the file &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span>
+
+<span class="k">contains</span>
+
+<span class="w">    </span><span class="c">!&gt; Adds the signal of a radioactive decay heard with a Geiger counter.</span>
+<span class="w">    </span><span class="k">subroutine </span><span class="n">add_geiger_ping</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="p">)</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">tape_recorder</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tape</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">track</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">b</span>
+
+<span class="w">        </span><span class="c">! Pulsation (radians/second):</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">omega</span>
+<span class="w">        </span><span class="c">! Time in seconds:</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+
+<span class="w">        </span><span class="n">omega</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span>
+<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0._wp</span>
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">RATE</span><span class="p">),</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">t2</span><span class="o">*</span><span class="n">RATE</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">            </span><span class="c">! Bessel functions of the first kind: a short ping</span>
+<span class="w">            </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Amp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">bessel_jn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">bessel_jn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="w">            </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="w">            </span><span class="n">tape</span><span class="p">%</span><span class="n">right</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">right</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+
+<span class="w">            </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span>
+<span class="w">        </span><span class="k">end do</span>
+<span class="k">    end subroutine </span><span class="n">add_geiger_ping</span>
+
+<span class="k">end program </span><span class="n">radioactivity</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForSynth
+ was developed by Vincent Magnin<br>              &copy; 2021-2025 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-02-04 17:41 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
