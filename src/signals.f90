@@ -1,12 +1,12 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-28
+! Last modifications: 2025-02-12
 
 !> Subroutines generating different kind of signals
 module signals
     use forsynth, only: wp, RATE, dt, PI
-    use envelopes, only: ADSR_envelope
+    use envelopes, only: ADSR_envelope, fit_exp
     use tape_recorder_class
 
     implicit none
@@ -16,7 +16,7 @@ module signals
     public :: add_sine_wave, add_square_wave, add_sawtooth_wave,&
             & add_triangle_wave, add_karplus_strong, add_karplus_strong_stretched, &
             & add_karplus_strong_drum, add_karplus_strong_drum_stretched, &
-            & add_noise, weierstrass, add_weierstrass
+            & add_noise, weierstrass, add_weierstrass, add_bell
 
 contains
 
@@ -427,5 +427,49 @@ contains
             tape%right(track, i) = tape%right(track, i) + signal
         end do
     end subroutine add_weierstrass
+
+    !> Adds a Risset bell sound on the track at t1.
+    !> Jean-Claude Risset, An Introductory Catalogue Of Computer Synthesized Sounds,
+    !> Bell Telephone Laboratories  Murray Hill, New Jersey, 1969.
+    subroutine add_bell(tape, track, t1, f, Amp)
+        type(tape_recorder), intent(inout) :: tape
+        integer, intent(in)  :: track
+        real(wp), intent(in) :: t1, f, Amp
+        real(wp) :: t, t2
+        real(wp) :: ratio, q
+        real(wp) :: signal
+        integer  :: i
+
+        ratio = f / 368._wp ! [Risset, 1969] gives a bell with a 368 Hz fundamental.
+        t2 = t1 + 20._wp    ! The longest partial (hum) is lasting 20 seconds.
+
+        ! The MIN() is used to stay inside the tape arrays.
+        do concurrent(i = nint(t1*RATE) : MIN(nint(t2*RATE)-1, tape%samples))
+            t = t1 + (i - nint(t1*RATE)) * dt
+
+            q = (2*PI*ratio)*(t-t1)
+            ! The eleven frequencies come from [Risset, 1969], sound #430.
+            ! x1 and x2 are the start and end of an exponentially decaying envelope
+            ! and y1 and y2 are its height at x1 and x2.
+            signal = Amp * ( &
+                ! Hum (with beating between 224 Hz and 225 Hz):
+                 &   fit_exp(t, x1=t1+0._wp, y1=1.5_wp, x2=t1+20._wp, y2=0.001_wp) * sin(q*224.0_wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=1._wp,  x2=t1+18._wp, y2=0.001_wp) * sin(q*225.0_wp) &
+                ! Fundamental (with beating between 368 Hz and 369.7 Hz):
+                 & + fit_exp(t, x1=t1+0._wp, y1=1.5_wp, x2=t1+13._wp, y2=0.001_wp) * sin(q*368.0_wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=2.7_wp, x2=t1+11._wp, y2=0.001_wp) * sin(q*369.7_wp) &
+                ! Other partials:
+                 & + fit_exp(t, x1=t1+0._wp, y1=4._wp,  x2=t1+6.5_wp, y2=0.001_wp) * sin(q*476.0_wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=2.5_wp, x2=t1+7._wp,  y2=0.001_wp) * sin(q*680.0_wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=2.2_wp, x2=t1+5._wp,  y2=0.001_wp) * sin(q*800.0_wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=2._wp,  x2=t1+4._wp,  y2=0.001_wp) * sin(q*1096._wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=2._wp,  x2=t1+3._wp,  y2=0.001_wp) * sin(q*1200._wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=1.5_wp, x2=t1+2._wp,  y2=0.001_wp) * sin(q*1504._wp) &
+                 & + fit_exp(t, x1=t1+0._wp, y1=2._wp,  x2=t1+1.5_wp, y2=0.001_wp) * sin(q*1628._wp) )
+
+            tape%left( track, i) = tape%left( track, i) + signal
+            tape%right(track, i) = tape%right(track, i) + signal
+        end do
+    end subroutine add_bell
 
 end module signals

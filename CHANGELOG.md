@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `example/radioactivity.f90` is a tribute to Kraftwerk. You can hear the simulation of the radioactive decay of a population of atoms heard with a Geiger counter, with chords in a whole tone scale and a Morse code message.
 - `src/morse_code.f90` is offering basic Morse code support.
 - `src/envelopes.f90`: added `fit_exp(x, x1, y1, x2, y2)` for computing an exponentially decreasing y(x) envelope between (x1,y1) and (x2,y2).
+- `src/signals.f90`: added `add_bell()`, based on the [Risset, 1969] bell signal #430 with 11 frequencies.
 
 ### Changed
 - `ELECTRONIC_MUSIC_HISTORY.md`: improved layout (hidden URLs).

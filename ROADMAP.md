@@ -9,6 +9,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 
 ### Features
 * [ ] A function converting dB to linear scale would be useful to set the sound level. (*)
+* [x] Synthesis: a bell (**)
 
 ### Examples
 * [x] Simulating a radioactive decay, heard with a Geiger counter (a tribute to Kraftwerk). (**)
@@ -33,7 +34,7 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [ ] Could Doppler effect be used to obtain a Leslie speaker effect?
 
 * [ ] Examples
-    * [ ] Synthesis: a bell (**)
+    * [ ] Bells.
 
 * [ ] Find algorithms for good drums, especially bass drums.
 
