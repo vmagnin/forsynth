@@ -10,7 +10,7 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk (see the [EL
 * You can use as many stereo tracks as you need. The track 0 is used for the final mix and some algorithms also use it as an auxilliary track. Do you know The Beatles used a 8 tracks tape recorder the first time in August 1968 to record *Hey Jude*? The second song was *Dear Prudence*.
 * Basic music theory elements (scales, circle of fifths, chords...).
 * Various signals and Karplus-Strong algorithms (guitar and drums).
-* Envelopes generators: ADSR, fade in, fade out.
+* Envelopes generators: ADSR, fade in, fade out, exponentially decreasing envelope.
 * Some audio effects: delay, fuzz, tremolo, reverse and autopan.
 * Morse code support.
 * Final mixing with the level and panoramic of each track.
