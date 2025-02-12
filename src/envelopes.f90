@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2023-05-31
+! Last modifications: 2025-02-12
 
 !> Functions and subroutines generating envelopes
 module envelopes
@@ -29,7 +29,7 @@ module envelopes
 
     private
 
-    public :: ADSR_envelope, apply_fade_in, apply_fade_out
+    public :: ADSR_envelope, apply_fade_in, apply_fade_out, fit_exp
 
 contains
 
@@ -111,5 +111,13 @@ contains
             tape%right(track, i) = tape%right(track, i) * ((i-i2) / real(i1-i2, kind=wp))
         end do
     end subroutine apply_fade_out
+
+    !> Returns an exponential interpolation y(x) between (x1,y1) and (x2,y2).
+    !> Useful for computing an exponentially decreasing enveloppe.
+    real(wp) pure function fit_exp(x, x1, y1, x2, y2)
+        real(wp), intent(in) :: x, x1, y1, x2, y2
+
+        fit_exp = y1**((x - x2) / (x1 - x2)) * y2**((x - x1) / (x2 - x1))
+    end function
 
 end module envelopes
