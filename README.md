@@ -112,14 +112,17 @@ A WAV comprises a header with metadata then the soundtracks in PCM (https://en.w
 ### English
 
 * Jean-Claude Risset, ["Computer music: why ?"](https://www.posgrado.unam.mx/musica/lecturas/tecnologia/optativasRecomendadas/Risset_ComputerMusic%20why.pdf), 2003.
+* Jean-Claude Risset, [*An Introductory Catalogue Of Computer Synthesized Sounds*](https://archive.org/details/an-introductory-catalogue-of-computer-synthesized-sounds/mode/2up), Bell Telephone Laboratories Murray Hill, New Jersey, 1969.
 * Dave Benson, *[Music - A Mathematical Offering](https://homepages.abdn.ac.uk/d.j.benson/pages/html/music.pdf)*, 531 pages, 2008.
+* Jeffrey Hass, [*Introduction to Computer Music - An Electronic Textbook*](https://cmtext.indiana.edu/index.php), Jacobs School of Music, Indiana University, 2023.
 * David A. Jaffe and Julius O. Smith, “Extensions of the Karplus-Strong Plucked-String Algorithm.” *Computer Music Journal* 7, no. 2 (1983): 56. https://doi.org/10.2307/3680063.
 * Kevin Karplus and Alex Strong, “Digital Synthesis of Plucked-String and Drum Timbres.” *Computer Music Journal* 7, no. 2 (1983): 43–55. https://doi.org/10.2307/3680062.
 * Jarmo Lähdevaara, *Science of Electric Guitars and Guitar Electronics.* Helsinki, Finland: Books On Demand, 2012.
 * Diana Deutsch, "The Paradox of Pitch Circularity"’. *Acoustics Today* 6, no. 3 (July 2010): 8–14. https://doi.org/10.1121/1.3488670.
 * M.V. Mathews, ["The Digital Computer as a Musical Instrument"](http://www.jstor.org/stable/1712380), *Science* 142, no. 3592 (1963): 553–57.
     * ["The First Computer Musician"](https://archive.nytimes.com/opinionator.blogs.nytimes.com/2011/06/08/the-first-computer-musician/), by R. Luke DuBois, NYT, June 8, 2011.
-* M.V. Mathews, F.R. Moore and J.-C. Risset, ["Computers and Future Music"](https://www.jstor.org/stable/1737597), *Science,* New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.  
+* M.V. Mathews, F.R. Moore and J.-C. Risset, ["Computers and Future Music"](https://www.jstor.org/stable/1737597), *Science,* New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.
+* Miguel Carvalho, Vincent Debut and Jose Antunes, "Physical Modelling Techniques for the Dynamical Characterization and Sound Synthesis of Historical Bells", *Heritage Science* (2021) 9:157, https://doi.org/10.1186/s40494-021-00620-2.
 
 ### French
 * Vincent Magnin, ["Format WAV : créez des ondes sonores en C"](https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-190/Format-WAV-creez-des-ondes-sonores-en-C), *GNU/Linux Magazine* n°190, février 2016.

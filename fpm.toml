@@ -86,3 +86,8 @@ main = "arpeggios.f90"
 name = "radioactivity"
 source-dir = "example"
 main = "radioactivity.f90"
+
+[[example]]
+name = "multiplication_bells"
+source-dir = "example"
+main = "multiplication_bells.f90"

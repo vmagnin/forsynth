@@ -13,6 +13,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 
 ### Examples
 * [x] Simulating a radioactive decay, heard with a Geiger counter (a tribute to Kraftwerk). (**)
+* [x] An example using bells.
 
 ### Documentation
 * [x] A first version of a FORD documentation. (**)
@@ -34,7 +35,6 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [ ] Could Doppler effect be used to obtain a Leslie speaker effect?
 
 * [ ] Examples
-    * [ ] Bells.
 
 * [ ] Find algorithms for good drums, especially bass drums.
 

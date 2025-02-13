@@ -9,6 +9,7 @@
 - `drone_music.f90`: experimental drone music. Listen to the [Ogg file](http://magnin.plil.net/IMG/ForSynth/drone_music.ogg).
 - `drum_machine.f90`: a rhythm following a pattern stored in an array. Listen to the [Ogg file](http://magnin.plil.net/IMG/ForSynth/drum_machine.ogg).
 - `misc_sounds.f90`: miscellaneous signals, especially obtained by frequency or phase modulation. A WAV file is created for each sound. Listen to the [Ogg file](http://magnin.plil.net/IMG/ForSynth/misc_sounds.ogg).
+- `multiplication_bells.f90`: a demo using the `add_bell` signal, with a lot of bells, either periodic or random. Listen to the [Ogg file](http://magnin.plil.net/IMG/ForSynth/multiplication_bells.ogg).
 - `radioactivity.f90` is a tribute to Kraftwerk. You can hear the simulation of the radioactive decay of a population of atoms heard with a Geiger counter, with chords in a whole tone scale and a Morse code message. Listen to the [Ogg file](http://magnin.plil.net/IMG/ForSynth/radioactivity.ogg).
 - `shepard_risset_glissando.f90`: a Shepard-Risset glissando, giving the illusion of an ever increasing pitch. It is the continuous version of the Shepard scale. Listen to the [Ogg file](http://magnin.plil.net/IMG/ForSynth/shepard_risset_glissando.ogg).
 - `shepard_scale.f90`: a [Shepard scale](https://en.wikipedia.org/wiki/Shepard_tone), giving the illusion of an ever increasing pitch. Listen to the [Ogg file](http://magnin.plil.net/IMG/ForSynth/shepard_scale.ogg).
