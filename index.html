@@ -91,8 +91,8 @@ Daft Punk!</p>
 <li>ForSynth is a semi-analog semi-digital studio: time is discretized (44100 samples/s) but the amplitude is coded as a Fortran real and digitized as a 16 bits signed integer only after the final mixing, when generating the output WAV file.</li>
 <li>You can use as many stereo tracks as you need. The track 0 is used for the final mix and some algorithms also use it as an auxilliary track. Do you know The Beatles used a 8 tracks tape recorder the first time in August 1968 to record <em>Hey Jude</em>? The second song was <em>Dear Prudence</em>.</li>
 <li>Basic music theory elements (scales, circle of fifths, chords...).</li>
-<li>Various signals and Karplus-Strong algorithms (guitar and drums).</li>
-<li>Envelopes generators: ADSR, fade in, fade out.</li>
+<li>Various signals, Karplus-Strong algorithms (guitar and drums), bells.</li>
+<li>Envelopes generators: ADSR, fade in, fade out, exponentially decreasing envelope.</li>
 <li>Some audio effects: delay, fuzz, tremolo, reverse and autopan.</li>
 <li>Morse code support.</li>
 <li>Final mixing with the level and panoramic of each track.</li>
@@ -177,7 +177,9 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md</li>
 <h3>English</h3>
 <ul>
 <li>Jean-Claude Risset, <a href="https://www.posgrado.unam.mx/musica/lecturas/tecnologia/optativasRecomendadas/Risset_ComputerMusic%20why.pdf">"Computer music: why ?"</a>, 2003.</li>
+<li>Jean-Claude Risset, <a href="https://archive.org/details/an-introductory-catalogue-of-computer-synthesized-sounds/mode/2up"><em>An Introductory Catalogue Of Computer Synthesized Sounds</em></a>, Bell Telephone Laboratories Murray Hill, New Jersey, 1969.</li>
 <li>Dave Benson, <em><a href="https://homepages.abdn.ac.uk/d.j.benson/pages/html/music.pdf">Music - A Mathematical Offering</a></em>, 531 pages, 2008.</li>
+<li>Jeffrey Hass, <a href="https://cmtext.indiana.edu/index.php"><em>Introduction to Computer Music - An Electronic Textbook</em></a>, Jacobs School of Music, Indiana University, 2023.</li>
 <li>David A. Jaffe and Julius O. Smith, “Extensions of the Karplus-Strong Plucked-String Algorithm.” <em>Computer Music Journal</em> 7, no. 2 (1983): 56. https://doi.org/10.2307/3680063.</li>
 <li>Kevin Karplus and Alex Strong, “Digital Synthesis of Plucked-String and Drum Timbres.” <em>Computer Music Journal</em> 7, no. 2 (1983): 43–55. https://doi.org/10.2307/3680062.</li>
 <li>Jarmo Lähdevaara, <em>Science of Electric Guitars and Guitar Electronics.</em> Helsinki, Finland: Books On Demand, 2012.</li>
@@ -186,7 +188,8 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md</li>
 <li><a href="https://archive.nytimes.com/opinionator.blogs.nytimes.com/2011/06/08/the-first-computer-musician/">"The First Computer Musician"</a>, by R. Luke DuBois, NYT, June 8, 2011.</li>
 </ul>
 </li>
-<li>M.V. Mathews, F.R. Moore and J.-C. Risset, <a href="https://www.jstor.org/stable/1737597">"Computers and Future Music"</a>, <em>Science,</em> New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.  </li>
+<li>M.V. Mathews, F.R. Moore and J.-C. Risset, <a href="https://www.jstor.org/stable/1737597">"Computers and Future Music"</a>, <em>Science,</em> New Series, Vol. 183, No. 4122 (Jan. 25, 1974), pp. 263-268.</li>
+<li>Miguel Carvalho, Vincent Debut and Jose Antunes, "Physical Modelling Techniques for the Dynamical Characterization and Sound Synthesis of Historical Bells", <em>Heritage Science</em> (2021) 9:157, https://doi.org/10.1186/s40494-021-00620-2.</li>
 </ul>
 <h3>French</h3>
 <ul>
@@ -557,7 +560,7 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md</li>
           <div class="col-xs-6 col-sm-3">
             <div>
               <h3>Procedures</h3>
-              <ul><li><a href='proc/add_broken_chord.html'>add_broken_chord</a></li><li><a href='proc/add_chord.html'>add_chord</a></li><li><a href='proc/add_geiger_ping.html'>add_geiger_ping</a></li><li><a href='proc/add_karplus_strong.html'>add_karplus_strong</a></li><li><a href='proc/add_karplus_strong_drum.html'>add_karplus_strong_drum</a></li><li><a href='proc/add_karplus_strong_drum_stretched.html'>add_karplus_strong_drum_stretched</a></li><li><a href='proc/add_karplus_strong_stretched.html'>add_karplus_strong_stretched</a></li><li><a href='proc/add_misc_signal.html'>add_misc_signal</a></li><li><a href='proc/add_morse_code.html'>add_morse_code</a></li><li><a href='proc/add_noise.html'>add_noise</a></li></ul>
+              <ul><li><a href='proc/add_bell.html'>add_bell</a></li><li><a href='proc/add_broken_chord.html'>add_broken_chord</a></li><li><a href='proc/add_chord.html'>add_chord</a></li><li><a href='proc/add_geiger_ping.html'>add_geiger_ping</a></li><li><a href='proc/add_karplus_strong.html'>add_karplus_strong</a></li><li><a href='proc/add_karplus_strong_drum.html'>add_karplus_strong_drum</a></li><li><a href='proc/add_karplus_strong_drum_stretched.html'>add_karplus_strong_drum_stretched</a></li><li><a href='proc/add_karplus_strong_stretched.html'>add_karplus_strong_stretched</a></li><li><a href='proc/add_misc_signal.html'>add_misc_signal</a></li><li><a href='proc/add_morse_code.html'>add_morse_code</a></li></ul>
             </div>
             <div>
               <ul>
@@ -592,7 +595,7 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md</li>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-02-04 17:41 +0000             </p>
+ on 2025-02-13 20:21 +0000             </p>
           </div>
         </div>
         <br>

@@ -1,0 +1,1021 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>multiplication_bells &ndash; ForSynth</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForSynth <small>0.4.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>multiplication_bells      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 4.6% of total for programs.">35 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/multiplication_bells.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/multiplication_bells.f90.html'>multiplication_bells.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">multiplication_bells</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-demo">demo</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-dnote">dnote</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-i">i</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-iend">iend</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-r1">r1</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-r2">r2</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-r3">r3</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-shift">shift</a>
+            <a class="list-group-item" href="../program/multiplication_bells.html#variable-t2">t2</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/multiplication_bells.html#src">multiplication_bells</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/signals.html'>signals</a></li>
+                  <li class="list-inline-item"><a href='../module/music.html'>music</a></li>
+                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
+                  <li class="list-inline-item"><a href='../module/forsynth.html'>forsynth</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~multiplication_bells~~UsesGraph Pages: 1 -->
+<svg id="programmultiplication_bellsUsesGraph" width="641pt" height="184pt"
+ viewBox="0.00 0.00 641.00 183.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~multiplication_bells~~UsesGraph" class="graph" transform="scale(0.76 0.76) rotate(0) translate(4 238.2)">
+<title>program~~multiplication_bells~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-238.2 842,-238.2 842,4 -4,4"/>
+<!-- program~multiplication_bells -->
+<g id="program~~multiplication_bells~~UsesGraph_node1" class="node">
+<title>program~multiplication_bells</title>
+<polygon fill="none" stroke="black" points="838,-123 723,-123 723,-99 838,-99 838,-123"/>
+<text text-anchor="middle" x="780.5" y="-108.6" font-family="Helvetica,sans-Serif" font-size="10.50">multiplication_bells</text>
+</g>
+<!-- module~forsynth -->
+<g id="program~~multiplication_bells~~UsesGraph_node2" class="node">
+<title>module~forsynth</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node2"><a xlink:href="../module/forsynth.html" xlink:title="forsynth">
+<polygon fill="#337ab7" stroke="#337ab7" points="186,-64 130,-64 130,-40 186,-40 186,-64"/>
+<text text-anchor="middle" x="158" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;module~forsynth -->
+<g id="program~~multiplication_bells~~UsesGraph_edge1" class="edge">
+<title>program~multiplication_bells&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M659,-211C496.32,-253.86 438.53,-234.89 282.5,-172"/>
+</g>
+<!-- module~music -->
+<g id="program~~multiplication_bells~~UsesGraph_node3" class="node">
+<title>module~music</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node3"><a xlink:href="../module/music.html" xlink:title="music">
+<polygon fill="#337ab7" stroke="#337ab7" points="687,-123 633,-123 633,-99 687,-99 687,-123"/>
+<text text-anchor="middle" x="660" y="-108.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;module~music -->
+<g id="program~~multiplication_bells~~UsesGraph_edge2" class="edge">
+<title>program~multiplication_bells&#45;&gt;module~music</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M722.68,-111C714.01,-111 705.26,-111 697.2,-111"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="697.04,-107.5 687.04,-111 697.04,-114.5 697.04,-107.5"/>
+</g>
+<!-- module~signals -->
+<g id="program~~multiplication_bells~~UsesGraph_node4" class="node">
+<title>module~signals</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node4"><a xlink:href="../module/signals.html" xlink:title="signals">
+<polygon fill="#337ab7" stroke="#337ab7" points="575.5,-183 521.5,-183 521.5,-159 575.5,-159 575.5,-183"/>
+<text text-anchor="middle" x="548.5" y="-168.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">signals</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;module~signals -->
+<g id="program~~multiplication_bells~~UsesGraph_edge3" class="edge">
+<title>program~multiplication_bells&#45;&gt;module~signals</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M771.17,-123.05C753.95,-146.61 711.76,-197.63 661,-211"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M659,-211C644.27,-214.88 609.01,-200.37 582.45,-187.75"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="583.64,-184.44 573.11,-183.23 580.59,-190.74 583.64,-184.44"/>
+</g>
+<!-- module~wav_file_class -->
+<g id="program~~multiplication_bells~~UsesGraph_node5" class="node">
+<title>module~wav_file_class</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node5"><a xlink:href="../module/wav_file_class.html" xlink:title="wav_file_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="464,-24 377,-24 377,0 464,0 464,-24"/>
+<text text-anchor="middle" x="420.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;module~wav_file_class -->
+<g id="program~~multiplication_bells~~UsesGraph_edge4" class="edge">
+<title>program~multiplication_bells&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M755.36,-98.99C721.04,-82.43 655.76,-52.84 597,-37 556.57,-26.1 509.54,-19.72 474.34,-16.14"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="474.58,-12.65 464.28,-15.16 473.9,-19.62 474.58,-12.65"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~multiplication_bells~~UsesGraph_node6" class="node">
+<title>iso_fortran_env</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node6"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-44 0,-44 0,-20 94,-20 94,-44"/>
+<text text-anchor="middle" x="47" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth&#45;&gt;iso_fortran_env -->
+<g id="program~~multiplication_bells~~UsesGraph_edge5" class="edge">
+<title>module~forsynth&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M129.78,-47C121.99,-45.58 113.2,-43.96 104.34,-42.34"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.84,-38.87 94.37,-40.51 103.57,-45.76 104.84,-38.87"/>
+</g>
+<!-- module~music&#45;&gt;module~forsynth -->
+<g id="program~~multiplication_bells~~UsesGraph_edge7" class="edge">
+<title>module~music&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M644.81,-98.7C632.9,-89.13 614.98,-76.43 597,-70 523.16,-43.61 499.73,-46.65 421.5,-52"/>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M419.5,-52C339.97,-54.95 246.68,-53.84 196.13,-52.86"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="196.08,-49.36 186.01,-52.66 195.94,-56.36 196.08,-49.36"/>
+</g>
+<!-- module~music&#45;&gt;module~signals -->
+<g id="program~~multiplication_bells~~UsesGraph_edge9" class="edge">
+<title>module~music&#45;&gt;module~signals</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M636.91,-123.12C625.07,-129.61 610.24,-137.74 597,-145 591.72,-147.89 586.11,-150.97 580.66,-153.95"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="578.83,-150.96 571.73,-158.83 582.19,-157.1 578.83,-150.96"/>
+</g>
+<!-- module~envelopes -->
+<g id="program~~multiplication_bells~~UsesGraph_node7" class="node">
+<title>module~envelopes</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node7"><a xlink:href="../module/envelopes.html" xlink:title="envelopes">
+<polygon fill="#337ab7" stroke="#337ab7" points="454,-144 387,-144 387,-120 454,-120 454,-144"/>
+<text text-anchor="middle" x="420.5" y="-129.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">envelopes</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~envelopes -->
+<g id="program~~multiplication_bells~~UsesGraph_edge6" class="edge">
+<title>module~music&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M632.68,-113.33C591.97,-116.93 513.35,-123.88 464.37,-128.21"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="464.05,-124.72 454.39,-129.09 464.66,-131.7 464.05,-124.72"/>
+</g>
+<!-- module~music_common -->
+<g id="program~~multiplication_bells~~UsesGraph_node8" class="node">
+<title>module~music_common</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node8"><a xlink:href="../module/music_common.html" xlink:title="music_common">
+<polygon fill="#337ab7" stroke="#337ab7" points="597,-103 500,-103 500,-79 597,-79 597,-103"/>
+<text text-anchor="middle" x="548.5" y="-88.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">music_common</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~music_common -->
+<g id="program~~multiplication_bells~~UsesGraph_edge8" class="edge">
+<title>module~music&#45;&gt;module~music_common</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M632.77,-106.21C625.05,-104.8 616.28,-103.2 607.39,-101.57"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="607.83,-98.1 597.36,-99.74 606.57,-104.98 607.83,-98.1"/>
+</g>
+<!-- module~tape_recorder_class -->
+<g id="program~~multiplication_bells~~UsesGraph_node9" class="node">
+<title>module~tape_recorder_class</title>
+<g id="a_program~~multiplication_bells~~UsesGraph_node9"><a xlink:href="../module/tape_recorder_class.html" xlink:title="tape_recorder_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="341,-102 222,-102 222,-78 341,-78 341,-102"/>
+<text text-anchor="middle" x="281.5" y="-87.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class</text>
+</a>
+</g>
+</g>
+<!-- module~music&#45;&gt;module~tape_recorder_class -->
+<g id="program~~multiplication_bells~~UsesGraph_edge10" class="edge">
+<title>module~music&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M419.5,-52C385.73,-54.31 348.82,-65.05 321.83,-74.53"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="320.57,-71.26 312.35,-77.94 322.95,-77.84 320.57,-71.26"/>
+</g>
+<!-- module~signals&#45;&gt;module~forsynth -->
+<g id="program~~multiplication_bells~~UsesGraph_edge12" class="edge">
+<title>module~signals&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M419.5,-172C359.2,-163.53 338.97,-194.76 282.5,-172"/>
+</g>
+<!-- module~signals&#45;&gt;module~envelopes -->
+<g id="program~~multiplication_bells~~UsesGraph_edge11" class="edge">
+<title>module~signals&#45;&gt;module~envelopes</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M521.39,-162.92C504.82,-157.79 482.99,-151.03 463.96,-145.14"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="464.9,-141.77 454.31,-142.16 462.83,-148.46 464.9,-141.77"/>
+</g>
+<!-- module~signals&#45;&gt;module~tape_recorder_class -->
+<g id="program~~multiplication_bells~~UsesGraph_edge13" class="edge">
+<title>module~signals&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M521.29,-173.44C495.7,-175.3 455.73,-176.81 421.5,-172"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M419.5,-172C372.64,-165.42 327.36,-131.16 302.39,-109.05"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="304.48,-106.22 294.72,-102.08 299.76,-111.4 304.48,-106.22"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~forsynth -->
+<g id="program~~multiplication_bells~~UsesGraph_edge15" class="edge">
+<title>module~wav_file_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M280.5,-12C249.95,-14.46 217.04,-25.89 193.18,-35.9"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="191.65,-32.75 183.87,-39.93 194.43,-39.17 191.65,-32.75"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;iso_fortran_env -->
+<g id="program~~multiplication_bells~~UsesGraph_edge14" class="edge">
+<title>module~wav_file_class&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M376.85,-10.24C349.78,-9.56 314.03,-9.46 282.5,-12"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M280.5,-12C220.3,-16.84 151.38,-22.83 104.3,-26.98"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="103.96,-23.5 94.31,-27.86 104.58,-30.47 103.96,-23.5"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~tape_recorder_class -->
+<g id="program~~multiplication_bells~~UsesGraph_edge16" class="edge">
+<title>module~wav_file_class&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M398.39,-24.02C375.43,-37.09 338.53,-58.1 312.55,-72.89"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="310.81,-69.85 303.86,-77.84 314.28,-75.94 310.81,-69.85"/>
+</g>
+<!-- module~envelopes&#45;&gt;module~forsynth -->
+<g id="program~~multiplication_bells~~UsesGraph_edge17" class="edge">
+<title>module~envelopes&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M392.78,-144.04C358.92,-158.56 302.55,-180.08 282.5,-172"/>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M280.5,-172C231.37,-152.2 191.64,-101.59 172.11,-72.82"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="174.93,-70.73 166.5,-64.31 169.09,-74.58 174.93,-70.73"/>
+</g>
+<!-- module~envelopes&#45;&gt;module~tape_recorder_class -->
+<g id="program~~multiplication_bells~~UsesGraph_edge18" class="edge">
+<title>module~envelopes&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#7fff00" stroke-dasharray="5,2" d="M386.69,-121.94C370.18,-116.88 349.84,-110.64 331.52,-105.03"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="332.46,-101.66 321.87,-102.07 330.41,-108.35 332.46,-101.66"/>
+</g>
+<!-- module~tape_recorder_class&#45;&gt;module~forsynth -->
+<g id="program~~multiplication_bells~~UsesGraph_edge19" class="edge">
+<title>module~tape_recorder_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M242.06,-77.98C227.26,-73.35 210.41,-68.08 195.77,-63.5"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="196.63,-60.1 186.04,-60.46 194.54,-66.78 196.63,-60.1"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogrammultiplication_bellsUsesGraph = svgPanZoom('#programmultiplication_bellsUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>An example with a lot of bells, either periodic or random.
+https://en.wikipedia.org/wiki/Campanology</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~multiplication_bells~~CallsGraph Pages: 1 -->
+<svg id="programmultiplication_bellsCallsGraph" width="641pt" height="211pt"
+ viewBox="0.00 0.00 641.00 210.76" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~multiplication_bells~~CallsGraph" class="graph" transform="scale(0.87 0.87) rotate(0) translate(4 238)">
+<title>program~~multiplication_bells~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-238 732,-238 732,4 -4,4"/>
+<!-- program~multiplication_bells -->
+<g id="program~~multiplication_bells~~CallsGraph_node1" class="node">
+<title>program~multiplication_bells</title>
+<polygon fill="none" stroke="black" points="115,-108 0,-108 0,-84 115,-84 115,-108"/>
+<text text-anchor="middle" x="57.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">multiplication_bells</text>
+</g>
+<!-- proc~add_bell -->
+<g id="program~~multiplication_bells~~CallsGraph_node2" class="node">
+<title>proc~add_bell</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node2"><a xlink:href="../proc/add_bell.html" xlink:title="add_bell">
+<polygon fill="#d9534f" stroke="#d9534f" points="257,-213 199,-213 199,-189 257,-189 257,-213"/>
+<text text-anchor="middle" x="228" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_bell</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;proc~add_bell -->
+<g id="program~~multiplication_bells~~CallsGraph_edge1" class="edge">
+<title>program~multiplication_bells&#45;&gt;proc~add_bell</title>
+<path fill="none" stroke="#ff0000" d="M75.24,-108.09C93.53,-121.15 123.86,-142.31 151,-159 165.09,-167.66 181.05,-176.61 194.7,-184.01"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="193.27,-187.21 203.73,-188.87 196.58,-181.05 193.27,-187.21"/>
+</g>
+<!-- proc~close_wav_file -->
+<g id="program~~multiplication_bells~~CallsGraph_node3" class="node">
+<title>proc~close_wav_file</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node3"><a xlink:href="../proc/close_wav_file.html" xlink:title="WAV_file%close_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="301.5,-150 154.5,-150 154.5,-126 301.5,-126 301.5,-150"/>
+<text text-anchor="middle" x="228" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%close_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;proc~close_wav_file -->
+<g id="program~~multiplication_bells~~CallsGraph_edge2" class="edge">
+<title>program~multiplication_bells&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M106.79,-108.04C126.17,-112.87 148.69,-118.48 168.96,-123.53"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="168.16,-126.94 178.71,-125.96 169.85,-120.15 168.16,-126.94"/>
+</g>
+<!-- proc~create_wav_file -->
+<g id="program~~multiplication_bells~~CallsGraph_node4" class="node">
+<title>proc~create_wav_file</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node4"><a xlink:href="../proc/create_wav_file.html" xlink:title="WAV_file%create_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="304.5,-108 151.5,-108 151.5,-84 304.5,-84 304.5,-108"/>
+<text text-anchor="middle" x="228" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%create_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;proc~create_wav_file -->
+<g id="program~~multiplication_bells~~CallsGraph_edge3" class="edge">
+<title>program~multiplication_bells&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M115.08,-96C123.55,-96 132.45,-96 141.36,-96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="141.42,-99.5 151.42,-96 141.42,-92.5 141.42,-99.5"/>
+</g>
+<!-- proc~get_name -->
+<g id="program~~multiplication_bells~~CallsGraph_node5" class="node">
+<title>proc~get_name</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node5"><a xlink:href="../proc/get_name.html" xlink:title="WAV_file%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="288.5,-66 167.5,-66 167.5,-42 288.5,-42 288.5,-66"/>
+<text text-anchor="middle" x="228" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%get_name</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;proc~get_name -->
+<g id="program~~multiplication_bells~~CallsGraph_edge4" class="edge">
+<title>program~multiplication_bells&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0000" d="M106.79,-83.96C126.17,-79.13 148.69,-73.52 168.96,-68.47"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="169.85,-71.85 178.71,-66.04 168.16,-65.06 169.85,-71.85"/>
+</g>
+<!-- proc~mix_tracks -->
+<g id="program~~multiplication_bells~~CallsGraph_node6" class="node">
+<title>proc~mix_tracks</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node6"><a xlink:href="../proc/mix_tracks.html" xlink:title="tape_recorder%mix_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="305,-24 151,-24 151,0 305,0 305,-24"/>
+<text text-anchor="middle" x="228" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%mix_tracks</text>
+</a>
+</g>
+</g>
+<!-- program~multiplication_bells&#45;&gt;proc~mix_tracks -->
+<g id="program~~multiplication_bells~~CallsGraph_edge5" class="edge">
+<title>program~multiplication_bells&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff0000" d="M72.96,-83.9C90.44,-69.84 121.2,-46.8 151,-33 155.43,-30.95 160.09,-29.06 164.84,-27.34"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="166.32,-30.53 174.67,-24.01 164.08,-23.9 166.32,-30.53"/>
+</g>
+<!-- proc~fit_exp -->
+<g id="program~~multiplication_bells~~CallsGraph_node8" class="node">
+<title>proc~fit_exp</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node8"><a xlink:href="../proc/fit_exp.html" xlink:title="fit_exp">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="462.5,-234 408.5,-234 408.5,-210 462.5,-210 462.5,-234"/>
+<text text-anchor="middle" x="435.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fit_exp</text>
+</a>
+</g>
+</g>
+<!-- proc~add_bell&#45;&gt;proc~fit_exp -->
+<g id="program~~multiplication_bells~~CallsGraph_edge6" class="edge">
+<title>proc~add_bell&#45;&gt;proc~fit_exp</title>
+<path fill="none" stroke="#ff0000" d="M257.14,-203.88C293.77,-207.62 357.85,-214.17 398.13,-218.28"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="398.02,-221.79 408.32,-219.32 398.73,-214.83 398.02,-221.79"/>
+</g>
+<!-- proc~finalize -->
+<g id="program~~multiplication_bells~~CallsGraph_node7" class="node">
+<title>proc~finalize</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node7"><a xlink:href="../proc/finalize.html" xlink:title="tape_recorder%finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="503.5,-192 367.5,-192 367.5,-168 503.5,-168 503.5,-192"/>
+<text text-anchor="middle" x="435.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%finalize</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~finalize -->
+<g id="program~~multiplication_bells~~CallsGraph_edge7" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~finalize</title>
+<path fill="none" stroke="#cbff00" d="M287.89,-150.04C312.18,-155 340.5,-160.79 365.73,-165.95"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="365.11,-169.39 375.6,-167.96 366.51,-162.53 365.11,-169.39"/>
+</g>
+<!-- proc~write_normalized_data -->
+<g id="program~~multiplication_bells~~CallsGraph_node11" class="node">
+<title>proc~write_normalized_data</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node11"><a xlink:href="../proc/write_normalized_data.html" xlink:title="WAV_file%write_normalized_data">
+<polygon fill="#d9534f" stroke="#d9534f" points="530,-150 341,-150 341,-126 530,-126 530,-150"/>
+<text text-anchor="middle" x="435.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_normalized_data</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~write_normalized_data -->
+<g id="program~~multiplication_bells~~CallsGraph_edge8" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~write_normalized_data</title>
+<path fill="none" stroke="#cbff00" d="M301.74,-138C311.17,-138 320.96,-138 330.77,-138"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="330.98,-141.5 340.98,-138 330.98,-134.5 330.98,-141.5"/>
+</g>
+<!-- proc~new -->
+<g id="program~~multiplication_bells~~CallsGraph_node9" class="node">
+<title>proc~new</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node9"><a xlink:href="../proc/new.html" xlink:title="tape_recorder%new">
+<polygon fill="#d9534f" stroke="#d9534f" points="495,-108 376,-108 376,-84 495,-84 495,-108"/>
+<text text-anchor="middle" x="435.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%new</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~new -->
+<g id="program~~multiplication_bells~~CallsGraph_edge9" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~new</title>
+<path fill="none" stroke="#00ff66" d="M304.65,-96C324.62,-96 346.07,-96 365.67,-96"/>
+<polygon fill="#00ff66" stroke="#00ff66" points="365.73,-99.5 375.73,-96 365.73,-92.5 365.73,-99.5"/>
+</g>
+<!-- proc~write_header -->
+<g id="program~~multiplication_bells~~CallsGraph_node10" class="node">
+<title>proc~write_header</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node10"><a xlink:href="../proc/write_header.html" xlink:title="WAV_file%write_header">
+<polygon fill="#d9534f" stroke="#d9534f" points="504.5,-66 366.5,-66 366.5,-42 504.5,-42 504.5,-66"/>
+<text text-anchor="middle" x="435.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_header</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~write_header -->
+<g id="program~~multiplication_bells~~CallsGraph_edge10" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~write_header</title>
+<path fill="none" stroke="#00ff66" d="M287.89,-83.96C312.18,-79 340.5,-73.21 365.73,-68.05"/>
+<polygon fill="#00ff66" stroke="#00ff66" points="366.51,-71.47 375.6,-66.04 365.11,-64.61 366.51,-71.47"/>
+</g>
+<!-- proc~clear_tracks -->
+<g id="program~~multiplication_bells~~CallsGraph_node12" class="node">
+<title>proc~clear_tracks</title>
+<g id="a_program~~multiplication_bells~~CallsGraph_node12"><a xlink:href="../proc/clear_tracks.html" xlink:title="tape_recorder%clear_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="728,-108 566,-108 566,-84 728,-84 728,-108"/>
+<text text-anchor="middle" x="647" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%clear_tracks</text>
+</a>
+</g>
+</g>
+<!-- proc~new&#45;&gt;proc~clear_tracks -->
+<g id="program~~multiplication_bells~~CallsGraph_edge11" class="edge">
+<title>proc~new&#45;&gt;proc~clear_tracks</title>
+<path fill="none" stroke="#00ff66" d="M495.14,-96C513.96,-96 535.28,-96 555.83,-96"/>
+<polygon fill="#00ff66" stroke="#00ff66" points="555.84,-99.5 565.84,-96 555.84,-92.5 555.84,-99.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogrammultiplication_bellsCallsGraph = svgPanZoom('#programmultiplication_bellsCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-demo"></span>
+              type(<a href='../type/wav_file.html'>WAV_file</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>demo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dnote"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>dnote</strong></td>
+<td> =</td>
+                <td>3._wp</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iend"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>iend</strong></td>
+<td> =</td>
+                <td>15</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r3"></span>
+              real(kind=wp)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r3</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-shift"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>shift</strong>(0:5)</td>
+<td> =</td>
+                <td>[4, 7, 10, 12, 16, 19]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2"></span>
+              real(kind=wp),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+<td> =</td>
+                <td>75._wp</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">multiplication_bells</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forsynth</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span>
+<span class="w">    </span><span class="k">use </span><span class="n">wav_file_class</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">WAV_file</span><span class="p">,</span><span class="w"> </span><span class="n">tape_recorder</span>
+<span class="w">    </span><span class="k">use </span><span class="n">music</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">SEMITONE</span><span class="p">,</span><span class="w"> </span><span class="n">PITCH</span>
+<span class="w">    </span><span class="k">use </span><span class="n">signals</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">add_bell</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">WAV_file</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">demo</span>
+<span class="w">    </span><span class="c">! Total duration in seconds:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="mf">5._wp</span>
+<span class="w">    </span><span class="c">! Duration of the basic note:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dnote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3._wp</span>
+<span class="w">    </span><span class="c">! Semitones for major third, fifth, 7th, octave, major third, fifth:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">shift</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="p">]</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">iend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="w">    </span><span class="c">! Nb of periods for the periodic bells</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w">               </span><span class="c">! Loop counter</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r2</span><span class="p">,</span><span class="w"> </span><span class="n">r3</span><span class="w">      </span><span class="c">! Random numbers</span>
+
+<span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;multiplication_bells.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="n">t2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot; ****&quot;</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Be patient, it may take up to one minute...&quot;</span>
+
+<span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">tape</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Intro:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">add_bell</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="n">PITCH</span><span class="o">*</span><span class="n">SEMITONE</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">),</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">2._wp</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c">! Periodic bells:</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">iend</span>
+<span class="w">        </span><span class="k">call </span><span class="n">add_bell</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="n">i</span><span class="o">*</span><span class="n">dnote</span><span class="p">,</span><span class="w">             </span><span class="n">f</span><span class="o">=</span><span class="n">PITCH</span><span class="o">*</span><span class="n">SEMITONE</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">1._wp</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">add_bell</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="n">i</span><span class="o">*</span><span class="n">dnote</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dnote</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="w">   </span><span class="n">f</span><span class="o">=</span><span class="n">PITCH</span><span class="o">*</span><span class="n">SEMITONE</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">1._wp</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">add_bell</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="n">i</span><span class="o">*</span><span class="n">dnote</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">dnote</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="n">PITCH</span><span class="o">*</span><span class="n">SEMITONE</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">1._wp</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">! Random bells:</span>
+<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">        </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span><span class="w">  </span><span class="c">! Starting time</span>
+<span class="w">        </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span><span class="w">  </span><span class="c">! Tone</span>
+<span class="w">        </span><span class="k">call </span><span class="nb">random_number</span><span class="p">(</span><span class="n">r3</span><span class="p">)</span><span class="w">  </span><span class="c">! Amplitude</span>
+<span class="w">        </span><span class="k">call </span><span class="n">add_bell</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="mf">4._wp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">iend</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dnote</span><span class="o">*</span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="n">PITCH</span><span class="o">*</span><span class="n">SEMITONE</span><span class="o">**</span><span class="p">(</span><span class="n">shift</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">r2</span><span class="o">*</span><span class="mi">6</span><span class="p">))),</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">1._wp</span><span class="o">*</span><span class="n">r3</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="w">    </span><span class="c">! Outro:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">add_bell</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="o">=</span><span class="p">(</span><span class="n">iend</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dnote</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="n">PITCH</span><span class="o">*</span><span class="n">SEMITONE</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">),</span><span class="w"> </span><span class="n">Amp</span><span class="o">=</span><span class="mf">2._wp</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">end associate</span>
+
+<span class="w">    </span><span class="c">! All tracks will be mixed on track 0.</span>
+<span class="w">    </span><span class="c">! Needed even if there is only one track!</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">mix_tracks</span><span class="p">()</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">close_WAV_file</span><span class="p">()</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s2">&quot;You can now play the file &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span>
+<span class="k">end program </span><span class="n">multiplication_bells</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForSynth
+ was developed by Vincent Magnin<br>              &copy; 2021-2025 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-02-13 20:21 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

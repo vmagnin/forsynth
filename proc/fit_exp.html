@@ -10,7 +10,7 @@
     <meta name="author" content="Vincent Magnin" >
     <link rel="icon" href="../favicon.png">
 
-    <title>apply_delay_effect &ndash; ForSynth</title>
+    <title>fit_exp &ndash; ForSynth</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -65,8 +65,8 @@
 
     <div class="container">
   <div class="row">
-    <h1>apply_delay_effect
-      <small>Subroutine</small>
+    <h1>fit_exp
+      <small>Function</small>
       
     </h1>
       <div class="container p-2 mb-4 bg-light border rounded-3">
@@ -77,21 +77,21 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 1.7% of total for procedures.">15 statements</a>
+                 title=" 0.5% of total for procedures.">4 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/audio_effects.f90"> Source File</a>
+              <a href="../src/envelopes.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/audio_effects.f90.html'>audio_effects.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/audio_effects.html'>audio_effects</a></li>
-            <li class="breadcrumb-item active" aria-current="page">apply_delay_effect</li>
+                <li class="breadcrumb-item"><a href='../sourcefile/envelopes.f90.html'>envelopes.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/envelopes.html'>envelopes</a></li>
+            <li class="breadcrumb-item active" aria-current="page">fit_exp</li>
           </ol>
         </nav>
       </div>
@@ -136,12 +136,12 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine apply_delay_effect(tape, track, t1, t2, delay, Amp)  
+    <h2>public pure function fit_exp(x, x1, y1, x2, y2)  
 </h2>
     
 
-    <p>Add the sound from "delay" seconds before,
-and multiply by Amp&lt;1 for dampening.</p>
+    <p>Returns an exponential interpolation y(x) between (x1,y1) and (x2,y2).
+Useful for computing an exponentially decreasing enveloppe.</p>
 
 
     <h3>Arguments</h3>
@@ -157,37 +157,7 @@ and multiply by Amp&lt;1 for dampening.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~16"></span>
-              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tape</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-track~16"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>track</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t1~17"></span>
+              <span class="anchor" id="variable-x~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -195,14 +165,14 @@ and multiply by Amp&lt;1 for dampening.</p>
               
             </td>
             <td>::</td>
-            <td><strong>t1</strong></td>
+            <td><strong>x</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~18"></span>
+              <span class="anchor" id="variable-x1"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -210,14 +180,14 @@ and multiply by Amp&lt;1 for dampening.</p>
               
             </td>
             <td>::</td>
-            <td><strong>t2</strong></td>
+            <td><strong>x1</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-delay"></span>
+              <span class="anchor" id="variable-y1"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -225,14 +195,14 @@ and multiply by Amp&lt;1 for dampening.</p>
               
             </td>
             <td>::</td>
-            <td><strong>delay</strong></td>
+            <td><strong>y1</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~17"></span>
+              <span class="anchor" id="variable-x2"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -240,7 +210,22 @@ and multiply by Amp&lt;1 for dampening.</p>
               
             </td>
             <td>::</td>
-            <td><strong>Amp</strong></td>
+            <td><strong>x2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>y2</strong></td>
             <td>
                 
             </td>
@@ -248,6 +233,13 @@ and multiply by Amp&lt;1 for dampening.</p>
     </tbody>
   </table>
 
+      <h3>Return Value
+        <small>
+          <span class="anchor" id="variable-fit_exp"></span>
+          real(kind=wp)
+        </small>
+      </h3>
+      
     <br>
     <div class="card">
       <div class="card-header">
@@ -259,47 +251,47 @@ and multiply by Amp&lt;1 for dampening.</p>
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~apply_delay_effect~~CalledByGraph Pages: 1 -->
-<svg id="procapply_delay_effectCalledByGraph" width="275pt" height="74pt"
- viewBox="0.00 0.00 275.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~apply_delay_effect~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
-<title>proc~~apply_delay_effect~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 271,-70 271,4 -4,4"/>
-<!-- proc~apply_delay_effect -->
-<g id="proc~~apply_delay_effect~~CalledByGraph_node1" class="node">
-<title>proc~apply_delay_effect</title>
-<polygon fill="none" stroke="black" points="267,-45 155,-45 155,-21 267,-21 267,-45"/>
-<text text-anchor="middle" x="211" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">apply_delay_effect</text>
+<!-- Title: proc~~fit_exp~~CalledByGraph Pages: 1 -->
+<svg id="procfit_expCalledByGraph" width="307pt" height="32pt"
+ viewBox="0.00 0.00 307.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~fit_exp~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~fit_exp~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 303,-28 303,4 -4,4"/>
+<!-- proc~fit_exp -->
+<g id="proc~~fit_exp~~CalledByGraph_node1" class="node">
+<title>proc~fit_exp</title>
+<polygon fill="none" stroke="black" points="299,-24 245,-24 245,0 299,0 299,-24"/>
+<text text-anchor="middle" x="272" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">fit_exp</text>
 </g>
-<!-- program~chords_and_melody -->
-<g id="proc~~apply_delay_effect~~CalledByGraph_node2" class="node">
-<title>program~chords_and_melody</title>
-<g id="a_proc~~apply_delay_effect~~CalledByGraph_node2"><a xlink:href="../program/chords_and_melody.html" xlink:title="chords_and_melody">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="119,-66 0,-66 0,-42 119,-42 119,-66"/>
-<text text-anchor="middle" x="59.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">chords_and_melody</text>
+<!-- proc~add_bell -->
+<g id="proc~~fit_exp~~CalledByGraph_node2" class="node">
+<title>proc~add_bell</title>
+<g id="a_proc~~fit_exp~~CalledByGraph_node2"><a xlink:href="../proc/add_bell.html" xlink:title="add_bell">
+<polygon fill="#d9534f" stroke="#d9534f" points="209,-24 151,-24 151,0 209,0 209,-24"/>
+<text text-anchor="middle" x="180" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_bell</text>
 </a>
 </g>
 </g>
-<!-- program~chords_and_melody&#45;&gt;proc~apply_delay_effect -->
-<g id="proc~~apply_delay_effect~~CalledByGraph_edge1" class="edge">
-<title>program~chords_and_melody&#45;&gt;proc~apply_delay_effect</title>
-<path fill="none" stroke="#ff0000" d="M119.16,-45.76C127.62,-44.57 136.38,-43.34 144.96,-42.14"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="145.51,-45.59 154.93,-40.74 144.54,-38.66 145.51,-45.59"/>
+<!-- proc~add_bell&#45;&gt;proc~fit_exp -->
+<g id="proc~~fit_exp~~CalledByGraph_edge1" class="edge">
+<title>proc~add_bell&#45;&gt;proc~fit_exp</title>
+<path fill="none" stroke="#ff0000" d="M209.48,-12C217.44,-12 226.21,-12 234.57,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="234.85,-15.5 244.85,-12 234.85,-8.5 234.85,-15.5"/>
 </g>
-<!-- program~demo_effects -->
-<g id="proc~~apply_delay_effect~~CalledByGraph_node3" class="node">
-<title>program~demo_effects</title>
-<g id="a_proc~~apply_delay_effect~~CalledByGraph_node3"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="102,-24 17,-24 17,0 102,0 102,-24"/>
-<text text-anchor="middle" x="59.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
+<!-- program~multiplication_bells -->
+<g id="proc~~fit_exp~~CalledByGraph_node3" class="node">
+<title>program~multiplication_bells</title>
+<g id="a_proc~~fit_exp~~CalledByGraph_node3"><a xlink:href="../program/multiplication_bells.html" xlink:title="multiplication_bells">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="115,-24 0,-24 0,0 115,0 115,-24"/>
+<text text-anchor="middle" x="57.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">multiplication_bells</text>
 </a>
 </g>
 </g>
-<!-- program~demo_effects&#45;&gt;proc~apply_delay_effect -->
-<g id="proc~~apply_delay_effect~~CalledByGraph_edge2" class="edge">
-<title>program~demo_effects&#45;&gt;proc~apply_delay_effect</title>
-<path fill="none" stroke="#ff0000" d="M102.14,-17.85C115.41,-19.71 130.42,-21.82 144.94,-23.86"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="144.49,-27.33 154.88,-25.26 145.46,-20.4 144.49,-27.33"/>
+<!-- program~multiplication_bells&#45;&gt;proc~add_bell -->
+<g id="proc~~fit_exp~~CalledByGraph_edge2" class="edge">
+<title>program~multiplication_bells&#45;&gt;proc~add_bell</title>
+<path fill="none" stroke="#ff0000" d="M115.22,-12C123.8,-12 132.46,-12 140.53,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="140.73,-15.5 150.73,-12 140.73,-8.5 140.73,-15.5"/>
 </g>
 </g>
 </svg>
