@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2025-02-12
+! Last modifications: 2025-02-23
 
 !> Subroutines generating different kind of signals
 module signals
@@ -26,8 +26,6 @@ contains
         integer, intent(in)  :: track
         real(wp), intent(in) :: t1, t2, f, Amp
         type(ADSR_envelope), optional, intent(in) :: envelope
-        ! Phase at t=0 s, radians:
-        real(wp), parameter  :: phi = 0.0_wp
         ! Pulsation (radians/second):
         real(wp) :: omega
         ! Time in seconds:
@@ -45,7 +43,7 @@ contains
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
-            signal = Amp * sin(omega*t + phi) * env
+            signal = Amp * sin(omega*t) * env
 
             tape%left(track, i)  = tape%left(track, i)  + signal
             tape%right(track, i) = tape%right(track, i) + signal
