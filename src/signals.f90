@@ -402,13 +402,11 @@ contains
         ! ADSR Envelope value:
         real(wp) :: env
         real(wp) :: signal
-        real(wp) :: a, b
-        integer  :: i
-
         ! 0 < a < 1.
-        a = 0.975_wp
+        real(wp), parameter :: a = 0.975_wp
         ! If a.b > 1 the function is fractal:
-        b = 1._wp/.975_wp + 0.005_wp ;
+        real(wp), parameter :: b = 1._wp/.975_wp + 0.005_wp
+        integer  :: i
 
         env = 1._wp     ! Default value if no envelope is passed
         omega = 2.0_wp * PI * f
