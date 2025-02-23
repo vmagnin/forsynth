@@ -399,8 +399,6 @@ contains
         real(wp) :: omega
         ! Time in seconds:
         real(wp) :: t
-        ! Phase at t=0 s, radians:
-        real(wp), parameter  :: phi = 0.0_wp
         ! ADSR Envelope value:
         real(wp) :: env
         real(wp) :: signal
@@ -419,7 +417,7 @@ contains
             t = (i - nint(t1*RATE)) * dt
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
-            signal = Amp * weierstrass(a, b, omega*t + phi) * env
+            signal = Amp * weierstrass(a, b, omega*t) * env
             ! It is addd to the already present signal:
             tape%left(track, i)  = tape%left(track, i)  + signal
             tape%right(track, i) = tape%right(track, i) + signal
