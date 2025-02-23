@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2025-01-29
-! Last modifications: 2025-02-04
+! Last modifications: 2025-02-23
 
 !> Radioactive decay of a population of atoms. A tribute to Kraftwerk.
 !> Chords are played on a 2nd track and Morse code on a third track.
@@ -38,6 +38,7 @@ program radioactivity
 
     ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('radioactivity.wav', tracks=3, duration=duration)
+    print *, "**** Creating " // demo%get_name() // " ****"
 
     ! We create an ADSR envelope that will be passed to signals (add_chord):
     call env%new(A=15._wp, D=15._wp, S=70._wp, R=45._wp)

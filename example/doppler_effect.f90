@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-28
-! Last modifications: 2024-05-31
+! Last modifications: 2025-02-23
 
 !> A simulation of Doppler effect, with a car passing in front of you.
 !> https://fr.wikipedia.org/wiki/Effet_Doppler
@@ -25,9 +25,9 @@ program doppler_effect
     real(wp), parameter :: c = 343   ! m/s at 20°C in air
     real(wp), parameter :: f = 50    ! Hz
 
-    print *, "**** Creating doppler_effect.wav ****"
     ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('doppler_effect.wav', tracks=1, duration=duration)
+    print *, "**** Creating " // demo%get_name() // " ****"
 
     associate(tape => demo%tape_recorder)
 

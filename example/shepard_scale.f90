@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-20
-! Last modifications: 2024-05-31
+! Last modifications: 2025-02-23
 
 !> A Shepard scale, giving the illusion of an ever increasing pitch in the first
 !> half of the tape and an ever decreasing pitch in the 2nd half.
@@ -46,9 +46,9 @@ program shepard_scale
     ! Number of repetitions:
     integer, parameter ::  kmax = 9
 
-    print *, "**** Creating shepard_scale.wav ****"
     ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('shepard_scale.wav', tracks=1, duration=120._wp)
+    print *, "**** Creating " // demo%get_name() // " ****"
 
     associate(tape => demo%tape_recorder)
 

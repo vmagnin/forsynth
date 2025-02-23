@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-06-02
+! Last modifications: 2025-02-23
 
 !> A sequence of synth chords is repeated, and the corresponding notes are played
 !> randomly by plucked strings.
@@ -21,9 +21,9 @@ program chords_and_melody
     real(wp) :: t, dnote, r
     real(wp) :: chosen_note(0:3)
 
-    print *, "**** Demo chords and melody ****"
     ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('chords_and_melody.wav', tracks=2, duration=120._wp)
+    print *, "**** Creating " // demo%get_name() // " ****"
     ! We create an ADSR envelope that will be passed to signals (add_chord):
     call env%new(A=15._wp, D=40._wp, S=80._wp, R=15._wp)
 
