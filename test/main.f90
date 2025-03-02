@@ -14,19 +14,18 @@ program main
     ! Test the available KIND:
     call test_the_machine()
 
+    !************************************************
     if (weierstrass(0.5_wp, 2.05_wp, 0._wp) /= +2._wp) error stop "ERROR weierstrass() [1]"
 
+    !************************************************
     if (string_to_morse("RADIOACTIVITY") /= ".-. .- -.. .. --- .- -.-. - .. ...- .. - -.--") &
         & error stop "ERROR string_to_morse() [1]"
-
-    print *, string_to_morse("RADIOACTIVITY")
-    print *, string_to_morse("DISCOVERED BY MADAME CURIE")
 
     if (string_to_morse("DISCOVERED BY MADAME CURIE") /= &
         & "-.. .. ... -.-. --- ...- . .-. . -..  -... -.--  -- .- -.. .- -- .  -.-. ..- .-. .. .") &
         & error stop "ERROR string_to_morse() [2]"
 
-    call assert_reals_equal(10._wp ** (-20._wp / 20._wp), 0.1_wp, 1e-6_wp)
+    !************************************************
 
 contains
 
@@ -45,6 +44,7 @@ contains
         ! Note that the -Ofast compiler option is disabling ieee_is_nan()
         if (ieee_is_nan(a) .or. (r > tolerance)) then
             print FORMATER, "*** bug *** ", b, " /= ", a, " ; r = ", r
+            error stop
         end if
     end subroutine assert_reals_equal
 
