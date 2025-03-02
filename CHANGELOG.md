@@ -9,9 +9,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - In `example/README.md`: links to listen the OGG files.
 - `example/radioactivity.f90` is a tribute to Kraftwerk. You can hear the simulation of the radioactive decay of a population of atoms heard with a Geiger counter, with chords in a whole tone scale and a Morse code message.
 - `src/morse_code.f90` is offering basic Morse code support.
+- `src/acoustics.f90` module with the `dB_to_linear(dB)` conversion function.
 - `src/envelopes.f90`: added `fit_exp(x, x1, y1, x2, y2)` for computing an exponentially decreasing y(x) envelope between (x1,y1) and (x2,y2).
 - `src/signals.f90`: added `add_bell()`, based on the [Risset, 1969] bell signal #430 with 11 frequencies.
-- `example\multiplication_bells.f90`: a demo using the `add_bell` signal.
+- `example/multiplication_bells.f90`: a demo using the `add_bell` signal.
 
 ### Changed
 - `ELECTRONIC_MUSIC_HISTORY.md`: improved layout (hidden URLs).

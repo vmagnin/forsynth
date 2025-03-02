@@ -8,6 +8,7 @@ program main
     use forsynth, only: wp, test_the_machine
     use signals, only: weierstrass
     use morse_code
+    use acoustics, only: dB_to_linear
 
     implicit none
 
@@ -25,6 +26,11 @@ program main
         & "-.. .. ... -.-. --- ...- . .-. . -..  -... -.--  -- .- -.. .- -- .  -.-. ..- .-. .. .") &
         & error stop "ERROR string_to_morse() [2]"
 
+    !************************************************
+    call assert_reals_equal(dB_to_linear(  0._wp), 1.0_wp,     tolerance=tiny(1._wp))
+    call assert_reals_equal(dB_to_linear(-06._wp), 0.50118_wp, tolerance=1e-4_wp)
+    call assert_reals_equal(dB_to_linear(-20._wp), 0.1_wp,     tolerance=tiny(1._wp))
+    call assert_reals_equal(dB_to_linear(+20._wp), 10._wp,     tolerance=tiny(1._wp))
     !************************************************
 
 contains

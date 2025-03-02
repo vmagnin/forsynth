@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-20
-! Last modifications: 2025-02-23
+! Last modifications: 2025-03-02
 
 !> A Shepard scale, giving the illusion of an ever increasing pitch in the first
 !> half of the tape and an ever decreasing pitch in the 2nd half.
@@ -13,6 +13,7 @@ program shepard_scale
     use forsynth, only: wp, dt, RATE, PI
     use wav_file_class, only: WAV_file
     use audio_effects, only: apply_reverse_effect
+    use acoustics, only: dB_to_linear
 
     implicit none
     type(WAV_file) :: demo
@@ -62,9 +63,9 @@ program shepard_scale
                 f = fmin * 2._wp**(((c-1)*tmax + t -1) / real(tmax, kind=wp))
                 omega = 2*PI*f
                 teta = (2*PI * (c-1)*tmax + t -1) / (tmax*cmax)
+                ! Sound pressure level in dB:
                 L = Lmin + (Lmax-Lmin) * (1._wp - cos(teta)) / 2._wp
-                ! Converting dB to linear amplitude:
-                Amp = 10._wp ** (L / 20._wp)
+                Amp = dB_to_linear(L)
 
                 ! Writing a sinusoidal signal at ti0, for a duration d.
                 ! We do not write silences (the tape is initially silent).

@@ -5,10 +5,10 @@ The stars in parenthesis are an evaluation of the difficulty.
 ## ForSynth 0.5
 
 ### Development
-* [ ] Add tests. (**)
+* [>] Add tests. (**)
 
 ### Features
-* [ ] A function converting dB to linear scale would be useful to set the sound level. (*)
+* [x] A function converting dB to linear scale would be useful to set the sound level. (*)
 * [x] Synthesis: a bell (**)
 
 ### Examples
