@@ -76,7 +76,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="12.8% of total for programs.">97 statements</a>
+                 title="12.7% of total for programs.">97 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -118,11 +118,11 @@
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-amp~22">Amp</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-cmax~2">cmax</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-d~2">d</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-demo~12">demo</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-demo~13">demo</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-f~19">f</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-fmax">fmax</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-fmin~2">fmin</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-i~35">i</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-i~39">i</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-increase">increase</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-j~7">j</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-length">length</a>
@@ -130,7 +130,7 @@
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-omega~7">omega</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-restart">restart</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-sigma">sigma</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-t~23">t</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-t~25">t</a>
         </div>
       </div>
     </div>
@@ -197,8 +197,8 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
                   <li class="list-inline-item"><a href='../module/forsynth.html'>forsynth</a></li>
+                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
                   <li class="list-inline-item"><a href='../module/envelopes.html'>envelopes</a></li>
               </ul>
             </li>
@@ -816,7 +816,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-demo~12"></span>
+              <span class="anchor" id="variable-demo~13"></span>
               type(<a href='../type/wav_file.html'>WAV_file</a>)
             </td>
             <td>
@@ -880,7 +880,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~35"></span>
+              <span class="anchor" id="variable-i~39"></span>
               integer
             </td>
             <td>
@@ -1008,7 +1008,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~23"></span>
+              <span class="anchor" id="variable-t~25"></span>
               real(kind=wp)
             </td>
             <td>
@@ -1311,9 +1311,9 @@ the extremities, to reach the 0 level.</p>
 <span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Log Central frequency:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">muf</span>
 <span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Pitch increase:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">increase</span>
 
-<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating shepard_risset_glissando.wav ****&quot;</span>
 <span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
 <span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;shepard_risset_glissando.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot; ****&quot;</span>
 
 <span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">tape</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">)</span>
 
@@ -1447,7 +1447,7 @@ the extremities, to reach the 0 level.</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-02-13 20:21 +0000             </p>
+ on 2025-03-02 14:38 +0000             </p>
           </div>
         </div>
         <br>

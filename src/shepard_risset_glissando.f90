@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-24
-! Last modifications: 2024-06-03
+! Last modifications: 2025-02-23
 
 !> A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
 !> It is the continuous version of the Shepard scale.
@@ -54,9 +54,9 @@ program shepard_risset_glissando
     print *, "Log Central frequency:", muf
     print *, "Pitch increase:", increase
 
-    print *, "**** Creating shepard_risset_glissando.wav ****"
     ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('shepard_risset_glissando.wav', tracks=1, duration=length)
+    print *, "**** Creating " // demo%get_name() // " ****"
 
     associate(tape => demo%tape_recorder)
 

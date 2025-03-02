@@ -77,7 +77,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 3.0% of total for source files.">47 statements</a>
+                 title=" 2.9% of total for source files.">47 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -442,7 +442,7 @@ large graphs.</div>
         <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">! Forsynth: a multitracks stereo sound synthesis project</span>
 <a id="ln-2" name="ln-2" href="#ln-2"></a><span class="c">! License GPL-3.0-or-later</span>
 <a id="ln-3" name="ln-3" href="#ln-3"></a><span class="c">! Vincent Magnin</span>
-<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">! Last modifications: 2024-06-02</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="c">! Last modifications: 2025-02-23</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a>
 <a id="ln-6" name="ln-6" href="#ln-6"></a><span class="c">!&gt; A sequence of synth chords is repeated, and the corresponding notes are played</span>
 <a id="ln-7" name="ln-7" href="#ln-7"></a><span class="c">!&gt; randomly by plucked strings.</span>
@@ -462,9 +462,9 @@ large graphs.</div>
 <a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">dnote</span><span class="p">,</span><span class="w"> </span><span class="n">r</span>
 <a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">chosen_note</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
 <a id="ln-23" name="ln-23" href="#ln-23"></a>
-<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Demo chords and melody ****&quot;</span>
-<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
-<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;chords_and_melody.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="mi">12</span><span class="mf">0._wp</span><span class="p">)</span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;chords_and_melody.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="mi">12</span><span class="mf">0._wp</span><span class="p">)</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot; ****&quot;</span>
 <a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">    </span><span class="c">! We create an ADSR envelope that will be passed to signals (add_chord):</span>
 <a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">    </span><span class="k">call </span><span class="n">env</span><span class="p">%</span><span class="n">new</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="mf">5._wp</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="o">=</span><span class="mi">4</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="o">=</span><span class="mi">8</span><span class="mf">0._wp</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="o">=</span><span class="mi">1</span><span class="mf">5._wp</span><span class="p">)</span>
 <a id="ln-29" name="ln-29" href="#ln-29"></a>
@@ -535,7 +535,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-02-13 20:21 +0000             </p>
+ on 2025-03-02 14:38 +0000             </p>
           </div>
         </div>
         <br>

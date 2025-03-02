@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-06-02
+! Last modifications: 2025-03-02
 
 !> Plays sequentially each type of available signal.
 program all_signals
@@ -11,7 +11,7 @@ program all_signals
     use signals, only: add_sine_wave, add_square_wave, &
                      & add_sawtooth_wave, add_triangle_wave, &
                      & add_karplus_strong, add_karplus_strong_stretched, &
-                     & add_noise, add_weierstrass
+                     & add_noise, add_weierstrass, add_bell
     use envelopes, only: ADSR_envelope
 
     implicit none
@@ -57,6 +57,8 @@ program all_signals
     call add_karplus_strong(tape, track=1, t1=t+7*dnote, t2=t+8*dnote, f=f_A, Amp=1.0_wp)
     print *, "Karplus Strong stretched"
     call add_karplus_strong_stretched(tape, track=1, t1=t+8*dnote, t2=t+9*dnote, f=f_A, Amp=1.0_wp)
+    print *, "Bell"
+    call add_bell(tape, track=1, t1=t+9*dnote, f=f_A, Amp=1.0_wp)
 
     end associate
 

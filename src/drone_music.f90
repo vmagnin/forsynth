@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-19
-! Last modifications: 2024-05-31
+! Last modifications: 2025-02-23
 
 !> Experimental drone music.
 program drone_music
@@ -27,11 +27,11 @@ program drone_music
 
     Amp = 1._wp
 
-    print *, "**** Creating drone_music.wav ****"
     t1 = 0._wp
     t2 = 180._wp
     ! We create a new WAV file, and define the number of tracks and its duration:
     call demo%create_WAV_file('drone_music.wav', tracks=1, duration=t2)
+    print *, "**** Creating " // demo%get_name() // " ****"
 
     associate(tape => demo%tape_recorder)
 
