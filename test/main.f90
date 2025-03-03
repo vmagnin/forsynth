@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modification: 2025-03-02
+! Last modification: 2025-03-03
 
 program main
     use, intrinsic :: ieee_arithmetic, only: ieee_is_nan
@@ -9,8 +9,13 @@ program main
     use signals, only: weierstrass
     use morse_code
     use acoustics, only: dB_to_linear
+    use envelopes, only: fit_exp
+    use music, only: fr
 
     implicit none
+
+    ! 2.2204460492503131E-016 with real64:
+    real(wp), parameter :: tol = epsilon(1._wp)
 
     ! Test the available KIND:
     call test_the_machine()
@@ -27,11 +32,24 @@ program main
         & error stop "ERROR string_to_morse() [2]"
 
     !************************************************
-    call assert_reals_equal(dB_to_linear(  0._wp), 1.0_wp,     tolerance=tiny(1._wp))
+    call assert_reals_equal(dB_to_linear(  0._wp), 1.0_wp,     tolerance=3*tol)
     call assert_reals_equal(dB_to_linear(-06._wp), 0.50118_wp, tolerance=1e-4_wp)
-    call assert_reals_equal(dB_to_linear(-20._wp), 0.1_wp,     tolerance=tiny(1._wp))
-    call assert_reals_equal(dB_to_linear(+20._wp), 10._wp,     tolerance=tiny(1._wp))
+    call assert_reals_equal(dB_to_linear(-20._wp), 0.1_wp,     tolerance=3*tol)
+    call assert_reals_equal(dB_to_linear(+20._wp), 10._wp,     tolerance=3*tol)
+
     !************************************************
+    call assert_reals_equal(fit_exp(-1._wp, x1=0._wp, y1=1._wp, x2=1._wp, y2=exp(1._wp)), &
+                          & exp(-1._wp), tolerance=3*tol)
+    call assert_reals_equal(fit_exp(0._wp, x1=-1._wp, y1=exp(-1._wp), x2=+1._wp, y2=exp(+1._wp)), &
+                          & 1._wp, tolerance=3*tol)
+
+    !************************************************
+    call assert_reals_equal(fr("A4"),  440.0_wp, tolerance=3*tol)
+    call assert_reals_equal(fr("A3"),  220.0_wp, tolerance=3*tol)
+    call assert_reals_equal(fr("A5"),  880.0_wp, tolerance=3*tol)
+    call assert_reals_equal(fr("G4"),  440.0_wp*2**(-2/12._wp), tolerance=3*tol)
+    call assert_reals_equal(fr("F#4"), 440.0_wp*2**(-3/12._wp), tolerance=3*tol)
+    call assert_reals_equal(fr("Fb4"), 440.0_wp*2**(-5/12._wp), tolerance=3*tol)
 
 contains
 
