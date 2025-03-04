@@ -5,7 +5,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 ## ForSynth 0.5
 
 ### Development
-* [>] Add tests. (**)
+* [x] Add tests. (**)
 
 ### Features
 * [x] A function converting dB to linear scale would be useful to set the sound level. (*)
@@ -24,6 +24,8 @@ The stars in parenthesis are an evaluation of the difficulty.
 
 
 ## Ideas for further developments
+
+* [ ] Scientific data sonification: by reading a data file? or by passing an array? (**)
 
 * [ ] Add more [audio effects](https://en.wikipedia.org/wiki/Category:Audio_effects)
     * [ ] Compressor (**)
@@ -47,5 +49,3 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] A note sequencer repeating a pattern. Could be also used by ForMIDI. (***)
 * [ ] A sequence object, accepting a string with notes, with methods to obtain one by one their parameters (physical or MIDI). Could be also used by ForMIDI. (***)
     * [ ] The sequence could for example be coded as "A4,Q.,pf;A#4,Q,pf;..." (note, length, intensity).
-
-* [ ] Scientific data sonification: by reading a data file? or by passing an array? (**)
