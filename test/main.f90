@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modification: 2025-03-03
+! Last modification: 2025-03-04
 
 program main
     use, intrinsic :: ieee_arithmetic, only: ieee_is_nan
@@ -9,7 +9,7 @@ program main
     use signals, only: weierstrass
     use morse_code
     use acoustics, only: dB_to_linear
-    use envelopes, only: fit_exp
+    use envelopes, only: fit_exp, ADSR_envelope
     use music, only: fr
 
     implicit none
@@ -50,6 +50,19 @@ program main
     call assert_reals_equal(fr("G4"),  440.0_wp*2**(-2/12._wp), tolerance=3*tol)
     call assert_reals_equal(fr("F#4"), 440.0_wp*2**(-3/12._wp), tolerance=3*tol)
     call assert_reals_equal(fr("Fb4"), 440.0_wp*2**(-5/12._wp), tolerance=3*tol)
+
+    !************************************************
+    block
+        type(ADSR_envelope) :: env
+        call env%new(A=30._wp, D=20._wp, S=80._wp, R=30._wp)
+        call assert_reals_equal(env%get_level(t=0._wp,  t1=0._wp, t2=100._wp),  0._wp,  tolerance=3*tol)
+        call assert_reals_equal(env%get_level(t=100._wp,t1=0._wp, t2=100._wp),  0._wp,  tolerance=3*tol)
+        call assert_reals_equal(env%get_level(t=30._wp, t1=0._wp, t2=100._wp),  1._wp,  tolerance=3*tol)
+        call assert_reals_equal(env%get_level(t=15._wp, t1=0._wp, t2=100._wp),  0.5_wp, tolerance=3*tol)
+        call assert_reals_equal(env%get_level(t=40._wp, t1=0._wp, t2=100._wp),  0.9_wp, tolerance=3*tol)
+        call assert_reals_equal(env%get_level(t=60._wp, t1=0._wp, t2=100._wp),  0.8_wp, tolerance=3*tol)
+        call assert_reals_equal(env%get_level(t=85._wp, t1=0._wp, t2=100._wp),  0.4_wp, tolerance=3*tol)
+    end block
 
 contains
 
