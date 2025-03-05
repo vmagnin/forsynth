@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-24
-! Last modifications: 2025-02-23
+! Last modifications: 2025-03-05
 
 !> A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
 !> It is the continuous version of the Shepard scale.
@@ -113,7 +113,7 @@ contains
     end subroutine
 
     !> Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.
-    real(wp) function linear1(freq, f1, f2)
+    pure real(wp) function linear1(freq, f1, f2)
         real(wp), intent(in) :: freq, f1, f2
 
         if ((f1 <= freq).and.(freq <= f2)) then
@@ -124,7 +124,7 @@ contains
     end function
 
     !> Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.
-    real(wp) function linear2(freq, f1, f2)
+    pure real(wp) function linear2(freq, f1, f2)
         real(wp), intent(in) :: freq, f1, f2
 
         if ((f1 <= freq).and.(freq <= f2)) then
@@ -136,7 +136,7 @@ contains
 
     !> Envelope of the glissando. A gaussian, plus linear sections at
     !> the extremities, to reach the 0 level.
-    real(wp) function amplitude(freq)
+    pure real(wp) function amplitude(freq)
         real(wp), intent(in) :: freq
         real(wp) :: Amp
 
