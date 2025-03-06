@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-24
-! Last modifications: 2025-03-05
+! Last modifications: 2025-03-06
 
 !> A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
 !> It is the continuous version of the Shepard scale.
@@ -42,7 +42,6 @@ program shepard_risset_glissando
     ! Setting the increase rate:
     real(wp), parameter :: d = 16._wp
     real(wp), parameter :: increase = 2**(+1/(d*RATE))
-    logical :: restart
 
     ! Useful for debugging and setting the envelope parameters:
     !call write_amplitude_envelope()
@@ -73,17 +72,12 @@ program shepard_risset_glissando
 
         ! Increasing pitch of each component:
         f = f * increase
-        restart = .false.
         ! Each component must stay between fmin and fmax:
-        if (maxval(f) >= fmax) restart = .true.
-        ! Would be useful for a decreasing glissando:
-        if (minval(f) <= fmin) restart = .true.
-
-        ! As each component is separated by one octave, we can
-        ! redefine all the components as they were at t=0, each time one has
-        ! passed the last octave. In that way, we are sure they won't diverge
-        ! at all due to numerical problems:
-        if (restart) then
+        if ((minval(f) <= fmin).or.(maxval(f) >= fmax)) then
+            ! As each component is separated by one octave, we can
+            ! redefine all the components as they were at t=0, each time one has
+            ! passed the last octave. In that way, we are sure they won't diverge
+            ! at all due to numerical problems:
             call initialize_frequencies
         end if
     end do
@@ -107,9 +101,7 @@ contains
     subroutine initialize_frequencies()
         integer :: j
 
-        do j = 1, cmax
-            f(j) = fmin * 2**(j-1)
-        end do
+        f = [(fmin * 2**(j-1), j = 1, cmax)]
     end subroutine
 
     !> Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.
@@ -155,13 +147,15 @@ contains
     subroutine write_amplitude_envelope()
         real(wp) ::freq
         integer  :: u
-        integer, parameter :: points = 500
+        integer, parameter  :: points = 500
+        real(wp), parameter :: increase = 2**(+10._wp/points)
 
         print *, muf, " muf = ", 10**muf
 
         open(newunit=u, file="glissando_envelope.txt", status='replace', action='write')
+        freq = 20._wp
         do i = 1, points
-            freq = fmin + i*(fmax-fmin) / points
+            freq = freq * increase
             write(u, *) freq, amplitude(freq)
         end do
         close(u)
