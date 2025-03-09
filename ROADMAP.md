@@ -20,7 +20,7 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [x] Transforming comments into FORD comments !>
 
 ### Fix
-* [ ] The problem of the Shepard–Risset glissando. (***)
+* [x] The problem of the Shepard–Risset glissando. (***)
 
 
 ## Ideas for further developments
@@ -37,6 +37,7 @@ The stars in parenthesis are an evaluation of the difficulty.
     * [ ] Could Doppler effect be used to obtain a Leslie speaker effect?
 
 * [ ] Examples
+    * [ ] A Risset rhythm, ever accelerating. (**)
 
 * [ ] Find algorithms for good drums, especially bass drums.
 

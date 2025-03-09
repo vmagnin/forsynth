@@ -18,6 +18,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 - `ELECTRONIC_MUSIC_HISTORY.md`: improved layout (hidden URLs).
 
+### Fixed
+- `example/shepard_risset_glissando.f90`: obtaining a good glissando was not easy, as you need to understand that each sin(omega * t) is in fact sin(omega(t) * t). Using a common time for all components was causing problems as t was increasing. In this new version, each component has its own time: sin(omega(tj) * tj). Moreover, a downward glissando can also be computed.
+
 
 ## [ForSynth 0.4 "Jean-Claude Risset"] 2024-06-03
 
