@@ -218,6 +218,7 @@ Later famous works:
     - J.S. Bach - BWV 639 - [*Ich ruf' zu dir, Herr Jesu Christ*](https://www.youtube.com/watch?v=X9Dh43kVL1Q).
 - Bernard Parmegiani, [*De Natura Sonorum*](https://www.youtube.com/watch?v=c_JHjUFfOs8) (1975).
 - Throbbing Gristle, [20 Jazz Funk Greats](https://www.youtube.com/playlist?list=PLfhR1VDg5Avzh-UTVlE8uw6PkbHppMjeq) (1979).
+- Cerrone, [Supernature](https://www.youtube.com/watch?v=cJ5V3OZdIZM) (1977).
 
 ## 80's: the synth invasion (pop, techno, electro, new wave...)
 
