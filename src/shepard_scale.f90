@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-20
-! Last modifications: 2025-03-02
+! Last modifications: 2025-03-04
 
 !> A Shepard scale, giving the illusion of an ever increasing pitch in the first
 !> half of the tape and an ever decreasing pitch in the 2nd half.
@@ -43,7 +43,7 @@ program shepard_scale
     ! Duration of a tone and of the following silence:
     real(wp), parameter :: d = 0.125_wp
     real(wp), parameter :: ds = 0.840_wp
-    real(wp) :: teta, f
+    real(wp) :: teta, f, phi
     ! Number of repetitions:
     integer, parameter ::  kmax = 9
 
@@ -71,8 +71,9 @@ program shepard_scale
                 ! We do not write silences (the tape is initially silent).
                 ti0 = k*tmax*(d + ds) + t*(d + ds)
                 ti = ti0
+                phi = -omega*ti0
                 do i = nint(ti0*RATE), nint((ti0+d)*RATE)-1
-                    tape%left(1, i)  = tape%left(1, i) + Amp * sin(omega*ti)
+                    tape%left(1, i)  = tape%left(1, i) + Amp * sin(omega*ti + phi)
                     ti = ti + dt
                 end do
             end do

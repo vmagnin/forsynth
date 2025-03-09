@@ -76,7 +76,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="12.7% of total for programs.">97 statements</a>
+                 title="14.4% of total for programs.">112 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -115,22 +115,22 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-amp~22">Amp</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-amp~6">Amp</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-cmax~2">cmax</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-d~2">d</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-demo~13">demo</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-f~19">f</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-demo~3">demo</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-f~6">f</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-fmax">fmax</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-fmin~2">fmin</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-i~39">i</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-i~7">i</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-increase">increase</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-j~7">j</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-j~3">j</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-length">length</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-muf">muf</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-omega~7">omega</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-restart">restart</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-omega~3">omega</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-sigma">sigma</a>
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-t~25">t</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-t~5">t</a>
+            <a class="list-group-item" href="../program/shepard_risset_glissando.html#variable-upward">upward</a>
         </div>
       </div>
     </div>
@@ -165,7 +165,6 @@
       </a>
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/shepard_risset_glissando.html#proc-initialize_frequencies">initialize_frequencies</a>
             <a class="list-group-item" href="../program/shepard_risset_glissando.html#proc-write_amplitude_envelope">write_amplitude_envelope</a>
         </div>
       </div>
@@ -198,8 +197,8 @@
             <li class="list-group-item">
               <ul class="list-inline">
                   <li class="list-inline-item"><a href='../module/forsynth.html'>forsynth</a></li>
-                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
                   <li class="list-inline-item"><a href='../module/envelopes.html'>envelopes</a></li>
+                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -409,13 +408,12 @@ large graphs.</div>
       </div>
     </div>
 
-    <p>A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
-It is the continuous version of the Shepard scale.
-It is not perfect, as we can hear that globally the whole is getting slowly
-higher. It is also visible when zooming in the waveform woth audacity.
-Some kind of beating might occur due to the fact that in the sin(),
-both omega and t are varying at each step. But as the f() are now redefined
-regularly, things are unclear for the moment...
+    <p>A Shepard-Risset glissando, giving the illusion of an ever increasing
+or decreasing pitch. It is the continuous version of the Shepard scale.
+Obtaining a good glissando is not easy, as you need to understand that
+each sin(omega * t) is in fact sin(omega(t) * t). Using a common time for all
+causes problems as t increases. In this version, each new component has its
+own time: sin(omega(tj) * tj).
 https://en.wikipedia.org/wiki/Shepard_tone</p>
     <br>
     <div class="card">
@@ -429,241 +427,247 @@ https://en.wikipedia.org/wiki/Shepard_tone</p>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: program~~shepard_risset_glissando~~CallsGraph Pages: 1 -->
-<svg id="programshepard_risset_glissandoCallsGraph" width="641pt" height="290pt"
- viewBox="0.00 0.00 641.00 290.37" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~shepard_risset_glissando~~CallsGraph" class="graph" transform="scale(0.84 0.84) rotate(0) translate(4 343)">
+<svg id="programshepard_risset_glissandoCallsGraph" width="641pt" height="305pt"
+ viewBox="0.00 0.00 641.00 304.60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~shepard_risset_glissando~~CallsGraph" class="graph" transform="scale(0.84 0.84) rotate(0) translate(4 360)">
 <title>program~~shepard_risset_glissando~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-343 762,-343 762,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-360 762,-360 762,4 -4,4"/>
 <!-- program~shepard_risset_glissando -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node1" class="node">
 <title>program~shepard_risset_glissando</title>
-<polygon fill="none" stroke="black" points="145,-171 0,-171 0,-147 145,-147 145,-171"/>
-<text text-anchor="middle" x="72.5" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50">shepard_risset_glissando</text>
+<polygon fill="none" stroke="black" points="145,-189 0,-189 0,-165 145,-165 145,-189"/>
+<text text-anchor="middle" x="72.5" y="-174.6" font-family="Helvetica,sans-Serif" font-size="10.50">shepard_risset_glissando</text>
 </g>
 <!-- proc~amplitude -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node2" class="node">
 <title>proc~amplitude</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node2"><a xlink:href="../proc/amplitude.html" xlink:title="amplitude">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="291.5,-318 224.5,-318 224.5,-294 291.5,-294 291.5,-318"/>
-<text text-anchor="middle" x="258" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">amplitude</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="499,-189 432,-189 432,-165 499,-165 499,-189"/>
+<text text-anchor="middle" x="465.5" y="-174.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">amplitude</text>
 </a>
 </g>
 </g>
 <!-- program~shepard_risset_glissando&#45;&gt;proc~amplitude -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge1" class="edge">
 <title>program~shepard_risset_glissando&#45;&gt;proc~amplitude</title>
-<path fill="none" stroke="#ff0000" d="M80.38,-171.14C95.32,-196.36 133.22,-254.57 181,-285 191,-291.37 202.94,-295.83 214.35,-298.95"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="213.64,-302.38 224.19,-301.36 215.31,-295.58 213.64,-302.38"/>
+<path fill="none" stroke="#ff0000" d="M145.2,-176.24C157.16,-176.14 169.43,-176.05 181,-176 249.44,-175.68 266.56,-175.74 335,-176 363.82,-176.11 396.25,-176.36 421.44,-176.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="421.74,-180.09 431.77,-176.68 421.8,-173.09 421.74,-180.09"/>
 </g>
 <!-- proc~apply_fade_in -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node3" class="node">
 <title>proc~apply_fade_in</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node3"><a xlink:href="../proc/apply_fade_in.html" xlink:title="apply_fade_in">
-<polygon fill="#d9534f" stroke="#d9534f" points="301,-276 215,-276 215,-252 301,-252 301,-276"/>
-<text text-anchor="middle" x="258" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_fade_in</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="301,-293 215,-293 215,-269 301,-269 301,-293"/>
+<text text-anchor="middle" x="258" y="-278.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_fade_in</text>
 </a>
 </g>
 </g>
 <!-- program~shepard_risset_glissando&#45;&gt;proc~apply_fade_in -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge2" class="edge">
 <title>program~shepard_risset_glissando&#45;&gt;proc~apply_fade_in</title>
-<path fill="none" stroke="#ff0000" d="M85.6,-171.14C104.41,-189.34 142.5,-223.61 181,-243 188.56,-246.81 196.9,-250 205.2,-252.65"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="204.3,-256.03 214.88,-255.52 206.29,-249.32 204.3,-256.03"/>
+<path fill="none" stroke="#ff0000" d="M85.94,-189.28C104.89,-207.33 142.83,-240.92 181,-260 188.57,-263.78 196.91,-266.96 205.22,-269.61"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="204.32,-273 214.9,-272.48 206.31,-266.28 204.32,-273"/>
 </g>
 <!-- proc~apply_fade_out -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node4" class="node">
 <title>proc~apply_fade_out</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node4"><a xlink:href="../proc/apply_fade_out.html" xlink:title="apply_fade_out">
-<polygon fill="#d9534f" stroke="#d9534f" points="305,-234 211,-234 211,-210 305,-210 305,-234"/>
-<text text-anchor="middle" x="258" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_fade_out</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="305,-251 211,-251 211,-227 305,-227 305,-251"/>
+<text text-anchor="middle" x="258" y="-236.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_fade_out</text>
 </a>
 </g>
 </g>
 <!-- program~shepard_risset_glissando&#45;&gt;proc~apply_fade_out -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge3" class="edge">
 <title>program~shepard_risset_glissando&#45;&gt;proc~apply_fade_out</title>
-<path fill="none" stroke="#ff0000" d="M101.95,-171.04C123.45,-179.91 153.81,-191.96 181,-201 187.46,-203.15 194.27,-205.25 201.07,-207.25"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="200.38,-210.7 210.95,-210.1 202.31,-203.97 200.38,-210.7"/>
+<path fill="none" stroke="#ff0000" d="M102.89,-189.07C124.35,-197.68 154.24,-209.22 181,-218 187.47,-220.12 194.29,-222.21 201.08,-224.2"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="200.4,-227.65 210.97,-227.04 202.33,-220.92 200.4,-227.65"/>
 </g>
 <!-- proc~close_wav_file -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node5" class="node">
 <title>proc~close_wav_file</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node5"><a xlink:href="../proc/close_wav_file.html" xlink:title="WAV_file%close_WAV_file">
-<polygon fill="#d9534f" stroke="#d9534f" points="331.5,-192 184.5,-192 184.5,-168 331.5,-168 331.5,-192"/>
-<text text-anchor="middle" x="258" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%close_WAV_file</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="331.5,-335 184.5,-335 184.5,-311 331.5,-311 331.5,-335"/>
+<text text-anchor="middle" x="258" y="-320.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%close_WAV_file</text>
 </a>
 </g>
 </g>
 <!-- program~shepard_risset_glissando&#45;&gt;proc~close_wav_file -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge4" class="edge">
 <title>program~shepard_risset_glissando&#45;&gt;proc~close_wav_file</title>
-<path fill="none" stroke="#ff0000" d="M145.23,-167.21C154.78,-168.3 164.64,-169.43 174.35,-170.54"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="174.08,-174.03 184.41,-171.69 174.87,-167.08 174.08,-174.03"/>
+<path fill="none" stroke="#ff0000" d="M80.41,-189.05C95.39,-214.06 133.38,-271.81 181,-302 183.77,-303.76 186.7,-305.37 189.72,-306.85"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="188.44,-310.12 199,-310.91 191.24,-303.7 188.44,-310.12"/>
 </g>
 <!-- proc~create_wav_file -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node6" class="node">
 <title>proc~create_wav_file</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node6"><a xlink:href="../proc/create_wav_file.html" xlink:title="WAV_file%create_WAV_file">
-<polygon fill="#d9534f" stroke="#d9534f" points="334.5,-150 181.5,-150 181.5,-126 334.5,-126 334.5,-150"/>
-<text text-anchor="middle" x="258" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%create_WAV_file</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="334.5,-45 181.5,-45 181.5,-21 334.5,-21 334.5,-45"/>
+<text text-anchor="middle" x="258" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%create_WAV_file</text>
 </a>
 </g>
 </g>
 <!-- program~shepard_risset_glissando&#45;&gt;proc~create_wav_file -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge5" class="edge">
 <title>program~shepard_risset_glissando&#45;&gt;proc~create_wav_file</title>
-<path fill="none" stroke="#ff0000" d="M145.23,-150.79C153.76,-149.81 162.53,-148.81 171.22,-147.82"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="171.84,-151.27 181.38,-146.65 171.05,-144.31 171.84,-151.27"/>
+<path fill="none" stroke="#ff0000" d="M80.69,-164.77C95.92,-139.96 133.94,-83.58 181,-54 183.78,-52.25 186.71,-50.65 189.73,-49.17"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="191.25,-52.33 199.03,-45.14 188.46,-45.91 191.25,-52.33"/>
 </g>
 <!-- proc~get_name -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node7" class="node">
 <title>proc~get_name</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node7"><a xlink:href="../proc/get_name.html" xlink:title="WAV_file%get_name">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="318.5,-108 197.5,-108 197.5,-84 318.5,-84 318.5,-108"/>
-<text text-anchor="middle" x="258" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%get_name</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="318.5,-129 197.5,-129 197.5,-105 318.5,-105 318.5,-129"/>
+<text text-anchor="middle" x="258" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%get_name</text>
 </a>
 </g>
 </g>
 <!-- program~shepard_risset_glissando&#45;&gt;proc~get_name -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge6" class="edge">
 <title>program~shepard_risset_glissando&#45;&gt;proc~get_name</title>
-<path fill="none" stroke="#ff0000" d="M101.95,-146.96C123.45,-138.09 153.81,-126.04 181,-117 187.37,-114.88 194.09,-112.8 200.79,-110.83"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="201.91,-114.15 210.55,-108.02 199.97,-107.42 201.91,-114.15"/>
-</g>
-<!-- proc~initialize_frequencies -->
-<g id="program~~shepard_risset_glissando~~CallsGraph_node8" class="node">
-<title>proc~initialize_frequencies</title>
-<g id="a_program~~shepard_risset_glissando~~CallsGraph_node8"><a xlink:href="../proc/initialize_frequencies.html" xlink:title="initialize_frequencies">
-<polygon fill="#d9534f" stroke="#d9534f" points="320,-66 196,-66 196,-42 320,-42 320,-66"/>
-<text text-anchor="middle" x="258" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">initialize_frequencies</text>
-</a>
-</g>
-</g>
-<!-- program~shepard_risset_glissando&#45;&gt;proc~initialize_frequencies -->
-<g id="program~~shepard_risset_glissando~~CallsGraph_edge7" class="edge">
-<title>program~shepard_risset_glissando&#45;&gt;proc~initialize_frequencies</title>
-<path fill="none" stroke="#ff0000" d="M85.6,-146.86C104.41,-128.66 142.5,-94.39 181,-75 184.96,-73.01 189.13,-71.18 193.4,-69.51"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="194.63,-72.79 202.86,-66.11 192.26,-66.21 194.63,-72.79"/>
+<path fill="none" stroke="#ff0000" d="M110.63,-164.86C139.46,-155.43 179.58,-142.31 210.53,-132.19"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="211.82,-135.46 220.23,-129.02 209.64,-128.8 211.82,-135.46"/>
 </g>
 <!-- proc~mix_tracks -->
-<g id="program~~shepard_risset_glissando~~CallsGraph_node9" class="node">
+<g id="program~~shepard_risset_glissando~~CallsGraph_node8" class="node">
 <title>proc~mix_tracks</title>
-<g id="a_program~~shepard_risset_glissando~~CallsGraph_node9"><a xlink:href="../proc/mix_tracks.html" xlink:title="tape_recorder%mix_tracks">
-<polygon fill="#d9534f" stroke="#d9534f" points="335,-24 181,-24 181,0 335,0 335,-24"/>
-<text text-anchor="middle" x="258" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%mix_tracks</text>
+<g id="a_program~~shepard_risset_glissando~~CallsGraph_node8"><a xlink:href="../proc/mix_tracks.html" xlink:title="tape_recorder%mix_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="335,-87 181,-87 181,-63 335,-63 335,-87"/>
+<text text-anchor="middle" x="258" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%mix_tracks</text>
 </a>
 </g>
 </g>
 <!-- program~shepard_risset_glissando&#45;&gt;proc~mix_tracks -->
-<g id="program~~shepard_risset_glissando~~CallsGraph_edge8" class="edge">
+<g id="program~~shepard_risset_glissando~~CallsGraph_edge7" class="edge">
 <title>program~shepard_risset_glissando&#45;&gt;proc~mix_tracks</title>
-<path fill="none" stroke="#ff0000" d="M80.38,-146.86C95.32,-121.64 133.22,-63.43 181,-33 183.77,-31.24 186.69,-29.62 189.71,-28.13"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="191.23,-31.29 198.99,-24.07 188.43,-24.87 191.23,-31.29"/>
+<path fill="none" stroke="#ff0000" d="M86.32,-164.74C105.45,-147.08 143.27,-114.59 181,-96 185.05,-94.01 189.31,-92.18 193.67,-90.51"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="195.06,-93.73 203.31,-87.09 192.72,-87.13 195.06,-93.73"/>
+</g>
+<!-- proc~write_amplitude_envelope -->
+<g id="program~~shepard_risset_glissando~~CallsGraph_node9" class="node">
+<title>proc~write_amplitude_envelope</title>
+<g id="a_program~~shepard_risset_glissando~~CallsGraph_node9"><a xlink:href="../proc/write_amplitude_envelope.html" xlink:title="write_amplitude_envelope">
+<polygon fill="#d9534f" stroke="#d9534f" points="334.5,-209 181.5,-209 181.5,-185 334.5,-185 334.5,-209"/>
+<text text-anchor="middle" x="258" y="-194.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">write_amplitude_envelope</text>
+</a>
+</g>
+</g>
+<!-- program~shepard_risset_glissando&#45;&gt;proc~write_amplitude_envelope -->
+<g id="program~~shepard_risset_glissando~~CallsGraph_edge8" class="edge">
+<title>program~shepard_risset_glissando&#45;&gt;proc~write_amplitude_envelope</title>
+<path fill="none" stroke="#ff0000" d="M145.23,-184.82C153.76,-185.75 162.53,-186.7 171.22,-187.65"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="171.06,-191.15 181.38,-188.76 171.82,-184.2 171.06,-191.15"/>
 </g>
 <!-- proc~linear1 -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node11" class="node">
 <title>proc~linear1</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node11"><a xlink:href="../proc/linear1.html" xlink:title="linear1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="492.5,-339 438.5,-339 438.5,-315 492.5,-315 492.5,-339"/>
-<text text-anchor="middle" x="465.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">linear1</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="704,-168 650,-168 650,-144 704,-144 704,-168"/>
+<text text-anchor="middle" x="677" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">linear1</text>
 </a>
 </g>
 </g>
 <!-- proc~amplitude&#45;&gt;proc~linear1 -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge9" class="edge">
 <title>proc~amplitude&#45;&gt;proc~linear1</title>
-<path fill="none" stroke="#ff0000" d="M291.56,-309.33C328.7,-313.12 389.27,-319.31 427.98,-323.27"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="427.98,-326.79 438.28,-324.32 428.69,-319.82 427.98,-326.79"/>
+<path fill="none" stroke="#ff0000" d="M499.23,-173.72C537.37,-169.9 600.19,-163.6 639.77,-159.63"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="640.18,-163.11 649.78,-158.63 639.49,-156.14 640.18,-163.11"/>
 </g>
 <!-- proc~linear2 -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node12" class="node">
 <title>proc~linear2</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node12"><a xlink:href="../proc/linear2.html" xlink:title="linear2">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="492.5,-297 438.5,-297 438.5,-273 492.5,-273 492.5,-297"/>
-<text text-anchor="middle" x="465.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">linear2</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="704,-210 650,-210 650,-186 704,-186 704,-210"/>
+<text text-anchor="middle" x="677" y="-195.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">linear2</text>
 </a>
 </g>
 </g>
 <!-- proc~amplitude&#45;&gt;proc~linear2 -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge10" class="edge">
 <title>proc~amplitude&#45;&gt;proc~linear2</title>
-<path fill="none" stroke="#ff0000" d="M291.56,-302.67C328.7,-298.88 389.27,-292.69 427.98,-288.73"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="428.69,-292.18 438.28,-287.68 427.98,-285.21 428.69,-292.18"/>
+<path fill="none" stroke="#ff0000" d="M499.23,-180.28C537.37,-184.1 600.19,-190.4 639.77,-194.37"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="639.49,-197.86 649.78,-195.37 640.18,-190.89 639.49,-197.86"/>
 </g>
 <!-- proc~finalize -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node10" class="node">
 <title>proc~finalize</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node10"><a xlink:href="../proc/finalize.html" xlink:title="tape_recorder%finalize">
-<polygon fill="#d9534f" stroke="#d9534f" points="533.5,-234 397.5,-234 397.5,-210 533.5,-210 533.5,-234"/>
-<text text-anchor="middle" x="465.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%finalize</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="533.5,-314 397.5,-314 397.5,-290 533.5,-290 533.5,-314"/>
+<text text-anchor="middle" x="465.5" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%finalize</text>
 </a>
 </g>
 </g>
 <!-- proc~close_wav_file&#45;&gt;proc~finalize -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge11" class="edge">
 <title>proc~close_wav_file&#45;&gt;proc~finalize</title>
-<path fill="none" stroke="#00ff3f" d="M317.89,-192.04C342.18,-197 370.5,-202.79 395.73,-207.95"/>
-<polygon fill="#00ff3f" stroke="#00ff3f" points="395.11,-211.39 405.6,-209.96 396.51,-204.53 395.11,-211.39"/>
+<path fill="none" stroke="#00ff3f" d="M331.74,-315.57C349.76,-313.72 369.14,-311.75 387.36,-309.88"/>
+<polygon fill="#00ff3f" stroke="#00ff3f" points="387.76,-313.36 397.35,-308.86 387.05,-306.4 387.76,-313.36"/>
 </g>
 <!-- proc~write_normalized_data -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node15" class="node">
 <title>proc~write_normalized_data</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node15"><a xlink:href="../proc/write_normalized_data.html" xlink:title="WAV_file%write_normalized_data">
-<polygon fill="#d9534f" stroke="#d9534f" points="560,-192 371,-192 371,-168 560,-168 560,-192"/>
-<text text-anchor="middle" x="465.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_normalized_data</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="560,-356 371,-356 371,-332 560,-332 560,-356"/>
+<text text-anchor="middle" x="465.5" y="-341.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_normalized_data</text>
 </a>
 </g>
 </g>
 <!-- proc~close_wav_file&#45;&gt;proc~write_normalized_data -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge12" class="edge">
 <title>proc~close_wav_file&#45;&gt;proc~write_normalized_data</title>
-<path fill="none" stroke="#00ff3f" d="M331.74,-180C341.17,-180 350.96,-180 360.77,-180"/>
-<polygon fill="#00ff3f" stroke="#00ff3f" points="360.98,-183.5 370.98,-180 360.98,-176.5 360.98,-183.5"/>
+<path fill="none" stroke="#00ff3f" d="M331.74,-330.43C341.17,-331.4 350.96,-332.4 360.77,-333.4"/>
+<polygon fill="#00ff3f" stroke="#00ff3f" points="360.68,-336.91 370.98,-334.44 361.39,-329.94 360.68,-336.91"/>
 </g>
 <!-- proc~new -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node13" class="node">
 <title>proc~new</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node13"><a xlink:href="../proc/new.html" xlink:title="tape_recorder%new">
-<polygon fill="#d9534f" stroke="#d9534f" points="525,-150 406,-150 406,-126 525,-126 525,-150"/>
-<text text-anchor="middle" x="465.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%new</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="525,-24 406,-24 406,0 525,0 525,-24"/>
+<text text-anchor="middle" x="465.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%new</text>
 </a>
 </g>
 </g>
 <!-- proc~create_wav_file&#45;&gt;proc~new -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge13" class="edge">
 <title>proc~create_wav_file&#45;&gt;proc~new</title>
-<path fill="none" stroke="#00ffff" d="M334.65,-138C354.62,-138 376.07,-138 395.67,-138"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="395.73,-141.5 405.73,-138 395.73,-134.5 395.73,-141.5"/>
+<path fill="none" stroke="#00ffff" d="M334.65,-25.27C354.62,-23.23 376.07,-21.04 395.67,-19.03"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="396.14,-22.5 405.73,-18.01 395.43,-15.54 396.14,-22.5"/>
 </g>
 <!-- proc~write_header -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node14" class="node">
 <title>proc~write_header</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node14"><a xlink:href="../proc/write_header.html" xlink:title="WAV_file%write_header">
-<polygon fill="#d9534f" stroke="#d9534f" points="534.5,-108 396.5,-108 396.5,-84 534.5,-84 534.5,-108"/>
-<text text-anchor="middle" x="465.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_header</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="534.5,-66 396.5,-66 396.5,-42 534.5,-42 534.5,-66"/>
+<text text-anchor="middle" x="465.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_header</text>
 </a>
 </g>
 </g>
 <!-- proc~create_wav_file&#45;&gt;proc~write_header -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_edge14" class="edge">
 <title>proc~create_wav_file&#45;&gt;proc~write_header</title>
-<path fill="none" stroke="#00ffff" d="M317.89,-125.96C342.18,-121 370.5,-115.21 395.73,-110.05"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="396.51,-113.47 405.6,-108.04 395.11,-106.61 396.51,-113.47"/>
+<path fill="none" stroke="#00ffff" d="M334.65,-40.73C351.42,-42.44 369.23,-44.26 386.11,-45.99"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="386.18,-49.52 396.49,-47.05 386.9,-42.55 386.18,-49.52"/>
+</g>
+<!-- proc~write_amplitude_envelope&#45;&gt;proc~amplitude -->
+<g id="program~~shepard_risset_glissando~~CallsGraph_edge15" class="edge">
+<title>proc~write_amplitude_envelope&#45;&gt;proc~amplitude</title>
+<path fill="none" stroke="#ff00bf" d="M334.65,-189.64C364.12,-186.77 396.79,-183.59 421.99,-181.14"/>
+<polygon fill="#ff00bf" stroke="#ff00bf" points="422.34,-184.62 431.96,-180.17 421.66,-177.65 422.34,-184.62"/>
 </g>
 <!-- proc~clear_tracks -->
 <g id="program~~shepard_risset_glissando~~CallsGraph_node16" class="node">
 <title>proc~clear_tracks</title>
 <g id="a_program~~shepard_risset_glissando~~CallsGraph_node16"><a xlink:href="../proc/clear_tracks.html" xlink:title="tape_recorder%clear_tracks">
-<polygon fill="#d9534f" stroke="#d9534f" points="758,-150 596,-150 596,-126 758,-126 758,-150"/>
-<text text-anchor="middle" x="677" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%clear_tracks</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="758,-24 596,-24 596,0 758,0 758,-24"/>
+<text text-anchor="middle" x="677" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%clear_tracks</text>
 </a>
 </g>
 </g>
 <!-- proc~new&#45;&gt;proc~clear_tracks -->
-<g id="program~~shepard_risset_glissando~~CallsGraph_edge15" class="edge">
+<g id="program~~shepard_risset_glissando~~CallsGraph_edge16" class="edge">
 <title>proc~new&#45;&gt;proc~clear_tracks</title>
-<path fill="none" stroke="#00ffff" d="M525.14,-138C543.96,-138 565.28,-138 585.83,-138"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="585.84,-141.5 595.84,-138 585.84,-134.5 585.84,-141.5"/>
+<path fill="none" stroke="#00ffff" d="M525.14,-12C543.96,-12 565.28,-12 585.83,-12"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="585.84,-15.5 595.84,-12 585.84,-8.5 585.84,-15.5"/>
 </g>
 </g>
 </svg>
@@ -768,7 +772,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~22"></span>
+              <span class="anchor" id="variable-amp~6"></span>
               real(kind=wp)
             </td>
             <td>
@@ -809,14 +813,14 @@ parameter
             <td>::</td>
             <td><strong>d</strong></td>
 <td> =</td>
-                <td>16._wp</td>
+                <td>5._wp</td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-demo~13"></span>
+              <span class="anchor" id="variable-demo~3"></span>
               type(<a href='../type/wav_file.html'>WAV_file</a>)
             </td>
             <td>
@@ -832,7 +836,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~19"></span>
+              <span class="anchor" id="variable-f~6"></span>
               real(kind=wp)
             </td>
             <td>
@@ -880,7 +884,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~39"></span>
+              <span class="anchor" id="variable-i~7"></span>
               integer
             </td>
             <td>
@@ -912,7 +916,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~7"></span>
+              <span class="anchor" id="variable-j~3"></span>
               integer
             </td>
             <td>
@@ -953,14 +957,14 @@ parameter
             <td>::</td>
             <td><strong>muf</strong></td>
 <td> =</td>
-                <td>((log10(fmin)+log10(fmax))/2)-0.3</td>
+                <td>((log10(fmin)+log10(fmax))/2)-0.6</td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-omega~7"></span>
+              <span class="anchor" id="variable-omega~3"></span>
               real(kind=wp)
             </td>
             <td>
@@ -968,22 +972,6 @@ parameter
             </td>
             <td>::</td>
             <td><strong>omega</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-restart"></span>
-              logical
-            </td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>restart</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -1001,23 +989,39 @@ parameter
             <td>::</td>
             <td><strong>sigma</strong></td>
 <td> =</td>
-                <td>0.25_wp</td>
+                <td>0.27_wp</td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~25"></span>
+              <span class="anchor" id="variable-t~5"></span>
               real(kind=wp)
             </td>
             <td>
               
             </td>
             <td>::</td>
-            <td><strong>t</strong></td>
+            <td><strong>t</strong>(cmax)</td>
                 <td></td>
                 <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upward"></span>
+              logical,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>upward</strong></td>
+<td> =</td>
+                <td>.true.</td>
             <td>
                 
             </td>
@@ -1036,7 +1040,7 @@ parameter
     <section>
     <h2>Functions</h2>
       <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-amplitude"></span> <h3> function <a href='../proc/amplitude.html'>amplitude</a>(freq)  
+    <div class="card-header codesum"><span class="anchor" id="proc-amplitude"></span> <h3>pure function <a href='../proc/amplitude.html'>amplitude</a>(freq)  
 </h3></div>
     <div class="card-body">
           
@@ -1082,7 +1086,7 @@ the extremities, to reach the 0 level.</p>
   </div>
 
       <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-linear1"></span> <h3> function <a href='../proc/linear1.html'>linear1</a>(freq, f1, f2)  
+    <div class="card-header codesum"><span class="anchor" id="proc-linear1"></span> <h3>pure function <a href='../proc/linear1.html'>linear1</a>(freq, f1, f2)  
 </h3></div>
     <div class="card-body">
           
@@ -1102,6 +1106,81 @@ the extremities, to reach the 0 level.</p>
         <tr>
             <td>
               <span class="anchor" id="variable-freq"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>freq</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f1"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=wp)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-linear2"></span> <h3>pure function <a href='../proc/linear2.html'>linear2</a>(freq, f1, f2)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-freq~2"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1156,100 +1235,12 @@ the extremities, to reach the 0 level.</p>
     </div>
   </div>
 
-      <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-linear2"></span> <h3> function <a href='../proc/linear2.html'>linear2</a>(freq, f1, f2)  
-</h3></div>
-    <div class="card-body">
-          
-  <p>Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.</p>
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-freq~2"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>freq</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-f1~3"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>f1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-f2~3"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>f2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    <h4>
-    Return Value
-    <small>real(kind=wp)</small>
-    </h4>
-    
-
-    </div>
-  </div>
-
     </section>
     <br>
 
 
     <section>
     <h2>Subroutines</h2>
-      <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-initialize_frequencies"></span> <h3> subroutine <a href='../proc/initialize_frequencies.html'>initialize_frequencies</a>()  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-    <em>None</em>
-
-    </div>
-  </div>
-
       <div class="card">
     <div class="card-header codesum"><span class="anchor" id="proc-write_amplitude_envelope"></span> <h3> subroutine <a href='../proc/write_amplitude_envelope.html'>write_amplitude_envelope</a>()  
 </h3></div>
@@ -1275,74 +1266,100 @@ the extremities, to reach the 0 level.</p>
 
 <span class="w">    </span><span class="k">implicit none</span>
 <span class="k">    type</span><span class="p">(</span><span class="n">WAV_file</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">demo</span>
-
-<span class="w">    </span><span class="c">! Pulsation (radians/second):</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">omega</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Amp</span>
-<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
 <span class="w">    </span><span class="c">!--------------------------</span>
 <span class="w">    </span><span class="c">! Glissando parameters:</span>
 <span class="w">    </span><span class="c">!--------------------------</span>
+<span class="w">    </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">upward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
 <span class="w">    </span><span class="c">! Bandwidth 20-20480 Hz: 10 octaves</span>
 <span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">cmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
 <span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="mf">0._wp</span>
 <span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="n">cmax</span>
+<span class="w">    </span><span class="c">! Proper times of each component:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">cmax</span><span class="p">)</span>
 <span class="w">    </span><span class="c">! Frequencies of each component:</span>
 <span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">cmax</span><span class="p">)</span>
 <span class="w">    </span><span class="c">! Gaussian window, central frequency in log scale, with a shift:</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">muf</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">log10</span><span class="p">(</span><span class="n">fmin</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">log10</span><span class="p">(</span><span class="n">fmax</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.3</span>
-<span class="w">    </span><span class="c">! Standard deviation (very important for a good result):</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.25_wp</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">muf</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">log10</span><span class="p">(</span><span class="n">fmin</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">log10</span><span class="p">(</span><span class="n">fmax</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.6</span>
+<span class="w">    </span><span class="c">! Standard deviation of the gaussian window:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.27_wp</span>
 <span class="w">    </span><span class="c">! Total duration of the WAV:</span>
 <span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="mf">0._wp</span>
-<span class="w">    </span><span class="c">! Setting the increase rate:</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">6._wp</span>
+<span class="w">    </span><span class="c">! Time in seconds between two new components:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5._wp</span>
+<span class="w">    </span><span class="c">! Setting the frequency increase/decrease rate at each step:</span>
 <span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="n">RATE</span><span class="p">))</span>
-<span class="w">    </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">restart</span>
+<span class="w">    </span><span class="c">!--------------------------</span>
+<span class="w">    </span><span class="c">! Pulsation (radians/second):</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">omega</span>
+<span class="w">    </span><span class="c">! Amplitude of a sinusoid:</span>
+<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Amp</span>
+<span class="w">    </span><span class="c">! Loop counters:</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
 
 <span class="w">    </span><span class="c">! Useful for debugging and setting the envelope parameters:</span>
-<span class="w">    </span><span class="c">!call write_amplitude_envelope()</span>
+<span class="w">    </span><span class="k">call </span><span class="n">write_amplitude_envelope</span><span class="p">()</span>
 
 <span class="w">    </span><span class="c">! Initializing the components, separated by octaves:</span>
-<span class="w">    </span><span class="k">call </span><span class="n">initialize_frequencies</span><span class="p">()</span>
-<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Frequencies:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f</span>
-
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">upward</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="n">fmin</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">cmax</span><span class="p">)]</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="k">        </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="n">fmax</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">cmax</span><span class="p">)]</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">    print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Frequencies:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f</span>
 <span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Log Central frequency:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">muf</span>
-<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Pitch increase:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">increase</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Pitch multiplication factor by time step:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">increase</span>
 
 <span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
-<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;shepard_risset_glissando.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
-<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot; ****&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">upward</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;shepard_risset_glissando_upward.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="k">        call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;shepard_risset_glissando_downward.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">    print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot; ****&quot;</span>
 
 <span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">tape</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">tape_recorder</span><span class="p">)</span>
 
-<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">length</span><span class="o">*</span><span class="n">RATE</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="n">dt</span>
+<span class="w">    </span><span class="c">! Initializing the proper time of each component:</span>
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">cmax</span>
+<span class="w">        </span><span class="n">t</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">d</span>
+<span class="w">    </span><span class="k">end do</span>
+
+<span class="k">    do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">length</span><span class="o">*</span><span class="n">RATE</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
 <span class="w">        </span><span class="c">! Computing and adding each component on the track:</span>
 <span class="w">        </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">cmax</span>
-<span class="w">            </span><span class="n">omega</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
 <span class="w">            </span><span class="c">! Amplitude of the signal (gaussian distribution):</span>
 <span class="w">            </span><span class="n">Amp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amplitude</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
 
-<span class="w">            </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Amp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="w">            </span><span class="c">! Note that omega is not a constant: omega(t)</span>
+<span class="w">            </span><span class="c">! That is the reason for using a different time for each component.</span>
+<span class="w">            </span><span class="n">omega</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">PI</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">            </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Amp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
 <span class="w">        </span><span class="k">end do</span>
 
-<span class="w">        </span><span class="c">! Increasing pitch of each component:</span>
-<span class="w">        </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">increase</span>
-<span class="w">        </span><span class="n">restart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="w">        </span><span class="c">! Each component must stay between fmin and fmax:</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">maxval</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">fmax</span><span class="p">)</span><span class="w"> </span><span class="n">restart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="w">        </span><span class="c">! Would be useful for a decreasing glissando:</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">minval</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">fmin</span><span class="p">)</span><span class="w"> </span><span class="n">restart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-
-<span class="w">        </span><span class="c">! As each component is separated by one octave, we can</span>
-<span class="w">        </span><span class="c">! redefine all the components as they were at t=0, each time one has</span>
-<span class="w">        </span><span class="c">! passed the last octave. In that way, we are sure they won&#39;t diverge</span>
-<span class="w">        </span><span class="c">! at all due to numerical problems:</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">restart</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">initialize_frequencies</span>
+<span class="w">        </span><span class="c">! Incrementing all proper times:</span>
+<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span>
+<span class="w">        </span><span class="c">! Pitch variation of each component for next step:</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">upward</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">increase</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="k">            </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">increase</span>
 <span class="w">        </span><span class="k">end if</span>
+
+<span class="w">        </span><span class="c">! Each component must stay between fmin and fmax:</span>
+<span class="w">        </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">cmax</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">fmax</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">           </span><span class="c">! For upward glissando</span>
+<span class="w">                </span><span class="c">! This component must restart from the bottom of the spectrum:</span>
+<span class="w">                </span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin</span>
+<span class="w">                </span><span class="c">! Its proper time must be also restarted:</span>
+<span class="w">                </span><span class="n">t</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="k">else if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">fmin</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">      </span><span class="c">! For downward glissando</span>
+<span class="w">                </span><span class="c">! This component must restart from the top of the spectrum:</span>
+<span class="w">                </span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmax</span>
+<span class="w">                </span><span class="c">! Its proper time must be also restarted:</span>
+<span class="w">                </span><span class="n">t</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="k">end if</span>
+<span class="k">        end do</span>
 <span class="k">    end do</span>
 
 <span class="k">    </span><span class="n">tape</span><span class="p">%</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span>
@@ -1361,16 +1378,8 @@ the extremities, to reach the 0 level.</p>
 
 <span class="k">contains</span>
 
-<span class="k">    subroutine </span><span class="n">initialize_frequencies</span><span class="p">()</span>
-<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">j</span>
-
-<span class="w">        </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">cmax</span>
-<span class="w">            </span><span class="n">f</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="k">end do</span>
-<span class="k">    end subroutine</span>
-
 <span class="w">    </span><span class="c">!&gt; Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">linear1</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pure </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">linear1</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">)</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">f1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">freq</span><span class="p">).</span><span class="nb">and</span><span class="p">.(</span><span class="n">freq</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">f2</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
@@ -1381,7 +1390,7 @@ the extremities, to reach the 0 level.</p>
 <span class="k">    end function</span>
 
 <span class="w">    </span><span class="c">!&gt; Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">linear2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pure </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">linear2</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">)</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">f1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">freq</span><span class="p">).</span><span class="nb">and</span><span class="p">.(</span><span class="n">freq</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">f2</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
@@ -1393,7 +1402,7 @@ the extremities, to reach the 0 level.</p>
 
 <span class="w">    </span><span class="c">!&gt; Envelope of the glissando. A gaussian, plus linear sections at</span>
 <span class="w">    </span><span class="c">!&gt; the extremities, to reach the 0 level.</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">amplitude</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+<span class="w">    </span><span class="k">pure </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="k">function </span><span class="n">amplitude</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">freq</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Amp</span>
 
@@ -1412,13 +1421,15 @@ the extremities, to reach the 0 level.</p>
 <span class="w">    </span><span class="k">subroutine </span><span class="n">write_amplitude_envelope</span><span class="p">()</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="n">freq</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">u</span>
-<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="mf">0._wp</span><span class="o">/</span><span class="n">points</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">muf</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; muf = &quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">**</span><span class="n">muf</span>
 
 <span class="w">        </span><span class="k">open</span><span class="p">(</span><span class="n">newunit</span><span class="o">=</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;glissando_envelope.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;write&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="mf">0._wp</span>
 <span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">points</span>
-<span class="w">            </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fmin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">fmax</span><span class="o">-</span><span class="n">fmin</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">points</span>
+<span class="w">            </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">increase</span>
 <span class="w">            </span><span class="k">write</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">freq</span><span class="p">,</span><span class="w"> </span><span class="n">amplitude</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end do</span>
 <span class="k">        close</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
@@ -1447,7 +1458,7 @@ the extremities, to reach the 0 level.</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-03-02 14:38 +0000             </p>
+ on 2025-03-09 20:33 +0000             </p>
           </div>
         </div>
         <br>

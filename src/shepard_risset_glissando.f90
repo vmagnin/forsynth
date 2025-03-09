@@ -1,15 +1,14 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-24
-! Last modifications: 2025-02-23
+! Last modifications: 2025-03-09
 
-!> A Shepard-Risset glissando, giving the illusion of an ever increasing pitch.
-!> It is the continuous version of the Shepard scale.
-!> It is not perfect, as we can hear that globally the whole is getting slowly
-!> higher. It is also visible when zooming in the waveform woth audacity.
-!> Some kind of beating might occur due to the fact that in the sin(),
-!> both omega and t are varying at each step. But as the f() are now redefined
-!> regularly, things are unclear for the moment...
+!> A Shepard-Risset glissando, giving the illusion of an ever increasing
+!> or decreasing pitch. It is the continuous version of the Shepard scale.
+!> Obtaining a good glissando is not easy, as you need to understand that
+!> each sin(omega * t) is in fact sin(omega(t) * t). Using a common time for all
+!> causes problems as t increases. In this version, each new component has its
+!> own time: sin(omega(tj) * tj).
 !> https://en.wikipedia.org/wiki/Shepard_tone
 program shepard_risset_glissando
     use forsynth, only: wp, dt, RATE, PI
@@ -18,74 +17,100 @@ program shepard_risset_glissando
 
     implicit none
     type(WAV_file) :: demo
-
-    ! Pulsation (radians/second):
-    real(wp) :: omega
-    real(wp) :: t
-    real(wp) :: Amp
-    integer  :: i, j
     !--------------------------
     ! Glissando parameters:
     !--------------------------
+    logical, parameter :: upward = .true.
     ! Bandwidth 20-20480 Hz: 10 octaves
     integer, parameter  :: cmax = 10
     real(wp), parameter :: fmin = 20._wp
     real(wp), parameter :: fmax = fmin * 2**cmax
+    ! Proper times of each component:
+    real(wp) :: t(cmax)
     ! Frequencies of each component:
     real(wp) :: f(cmax)
     ! Gaussian window, central frequency in log scale, with a shift:
-    real(wp), parameter :: muf  = ((log10(fmin) + log10(fmax)) / 2) - 0.3
-    ! Standard deviation (very important for a good result):
-    real(wp), parameter :: sigma = 0.25_wp
+    real(wp), parameter :: muf  = ((log10(fmin) + log10(fmax)) / 2) - 0.6
+    ! Standard deviation of the gaussian window:
+    real(wp), parameter :: sigma = 0.27_wp
     ! Total duration of the WAV:
     real(wp), parameter :: length = 120._wp
-    ! Setting the increase rate:
-    real(wp), parameter :: d = 16._wp
+    ! Time in seconds between two new components:
+    real(wp), parameter :: d = 5._wp
+    ! Setting the frequency increase/decrease rate at each step:
     real(wp), parameter :: increase = 2**(+1/(d*RATE))
-    logical :: restart
+    !--------------------------
+    ! Pulsation (radians/second):
+    real(wp) :: omega
+    ! Amplitude of a sinusoid:
+    real(wp) :: Amp
+    ! Loop counters:
+    integer  :: i, j
 
     ! Useful for debugging and setting the envelope parameters:
-    !call write_amplitude_envelope()
+    call write_amplitude_envelope()
 
     ! Initializing the components, separated by octaves:
-    call initialize_frequencies()
+    if (upward) then
+        f = [(fmin * 2**(j-1), j = 1, cmax)]
+    else
+        f = [(fmax / 2**(j-1), j = 1, cmax)]
+    end if
     print *, "Frequencies:", f
-
     print *, "Log Central frequency:", muf
-    print *, "Pitch increase:", increase
+
+    print *, "Pitch multiplication factor by time step:", increase
 
     ! We create a new WAV file, and define the number of tracks and its duration:
-    call demo%create_WAV_file('shepard_risset_glissando.wav', tracks=1, duration=length)
+    if (upward) then
+        call demo%create_WAV_file('shepard_risset_glissando_upward.wav', tracks=1, duration=length)
+    else
+        call demo%create_WAV_file('shepard_risset_glissando_downward.wav', tracks=1, duration=length)
+    end if
     print *, "**** Creating " // demo%get_name() // " ****"
 
     associate(tape => demo%tape_recorder)
 
+    ! Initializing the proper time of each component:
+    do j = 1, cmax
+        t(j) = (j-1) * d
+    end do
+
     do i = 0, nint(length*RATE)-1
-        t = i*dt
         ! Computing and adding each component on the track:
         do j = 1, cmax
-            omega = 2*PI*f(j)
             ! Amplitude of the signal (gaussian distribution):
             Amp = amplitude(f(j))
 
-            tape%left(1, i)  = tape%left(1, i) + Amp * sin(omega*t)
+            ! Note that omega is not a constant: omega(t)
+            ! That is the reason for using a different time for each component.
+            omega = 2*PI*f(j)
+            tape%left(1, i)  = tape%left(1, i) + Amp * sin(omega*t(j))
         end do
 
-        ! Increasing pitch of each component:
-        f = f * increase
-        restart = .false.
-        ! Each component must stay between fmin and fmax:
-        if (maxval(f) >= fmax) restart = .true.
-        ! Would be useful for a decreasing glissando:
-        if (minval(f) <= fmin) restart = .true.
-
-        ! As each component is separated by one octave, we can
-        ! redefine all the components as they were at t=0, each time one has
-        ! passed the last octave. In that way, we are sure they won't diverge
-        ! at all due to numerical problems:
-        if (restart) then
-            call initialize_frequencies
+        ! Incrementing all proper times:
+        t = t + dt
+        ! Pitch variation of each component for next step:
+        if (upward) then
+            f = f * increase
+        else
+            f = f / increase
         end if
+
+        ! Each component must stay between fmin and fmax:
+        do j = 1, cmax
+            if (f(j) > fmax) then           ! For upward glissando
+                ! This component must restart from the bottom of the spectrum:
+                f(j) = fmin
+                ! Its proper time must be also restarted:
+                t(j) = 0
+            else if (f(j) < fmin) then      ! For downward glissando
+                ! This component must restart from the top of the spectrum:
+                f(j) = fmax
+                ! Its proper time must be also restarted:
+                t(j) = 0
+            end if
+        end do
     end do
 
     tape%right = tape%left
@@ -104,16 +129,8 @@ program shepard_risset_glissando
 
 contains
 
-    subroutine initialize_frequencies()
-        integer :: j
-
-        do j = 1, cmax
-            f(j) = fmin * 2**(j-1)
-        end do
-    end subroutine
-
     !> Returns an amplitude rising from 0 to 1, from f1 to f2. And 0 outside.
-    real(wp) function linear1(freq, f1, f2)
+    pure real(wp) function linear1(freq, f1, f2)
         real(wp), intent(in) :: freq, f1, f2
 
         if ((f1 <= freq).and.(freq <= f2)) then
@@ -124,7 +141,7 @@ contains
     end function
 
     !> Returns an amplitude falling from 1 to 0, from f1 to f2. And 0 outside.
-    real(wp) function linear2(freq, f1, f2)
+    pure real(wp) function linear2(freq, f1, f2)
         real(wp), intent(in) :: freq, f1, f2
 
         if ((f1 <= freq).and.(freq <= f2)) then
@@ -136,7 +153,7 @@ contains
 
     !> Envelope of the glissando. A gaussian, plus linear sections at
     !> the extremities, to reach the 0 level.
-    real(wp) function amplitude(freq)
+    pure real(wp) function amplitude(freq)
         real(wp), intent(in) :: freq
         real(wp) :: Amp
 
@@ -155,13 +172,15 @@ contains
     subroutine write_amplitude_envelope()
         real(wp) ::freq
         integer  :: u
-        integer, parameter :: points = 500
+        integer, parameter  :: points = 500
+        real(wp), parameter :: increase = 2**(+10._wp/points)
 
         print *, muf, " muf = ", 10**muf
 
         open(newunit=u, file="glissando_envelope.txt", status='replace', action='write')
+        freq = 20._wp
         do i = 1, points
-            freq = fmin + i*(fmax-fmin) / points
+            freq = freq * increase
             write(u, *) freq, amplitude(freq)
         end do
         close(u)
