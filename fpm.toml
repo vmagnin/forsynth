@@ -13,81 +13,10 @@ module-naming = false
 
 [install]
 library = false
+test = false
 
 [fortran]
 implicit-typing = false
 implicit-external = false
 source-form = "free"
 
-[library]
-source-dir="src"
-
-[[test]]
-name="runTests"
-source-dir="test"
-main="main.f90"
-
-[[example]]
-name = "chords_and_melody"
-source-dir = "example"
-main = "chords_and_melody.f90"
-
-[[example]]
-name = "demo_effects"
-source-dir = "example"
-main = "demo_effects.f90"
-
-[[example]]
-name = "blues"
-source-dir = "example"
-main = "blues.f90"
-
-[[example]]
-name = "all_signals"
-source-dir = "example"
-main = "all_signals.f90"
-
-[[example]]
-name = "drum_machine"
-source-dir = "example"
-main = "drum_machine.f90"
-
-[[example]]
-name = "misc_sounds"
-source-dir = "example"
-main = "misc_sounds.f90"
-
-[[example]]
-name = "drone_music"
-source-dir = "example"
-main = "drone_music.f90"
-
-[[example]]
-name = "shepard_scale"
-source-dir = "example"
-main = "shepard_scale.f90"
-
-[[example]]
-name = "shepard_risset_glissando"
-source-dir = "example"
-main = "shepard_risset_glissando.f90"
-
-[[example]]
-name = "doppler_effect"
-source-dir = "example"
-main = "doppler_effect.f90"
-
-[[example]]
-name = "arpeggios"
-source-dir = "example"
-main = "arpeggios.f90"
-
-[[example]]
-name = "radioactivity"
-source-dir = "example"
-main = "radioactivity.f90"
-
-[[example]]
-name = "multiplication_bells"
-source-dir = "example"
-main = "multiplication_bells.f90"
