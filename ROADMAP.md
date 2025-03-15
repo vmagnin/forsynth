@@ -10,7 +10,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 ### Features
 * [x] A function converting dB to linear scale would be useful to set the sound level. (*)
 * [x] Synthesis: a bell (**)
-* [ ] [Compressor effect](https://en.wikipedia.org/wiki/Dynamic_range_compression) (**)
+* [x] [Compressor/expander effect](https://en.wikipedia.org/wiki/Dynamic_range_compression) (**)
 * [ ] Scientific data [sonification](https://en.wikipedia.org/wiki/Sonification): by reading a data file? or by passing an array? (**)
 
 ### Examples
@@ -25,16 +25,19 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [x] The problem of the Shepard–Risset glissando. (***)
 
 
+## ForSynth 0.6
+* ?
+
 ## Ideas for further developments
 
 ### Audio effects
 * [ ] Add more [audio effects](https://en.wikipedia.org/wiki/Category:Audio_effects)
-    * [ ] Expander (?)
     * [ ] [Flanger](https://en.wikipedia.org/wiki/Flanging) (**)
     * [ ] [Phaser](https://en.wikipedia.org/wiki/Phaser_(effect)) (***)
     * [ ] [Chorus](https://en.wikipedia.org/wiki/Chorus_(audio_effect)) (***)
     * [ ] Reverb (***): https://freeverb3-vst.sourceforge.io/
     * [ ] Could Doppler effect be used to obtain a Leslie speaker effect?
+* [ ] Improve the compressor/expander `apply_dynamic_effect()` with attack, release, make-up gain, soft knee. (**)
 
 ### New examples
 * [ ] A Risset rhythm, ever accelerating. (**)
