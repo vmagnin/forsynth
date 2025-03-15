@@ -11,7 +11,7 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk (see the [EL
 * Basic music theory elements (scales, circle of fifths, chords...).
 * Various signals, Karplus-Strong algorithms (guitar and drums), bells.
 * Envelopes generators: ADSR, fade in, fade out, exponentially decreasing envelope.
-* Some audio effects: delay, fuzz, tremolo, reverse and autopan.
+* Audio effects: delay, fuzz, tremolo, reverse, autopan, basic dynamic effects (compressor/expander/limiter).
 * Morse code support.
 * Final mixing with the level and panoramic of each track.
 * The API is documented with FORD: https://vmagnin.github.io/forsynth/
