@@ -1,14 +1,14 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modification: 2025-03-04
+! Last modification: 2025-03-13
 
 program main
     use, intrinsic :: ieee_arithmetic, only: ieee_is_nan
     use forsynth, only: wp, test_the_machine
     use signals, only: weierstrass
     use morse_code
-    use acoustics, only: dB_to_linear
+    use acoustics, only: dB_to_linear, linear_to_dB
     use envelopes, only: fit_exp, ADSR_envelope
     use music, only: fr
 
@@ -36,6 +36,11 @@ program main
     call assert_reals_equal(dB_to_linear(-06._wp), 0.50118_wp, tolerance=1e-4_wp)
     call assert_reals_equal(dB_to_linear(-20._wp), 0.1_wp,     tolerance=tol)
     call assert_reals_equal(dB_to_linear(+20._wp), 10._wp,     tolerance=tol)
+    !************************************************
+    call assert_reals_equal(linear_to_dB(1.0_wp),       0._wp, tolerance=tol)
+    call assert_reals_equal(linear_to_dB(0.50118_wp), -06._wp ,tolerance=1e-4_wp)
+    call assert_reals_equal(linear_to_dB(0.1_wp),     -20._wp, tolerance=tol)
+    call assert_reals_equal(linear_to_dB(10._wp),     +20._wp ,tolerance=tol)
 
     !************************************************
     call assert_reals_equal(fit_exp(-1._wp, x1=0._wp, y1=1._wp, x2=1._wp, y2=exp(1._wp)), &
