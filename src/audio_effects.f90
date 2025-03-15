@@ -143,26 +143,31 @@ contains
         do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
             associate(left => tape%left(track,  i), right => tape%right(track,  i))
 
-            if (present(below).and.below) then  ! upward compression (ratio < 1) or (downward) expansion (ratio > 1)
-                signal = linear_to_db(left)
-                if (signal < thr_db) then
-                    left = sign(dB_to_linear(thr_db - (thr_db - signal) * ratio), left)
-                end if
+            if (present(below)) then
+                if (below) then  ! upward compression (ratio < 1) or (downward) expansion (ratio > 1)
+                    signal = linear_to_db(left)
+                    if (signal < thr_db) then
+                        left = sign(dB_to_linear(thr_db - (thr_db - signal) * ratio), left)
+                    end if
 
-                signal = linear_to_db(right)
-                if (signal < thr_db) then
-                    right = sign(dB_to_linear(thr_db - (thr_db - signal) * ratio), right)
-                end if
-            else    ! downward compression (ratio>1) or upward expansion (ratio<1)
-                signal = linear_to_db(left)
-                if (signal > thr_db) then
-                    left = sign(dB_to_linear(thr_db + (signal - thr_db) / ratio), left)
-                end if
+                    signal = linear_to_db(right)
+                    if (signal < thr_db) then
+                        right = sign(dB_to_linear(thr_db - (thr_db - signal) * ratio), right)
+                    end if
 
-                signal = linear_to_db(right)
-                if (signal > thr_db) then
-                    right = sign(dB_to_linear(thr_db + (signal - thr_db) / ratio), right)
+                    cycle
                 end if
+            end if
+
+            ! Else it is downward compression (ratio>1) or upward expansion (ratio<1)
+            signal = linear_to_db(left)
+            if (signal > thr_db) then
+                left = sign(dB_to_linear(thr_db + (signal - thr_db) / ratio), left)
+            end if
+
+            signal = linear_to_db(right)
+            if (signal > thr_db) then
+                right = sign(dB_to_linear(thr_db + (signal - thr_db) / ratio), right)
             end if
 
             end associate
