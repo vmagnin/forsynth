@@ -21,7 +21,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Fixed
 - `example/shepard_risset_glissando.f90`: obtaining a good glissando was not easy, as you need to understand that each sin(omega * t) is in fact sin(omega(t) * t). Using a common time for all components was causing problems as t was increasing. In this new version, each component has its own time: sin(omega(tj) * tj). Moreover, a downward glissando can also be computed.
-- `src/tape_recorder_class.f90`: added a self%last variable which is the index of the last sample on the track. In tracks, it must be used instead of self%samples which is equal to self%last+1, the first sample having a 0 index.
+- `src/tape_recorder_class.f90`: added a `self%last` variable which is the index of the last sample on the track. In tracks, it must be used instead of `self%samples` which is equal to `self%last+1`, the first sample having a 0 index.
+- Replaced `nint(t2*RATE)-1` by `min(nint(t2*RATE), tape%last)` to avoid exceeding the right limit of the tape array.
 
 
 ## [ForSynth 0.4 "Jean-Claude Risset"] 2024-06-03
