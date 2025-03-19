@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-05-31
+! Last modifications: 2025-03-19
 
 !> This is the basic class, representing a numeric tape recorder with audio tracks.
 module tape_recorder_class
@@ -16,6 +16,8 @@ module tape_recorder_class
         real(wp) :: duration
         !> Number of samples:
         integer  :: samples
+        !> Last sample index:
+        integer  :: last
         !> Two arrays stocking the stereo tracks:
         real(wp), dimension(:, :), allocatable :: left, right
     contains
@@ -41,9 +43,10 @@ contains
         self%tracks = tracks
 
         self%samples = nint(duration * RATE)
+        self%last = self%samples - 1
 
-        allocate(self%left (0:tracks, 0:self%samples))
-        allocate(self%right(0:tracks, 0:self%samples))
+        allocate(self%left (0:tracks, 0:self%last))
+        allocate(self%right(0:tracks, 0:self%last))
 
         call self%clear_tracks()
     end subroutine
@@ -114,11 +117,11 @@ contains
         integer :: i, i1, i3
 
         i1 = nint(t1*RATE)
-        do i = i1, nint(t2*RATE)-1
+        do i = i1, min(nint(t2*RATE), self%last)
             ! The position of the sample receiving the copy:
             i3 = nint(t3*RATE) + (i-i1)
             ! To avoid pasting beyond the end of the track:
-            if (i3 <= self%samples) then
+            if (i3 <= self%last) then
                 self%left( to_track, i3) = self%left( from_track, i)
                 self%right(to_track, i3) = self%right(from_track, i)
             else

@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2025-03-15
+! Last modifications: 2025-03-19
 
 !> Various audio effects
 module audio_effects
@@ -31,7 +31,7 @@ contains
         id = nint(delay / dt)
 
         ! Can not be parallelized:
-        do i = nint(t1*RATE), nint(t2*RATE) - 1
+        do i = nint(t1*RATE), min(nint(t2*RATE), tape%last)
             j = i - id
             if (j > 0) then
                 tape%left(track,  i) = tape%left(track,  i) + Amp * tape%left(track,  j)
@@ -48,7 +48,7 @@ contains
         real(wp), intent(in) :: t1, t2, level
         integer              :: i
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE) - 1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             if (abs(tape%left(track,  i)) > level) then
                 tape%left(track,  i) = sign(level, tape%left(track,  i))
             end if
@@ -72,7 +72,7 @@ contains
 
         omegaLFO = 2 * PI * f
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             t = (i - nint(t1*RATE)) * dt
             tape%left(track,  i) = tape%left(track,  i) * (1.0_wp - AmpLFO*sin(omegaLFO*t))
             tape%right(track, i) = tape%right(track, i) * (1.0_wp - AmpLFO*sin(omegaLFO*t))
@@ -92,7 +92,7 @@ contains
 
         omegaLFO = 2 * PI * f
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             t = (i - nint(t1*RATE)) * dt
             tape%left(track,  i) = tape%left(track,  i) * (1.0_wp - AmpLFO * sin(omegaLFO*t + phi))
             tape%right(track, i) = tape%right(track, i) * (1.0_wp - AmpLFO * cos(omegaLFO*t + phi))
@@ -107,7 +107,7 @@ contains
         integer              :: i, i1, i2
 
         i1 = nint(t1*RATE)
-        i2 = nint(t2*RATE) - 1
+        i2 = min(nint(t2*RATE), tape%last)
 
         ! Track 0 is used as an auxiliary track:
         do concurrent(i = i1:i2)
@@ -140,7 +140,7 @@ contains
 
         thr_db = linear_to_db(threshold)
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             associate(left => tape%left(track,  i), right => tape%right(track,  i))
 
             if (present(below)) then

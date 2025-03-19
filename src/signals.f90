@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2025-02-23
+! Last modifications: 2025-03-19
 
 !> Subroutines generating different kind of signals
 module signals
@@ -38,7 +38,7 @@ contains
         env = 1._wp     ! Default value if no envelope is passed
         omega = 2.0_wp * PI * f
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             t = (i - nint(t1*RATE)) * dt
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
@@ -68,8 +68,7 @@ contains
         env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
-            t = (i - nint(t1*RATE)) * dt
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
@@ -106,7 +105,7 @@ contains
         env = 1._wp     ! Default value if no envelope is passed
         tau = 1.0_wp / f
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             t = (i - nint(t1*RATE)) * dt
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
@@ -139,7 +138,7 @@ contains
         tau = 1.0_wp / f
         a = (2.0_wp * Amp) / (tau/2.0_wp)
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             t = (i - nint(t1*RATE)) * dt
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
@@ -173,7 +172,7 @@ contains
         integer  :: i1, i2
 
         i1 = nint(t1*RATE)
-        i2 = nint(t2*RATE) - 1
+        i2 = min(nint(t2*RATE), tape%last)
 
         P = nint(RATE / f) - 2
 
@@ -211,7 +210,7 @@ contains
         real(wp), parameter :: S = 4._wp
 
         i1 = nint(t1*RATE)
-        i2 = nint(t2*RATE) - 1
+        i2 = min(nint(t2*RATE), tape%last)
 
         P = nint(RATE / f) - 2
 
@@ -262,7 +261,7 @@ contains
         real(wp) :: the_sign
 
         i1 = nint(t1*RATE)
-        i2 = nint(t2*RATE) - 1
+        i2 = min(nint(t2*RATE), tape%last)
 
         ! Track 0 is used as an auxiliary track.
 
@@ -305,7 +304,7 @@ contains
         real(wp), parameter :: S = 4._wp
 
         i1 = nint(t1*RATE)
-        i2 = nint(t2*RATE) - 1
+        i2 = min(nint(t2*RATE), tape%last)
 
         ! Track 0 is used as an auxiliary track.
 
@@ -359,7 +358,7 @@ contains
         env = 1._wp
 
         t = 0._wp
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+        do i = nint(t1*RATE), min(nint(t2*RATE), tape%last)
             ! Noise is different in both channels:
             call random_number(r)
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
@@ -411,7 +410,7 @@ contains
         env = 1._wp     ! Default value if no envelope is passed
         omega = 2.0_wp * PI * f
 
-        do concurrent(i = nint(t1*RATE) : nint(t2*RATE)-1)
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             t = (i - nint(t1*RATE)) * dt
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
@@ -438,7 +437,7 @@ contains
         t2 = t1 + 20._wp    ! The longest partial (hum) is lasting 20 seconds.
 
         ! The MIN() is used to stay inside the tape arrays.
-        do concurrent(i = nint(t1*RATE) : MIN(nint(t2*RATE)-1, tape%samples))
+        do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
             t = t1 + (i - nint(t1*RATE)) * dt
 
             q = (2*PI*ratio)*(t-t1)
