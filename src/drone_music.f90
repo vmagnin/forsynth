@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-05-19
-! Last modifications: 2025-02-23
+! Last modifications: 2025-03-19
 
 !> Experimental drone music.
 program drone_music
@@ -36,7 +36,7 @@ program drone_music
     associate(tape => demo%tape_recorder)
 
     t = 0._wp
-    do i = nint(t1*RATE), nint(t2*RATE)-1
+    do i = nint(t1*RATE), min(nint(t2*RATE), tape%last)
         ! Fundamental:
         f1 = f0 * (1 + 0.01_wp*sin(omegaLFO1 * t))
         omega1 = 2*PI * f1

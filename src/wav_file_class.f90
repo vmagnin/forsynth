@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2024-07-14
+! Last modifications: 2025-03-19
 
 !> The main class that you will use to create your WAV files.
 module wav_file_class
@@ -119,7 +119,7 @@ contains
         ! Looking for the maximum amplitude (must not be zero):
         maxi = max(1e-16_wp, maxval(abs(self%left(0, :))), maxval(abs(self%right(0, :))))
 
-        do i = 0 , self%samples
+        do i = 0 , self%last
             ! Writing the amplitude of left then right channels as 16 bit signed integers:
             write(self%fileunit, iostat=status) nint((self%left(0, i)  / maxi * MAX_AMPLITUDE), kind=INT16)
             write(self%fileunit, iostat=status) nint((self%right(0, i) / maxi * MAX_AMPLITUDE), kind=INT16)

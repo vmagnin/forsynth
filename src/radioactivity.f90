@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2025-01-29
-! Last modifications: 2025-02-23
+! Last modifications: 2025-03-19
 
 !> Radioactive decay of a population of atoms. A tribute to Kraftwerk.
 !> Chords are played on a 2nd track and Morse code on a third track.
@@ -116,7 +116,7 @@ contains
 
         omega = 2 * PI * f
         t = 0._wp
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+        do i = nint(t1*RATE), min(nint(t2*RATE), tape%last)
             ! Bessel functions of the first kind: a short ping
             b = Amp * bessel_jn(1, omega*t) * bessel_jn(2, omega*t)
             tape%left( track, i) = tape%left( track, i) + b

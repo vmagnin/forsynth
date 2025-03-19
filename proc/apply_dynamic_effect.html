@@ -10,7 +10,7 @@
     <meta name="author" content="Vincent Magnin" >
     <link rel="icon" href="../favicon.png">
 
-    <title>add_square_wave &ndash; ForSynth</title>
+    <title>apply_dynamic_effect &ndash; ForSynth</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -65,7 +65,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>add_square_wave
+    <h1>apply_dynamic_effect
       <small>Subroutine</small>
       
     </h1>
@@ -77,21 +77,21 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 2.7% of total for procedures.">24 statements</a>
+                 title=" 3.8% of total for procedures.">34 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/signals.f90"> Source File</a>
+              <a href="../src/audio_effects.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/signals.f90.html'>signals.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/signals.html'>signals</a></li>
-            <li class="breadcrumb-item active" aria-current="page">add_square_wave</li>
+                <li class="breadcrumb-item"><a href='../sourcefile/audio_effects.f90.html'>audio_effects.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/audio_effects.html'>audio_effects</a></li>
+            <li class="breadcrumb-item active" aria-current="page">apply_dynamic_effect</li>
           </ol>
         </nav>
       </div>
@@ -132,7 +132,7 @@
     <div class="card card-primary">
       <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
       <div class="list-group">
-        <a class="list-group-item" href="../proc/add_square_wave.html#src">add_square_wave</a>
+        <a class="list-group-item" href="../proc/apply_dynamic_effect.html#src">apply_dynamic_effect</a>
       </div>
     </div>
 
@@ -142,11 +142,21 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine add_square_wave(tape, track, t1, t2, f, Amp, envelope)  
+    <h2>public  subroutine apply_dynamic_effect(tape, track, t1, t2, threshold, ratio, below)  
 </h2>
     
 
-    <p>Adds on the track a square wave with an ADSR envelope:</p>
+    <p>A basic dynamic effect with hard knee, and only two parameters :
+the threshold &gt; 0 expressed linearly (not in dB) and the ratio.
+It is a compressor if the ratio is &gt; 1.
+It can also be used as a limiter with a ratio &gt;= 10.
+Or an upward expander with a ratio &lt; 1.
+By default, the ratio is applied above the threshold, but the "below"
+optional parameter can be used to reverse it and obtain:
+- an upward compressor with ratio &lt; 1
+- a (downward) expander with ratio &gt; 1.
+There are no attack and release parameters at this time.
+https://en.wikipedia.org/wiki/Dynamic_range_compression</p>
 
 
     <h3>Arguments</h3>
@@ -162,7 +172,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~9"></span>
+              <span class="anchor" id="variable-tape~25"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -177,7 +187,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~9"></span>
+              <span class="anchor" id="variable-track~25"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -192,7 +202,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~11"></span>
+              <span class="anchor" id="variable-t1~28"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -207,7 +217,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~11"></span>
+              <span class="anchor" id="variable-t2~28"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -222,7 +232,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~10"></span>
+              <span class="anchor" id="variable-threshold"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -230,14 +240,14 @@
               
             </td>
             <td>::</td>
-            <td><strong>f</strong></td>
+            <td><strong>threshold</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~11"></span>
+              <span class="anchor" id="variable-ratio~2"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -245,22 +255,22 @@
               
             </td>
             <td>::</td>
-            <td><strong>Amp</strong></td>
+            <td><strong>ratio</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-envelope~4"></span>
-              type(<a href='../type/adsr_envelope.html'>ADSR_envelope</a>),
+              <span class="anchor" id="variable-below"></span>
+              logical,
             </td>
 <td>intent(in),</td>
               <td>optional</td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>envelope</strong></td>
+            <td><strong>below</strong></td>
             <td>
                 
             </td>
@@ -279,32 +289,47 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~add_square_wave~~CallsGraph Pages: 1 -->
-<svg id="procadd_square_waveCallsGraph" width="319pt" height="32pt"
- viewBox="0.00 0.00 319.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~add_square_wave~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
-<title>proc~~add_square_wave~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 315,-28 315,4 -4,4"/>
-<!-- proc~add_square_wave -->
-<g id="proc~~add_square_wave~~CallsGraph_node1" class="node">
-<title>proc~add_square_wave</title>
-<polygon fill="none" stroke="black" points="107,-24 0,-24 0,0 107,0 107,-24"/>
-<text text-anchor="middle" x="53.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">add_square_wave</text>
+<!-- Title: proc~~apply_dynamic_effect~~CallsGraph Pages: 1 -->
+<svg id="procapply_dynamic_effectCallsGraph" width="252pt" height="74pt"
+ viewBox="0.00 0.00 252.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~apply_dynamic_effect~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>proc~~apply_dynamic_effect~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 248,-70 248,4 -4,4"/>
+<!-- proc~apply_dynamic_effect -->
+<g id="proc~~apply_dynamic_effect~~CallsGraph_node1" class="node">
+<title>proc~apply_dynamic_effect</title>
+<polygon fill="none" stroke="black" points="129,-45 0,-45 0,-21 129,-21 129,-45"/>
+<text text-anchor="middle" x="64.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">apply_dynamic_effect</text>
 </g>
-<!-- proc~adsr_level -->
-<g id="proc~~add_square_wave~~CallsGraph_node2" class="node">
-<title>proc~adsr_level</title>
-<g id="a_proc~~add_square_wave~~CallsGraph_node2"><a xlink:href="../proc/adsr_level.html" xlink:title="ADSR_envelope%ADSR_level">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="311,-24 143,-24 143,0 311,0 311,-24"/>
-<text text-anchor="middle" x="227" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ADSR_envelope%ADSR_level</text>
+<!-- proc~db_to_linear -->
+<g id="proc~~apply_dynamic_effect~~CallsGraph_node2" class="node">
+<title>proc~db_to_linear</title>
+<g id="a_proc~~apply_dynamic_effect~~CallsGraph_node2"><a xlink:href="../proc/db_to_linear.html" xlink:title="dB_to_linear">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="244,-66 165,-66 165,-42 244,-42 244,-66"/>
+<text text-anchor="middle" x="204.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dB_to_linear</text>
 </a>
 </g>
 </g>
-<!-- proc~add_square_wave&#45;&gt;proc~adsr_level -->
-<g id="proc~~add_square_wave~~CallsGraph_edge1" class="edge">
-<title>proc~add_square_wave&#45;&gt;proc~adsr_level</title>
-<path fill="none" stroke="#ff0000" d="M107.36,-12C115.42,-12 123.94,-12 132.57,-12"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="132.72,-15.5 142.72,-12 132.72,-8.5 132.72,-15.5"/>
+<!-- proc~apply_dynamic_effect&#45;&gt;proc~db_to_linear -->
+<g id="proc~~apply_dynamic_effect~~CallsGraph_edge1" class="edge">
+<title>proc~apply_dynamic_effect&#45;&gt;proc~db_to_linear</title>
+<path fill="none" stroke="#ff0000" d="M129.25,-42.7C137.79,-44 146.44,-45.32 154.67,-46.57"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.41,-50.07 164.83,-48.11 155.47,-43.15 154.41,-50.07"/>
+</g>
+<!-- proc~linear_to_db -->
+<g id="proc~~apply_dynamic_effect~~CallsGraph_node3" class="node">
+<title>proc~linear_to_db</title>
+<g id="a_proc~~apply_dynamic_effect~~CallsGraph_node3"><a xlink:href="../proc/linear_to_db.html" xlink:title="linear_to_dB">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="244,-24 165,-24 165,0 244,0 244,-24"/>
+<text text-anchor="middle" x="204.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">linear_to_dB</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_dynamic_effect&#45;&gt;proc~linear_to_db -->
+<g id="proc~~apply_dynamic_effect~~CallsGraph_edge2" class="edge">
+<title>proc~apply_dynamic_effect&#45;&gt;proc~linear_to_db</title>
+<path fill="none" stroke="#ff0000" d="M129.25,-23.3C137.79,-22 146.44,-20.68 154.67,-19.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="155.47,-22.85 164.83,-17.89 154.41,-15.93 155.47,-22.85"/>
 </g>
 </g>
 </svg>
@@ -399,32 +424,32 @@ large graphs.</div>
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~add_square_wave~~CalledByGraph Pages: 1 -->
-<svg id="procadd_square_waveCalledByGraph" width="218pt" height="32pt"
- viewBox="0.00 0.00 218.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~add_square_wave~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
-<title>proc~~add_square_wave~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 214,-28 214,4 -4,4"/>
-<!-- proc~add_square_wave -->
-<g id="proc~~add_square_wave~~CalledByGraph_node1" class="node">
-<title>proc~add_square_wave</title>
-<polygon fill="none" stroke="black" points="210,-24 103,-24 103,0 210,0 210,-24"/>
-<text text-anchor="middle" x="156.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">add_square_wave</text>
+<!-- Title: proc~~apply_dynamic_effect~~CalledByGraph Pages: 1 -->
+<svg id="procapply_dynamic_effectCalledByGraph" width="258pt" height="32pt"
+ viewBox="0.00 0.00 258.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~apply_dynamic_effect~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~apply_dynamic_effect~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 254,-28 254,4 -4,4"/>
+<!-- proc~apply_dynamic_effect -->
+<g id="proc~~apply_dynamic_effect~~CalledByGraph_node1" class="node">
+<title>proc~apply_dynamic_effect</title>
+<polygon fill="none" stroke="black" points="250,-24 121,-24 121,0 250,0 250,-24"/>
+<text text-anchor="middle" x="185.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">apply_dynamic_effect</text>
 </g>
-<!-- program~all_signals -->
-<g id="proc~~add_square_wave~~CalledByGraph_node2" class="node">
-<title>program~all_signals</title>
-<g id="a_proc~~add_square_wave~~CalledByGraph_node2"><a xlink:href="../program/all_signals.html" xlink:title="all_signals">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-24 0,-24 0,0 67,0 67,-24"/>
-<text text-anchor="middle" x="33.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">all_signals</text>
+<!-- program~demo_effects -->
+<g id="proc~~apply_dynamic_effect~~CalledByGraph_node2" class="node">
+<title>program~demo_effects</title>
+<g id="a_proc~~apply_dynamic_effect~~CalledByGraph_node2"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="85,-24 0,-24 0,0 85,0 85,-24"/>
+<text text-anchor="middle" x="42.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
 </a>
 </g>
 </g>
-<!-- program~all_signals&#45;&gt;proc~add_square_wave -->
-<g id="proc~~add_square_wave~~CalledByGraph_edge1" class="edge">
-<title>program~all_signals&#45;&gt;proc~add_square_wave</title>
-<path fill="none" stroke="#ff0000" d="M67.24,-12C75.09,-12 83.73,-12 92.45,-12"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="92.67,-15.5 102.67,-12 92.67,-8.5 92.67,-15.5"/>
+<!-- program~demo_effects&#45;&gt;proc~apply_dynamic_effect -->
+<g id="proc~~apply_dynamic_effect~~CalledByGraph_edge1" class="edge">
+<title>program~demo_effects&#45;&gt;proc~apply_dynamic_effect</title>
+<path fill="none" stroke="#ff0000" d="M85.04,-12C93.1,-12 101.77,-12 110.51,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="110.77,-15.5 120.77,-12 110.77,-8.5 110.77,-15.5"/>
 </g>
 </g>
 </svg>
@@ -523,41 +548,49 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">add_square_wave</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">apply_dynamic_effect</span><span class="p">(</span><span class="n">tape</span><span class="p">,</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">,</span><span class="w"> </span><span class="n">ratio</span><span class="p">,</span><span class="w"> </span><span class="n">below</span><span class="p">)</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">tape_recorder</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tape</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">track</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Amp</span>
-<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">ADSR_envelope</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">envelope</span>
-<span class="w">        </span><span class="c">! Period in seconds:</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tau</span>
-<span class="w">        </span><span class="c">! Time in seconds:</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">signal</span>
-<span class="w">        </span><span class="c">! ADSR Envelope value:</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">env</span>
-<span class="w">        </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">,</span><span class="w"> </span><span class="n">ratio</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">below</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="nb">signal</span><span class="p">,</span><span class="w"> </span><span class="n">thr_db</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 
-<span class="w">        </span><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1._wp</span><span class="w">     </span><span class="c">! Default value if no envelope is passed</span>
-<span class="w">        </span><span class="n">tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_wp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">f</span>
+<span class="w">        </span><span class="n">thr_db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linear_to_db</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">do</span><span class="w"> </span><span class="k">concurrent</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nint</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">RATE</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="nb">nint</span><span class="p">(</span><span class="n">t2</span><span class="o">*</span><span class="n">RATE</span><span class="p">),</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">last</span><span class="p">))</span>
+<span class="w">            </span><span class="k">associate</span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w">  </span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">right</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w">  </span><span class="n">i</span><span class="p">))</span>
 
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">envelope</span><span class="p">))</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">envelope</span><span class="p">%</span><span class="n">get_level</span><span class="p">(</span><span class="n">t1</span><span class="o">+</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">below</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                if</span><span class="w"> </span><span class="p">(</span><span class="n">below</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w">  </span><span class="c">! upward compression (ratio &lt; 1) or (downward) expansion (ratio &gt; 1)</span>
+<span class="w">                    </span><span class="nb">signal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linear_to_db</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">signal</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">thr_db</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="n">dB_to_linear</span><span class="p">(</span><span class="n">thr_db</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">thr_db</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">signal</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ratio</span><span class="p">),</span><span class="w"> </span><span class="n">left</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">end if</span>
 
-<span class="w">            </span><span class="c">! Number of the half-period:</span>
-<span class="w">            </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">tau</span><span class="o">/</span><span class="mf">2.0_wp</span><span class="p">))</span>
+<span class="k">                    </span><span class="nb">signal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linear_to_db</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">signal</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">thr_db</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="n">dB_to_linear</span><span class="p">(</span><span class="n">thr_db</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">thr_db</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">signal</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ratio</span><span class="p">),</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">end if</span>
 
-<span class="w">            </span><span class="c">! If n is even, signal is +Amp, if odd -Amp:</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                </span><span class="nb">signal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">+</span><span class="n">Amp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">env</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="k">                </span><span class="nb">signal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Amp</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">env</span>
+<span class="k">                    cycle</span>
+<span class="k">                end if</span>
+<span class="k">            end if</span>
+
+<span class="w">            </span><span class="c">! Else it is downward compression (ratio&gt;1) or upward expansion (ratio&lt;1)</span>
+<span class="w">            </span><span class="nb">signal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linear_to_db</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">signal</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">thr_db</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="n">dB_to_linear</span><span class="p">(</span><span class="n">thr_db</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nb">signal</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">thr_db</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">ratio</span><span class="p">),</span><span class="w"> </span><span class="n">left</span><span class="p">)</span>
 <span class="w">            </span><span class="k">end if</span>
 
-<span class="k">            </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w">  </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">left</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w">  </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">signal</span>
-<span class="nb">            </span><span class="n">tape</span><span class="p">%</span><span class="n">right</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tape</span><span class="p">%</span><span class="n">right</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">signal</span>
-<span class="nb">        </span><span class="k">end do</span>
-<span class="k">    end subroutine </span><span class="n">add_square_wave</span>
+<span class="k">            </span><span class="nb">signal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linear_to_db</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">signal</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">thr_db</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="n">dB_to_linear</span><span class="p">(</span><span class="n">thr_db</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nb">signal</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">thr_db</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">ratio</span><span class="p">),</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="w">            </span><span class="k">end if</span>
+
+<span class="k">            end associate</span>
+<span class="k">        end do</span>
+<span class="k">    end subroutine </span><span class="n">apply_dynamic_effect</span>
 </pre></div>
 
     </section>

@@ -10,7 +10,7 @@
     <meta name="author" content="Vincent Magnin" >
     <link rel="icon" href="../favicon.png">
 
-    <title>apply_autopan_effect &ndash; ForSynth</title>
+    <title>linear_to_dB &ndash; ForSynth</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -65,8 +65,8 @@
 
     <div class="container">
   <div class="row">
-    <h1>apply_autopan_effect
-      <small>Subroutine</small>
+    <h1>linear_to_dB
+      <small>Function</small>
       
     </h1>
       <div class="container p-2 mb-4 bg-light border rounded-3">
@@ -77,21 +77,21 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 1.7% of total for procedures.">15 statements</a>
+                 title=" 0.9% of total for procedures.">8 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/audio_effects.f90"> Source File</a>
+              <a href="../src/acoustics.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/audio_effects.f90.html'>audio_effects.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/audio_effects.html'>audio_effects</a></li>
-            <li class="breadcrumb-item active" aria-current="page">apply_autopan_effect</li>
+                <li class="breadcrumb-item"><a href='../sourcefile/acoustics.f90.html'>acoustics.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/acoustics.html'>acoustics</a></li>
+            <li class="breadcrumb-item active" aria-current="page">linear_to_dB</li>
           </ol>
         </nav>
       </div>
@@ -136,12 +136,12 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine apply_autopan_effect(tape, track, t1, t2, f, AmpLFO)  
+    <h2>public pure function linear_to_dB(amp)  
 </h2>
     
 
-    <p>Make the sound move from one channel to the other one at a frequency f
-and with an amplitude AmpLFO in [0 ; 1].</p>
+    <p>This function converts an amplitude (&gt;=0) to dB.
+ https://en.wikipedia.org/wiki/Decibel</p>
 
 
     <h3>Arguments</h3>
@@ -157,37 +157,7 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~23"></span>
-              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tape</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-track~23"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>track</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t1~26"></span>
+              <span class="anchor" id="variable-amp"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -195,52 +165,7 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
               
             </td>
             <td>::</td>
-            <td><strong>t1</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t2~26"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>t2</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-f~19"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>f</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-amplfo~2"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>AmpLFO</strong></td>
+            <td><strong>amp</strong></td>
             <td>
                 
             </td>
@@ -248,6 +173,13 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
     </tbody>
   </table>
 
+      <h3>Return Value
+        <small>
+          <span class="anchor" id="variable-linear_to_db"></span>
+          real(kind=wp)
+        </small>
+      </h3>
+      
     <br>
     <div class="card">
       <div class="card-header">
@@ -259,32 +191,47 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~apply_autopan_effect~~CalledByGraph Pages: 1 -->
-<svg id="procapply_autopan_effectCalledByGraph" width="256pt" height="32pt"
- viewBox="0.00 0.00 256.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~apply_autopan_effect~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
-<title>proc~~apply_autopan_effect~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 252,-28 252,4 -4,4"/>
-<!-- proc~apply_autopan_effect -->
-<g id="proc~~apply_autopan_effect~~CalledByGraph_node1" class="node">
-<title>proc~apply_autopan_effect</title>
-<polygon fill="none" stroke="black" points="248,-24 121,-24 121,0 248,0 248,-24"/>
-<text text-anchor="middle" x="184.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">apply_autopan_effect</text>
+<!-- Title: proc~~linear_to_db~~CalledByGraph Pages: 1 -->
+<svg id="proclinear_to_dbCalledByGraph" width="373pt" height="32pt"
+ viewBox="0.00 0.00 373.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~linear_to_db~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~linear_to_db~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 369,-28 369,4 -4,4"/>
+<!-- proc~linear_to_db -->
+<g id="proc~~linear_to_db~~CalledByGraph_node1" class="node">
+<title>proc~linear_to_db</title>
+<polygon fill="none" stroke="black" points="365,-24 286,-24 286,0 365,0 365,-24"/>
+<text text-anchor="middle" x="325.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">linear_to_dB</text>
+</g>
+<!-- proc~apply_dynamic_effect -->
+<g id="proc~~linear_to_db~~CalledByGraph_node2" class="node">
+<title>proc~apply_dynamic_effect</title>
+<g id="a_proc~~linear_to_db~~CalledByGraph_node2"><a xlink:href="../proc/apply_dynamic_effect.html" xlink:title="apply_dynamic_effect">
+<polygon fill="#d9534f" stroke="#d9534f" points="250,-24 121,-24 121,0 250,0 250,-24"/>
+<text text-anchor="middle" x="185.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">apply_dynamic_effect</text>
+</a>
+</g>
+</g>
+<!-- proc~apply_dynamic_effect&#45;&gt;proc~linear_to_db -->
+<g id="proc~~linear_to_db~~CalledByGraph_edge1" class="edge">
+<title>proc~apply_dynamic_effect&#45;&gt;proc~linear_to_db</title>
+<path fill="none" stroke="#ff0000" d="M250.25,-12C258.79,-12 267.44,-12 275.67,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="275.83,-15.5 285.83,-12 275.83,-8.5 275.83,-15.5"/>
 </g>
 <!-- program~demo_effects -->
-<g id="proc~~apply_autopan_effect~~CalledByGraph_node2" class="node">
+<g id="proc~~linear_to_db~~CalledByGraph_node3" class="node">
 <title>program~demo_effects</title>
-<g id="a_proc~~apply_autopan_effect~~CalledByGraph_node2"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
+<g id="a_proc~~linear_to_db~~CalledByGraph_node3"><a xlink:href="../program/demo_effects.html" xlink:title="demo_effects">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="85,-24 0,-24 0,0 85,0 85,-24"/>
 <text text-anchor="middle" x="42.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">demo_effects</text>
 </a>
 </g>
 </g>
-<!-- program~demo_effects&#45;&gt;proc~apply_autopan_effect -->
-<g id="proc~~apply_autopan_effect~~CalledByGraph_edge1" class="edge">
-<title>program~demo_effects&#45;&gt;proc~apply_autopan_effect</title>
-<path fill="none" stroke="#ff0000" d="M85.13,-12C93.18,-12 101.83,-12 110.55,-12"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="110.78,-15.5 120.78,-12 110.78,-8.5 110.78,-15.5"/>
+<!-- program~demo_effects&#45;&gt;proc~apply_dynamic_effect -->
+<g id="proc~~linear_to_db~~CalledByGraph_edge2" class="edge">
+<title>program~demo_effects&#45;&gt;proc~apply_dynamic_effect</title>
+<path fill="none" stroke="#ff0000" d="M85.04,-12C93.1,-12 101.77,-12 110.51,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="110.77,-15.5 120.77,-12 110.77,-8.5 110.77,-15.5"/>
 </g>
 </g>
 </svg>

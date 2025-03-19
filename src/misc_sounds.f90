@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin, 2024-04-29
-! Last modifications: 2025-03-04
+! Last modifications: 2025-03-19
 
 !> Miscellaneous signals, especially obtained by frequency or phase modulation.
 !> A WAV file is created for each sound.
@@ -49,7 +49,7 @@ contains
 
         omega = 2 * PI * f
         t = 0._wp
-        do i = nint(t1*RATE), nint(t2*RATE)-1
+        do i = nint(t1*RATE), min(nint(t2*RATE), tape%last)
             select case (choice)
                 case (0) ! Pure sinus
                     signal = + Amp * sin(omega*t)
