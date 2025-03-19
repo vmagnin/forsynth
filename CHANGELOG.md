@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `src/envelopes.f90`: added `fit_exp(x, x1, y1, x2, y2)` for computing an exponentially decreasing y(x) envelope between (x1,y1) and (x2,y2).
 - `src/signals.f90`: added `add_bell()`, based on the [Risset, 1969] bell signal #430 with 11 frequencies.
 - `example/multiplication_bells.f90`: a demo using the `add_bell` signal.
+- `example/four_thirty_three.f90`: a minimalist ForSynth file! And a double tribute to John Cage and Joy Division.
 - In `test/main.f90`: more tests and a `assert_reals_equal(a, b, tolerance)` function.
 
 ### Changed
