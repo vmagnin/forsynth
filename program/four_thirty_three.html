@@ -1,0 +1,702 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!">
+    <meta name="author" content="Vincent Magnin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>four_thirty_three &ndash; ForSynth</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForSynth <small>0.4.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>four_thirty_three      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.6% of total for programs.">13 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/four_thirty_three.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/four_thirty_three.f90.html'>four_thirty_three.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">four_thirty_three</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/four_thirty_three.html#variable-demo~11">demo</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/four_thirty_three.html#src">four_thirty_three</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/wav_file_class.html'>wav_file_class</a></li>
+                  <li class="list-inline-item"><a href='../module/forsynth.html'>forsynth</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~four_thirty_three~~UsesGraph Pages: 1 -->
+<svg id="programfour_thirty_threeUsesGraph" width="608pt" height="82pt"
+ viewBox="0.00 0.00 608.00 82.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~four_thirty_three~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 78.2)">
+<title>program~~four_thirty_three~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-78.2 604,-78.2 604,4 -4,4"/>
+<!-- program~four_thirty_three -->
+<g id="program~~four_thirty_three~~UsesGraph_node1" class="node">
+<title>program~four_thirty_three</title>
+<polygon fill="none" stroke="black" points="600,-64 500,-64 500,-40 600,-40 600,-64"/>
+<text text-anchor="middle" x="550" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50">four_thirty_three</text>
+</g>
+<!-- module~forsynth -->
+<g id="program~~four_thirty_three~~UsesGraph_node2" class="node">
+<title>module~forsynth</title>
+<g id="a_program~~four_thirty_three~~UsesGraph_node2"><a xlink:href="../module/forsynth.html" xlink:title="forsynth">
+<polygon fill="#337ab7" stroke="#337ab7" points="186,-44 130,-44 130,-20 186,-20 186,-44"/>
+<text text-anchor="middle" x="158" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsynth</text>
+</a>
+</g>
+</g>
+<!-- program~four_thirty_three&#45;&gt;module~forsynth -->
+<g id="program~~four_thirty_three~~UsesGraph_edge1" class="edge">
+<title>program~four_thirty_three&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M499.86,-60.4C446.36,-68.44 358.32,-78.47 282.5,-72"/>
+</g>
+<!-- module~wav_file_class -->
+<g id="program~~four_thirty_three~~UsesGraph_node3" class="node">
+<title>module~wav_file_class</title>
+<g id="a_program~~four_thirty_three~~UsesGraph_node3"><a xlink:href="../module/wav_file_class.html" xlink:title="wav_file_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="464,-44 377,-44 377,-20 464,-20 464,-44"/>
+<text text-anchor="middle" x="420.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wav_file_class</text>
+</a>
+</g>
+</g>
+<!-- program~four_thirty_three&#45;&gt;module~wav_file_class -->
+<g id="program~~four_thirty_three~~UsesGraph_edge2" class="edge">
+<title>program~four_thirty_three&#45;&gt;module~wav_file_class</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M499.71,-44.27C491.34,-42.95 482.62,-41.59 474.16,-40.26"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="474.45,-36.76 464.03,-38.67 473.36,-43.68 474.45,-36.76"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="program~~four_thirty_three~~UsesGraph_node4" class="node">
+<title>iso_fortran_env</title>
+<g id="a_program~~four_thirty_three~~UsesGraph_node4"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~forsynth&#45;&gt;iso_fortran_env -->
+<g id="program~~four_thirty_three~~UsesGraph_edge3" class="edge">
+<title>module~forsynth&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M129.78,-27C121.99,-25.58 113.2,-23.96 104.34,-22.34"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="104.84,-18.87 94.37,-20.51 103.57,-25.76 104.84,-18.87"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~forsynth -->
+<g id="program~~four_thirty_three~~UsesGraph_edge5" class="edge">
+<title>module~wav_file_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M396.77,-44.19C370.02,-57.21 323.98,-75.54 282.5,-72"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M280.5,-72C250.16,-69.41 217.47,-58.12 193.65,-48.19"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="194.9,-44.92 184.33,-44.19 192.14,-51.36 194.9,-44.92"/>
+</g>
+<!-- module~wav_file_class&#45;&gt;iso_fortran_env -->
+<g id="program~~four_thirty_three~~UsesGraph_edge4" class="edge">
+<title>module~wav_file_class&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M382.37,-19.94C369.42,-16.3 354.71,-12.8 341,-11 259.29,-0.26 163.64,-3.51 104.43,-7.35"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="103.91,-3.88 94.17,-8.05 104.38,-10.86 103.91,-3.88"/>
+</g>
+<!-- module~tape_recorder_class -->
+<g id="program~~four_thirty_three~~UsesGraph_node5" class="node">
+<title>module~tape_recorder_class</title>
+<g id="a_program~~four_thirty_three~~UsesGraph_node5"><a xlink:href="../module/tape_recorder_class.html" xlink:title="tape_recorder_class">
+<polygon fill="#337ab7" stroke="#337ab7" points="341,-44 222,-44 222,-20 341,-20 341,-44"/>
+<text text-anchor="middle" x="281.5" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder_class</text>
+</a>
+</g>
+</g>
+<!-- module~wav_file_class&#45;&gt;module~tape_recorder_class -->
+<g id="program~~four_thirty_three~~UsesGraph_edge6" class="edge">
+<title>module~wav_file_class&#45;&gt;module~tape_recorder_class</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M376.9,-32C368.77,-32 360.07,-32 351.36,-32"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="351.17,-28.5 341.17,-32 351.17,-35.5 351.17,-28.5"/>
+</g>
+<!-- module~tape_recorder_class&#45;&gt;module~forsynth -->
+<g id="program~~four_thirty_three~~UsesGraph_edge7" class="edge">
+<title>module~tape_recorder_class&#45;&gt;module~forsynth</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M221.89,-32C213.19,-32 204.44,-32 196.35,-32"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="196.14,-28.5 186.14,-32 196.14,-35.5 196.14,-28.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>A minimalist Forsynth file! And a double tribute to John Cage and Joy Division.</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~four_thirty_three~~CallsGraph Pages: 1 -->
+<svg id="programfour_thirty_threeCallsGraph" width="641pt" height="178pt"
+ viewBox="0.00 0.00 641.00 177.81" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~four_thirty_three~~CallsGraph" class="graph" transform="scale(0.89 0.89) rotate(0) translate(4 196)">
+<title>program~~four_thirty_three~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-196 717,-196 717,4 -4,4"/>
+<!-- program~four_thirty_three -->
+<g id="program~~four_thirty_three~~CallsGraph_node1" class="node">
+<title>program~four_thirty_three</title>
+<polygon fill="none" stroke="black" points="100,-87 0,-87 0,-63 100,-63 100,-87"/>
+<text text-anchor="middle" x="50" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">four_thirty_three</text>
+</g>
+<!-- proc~close_wav_file -->
+<g id="program~~four_thirty_three~~CallsGraph_node2" class="node">
+<title>proc~close_wav_file</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node2"><a xlink:href="../proc/close_wav_file.html" xlink:title="WAV_file%close_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="286.5,-150 139.5,-150 139.5,-126 286.5,-126 286.5,-150"/>
+<text text-anchor="middle" x="213" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%close_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~four_thirty_three&#45;&gt;proc~close_wav_file -->
+<g id="program~~four_thirty_three~~CallsGraph_edge1" class="edge">
+<title>program~four_thirty_three&#45;&gt;proc~close_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M72.5,-87.05C89.39,-96.15 113.7,-108.5 136,-117 141.49,-119.09 147.28,-121.07 153.1,-122.92"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="152.32,-126.34 162.91,-125.91 154.36,-119.65 152.32,-126.34"/>
+</g>
+<!-- proc~create_wav_file -->
+<g id="program~~four_thirty_three~~CallsGraph_node3" class="node">
+<title>proc~create_wav_file</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node3"><a xlink:href="../proc/create_wav_file.html" xlink:title="WAV_file%create_WAV_file">
+<polygon fill="#d9534f" stroke="#d9534f" points="289.5,-108 136.5,-108 136.5,-84 289.5,-84 289.5,-108"/>
+<text text-anchor="middle" x="213" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%create_WAV_file</text>
+</a>
+</g>
+</g>
+<!-- program~four_thirty_three&#45;&gt;proc~create_wav_file -->
+<g id="program~~four_thirty_three~~CallsGraph_edge2" class="edge">
+<title>program~four_thirty_three&#45;&gt;proc~create_wav_file</title>
+<path fill="none" stroke="#ff0000" d="M100.18,-81.41C108.51,-82.5 117.37,-83.66 126.32,-84.82"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="126.07,-88.32 136.44,-86.14 126.97,-81.38 126.07,-88.32"/>
+</g>
+<!-- proc~get_name -->
+<g id="program~~four_thirty_three~~CallsGraph_node4" class="node">
+<title>proc~get_name</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node4"><a xlink:href="../proc/get_name.html" xlink:title="WAV_file%get_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="273.5,-66 152.5,-66 152.5,-42 273.5,-42 273.5,-66"/>
+<text text-anchor="middle" x="213" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%get_name</text>
+</a>
+</g>
+</g>
+<!-- program~four_thirty_three&#45;&gt;proc~get_name -->
+<g id="program~~four_thirty_three~~CallsGraph_edge3" class="edge">
+<title>program~four_thirty_three&#45;&gt;proc~get_name</title>
+<path fill="none" stroke="#ff0000" d="M100.18,-68.59C113.43,-66.86 128.01,-64.96 142.15,-63.11"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="142.88,-66.55 152.34,-61.78 141.97,-59.6 142.88,-66.55"/>
+</g>
+<!-- proc~mix_tracks -->
+<g id="program~~four_thirty_three~~CallsGraph_node5" class="node">
+<title>proc~mix_tracks</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node5"><a xlink:href="../proc/mix_tracks.html" xlink:title="tape_recorder%mix_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="290,-24 136,-24 136,0 290,0 290,-24"/>
+<text text-anchor="middle" x="213" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%mix_tracks</text>
+</a>
+</g>
+</g>
+<!-- program~four_thirty_three&#45;&gt;proc~mix_tracks -->
+<g id="program~~four_thirty_three~~CallsGraph_edge4" class="edge">
+<title>program~four_thirty_three&#45;&gt;proc~mix_tracks</title>
+<path fill="none" stroke="#ff0000" d="M72.5,-62.95C89.39,-53.85 113.7,-41.5 136,-33 141.49,-30.91 147.28,-28.93 153.1,-27.08"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="154.36,-30.35 162.91,-24.09 152.32,-23.66 154.36,-30.35"/>
+</g>
+<!-- proc~finalize -->
+<g id="program~~four_thirty_three~~CallsGraph_node6" class="node">
+<title>proc~finalize</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node6"><a xlink:href="../proc/finalize.html" xlink:title="tape_recorder%finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="488.5,-192 352.5,-192 352.5,-168 488.5,-168 488.5,-192"/>
+<text text-anchor="middle" x="420.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%finalize</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~finalize -->
+<g id="program~~four_thirty_three~~CallsGraph_edge5" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~finalize</title>
+<path fill="none" stroke="#ff0000" d="M272.89,-150.04C297.18,-155 325.5,-160.79 350.73,-165.95"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="350.11,-169.39 360.6,-167.96 351.51,-162.53 350.11,-169.39"/>
+</g>
+<!-- proc~write_normalized_data -->
+<g id="program~~four_thirty_three~~CallsGraph_node9" class="node">
+<title>proc~write_normalized_data</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node9"><a xlink:href="../proc/write_normalized_data.html" xlink:title="WAV_file%write_normalized_data">
+<polygon fill="#d9534f" stroke="#d9534f" points="515,-150 326,-150 326,-126 515,-126 515,-150"/>
+<text text-anchor="middle" x="420.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_normalized_data</text>
+</a>
+</g>
+</g>
+<!-- proc~close_wav_file&#45;&gt;proc~write_normalized_data -->
+<g id="program~~four_thirty_three~~CallsGraph_edge6" class="edge">
+<title>proc~close_wav_file&#45;&gt;proc~write_normalized_data</title>
+<path fill="none" stroke="#ff0000" d="M286.74,-138C296.17,-138 305.96,-138 315.77,-138"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="315.98,-141.5 325.98,-138 315.98,-134.5 315.98,-141.5"/>
+</g>
+<!-- proc~new -->
+<g id="program~~four_thirty_three~~CallsGraph_node7" class="node">
+<title>proc~new</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node7"><a xlink:href="../proc/new.html" xlink:title="tape_recorder%new">
+<polygon fill="#d9534f" stroke="#d9534f" points="480,-108 361,-108 361,-84 480,-84 480,-108"/>
+<text text-anchor="middle" x="420.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%new</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~new -->
+<g id="program~~four_thirty_three~~CallsGraph_edge7" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~new</title>
+<path fill="none" stroke="#7fff00" d="M289.65,-96C309.62,-96 331.07,-96 350.67,-96"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="350.73,-99.5 360.73,-96 350.73,-92.5 350.73,-99.5"/>
+</g>
+<!-- proc~write_header -->
+<g id="program~~four_thirty_three~~CallsGraph_node8" class="node">
+<title>proc~write_header</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node8"><a xlink:href="../proc/write_header.html" xlink:title="WAV_file%write_header">
+<polygon fill="#d9534f" stroke="#d9534f" points="489.5,-66 351.5,-66 351.5,-42 489.5,-42 489.5,-66"/>
+<text text-anchor="middle" x="420.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">WAV_file%write_header</text>
+</a>
+</g>
+</g>
+<!-- proc~create_wav_file&#45;&gt;proc~write_header -->
+<g id="program~~four_thirty_three~~CallsGraph_edge8" class="edge">
+<title>proc~create_wav_file&#45;&gt;proc~write_header</title>
+<path fill="none" stroke="#7fff00" d="M272.89,-83.96C297.18,-79 325.5,-73.21 350.73,-68.05"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="351.51,-71.47 360.6,-66.04 350.11,-64.61 351.51,-71.47"/>
+</g>
+<!-- proc~clear_tracks -->
+<g id="program~~four_thirty_three~~CallsGraph_node10" class="node">
+<title>proc~clear_tracks</title>
+<g id="a_program~~four_thirty_three~~CallsGraph_node10"><a xlink:href="../proc/clear_tracks.html" xlink:title="tape_recorder%clear_tracks">
+<polygon fill="#d9534f" stroke="#d9534f" points="713,-108 551,-108 551,-84 713,-84 713,-108"/>
+<text text-anchor="middle" x="632" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tape_recorder%clear_tracks</text>
+</a>
+</g>
+</g>
+<!-- proc~new&#45;&gt;proc~clear_tracks -->
+<g id="program~~four_thirty_three~~CallsGraph_edge9" class="edge">
+<title>proc~new&#45;&gt;proc~clear_tracks</title>
+<path fill="none" stroke="#7fff00" d="M480.14,-96C498.96,-96 520.28,-96 540.83,-96"/>
+<polygon fill="#7fff00" stroke="#7fff00" points="540.84,-99.5 550.84,-96 540.84,-92.5 540.84,-99.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramfour_thirty_threeCallsGraph = svgPanZoom('#programfour_thirty_threeCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-demo~11"></span>
+              type(<a href='../type/wav_file.html'>WAV_file</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>demo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">four_thirty_three</span>
+<span class="w">    </span><span class="k">use </span><span class="n">forsynth</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">wp</span>
+<span class="w">    </span><span class="k">use </span><span class="n">wav_file_class</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">WAV_file</span>
+
+<span class="w">    </span><span class="k">implicit none</span>
+<span class="k">    type</span><span class="p">(</span><span class="n">WAV_file</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">demo</span>
+
+<span class="w">    </span><span class="c">! We create a new WAV file, and define the number of tracks and its duration:</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">create_WAV_file</span><span class="p">(</span><span class="s1">&#39;four_thirty_three.wav&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">tracks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="mi">6</span><span class="mf">0._wp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">33</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;**** Creating &quot;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s2">&quot; ****&quot;</span>
+
+<span class="w">    </span><span class="c">! All tracks will be mixed on track 0.</span>
+<span class="w">    </span><span class="c">! Needed even if there is only one track!</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">mix_tracks</span><span class="p">()</span>
+<span class="w">    </span><span class="k">call </span><span class="n">demo</span><span class="p">%</span><span class="n">close_WAV_file</span><span class="p">()</span>
+
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s2">&quot;You can now play the file &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">demo</span><span class="p">%</span><span class="n">get_name</span><span class="p">()</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;&quot;Listen to the silence, let it ring on&quot;&#39;</span>
+<span class="k">end program </span><span class="n">four_thirty_three</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForSynth
+ was developed by Vincent Magnin<br>              &copy; 2021-2025 <a rel="license" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.en.html">GNU Free Documentation License</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-03-20 17:38 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
