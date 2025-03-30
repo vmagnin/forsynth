@@ -33,6 +33,7 @@ module envelopes
 
 contains
 
+    !> Create a new ADSR envelope object.
     subroutine ADSR_new(self, A, D, S, R)
         class(ADSR_envelope), intent(inout)  :: self
         real(wp), intent(in) :: A, D, S, R

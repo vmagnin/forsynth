@@ -5,7 +5,6 @@
 
 !> Basic Morse code support.
 !> https://en.wikipedia.org/wiki/Morse_code
-
 module morse_code
     use tape_recorder_class
     use signals, only: add_sine_wave

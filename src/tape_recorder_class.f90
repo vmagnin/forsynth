@@ -33,6 +33,7 @@ module tape_recorder_class
 
 contains
 
+    !> Create a tape object with N tracks. The duration is expressed in seconds.
     subroutine new(self, tracks, duration)
         class(tape_recorder), intent(inout)  :: self
         ! Track 0 excluded:
