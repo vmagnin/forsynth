@@ -40,15 +40,6 @@ contains
             if (autocenter) delta = sum(signal)/sz
         end if
 
-        length = real(sz, kind=wp) / RATE
-        if (present(repetitions)) then
-            length = length * repetitions
-        end if
-        length = length + 0.01_wp       ! To avoid rounding problems
-
-        ! We can now create a new WAV file:
-        call tape%create_WAV_file(output_file, tracks=1, duration=length)
-
         if (present(downsampling)) then
             ! Downsampling factor must be >=1
             step = max(1, downsampling)
@@ -56,18 +47,29 @@ contains
             step = 1
         end if
 
-        j = 1
+        length = real(sz, kind=wp) / RATE
+        if (present(repetitions)) then
+            length = length * repetitions
+        end if
+        length = length /step + 0.01_wp       ! To avoid rounding problems
+
+        ! We can now create a new WAV file:
+        call tape%create_WAV_file(output_file, tracks=1, duration=length)
+
+        j = 0
         ! The signal array index begins at 1:
         do i = 1, sz, step
+            j = j + 1
             ! Track 1, sample j-1:
             tape%left (1, j-1) = signal(i) - delta
             tape%right(1, j-1) = signal(i) - delta
-            j = j + 1
         end do
 
         ! Repeat if needed:
         if (present(repetitions)) then
             if (repetitions >= 2) then
+                ! Size after subsampling:
+                sz = j
                 do i = 2, repetitions
                     tape%left (1, (i-1)*sz:i*sz - 1) = tape%left (1, (i-2)*sz:(i-1)*sz - 1)
                     tape%right(1, (i-1)*sz:i*sz - 1) = tape%right(1, (i-2)*sz:(i-1)*sz - 1)
