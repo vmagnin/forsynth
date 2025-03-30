@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!">
+      <meta name="description" content="A Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!">
     <meta name="author" content="Vincent Magnin" >
     <link rel="icon" href="../favicon.png">
 
@@ -44,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForSynth <small>0.4.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForSynth <small>0.5.0</small></a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -195,10 +195,10 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='envelopes.html'>envelopes</a></li>
-                  <li class="list-inline-item"><a href='signals.html'>signals</a></li>
-                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
                   <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
+                  <li class="list-inline-item"><a href='envelopes.html'>envelopes</a></li>
+                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
+                  <li class="list-inline-item"><a href='signals.html'>signals</a></li>
                   <li class="list-inline-item"><a href='music_common.html'>music_common</a></li>
               </ul>
             </li>
@@ -804,7 +804,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~25"></span>
+              <span class="anchor" id="variable-tape~24"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -819,7 +819,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~25"></span>
+              <span class="anchor" id="variable-track~23"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -834,7 +834,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~27"></span>
+              <span class="anchor" id="variable-t1~26"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -864,7 +864,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~16"></span>
+              <span class="anchor" id="variable-f~17"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -879,7 +879,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~18"></span>
+              <span class="anchor" id="variable-amp~21"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -935,7 +935,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~24"></span>
+              <span class="anchor" id="variable-tape~23"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -950,7 +950,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~24"></span>
+              <span class="anchor" id="variable-track~22"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -965,7 +965,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~26"></span>
+              <span class="anchor" id="variable-t1~25"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -995,7 +995,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~15"></span>
+              <span class="anchor" id="variable-f~16"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1010,7 +1010,7 @@ https://en.wikipedia.org/wiki/Arpeggio</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~17"></span>
+              <span class="anchor" id="variable-amp~20"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1081,7 +1081,7 @@ https://en.wikipedia.org/wiki/Harmonic</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~23"></span>
+              <span class="anchor" id="variable-tape~22"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1096,7 +1096,7 @@ https://en.wikipedia.org/wiki/Harmonic</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~23"></span>
+              <span class="anchor" id="variable-track~21"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1111,7 +1111,7 @@ https://en.wikipedia.org/wiki/Harmonic</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~25"></span>
+              <span class="anchor" id="variable-t1~24"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1141,7 +1141,7 @@ https://en.wikipedia.org/wiki/Harmonic</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~14"></span>
+              <span class="anchor" id="variable-f~15"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1156,7 +1156,7 @@ https://en.wikipedia.org/wiki/Harmonic</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~16"></span>
+              <span class="anchor" id="variable-amp~19"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1214,7 +1214,7 @@ https://en.wikipedia.org/wiki/Harmonic</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-03-30 13:25 +0000             </p>
+ on 2025-03-30 13:37 +0000             </p>
           </div>
         </div>
         <br>
