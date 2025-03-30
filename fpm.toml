@@ -6,7 +6,7 @@ maintainer = "Vincent Magnin"
 copyright = "2021-2025 Vincent Magnin"
 description = "A Fortran synthesizer library to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk!"
 categories = ["music"]
-keywords = ["wav", "synthesizer"]
+keywords = ["wav", "synthesizer", "sonification"]
 homepage = "https://github.com/vmagnin/forsynth"
 
 [build]

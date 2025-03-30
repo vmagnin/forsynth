@@ -16,6 +16,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `example/multiplication_bells.f90`: a demo using the `add_bell` signal.
 - `example/four_thirty_three.f90`: a minimalist ForSynth file! And a double tribute to John Cage and Joy Division.
 - In `test/main.f90`: more tests and a `assert_reals_equal(a, b, tolerance)` function.
+- `src/sonification.f90` module with `sonify_from_array()` and `sonify_from_file()` subroutines, to transform your data into a WAV file.
+- `app/sonify.f90`: the associated command to easily sonify your data.
+- `test/sonify.f90` and `test/signal.dat`: the associated tests.
 
 ### Changed
 - `ELECTRONIC_MUSIC_HISTORY.md`: improved layout (hidden URLs).
@@ -26,7 +29,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - added a `self%last` variable which is the index of the last sample on the track. In tracks, it must be used instead of `self%samples` which is equal to `self%last+1`, the first sample having a 0 index.
   - The final subroutine `auto_finalize()` now verify that arrays are still allocated before deallocating.
 - Replaced `nint(t2*RATE)-1` by `min(nint(t2*RATE), tape%last)` to avoid exceeding the right limit of the tape array.
-
 
 
 ## [ForSynth 0.4 "Jean-Claude Risset"] 2024-06-03

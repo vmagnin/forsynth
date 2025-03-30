@@ -11,7 +11,7 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [x] A function converting dB to linear scale would be useful to set the sound level. (*)
 * [x] Synthesis: a bell (**)
 * [x] [Compressor/expander effect](https://en.wikipedia.org/wiki/Dynamic_range_compression) (**)
-* [ ] Scientific data [sonification](https://en.wikipedia.org/wiki/Sonification): by reading a data file? or by passing an array? (**)
+* [x] Scientific data [sonification](https://en.wikipedia.org/wiki/Sonification): by reading a data file or by passing an array (**)
 
 ### Examples
 * [x] Simulating a radioactive decay, heard with a Geiger counter (a tribute to Kraftwerk). (**)

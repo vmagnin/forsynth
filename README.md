@@ -1,6 +1,6 @@
 ![](logo/logo_forsynth.svg)
 
-A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. But ForSynth could also be used for scientific data *sonification*, for acoustic simulations or for teaching programming in a fun way.
+A small Fortran synthesizer to explore sound synthesis, sound effects, electronic music, algorithmic music, etc. But ForSynth can also be used for scientific data *sonification*, for acoustic simulations or for teaching programming in a fun way.
 
 Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk (see the [ELECTRONIC_MUSIC_HISTORY.md](./ELECTRONIC_MUSIC_HISTORY.md) file).
 
@@ -12,6 +12,7 @@ Humbly follow the steps of Stockhausen, Kraftwerk and the Daft Punk (see the [EL
 * Various signals, Karplus-Strong algorithms (guitar and drums), bells.
 * Envelopes generators: ADSR, fade in, fade out, exponentially decreasing envelope.
 * Audio effects: delay, fuzz, tremolo, reverse, autopan, basic dynamic effects (compressor/expander/limiter).
+* Data sonification routines and command.
 * Morse code support.
 * Final mixing with the level and panoramic of each track.
 * The API is documented with FORD: https://vmagnin.github.io/forsynth/
@@ -30,6 +31,18 @@ $ fpm build
 ```
 
 Or if you don't have fpm, you can use the `build.sh` script (the examples will be built inside the `build/` directory).
+
+## Installation
+
+You can install the library in your system with:
+
+```bash
+$ fpm install
+```
+
+In a Unix-like system, it will be typically installed in the `.local/lib` directory
+of your `home/`.
+
 
 ### Running the examples
 The examples can be found in the `example/` directory. For example, the `chords_and_melody.f90` example can be run with the command:
