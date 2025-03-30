@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2025-03-19
+! Last modifications: 2025-03-20
 
 !> This is the basic class, representing a numeric tape recorder with audio tracks.
 module tape_recorder_class
@@ -33,6 +33,7 @@ module tape_recorder_class
 
 contains
 
+    !> Create a tape object with N tracks. The duration is expressed in seconds.
     subroutine new(self, tracks, duration)
         class(tape_recorder), intent(inout)  :: self
         ! Track 0 excluded:
@@ -142,8 +143,8 @@ contains
     subroutine auto_finalize(self)
         type(tape_recorder), intent(inout)  :: self
 
-        deallocate(self%left)
-        deallocate(self%right)
+        if (allocated(self%left))  deallocate(self%left)
+        if (allocated(self%right)) deallocate(self%right)
     end subroutine
 
 end module tape_recorder_class

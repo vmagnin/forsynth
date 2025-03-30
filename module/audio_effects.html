@@ -12,14 +12,29 @@
 
     <title>audio_effects &ndash; ForSynth</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -77,7 +92,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="13.0% of total for modules and submodules.">115 statements</a>
+                 title="11.6% of total for modules and submodules.">115 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -97,9 +112,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -158,9 +175,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
                   <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
                   <li class="list-inline-item"><a href='acoustics.html'>acoustics</a></li>
+                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -525,7 +542,7 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~4"></span>
+              <span class="anchor" id="variable-tape~6"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -540,7 +557,7 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~4"></span>
+              <span class="anchor" id="variable-track~6"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -555,7 +572,7 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~5"></span>
+              <span class="anchor" id="variable-t1~7"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -570,7 +587,7 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~5"></span>
+              <span class="anchor" id="variable-t2~7"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -585,7 +602,7 @@ and with an amplitude AmpLFO in [0 ; 1].</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~3"></span>
+              <span class="anchor" id="variable-f~2"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -641,7 +658,7 @@ and multiply by Amp&lt;1 for dampening.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape"></span>
+              <span class="anchor" id="variable-tape~3"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -656,7 +673,7 @@ and multiply by Amp&lt;1 for dampening.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track"></span>
+              <span class="anchor" id="variable-track~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -671,7 +688,7 @@ and multiply by Amp&lt;1 for dampening.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~2"></span>
+              <span class="anchor" id="variable-t1~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -686,7 +703,7 @@ and multiply by Amp&lt;1 for dampening.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~2"></span>
+              <span class="anchor" id="variable-t2~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -716,7 +733,7 @@ and multiply by Amp&lt;1 for dampening.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~2"></span>
+              <span class="anchor" id="variable-amp"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -766,7 +783,7 @@ https://en.wikipedia.org/wiki/Dynamic_range_compression</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~6"></span>
+              <span class="anchor" id="variable-tape~8"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -781,7 +798,7 @@ https://en.wikipedia.org/wiki/Dynamic_range_compression</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~6"></span>
+              <span class="anchor" id="variable-track~8"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -796,7 +813,7 @@ https://en.wikipedia.org/wiki/Dynamic_range_compression</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~7"></span>
+              <span class="anchor" id="variable-t1~9"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -811,7 +828,7 @@ https://en.wikipedia.org/wiki/Dynamic_range_compression</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~7"></span>
+              <span class="anchor" id="variable-t2~9"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -897,7 +914,7 @@ https://en.wikipedia.org/wiki/Distortion_(music)</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~2"></span>
+              <span class="anchor" id="variable-tape~4"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -912,7 +929,7 @@ https://en.wikipedia.org/wiki/Distortion_(music)</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~2"></span>
+              <span class="anchor" id="variable-track~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -927,7 +944,7 @@ https://en.wikipedia.org/wiki/Distortion_(music)</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~3"></span>
+              <span class="anchor" id="variable-t1~5"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -942,7 +959,7 @@ https://en.wikipedia.org/wiki/Distortion_(music)</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~3"></span>
+              <span class="anchor" id="variable-t2~5"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -983,6 +1000,94 @@ https://en.wikipedia.org/wiki/Distortion_(music)</p>
     <div class="card-body">
           
   <p>Copy the samples at the same t1 but in reverse order:</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tape~7"></span>
+              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tape</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-track~7"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>track</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t1~8"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t1</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t2~8"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t2</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-apply_tremolo_effect"></span> <h3>public  subroutine <a href='../proc/apply_tremolo_effect.html'>apply_tremolo_effect</a>(tape, track, t1, t2, f, AmpLFO)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>A sinusoidal modulation of the amplitude of a signal (tremolo) :
+f : tremolo frequency (typically a few Hz)
+AmpLFO : tremolo amplitude in [0 ; 1]
+https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1055,97 +1160,9 @@ https://en.wikipedia.org/wiki/Distortion_(music)</p>
 
             </td>
         </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
-              <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-apply_tremolo_effect"></span> <h3>public  subroutine <a href='../proc/apply_tremolo_effect.html'>apply_tremolo_effect</a>(tape, track, t1, t2, f, AmpLFO)  
-</h3></div>
-    <div class="card-body">
-          
-  <p>A sinusoidal modulation of the amplitude of a signal (tremolo) :
-f : tremolo frequency (typically a few Hz)
-AmpLFO : tremolo amplitude in [0 ; 1]
-https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/</p>
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~3"></span>
-              type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
-            </td>
-<td>intent(inout)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tape</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-track~3"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>track</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t1~4"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>t1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t2~4"></span>
-              real(kind=wp),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>t2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-f~2"></span>
+              <span class="anchor" id="variable-f"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1203,33 +1220,11 @@ https://en.wikipedia.org/wiki/Vibrato#Vibrato_and_tremolo/</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-03-20 17:38 +0000             </p>
+ on 2025-03-30 13:25 +0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

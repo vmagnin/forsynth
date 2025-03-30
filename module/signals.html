@@ -12,14 +12,29 @@
 
     <title>signals &ndash; ForSynth</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -77,7 +92,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="32.7% of total for modules and submodules.">288 statements</a>
+                 title="29.1% of total for modules and submodules.">288 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -97,9 +112,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -174,9 +191,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
                   <li class="list-inline-item"><a href='forsynth.html'>forsynth</a></li>
                   <li class="list-inline-item"><a href='envelopes.html'>envelopes</a></li>
+                  <li class="list-inline-item"><a href='tape_recorder_class.html'>tape_recorder_class</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -731,7 +748,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~3"></span>
+              <span class="anchor" id="variable-x~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -783,7 +800,7 @@ Bell Telephone Laboratories  Murray Hill, New Jersey, 1969.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~18"></span>
+              <span class="anchor" id="variable-tape~20"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -798,7 +815,7 @@ Bell Telephone Laboratories  Murray Hill, New Jersey, 1969.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~18"></span>
+              <span class="anchor" id="variable-track~21"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -813,7 +830,7 @@ Bell Telephone Laboratories  Murray Hill, New Jersey, 1969.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~19"></span>
+              <span class="anchor" id="variable-t1~23"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -828,7 +845,7 @@ Bell Telephone Laboratories  Murray Hill, New Jersey, 1969.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~13"></span>
+              <span class="anchor" id="variable-f~12"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -843,7 +860,7 @@ Bell Telephone Laboratories  Murray Hill, New Jersey, 1969.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~16"></span>
+              <span class="anchor" id="variable-amp~14"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -885,7 +902,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~12"></span>
+              <span class="anchor" id="variable-tape~14"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -900,7 +917,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~12"></span>
+              <span class="anchor" id="variable-track~15"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -915,7 +932,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~13"></span>
+              <span class="anchor" id="variable-t1~17"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -930,7 +947,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~13"></span>
+              <span class="anchor" id="variable-t2~16"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -945,7 +962,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~10"></span>
+              <span class="anchor" id="variable-f~9"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -960,7 +977,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~10"></span>
+              <span class="anchor" id="variable-amp~8"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1007,7 +1024,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~14"></span>
+              <span class="anchor" id="variable-tape~16"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1022,7 +1039,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~14"></span>
+              <span class="anchor" id="variable-track~17"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1037,7 +1054,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~15"></span>
+              <span class="anchor" id="variable-t1~19"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1052,7 +1069,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~15"></span>
+              <span class="anchor" id="variable-t2~18"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1082,7 +1099,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~12"></span>
+              <span class="anchor" id="variable-amp~10"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1107,7 +1124,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Karplus and Strong (1983) stretched algorithm for obtaining a percussion sound.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1122,7 +1139,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~15"></span>
+              <span class="anchor" id="variable-tape~17"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1137,7 +1154,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~15"></span>
+              <span class="anchor" id="variable-track~18"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1152,7 +1169,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~16"></span>
+              <span class="anchor" id="variable-t1~20"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1167,7 +1184,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~16"></span>
+              <span class="anchor" id="variable-t2~19"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1197,7 +1214,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~13"></span>
+              <span class="anchor" id="variable-amp~11"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1222,7 +1239,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
 </h3></div>
     <div class="card-body">
           
-  
+  <p>Karplus and Strong stretched algorithm (1983), for plucked-string.</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1237,7 +1254,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~13"></span>
+              <span class="anchor" id="variable-tape~15"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1252,7 +1269,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~13"></span>
+              <span class="anchor" id="variable-track~16"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1267,7 +1284,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~14"></span>
+              <span class="anchor" id="variable-t1~18"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1282,7 +1299,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~14"></span>
+              <span class="anchor" id="variable-t2~17"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1297,7 +1314,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~11"></span>
+              <span class="anchor" id="variable-f~10"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1312,7 +1329,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~11"></span>
+              <span class="anchor" id="variable-amp~9"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1352,7 +1369,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~16"></span>
+              <span class="anchor" id="variable-tape~18"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1367,7 +1384,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~16"></span>
+              <span class="anchor" id="variable-track~19"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1382,7 +1399,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~17"></span>
+              <span class="anchor" id="variable-t1~21"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1397,7 +1414,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~17"></span>
+              <span class="anchor" id="variable-t2~20"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1412,7 +1429,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~14"></span>
+              <span class="anchor" id="variable-amp~12"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1467,7 +1484,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~10"></span>
+              <span class="anchor" id="variable-tape~12"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1482,7 +1499,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~10"></span>
+              <span class="anchor" id="variable-track~13"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1497,7 +1514,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~11"></span>
+              <span class="anchor" id="variable-t1~15"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1512,7 +1529,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~11"></span>
+              <span class="anchor" id="variable-t2~14"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1527,7 +1544,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~8"></span>
+              <span class="anchor" id="variable-f~7"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1542,7 +1559,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~8"></span>
+              <span class="anchor" id="variable-amp~6"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1597,7 +1614,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~8"></span>
+              <span class="anchor" id="variable-tape~10"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1612,7 +1629,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~8"></span>
+              <span class="anchor" id="variable-track~11"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1627,7 +1644,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~9"></span>
+              <span class="anchor" id="variable-t1~13"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1642,7 +1659,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~9"></span>
+              <span class="anchor" id="variable-t2~12"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1657,7 +1674,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~6"></span>
+              <span class="anchor" id="variable-f~5"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1672,7 +1689,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~6"></span>
+              <span class="anchor" id="variable-amp~4"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1727,7 +1744,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~9"></span>
+              <span class="anchor" id="variable-tape~11"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1742,7 +1759,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~9"></span>
+              <span class="anchor" id="variable-track~12"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1757,7 +1774,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~10"></span>
+              <span class="anchor" id="variable-t1~14"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1772,7 +1789,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~10"></span>
+              <span class="anchor" id="variable-t2~13"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1787,7 +1804,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~7"></span>
+              <span class="anchor" id="variable-f~6"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1802,7 +1819,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~7"></span>
+              <span class="anchor" id="variable-amp~5"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1857,7 +1874,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~11"></span>
+              <span class="anchor" id="variable-tape~13"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -1872,7 +1889,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~11"></span>
+              <span class="anchor" id="variable-track~14"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1887,7 +1904,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~12"></span>
+              <span class="anchor" id="variable-t1~16"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1902,7 +1919,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~12"></span>
+              <span class="anchor" id="variable-t2~15"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1917,7 +1934,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~9"></span>
+              <span class="anchor" id="variable-f~8"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1932,7 +1949,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~9"></span>
+              <span class="anchor" id="variable-amp~7"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -1987,7 +2004,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-tape~17"></span>
+              <span class="anchor" id="variable-tape~19"></span>
               type(<a href='../type/tape_recorder.html'>tape_recorder</a>),
             </td>
 <td>intent(inout)</td>
@@ -2002,7 +2019,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-track~17"></span>
+              <span class="anchor" id="variable-track~20"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -2017,7 +2034,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t1~18"></span>
+              <span class="anchor" id="variable-t1~22"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -2032,7 +2049,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2~18"></span>
+              <span class="anchor" id="variable-t2~21"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -2047,7 +2064,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~12"></span>
+              <span class="anchor" id="variable-f~11"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -2062,7 +2079,7 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-amp~15"></span>
+              <span class="anchor" id="variable-amp~13"></span>
               real(kind=wp),
             </td>
 <td>intent(in)</td>
@@ -2120,33 +2137,11 @@ https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-03-20 17:38 +0000             </p>
+ on 2025-03-30 13:25 +0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

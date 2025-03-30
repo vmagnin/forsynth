@@ -197,7 +197,7 @@ contains
         tape%right(track, i1:i2) = tape%right(track, i1:i2) + tape%right(0, i1:i2)
     end subroutine add_karplus_strong
 
-
+    !> Karplus and Strong stretched algorithm (1983), for plucked-string.
     subroutine add_karplus_strong_stretched(tape, track, t1, t2, f, Amp)
         type(tape_recorder), intent(inout) :: tape
         integer, intent(in)  :: track
@@ -289,7 +289,7 @@ contains
         tape%right(track, i1:i2) = tape%right(track, i1:i2) + tape%right(0, i1:i2)
     end subroutine add_karplus_strong_drum
 
-
+    !> Karplus and Strong (1983) stretched algorithm for obtaining a percussion sound.
     subroutine add_karplus_strong_drum_stretched(tape, track, t1, t2, P, Amp)
         type(tape_recorder), intent(inout) :: tape
         integer,  intent(in) :: track, P

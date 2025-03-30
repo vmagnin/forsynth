@@ -4,7 +4,6 @@
 ! Last modification: 2025-03-13
 
 !> A module with routines for acoustics.
-
 module acoustics
     use forsynth, only: wp
 
