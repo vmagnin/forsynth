@@ -1,9 +1,9 @@
 project:             ForSynth
-summary:             A small Fortran synthesizer to explore sound synthesis,
+summary:             A Fortran synthesizer to explore sound synthesis,
                      sound effects, electronic music, algorithmic music, etc.
                      Humbly follow the steps of Stockhausen, Kraftwerk and the
                      Daft Punk!
-version:             0.4.0
+version:             0.5.0
 license:             gfdl
 year:                2021-2025
 project_github:      https://github.com/vmagnin/forsynth
@@ -11,6 +11,7 @@ author:              Vincent Magnin
 github:              https://github.com/vmagnin
 src_dir:             ./src
                      ./example
+                     ./app
 exclude_dir:         ./test
                      ./logo
 md_base_dir:         ./
