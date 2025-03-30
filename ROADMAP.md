@@ -2,31 +2,11 @@
 
 The stars in parenthesis are an evaluation of the difficulty.
 
-## ForSynth 0.5
-
-### Development
-* [x] Add tests. (**)
-
-### Features
-* [x] A function converting dB to linear scale would be useful to set the sound level. (*)
-* [x] Synthesis: a bell (**)
-* [x] [Compressor/expander effect](https://en.wikipedia.org/wiki/Dynamic_range_compression) (**)
-* [x] Scientific data [sonification](https://en.wikipedia.org/wiki/Sonification): by reading a data file or by passing an array (**)
-
-### Examples
-* [x] Simulating a radioactive decay, heard with a Geiger counter (a tribute to Kraftwerk). (**)
-* [x] An example using bells.
-
-### Documentation
-* [x] A first version of a FORD documentation. (**)
-    * [x] Transforming comments into FORD comments !>
-
-### Fix
-* [x] The problem of the Shepard–Risset glissando. (***)
-
-
 ## ForSynth 0.6
-* ?
+
+The main objectives would be to find algorithms for drums and to add sequencer 
+features to ease composing. See the list of ideas below.
+
 
 ## Ideas for further developments
 
@@ -53,3 +33,6 @@ The stars in parenthesis are an evaluation of the difficulty.
 * [ ] A note sequencer repeating a pattern. Could be also used by ForMIDI. (***)
 * [ ] A sequence object, accepting a string with notes, with methods to obtain one by one their parameters (physical or MIDI). Could be also used by ForMIDI. (***)
     * [ ] The sequence could for example be coded as "A4,Q.,pf;A#4,Q,pf;..." (note, length, intensity).
+
+### Sonification
+* [ ] If the tone is too high, inserting more data by interpolation could be used.
