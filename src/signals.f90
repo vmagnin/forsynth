@@ -1,7 +1,7 @@
 ! Forsynth: a multitracks stereo sound synthesis project
 ! License GPL-3.0-or-later
 ! Vincent Magnin
-! Last modifications: 2025-03-19
+! Last modifications: 2025-04-01
 
 !> Subroutines generating different kind of signals
 module signals
@@ -69,6 +69,7 @@ contains
         tau = 1.0_wp / f
 
         do concurrent(i = nint(t1*RATE) : min(nint(t2*RATE), tape%last))
+            t = (i - nint(t1*RATE)) * dt
 
             if (present(envelope)) env = envelope%get_level(t1+t, t1, t2)
 
